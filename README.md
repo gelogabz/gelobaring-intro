@@ -47,33 +47,33 @@ relative paths honest.
 
 ## Edit it
 
-| What | Where |
-|---|---|
-| Name, hero copy | `index.html` — `.hero` |
-| Contact details | `index.html` — `.contact` block (real email, LinkedIn, GitHub) |
-| Metrics | `.stats` block, Case sidebars, and the table in section 07 |
-| Case-study copy | `<article class="case">` blocks in section 03 |
-| Career history, earlier projects | `index.html` — `#career` section 04 |
-| Client-site links and stacks | `#career` — `.site-grid` |
-| Colours, fonts, spacing | `css/tokens.css` only |
-| Dark theme | `css/tokens.css` — the `[data-theme="dark"]` block |
-| Component styling | `css/styles.css` |
-| PDF behaviour | `css/print.css` |
-| Theme bootstrap | `index.html` — inline `<script>` in `<head>` |
-| Print button / nav state | `js/main.js` |
+| What                             | Where                                                          |
+| -------------------------------- | -------------------------------------------------------------- |
+| Name, hero copy                  | `index.html` — `.hero`                                         |
+| Contact details                  | `index.html` — `.contact` block (real email, LinkedIn, GitHub) |
+| Metrics                          | `.stats` block, Case sidebars, and the table in section 07     |
+| Case-study copy                  | `<article class="case">` blocks in section 03                  |
+| Career history, earlier projects | `index.html` — `#career` section 04                            |
+| Client-site links and stacks     | `#career` — `.site-grid`                                       |
+| Colours, fonts, spacing          | `css/tokens.css` only                                          |
+| Dark theme                       | `css/tokens.css` — the `[data-theme="dark"]` block             |
+| Component styling                | `css/styles.css`                                               |
+| PDF behaviour                    | `css/print.css`                                                |
+| Theme bootstrap                  | `index.html` — inline `<script>` in `<head>`                   |
+| Print button / nav state         | `js/main.js`                                                   |
 
 ### Page structure
 
-| # | Section | ID | Role |
-|---|---|---|---|
-| 01 | Problem | `#problem` | The documentation problem and its cost |
-| 02 | System | `#system` | The three-layer model and pipeline |
-| 03 | The work | `#work` | Four deep case studies |
-| 04 | Career & projects | `#career` | Five roles, selected projects, six client sites |
-| 05 | Engineering | `#engineering` | Code, architecture, and delivery choices |
-| 06 | Competencies | `#competencies` | What the evidence supports |
-| 07 | Evidence | `#evidence` | Claim-to-source table |
-| 08 | Limits | `#limits` | What is not proven |
+| #   | Section           | ID              | Role                                            |
+| --- | ----------------- | --------------- | ----------------------------------------------- |
+| 01  | Problem           | `#problem`      | The documentation problem and its cost          |
+| 02  | System            | `#system`       | The three-layer model and pipeline              |
+| 03  | The work          | `#work`         | Four deep case studies                          |
+| 04  | Career & projects | `#career`       | Five roles, selected projects, six client sites |
+| 05  | Engineering       | `#engineering`  | Code, architecture, and delivery choices        |
+| 06  | Competencies      | `#competencies` | What the evidence supports                      |
+| 07  | Evidence          | `#evidence`     | Claim-to-source table                           |
+| 08  | Limits            | `#limits`       | What is not proven                              |
 
 The section numbers in `index.html`, the rail nav, the mobile nav, and the CSS section comments
 must stay in sync.
@@ -97,14 +97,14 @@ black in dark mode so panels and the code block are drawn by their hairline rule
 
 ### Design tokens
 
-| Token | Value | Role |
-|---|---|---|
-| `--teal` | `#00a385` | Accent fills, rules, markers — **not text on light** |
-| `--teal-800` | `#00614f` | Derived: text-safe accent (6.33:1 on khaki) |
-| `--forest` | `#00493a` | Dark panels, headings, strong numbers |
-| `--lint` | `#d7d7a8` | Highlight wash |
-| `--khaki` | `#f4ecdc` | Page background (light) |
-| `--black` | `#001f17` | Body text; raised surface in dark |
+| Token        | Value     | Role                                                 |
+| ------------ | --------- | ---------------------------------------------------- |
+| `--teal`     | `#00a385` | Accent fills, rules, markers — **not text on light** |
+| `--teal-800` | `#00614f` | Derived: text-safe accent (6.33:1 on khaki)          |
+| `--forest`   | `#00493a` | Dark panels, headings, strong numbers                |
+| `--lint`     | `#d7d7a8` | Highlight wash                                       |
+| `--khaki`    | `#f4ecdc` | Page background (light)                              |
+| `--black`    | `#001f17` | Body text; raised surface in dark                    |
 
 Typography: **Outfit** for display and UI labels, **Google Sans Flex** for body copy. Both
 load from Google Fonts at weights 400/500/600 only — the weights the CSS actually uses.
@@ -113,23 +113,23 @@ load from Google Fonts at weights 400/500/600 only — the weights the CSS actua
 
 Light theme:
 
-| Pair | Ratio | Verdict |
-|---|---|---|
-| Ink `#001f17` on khaki | 14.80:1 | AAA |
-| Forest `#00493a` on khaki | 8.88:1 | AAA |
-| `--teal-800` `#00614f` on khaki | 6.33:1 | AA |
-| Muted `#4a5f56` on khaki | 5.84:1 | AA |
-| **Teal `#00a385` on khaki** | **2.72:1** | **Fails — graphics only** |
+| Pair                            | Ratio      | Verdict                   |
+| ------------------------------- | ---------- | ------------------------- |
+| Ink `#001f17` on khaki          | 14.80:1    | AAA                       |
+| Forest `#00493a` on khaki       | 8.88:1     | AAA                       |
+| `--teal-800` `#00614f` on khaki | 6.33:1     | AA                        |
+| Muted `#4a5f56` on khaki        | 5.84:1     | AA                        |
+| **Teal `#00a385` on khaki**     | **2.72:1** | **Fails — graphics only** |
 
 Dark theme, measured against the page `#000000`:
 
-| Pair | Ratio | Verdict |
-|---|---|---|
-| Khaki `#f4ecdc` on black | 17.88:1 | AAA |
-| Ink-2 `#dbe7dd` on black | 15.46:1 | AAA |
-| `--teal-800` `#9fe3d4` on black | 14.41:1 | AAA |
-| Muted `#b9c7bd` on black | 11.97:1 | AAA |
-| Muted-2 `#a6b7ad` on black | 10.00:1 | AAA |
+| Pair                            | Ratio   | Verdict |
+| ------------------------------- | ------- | ------- |
+| Khaki `#f4ecdc` on black        | 17.88:1 | AAA     |
+| Ink-2 `#dbe7dd` on black        | 15.46:1 | AAA     |
+| `--teal-800` `#9fe3d4` on black | 14.41:1 | AAA     |
+| Muted `#b9c7bd` on black        | 11.97:1 | AAA     |
+| Muted-2 `#a6b7ad` on black      | 10.00:1 | AAA     |
 
 On raised `#001f17` surfaces the same text still clears AA: khaki 14.80, muted 9.90,
 muted-2 8.27, accent 11.93.
@@ -141,38 +141,38 @@ If you add a colour, measure it in both themes before it becomes text.
 The page's argument is that claims are verified. Keep it that way. Headline figures and where
 to re-check them:
 
-| Claim | Where |
-|---|---|
-| 507 terms, 1,477 curated cross-links | `marketplaceglossary-prototype-gelobaring/data/terms.js` |
-| 21 paths / 269 steps | `.../data/learning-paths.js` |
-| 37 walkthroughs / 194 steps / 486 checks | `.../data/walkthroughs.js` |
-| 36 comparison rows | `.../app/compare-data.js` (derived from aliases) |
-| 1,761 feed entries, 13 monitored sources | `.../data/whats-new.js`, `.../scripts/fetch-whats-new.js` |
-| 319 commits | `git -C marketplaceglossary-prototype-gelobaring rev-list --count HEAD` |
-| 5 editions, 43 topics, 15 published | briefing-platform repo, `data/` |
-| 13 modules, 13 quizzes, 146 questions | `lms-courses/training-modules/`, `lms-courses/quiz-content/` |
-| 246-row source map, weeks 1–6 | `lms-courses/claude-contexts/source-map.md` |
-| 108 commits | `git -C lms-courses rev-list --count HEAD` |
-| 7 agent specs / 554 lines | `cloud-marketplace-news-universal-guide/claude-contexts/agents/` |
-| 777-line writing guide | `cloud-marketplace-news-universal-guide/claude-contexts/writing-guide.md` |
-| ~170-entry decision log | `cloud-marketplace-news-universal-guide/claude-contexts/features.md`, `marketplaceglossary-prototype-gelobaring/TODOFORLATER.md`, and project changelogs |
-| 178-source inventory | `marketplaceglossary-prototype-gelobaring/info-sources.md` (unique URLs) |
-| 295-line project manual | `marketplaceglossary-prototype-gelobaring/CLAUDE.md` |
-| 23 lessons, 40 corrections + 3 gaps | `aws-ccp-coursework/aws-clf-c02-flagged-content-and-changes.md` |
-| 60 tests, 14 examples | `bootdev-projects/learn-ai-coding-starter/` |
+| Claim                                    | Where                                                                                                                                                    |
+| ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 507 terms, 1,477 curated cross-links     | `marketplaceglossary-prototype-gelobaring/data/terms.js`                                                                                                 |
+| 21 paths / 269 steps                     | `.../data/learning-paths.js`                                                                                                                             |
+| 37 walkthroughs / 194 steps / 486 checks | `.../data/walkthroughs.js`                                                                                                                               |
+| 36 comparison rows                       | `.../app/compare-data.js` (derived from aliases)                                                                                                         |
+| 1,761 feed entries, 13 monitored sources | `.../data/whats-new.js`, `.../scripts/fetch-whats-new.js`                                                                                                |
+| 319 commits                              | `git -C marketplaceglossary-prototype-gelobaring rev-list --count HEAD`                                                                                  |
+| 5 editions, 43 topics, 15 published      | briefing-platform repo, `data/`                                                                                                                          |
+| 13 modules, 13 quizzes, 146 questions    | `lms-courses/training-modules/`, `lms-courses/quiz-content/`                                                                                             |
+| 246-row source map, weeks 1–6            | `lms-courses/claude-contexts/source-map.md`                                                                                                              |
+| 108 commits                              | `git -C lms-courses rev-list --count HEAD`                                                                                                               |
+| 7 agent specs / 554 lines                | `cloud-marketplace-news-universal-guide/claude-contexts/agents/`                                                                                         |
+| 777-line writing guide                   | `cloud-marketplace-news-universal-guide/claude-contexts/writing-guide.md`                                                                                |
+| ~170-entry decision log                  | `cloud-marketplace-news-universal-guide/claude-contexts/features.md`, `marketplaceglossary-prototype-gelobaring/TODOFORLATER.md`, and project changelogs |
+| 178-source inventory                     | `marketplaceglossary-prototype-gelobaring/info-sources.md` (unique URLs)                                                                                 |
+| 295-line project manual                  | `marketplaceglossary-prototype-gelobaring/CLAUDE.md`                                                                                                     |
+| 23 lessons, 40 corrections + 3 gaps      | `aws-ccp-coursework/aws-clf-c02-flagged-content-and-changes.md`                                                                                          |
+| 60 tests, 14 examples                    | `bootdev-projects/learn-ai-coding-starter/`                                                                                                              |
 
 Career claims come from the LinkedIn profile text, not from repository evidence. Re-check them
 against the profile before publishing:
 
-| Claim | Source |
-|---|---|
-| Five roles, Jan 2015 – Oct 2026 | LinkedIn profile, Experience |
-| Workstream, Sep 2023 – Dec 2025 (2y4m) | LinkedIn profile; two titles in one tenure |
-| Voltec Solutions, Mar – Aug 2023 | LinkedIn profile |
-| Grab, Dec 2017 – Jan 2023 | LinkedIn profile |
-| Lazada, Jan 2015 – Jan 2016 | LinkedIn profile |
-| Six client sites, Mar – Jul 2023 | Live URLs linked in `#career`; dates from the profile/project notes |
-| Loopus Invoice System, Apr – May 2023 | Internal tool; not linked publicly |
+| Claim                                  | Source                                                              |
+| -------------------------------------- | ------------------------------------------------------------------- |
+| Five roles, Jan 2015 – Oct 2026        | LinkedIn profile, Experience                                        |
+| Workstream, Sep 2023 – Dec 2025 (2y4m) | LinkedIn profile; two titles in one tenure                          |
+| Voltec Solutions, Mar – Aug 2023       | LinkedIn profile                                                    |
+| Grab, Dec 2017 – Jan 2023              | LinkedIn profile                                                    |
+| Lazada, Jan 2015 – Jan 2016            | LinkedIn profile                                                    |
+| Six client sites, Mar – Jul 2023       | Live URLs linked in `#career`; dates from the profile/project notes |
+| Loopus Invoice System, Apr – May 2023  | Internal tool; not linked publicly                                  |
 
 Deliberate wording choices:
 

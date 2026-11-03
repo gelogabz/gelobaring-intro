@@ -4,196 +4,196 @@
    ========================================================================== */
 
 @media print {
-  :root,
-  [data-theme="dark"] {
-    color-scheme: light;
+    :root,
+    [data-theme="dark"] {
+        color-scheme: light;
 
-    --khaki: #ffffff;
-    --khaki-2: #f6f6f6;
-    --lint: #e6e6e6;
-    --lint-soft: #f6f6f6;
-    --ink: #000000;
-    --ink-2: #1a1a1a;
-    --muted: #333333;
-    --muted-2: #333333;
-    --rule: #cccccc;
-    --rule-strong: #999999;
-    --teal-800: #00493a;
-    --teal-900: #00493a;
+        --khaki: #ffffff;
+        --khaki-2: #f6f6f6;
+        --lint: #e6e6e6;
+        --lint-soft: #f6f6f6;
+        --ink: #000000;
+        --ink-2: #1a1a1a;
+        --muted: #333333;
+        --muted-2: #333333;
+        --rule: #cccccc;
+        --rule-strong: #999999;
+        --teal-800: #00493a;
+        --teal-900: #00493a;
 
-    --bg: #ffffff;
-    --stat-ink: #00493a;
-    --rule-bold: #00493a;
-    --surface-raised: #ffffff;
-    --note-border: #cccccc;
-    --code-key: #000000;
-  }
+        --bg: #ffffff;
+        --stat-ink: #00493a;
+        --rule-bold: #00493a;
+        --surface-raised: #ffffff;
+        --note-border: #cccccc;
+        --code-key: #000000;
+    }
 
-  body {
-    background: #ffffff;
-    font-size: 10.5pt;
-  }
+    body {
+        background: #ffffff;
+        font-size: 10.5pt;
+    }
 
-  .progress,
-  .rail,
-  .mobile-nav,
-  .skip,
-  .theme-toggle,
-  .hero-cta {
-    display: none !important;
-  }
+    .progress,
+    .rail,
+    .mobile-nav,
+    .skip,
+    .theme-toggle,
+    .hero-cta {
+        display: none !important;
+    }
 
-  .wrap {
-    max-width: none;
-    /* a few px of breathing room so timeline markers are not clipped
+    .wrap {
+        max-width: none;
+        /* a few px of breathing room so timeline markers are not clipped
        at the page content edge */
-    padding-inline: 6px;
-  }
+        padding-inline: 6px;
+    }
 
-  .layout {
-    display: block;
-  }
+    .layout {
+        display: block;
+    }
 
-  .section {
-    padding-block: 1.25rem;
-    border-top: 1px solid #cccccc;
-  }
+    .section {
+        padding-block: 1.25rem;
+        border-top: 1px solid #cccccc;
+    }
 
-  .hero {
-    padding-block: 0 1.5rem;
-  }
+    .hero {
+        padding-block: 0 1.5rem;
+    }
 
-  /* The dark theme lightens the mark for screen; on paper it must stay
+    /* The dark theme lightens the mark for screen; on paper it must stay
      as drawn, or it prints white-on-white. */
-  .signature,
-  .footer-signature {
-    filter: none !important;
-  }
+    .signature,
+    .footer-signature {
+        filter: none !important;
+    }
 
-  .shot,
-  .notes,
-  .flow-step,
-  .comp-row,
-  .layer,
-  .role,
-  .project,
-  .site {
-    break-inside: avoid;
-  }
+    .shot,
+    .notes,
+    .flow-step,
+    .comp-row,
+    .layer,
+    .role,
+    .project,
+    .site {
+        break-inside: avoid;
+    }
 
-  .footer {
-    break-inside: avoid;
-  }
+    .footer {
+        break-inside: avoid;
+    }
 
-  .panel-dark {
-    background: #ffffff !important;
-    color: #000000 !important;
-    border: 1px solid #999999;
-  }
+    .panel-dark {
+        background: #ffffff !important;
+        color: #000000 !important;
+        border: 1px solid #999999;
+    }
 
-  .panel-dark h2,
-  .panel-dark h3,
-  .panel-dark h4,
-  .panel-dark .lede,
-  .panel-dark .flow-step p,
-  .panel-dark .layer p,
-  .panel-dark .flow-note,
-  .panel-dark .layer .mono,
-  .panel-dark .eyebrow,
-  .panel-dark .section-num {
-    color: #000000 !important;
-  }
+    .panel-dark h2,
+    .panel-dark h3,
+    .panel-dark h4,
+    .panel-dark .lede,
+    .panel-dark .flow-step p,
+    .panel-dark .layer p,
+    .panel-dark .flow-note,
+    .panel-dark .layer .mono,
+    .panel-dark .eyebrow,
+    .panel-dark .section-num {
+        color: #000000 !important;
+    }
 
-  .panel-dark .flow-step,
-  .panel-dark .layer {
-    background: #ffffff !important;
-    border-color: #cccccc !important;
-  }
+    .panel-dark .flow-step,
+    .panel-dark .layer {
+        background: #ffffff !important;
+        border-color: #cccccc !important;
+    }
 
-  .panel-dark a {
-    color: #000000 !important;
-  }
+    .panel-dark a {
+        color: #000000 !important;
+    }
 
-  .shot {
-    box-shadow: none;
-  }
+    .shot {
+        box-shadow: none;
+    }
 
-  .shot img {
-    max-height: 300px;
-  }
+    .shot img {
+        max-height: 300px;
+    }
 
-  .diagram img {
-    max-height: 240px;
-    object-fit: contain;
-  }
+    .diagram img {
+        max-height: 240px;
+        object-fit: contain;
+    }
 
-  .diagram,
-  .table-wrap {
-    overflow: visible !important;
-  }
+    .diagram,
+    .table-wrap {
+        overflow: visible !important;
+    }
 
-  .diagram img,
-  .table-wrap table {
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-  }
+    .diagram img,
+    .table-wrap table {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-width: 0 !important;
+    }
 
-  .diagram::before,
-  .table-wrap::before {
-    content: none !important;
-  }
+    .diagram::before,
+    .table-wrap::before {
+        content: none !important;
+    }
 
-  a {
-    color: #000000;
-    text-decoration: none;
-  }
+    a {
+        color: #000000;
+        text-decoration: none;
+    }
 
-  a[href^="http"]::after {
-    content: " (" attr(href) ")";
-    font-size: 8pt;
-    color: #555555;
-  }
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 8pt;
+        color: #555555;
+    }
 
-  .code-wrap {
-    background: #ffffff;
-    border: 1px solid #999999;
-  }
+    .code-wrap {
+        background: #ffffff;
+        border: 1px solid #999999;
+    }
 
-  .code-wrap pre,
-  .code-wrap code,
-  .c-key,
-  .c-str,
-  .c-com,
-  .c-fn {
-    color: #000000 !important;
-  }
+    .code-wrap pre,
+    .code-wrap code,
+    .c-key,
+    .c-str,
+    .c-com,
+    .c-fn {
+        color: #000000 !important;
+    }
 
-  .code-head {
-    color: #333333;
-    border-bottom-color: #cccccc;
-  }
+    .code-head {
+        color: #333333;
+        border-bottom-color: #cccccc;
+    }
 
-  h1,
-  h2,
-  h3,
-  h4 {
-    break-inside: avoid;
-    break-after: avoid;
-  }
+    h1,
+    h2,
+    h3,
+    h4 {
+        break-inside: avoid;
+        break-after: avoid;
+    }
 
-  .section-num,
-  .eyebrow {
-    break-after: avoid;
-  }
+    .section-num,
+    .eyebrow {
+        break-after: avoid;
+    }
 
-  p,
-  li {
-    orphans: 3;
-    widows: 3;
-  }
+    p,
+    li {
+        orphans: 3;
+        widows: 3;
+    }
 
-  @page {
-    margin: 16mm;
-  }
+    @page {
+        margin: 16mm;
+    }
 }

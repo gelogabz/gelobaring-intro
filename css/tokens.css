@@ -5,84 +5,90 @@
    ========================================================================== */
 
 :root {
-  color-scheme: light;
+    color-scheme: light;
 
-  /* ---- Brand palette -------------------------------------------------- */
-  --teal: #00a385;
-  --forest: #00493a;
-  --lint: #d7d7a8;
-  --khaki: #f4ecdc;
-  --black: #001f17;
+    /* ---- Brand palette -------------------------------------------------- */
+    --teal: #00a385;
+    --forest: #00493a;
+    --lint: #d7d7a8;
+    --khaki: #f4ecdc;
+    --black: #001f17;
 
-  /* ---- Derived surfaces & text ---------------------------------------
+    /* ---- Derived surfaces & text ---------------------------------------
      Contrast ratios are against --khaki unless noted.
      teal on khaki is 2.72:1 — never use it for text. Use --teal-800.
      ------------------------------------------------------------------- */
-  --teal-800: #00614f;   /* 6.33:1 — links, labels, accent text */
-  --teal-900: #00543f;   /* 7.64:1 — hover / pressed */
-  --ink: var(--black);   /* 14.80:1 */
-  --ink-2: #1d3a30;      /* 12.2:1 */
-  --muted: #4a5f56;      /*  5.84:1 — secondary copy */
-  --muted-2: #5a6f66;    /*  4.58:1 — floor, do not go lighter */
+    --teal-800: #00614f; /* 6.33:1 — links, labels, accent text */
+    --teal-900: #00543f; /* 7.64:1 — hover / pressed */
+    --ink: var(--black); /* 14.80:1 */
+    --ink-2: #1d3a30; /* 12.2:1 */
+    --muted: #4a5f56; /*  5.84:1 — secondary copy */
+    --muted-2: #5a6f66; /*  4.58:1 — floor, do not go lighter */
 
-  --khaki-2: #efe6d3;    /* raised surface */
-  --khaki-3: #e7dcc6;    /* pressed / hover surface */
-  --lint-soft: #e8e8c9;  /* tinted surface */
+    --khaki-2: #efe6d3; /* raised surface */
+    --khaki-3: #e7dcc6; /* pressed / hover surface */
+    --lint-soft: #e8e8c9; /* tinted surface */
 
-  --rule: rgba(0, 31, 23, 0.14);
-  --rule-strong: rgba(0, 31, 23, 0.3);
+    --rule: rgba(0, 31, 23, 0.14);
+    --rule-strong: rgba(0, 31, 23, 0.3);
 
-  /* ---- Semantic roles -------------------------------------------------
+    /* ---- Semantic roles -------------------------------------------------
      Components read these, never the raw palette. Swapping a theme means
      overriding this block only — see [data-theme="dark"] below.
      ------------------------------------------------------------------- */
-  --bg: var(--khaki);            /* page background */
-  --stat-ink: var(--forest);     /* large figures, numbers */
-  --rule-bold: var(--forest);    /* 2px structural rules */
-  --surface-raised: #ffffff;     /* cards that need to sit above the page */
-  --note-border: rgba(0, 73, 58, 0.22);
-  --code-key: var(--lint);       /* code block, deliberately theme-proof */
+    --bg: var(--khaki); /* page background */
+    --stat-ink: var(--forest); /* large figures, numbers */
+    --rule-bold: var(--forest); /* 2px structural rules */
+    --surface-raised: #ffffff; /* cards that need to sit above the page */
+    --note-border: rgba(0, 73, 58, 0.22);
+    --code-key: var(--lint); /* code block, deliberately theme-proof */
 
-  /* ---- On-dark (forest) surfaces -------------------------------------- */
-  --on-dark: #f4ecdc;         /* 8.88:1 on forest */
-  --on-dark-muted: #b9c7bd;   /* 5.94:1 on forest */
-  --on-dark-accent: #9fe3d4;  /* 7.16:1 on forest */
-  --on-dark-rule: rgba(244, 236, 220, 0.18);
+    /* ---- On-dark (forest) surfaces -------------------------------------- */
+    --on-dark: #f4ecdc; /* 8.88:1 on forest */
+    --on-dark-muted: #b9c7bd; /* 5.94:1 on forest */
+    --on-dark-accent: #9fe3d4; /* 7.16:1 on forest */
+    --on-dark-rule: rgba(244, 236, 220, 0.18);
 
-  /* ---- Typography ----------------------------------------------------- */
-  --font-display: "Outfit", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-body: "Google Sans Flex", "Outfit", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-code: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+    /* ---- Typography ----------------------------------------------------- */
+    --font-display:
+        "Outfit", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+        sans-serif;
+    --font-body:
+        "Google Sans Flex", "Outfit", ui-sans-serif, system-ui, -apple-system,
+        "Segoe UI", sans-serif;
+    --font-code:
+        ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
 
-  --step--1: clamp(0.79rem, 0.77rem + 0.1vw, 0.84rem);
-  --step-0: clamp(0.97rem, 0.94rem + 0.14vw, 1.04rem);
-  --step-1: clamp(1.08rem, 1.02rem + 0.32vw, 1.22rem);
-  --step-2: clamp(1.4rem, 1.25rem + 0.72vw, 1.85rem);
-  --step-3: clamp(1.75rem, 1.4rem + 1.55vw, 2.55rem);
-  --step-4: clamp(2.3rem, 1.65rem + 3vw, 3.85rem);
+    --step--1: clamp(0.79rem, 0.77rem + 0.1vw, 0.84rem);
+    --step-0: clamp(0.97rem, 0.94rem + 0.14vw, 1.04rem);
+    --step-1: clamp(1.08rem, 1.02rem + 0.32vw, 1.22rem);
+    --step-2: clamp(1.4rem, 1.25rem + 0.72vw, 1.85rem);
+    --step-3: clamp(1.75rem, 1.4rem + 1.55vw, 2.55rem);
+    --step-4: clamp(2.3rem, 1.65rem + 3vw, 3.85rem);
 
-  --measure: 66ch;
-  --rail: 168px;
-  --wrap: 1180px;
+    --measure: 66ch;
+    --rail: 168px;
+    --wrap: 1180px;
 
-  /* ---- Space & shape -------------------------------------------------- */
-  --gutter: clamp(1.25rem, 4vw, 3rem);
-  --radius: 4px;
-  --radius-lg: 6px;
+    /* ---- Space & shape -------------------------------------------------- */
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+    --radius: 4px;
+    --radius-lg: 6px;
 
-  /* ---- Elevation ------------------------------------------------------ */
-  --shadow-sm: 0 1px 0 rgba(0, 31, 23, 0.04);
-  --shadow-md: 0 1px 0 rgba(0, 31, 23, 0.04), 0 18px 40px -26px rgba(0, 31, 23, 0.55);
+    /* ---- Elevation ------------------------------------------------------ */
+    --shadow-sm: 0 1px 0 rgba(0, 31, 23, 0.04);
+    --shadow-md:
+        0 1px 0 rgba(0, 31, 23, 0.04), 0 18px 40px -26px rgba(0, 31, 23, 0.55);
 
-  /* ---- Motion --------------------------------------------------------- */
-  --ease: cubic-bezier(0.2, 0.7, 0.3, 1);
-  --dur-fast: 150ms;
-  --dur: 220ms;
+    /* ---- Motion --------------------------------------------------------- */
+    --ease: cubic-bezier(0.2, 0.7, 0.3, 1);
+    --dur-fast: 150ms;
+    --dur: 220ms;
 
-  /* ---- Z-index scale -------------------------------------------------- */
-  --z-progress: 60;
-  --z-sticky: 40;
-  --z-skip: 100;
+    /* ---- Z-index scale -------------------------------------------------- */
+    --z-progress: 60;
+    --z-sticky: 40;
+    --z-skip: 100;
 }
 
 /* ==========================================================================
@@ -95,42 +101,43 @@
    On raised #001f17: khaki 14.80, muted 9.90, muted-2 8.27, accent 11.93.
    ========================================================================== */
 [data-theme="dark"] {
-  color-scheme: dark;
+    color-scheme: dark;
 
-  --khaki: #000000;        /* page */
-  --khaki-2: #001f17;      /* raised surface */
-  --khaki-3: #0a2f26;
-  --lint: #10231e;         /* highlight wash */
-  --lint-soft: #001f17;    /* tinted surface */
+    --khaki: #000000; /* page */
+    --khaki-2: #001f17; /* raised surface */
+    --khaki-3: #0a2f26;
+    --lint: #10231e; /* highlight wash */
+    --lint-soft: #001f17; /* tinted surface */
 
-  /* Panels and code block: pure black, separated from the page by their
+    /* Panels and code block: pure black, separated from the page by their
      hairline border instead of a green fill */
-  --forest: #000000;
+    --forest: #000000;
 
-  --ink: #f4ecdc;
-  --ink-2: #dbe7dd;
-  --muted: #b9c7bd;
-  --muted-2: #a6b7ad;
+    --ink: #f4ecdc;
+    --ink-2: #dbe7dd;
+    --muted: #b9c7bd;
+    --muted-2: #a6b7ad;
 
-  --rule: rgba(244, 236, 220, 0.14);
-  --rule-strong: rgba(244, 236, 220, 0.32);
+    --rule: rgba(244, 236, 220, 0.14);
+    --rule-strong: rgba(244, 236, 220, 0.32);
 
-  --teal-800: #9fe3d4;
-  --teal-900: #c9f2e8;
+    --teal-800: #9fe3d4;
+    --teal-900: #c9f2e8;
 
-  --bg: var(--khaki);
-  --stat-ink: #f4ecdc;
-  --rule-bold: rgba(244, 236, 220, 0.45);
-  --surface-raised: var(--khaki-2);
-  --note-border: rgba(159, 227, 212, 0.24);
-  --code-key: #d7d7a8;
+    --bg: var(--khaki);
+    --stat-ink: #f4ecdc;
+    --rule-bold: rgba(244, 236, 220, 0.45);
+    --surface-raised: var(--khaki-2);
+    --note-border: rgba(159, 227, 212, 0.24);
+    --code-key: #d7d7a8;
 
-  --shadow-md: 0 1px 0 rgba(0, 0, 0, 0.3), 0 18px 40px -26px rgba(0, 0, 0, 0.9);
+    --shadow-md:
+        0 1px 0 rgba(0, 0, 0, 0.3), 0 18px 40px -26px rgba(0, 0, 0, 0.9);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :root {
-    --dur-fast: 0ms;
-    --dur: 0ms;
-  }
+    :root {
+        --dur-fast: 0ms;
+        --dur: 0ms;
+    }
 }

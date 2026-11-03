@@ -4,13 +4,18 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        <title>Gelo Baring — Knowledge Systems, Help Centers &amp; Front-End</title>
+        <title>
+            Gelo Baring — Knowledge Systems, Help Centers &amp; Front-End
+        </title>
         <meta
             name="description"
             content="Career portfolio, 2015–2026: knowledge systems, help centers, client websites, and front-end delivery. Four deep case studies plus earlier roles and projects."
         />
         <meta name="theme-color" content="#f4ecdc" />
-        <link rel="canonical" href="https://gelogabz.github.io/showcase/" />
+        <link
+            rel="canonical"
+            href="https://gelogabz.github.io/gelobaring-intro"
+        />
 
         <meta
             property="og:title"
@@ -21,10 +26,13 @@
             content="Career portfolio, 2015–2026: four deep knowledge-system case studies, plus help centers, client websites, and front-end delivery."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://gelogabz.github.io/showcase/" />
+        <meta
+            property="og:url"
+            content="https://gelogabz.github.io/gelobaring-intro"
+        />
         <meta
             property="og:image"
-            content="https://gelogabz.github.io/showcase/assets/og-card.png"
+            content="https://gelogabz.github.io/gelobaring-intro/assets/og-card.png"
         />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -80,23 +88,36 @@
 
                 function apply(theme) {
                     root.setAttribute("data-theme", theme);
-                    var meta = document.querySelector('meta[name="theme-color"]');
+                    var meta = document.querySelector(
+                        'meta[name="theme-color"]',
+                    );
                     if (meta) {
                         meta.setAttribute(
                             "content",
-                            theme === "dark" ? "#000000" : "#f4ecdc"
+                            theme === "dark" ? "#000000" : "#f4ecdc",
                         );
                     }
-                    var toggles = document.querySelectorAll("[data-theme-toggle]");
+                    var toggles = document.querySelectorAll(
+                        "[data-theme-toggle]",
+                    );
                     for (var i = 0; i < toggles.length; i++) {
                         var isDark = theme === "dark";
-                        toggles[i].setAttribute("aria-pressed", isDark ? "true" : "false");
+                        toggles[i].setAttribute(
+                            "aria-pressed",
+                            isDark ? "true" : "false",
+                        );
                         toggles[i].setAttribute(
                             "aria-label",
-                            isDark ? "Switch to light theme" : "Switch to dark theme"
+                            isDark
+                                ? "Switch to light theme"
+                                : "Switch to dark theme",
                         );
-                        var label = toggles[i].querySelector("[data-theme-label]");
-                        if (label) label.textContent = isDark ? "Light mode" : "Dark mode";
+                        var label =
+                            toggles[i].querySelector("[data-theme-label]");
+                        if (label)
+                            label.textContent = isDark
+                                ? "Light mode"
+                                : "Dark mode";
                     }
                 }
 
@@ -112,7 +133,9 @@
 
                 function wire() {
                     apply(current());
-                    var toggles = document.querySelectorAll("[data-theme-toggle]");
+                    var toggles = document.querySelectorAll(
+                        "[data-theme-toggle]",
+                    );
                     for (var i = 0; i < toggles.length; i++) {
                         toggles[i].addEventListener("click", toggle);
                     }
@@ -210,9 +233,7 @@
                 decoding="async"
             />
 
-            <h1>
-                I make complex products <em>legible</em> — and teachable.
-            </h1>
+            <h1>I make complex products <em>legible</em> — and teachable.</h1>
 
             <p class="hero-deck">
                 For eight months I was the knowledge and enablement function at
@@ -231,7 +252,9 @@
             </div>
 
             <div class="hero-cta">
-                <a class="btn btn--primary" href="mailto:gabrielgelo93@gmail.com"
+                <a
+                    class="btn btn--primary"
+                    href="mailto:gabrielgelo93@gmail.com"
                     >Email me</a
                 >
                 <a class="btn" href="#work">See the work</a>
@@ -284,7 +307,9 @@
                         <li><a href="#problem">01 · The problem</a></li>
                         <li><a href="#system">02 · The system</a></li>
                         <li><a href="#work">03 · The work</a></li>
-                        <li><a href="#career">04 · Career &amp; projects</a></li>
+                        <li>
+                            <a href="#career">04 · Career &amp; projects</a>
+                        </li>
                         <li><a href="#engineering">05 · Engineering</a></li>
                         <li><a href="#competencies">06 · Competencies</a></li>
                         <li><a href="#evidence">07 · Evidence</a></li>
@@ -511,8 +536,8 @@
                                 </li>
                                 <li>
                                     <strong>Ship a reviewable slice.</strong>
-                                    Deliver in phases a collaborator can inspect,
-                                    not one large reveal at the end.
+                                    Deliver in phases a collaborator can
+                                    inspect, not one large reveal at the end.
                                 </li>
                                 <li>
                                     <strong>Log the trade-off.</strong> Every
@@ -540,16 +565,16 @@
                         Each project solved a different problem for a different
                         reader. Together they cover the full path from
                         &ldquo;what does this word mean&rdquo; to &ldquo;what
-                        changed this month, what should I do about it, and how do
-                        I teach it to a new hire.&rdquo;
+                        changed this month, what should I do about it, and how
+                        do I teach it to a new hire.&rdquo;
                     </p>
 
                     <div class="outcomes" aria-label="Outcomes">
                         <div class="outcome">
                             <b>One definition per term</b>
                             <span
-                                >507 terms resolve to a canonical definition,
-                                an alias set, and a source URL — not six
+                                >507 terms resolve to a canonical definition, an
+                                alias set, and a source URL — not six
                                 documentation sites and a person who happens to
                                 know.</span
                             >
@@ -697,7 +722,8 @@
                                     </div>
                                     <div class="decision">
                                         <strong
-                                            >One data layer, eight pages.</strong
+                                            >One data layer, eight
+                                            pages.</strong
                                         >
                                         Terms, tags, paths, and walkthroughs
                                         live in plain JS modules. The comparison
@@ -1010,9 +1036,7 @@
                     <!-- CASE C -->
                     <article class="case" aria-labelledby="case-curriculum">
                         <div class="case-head">
-                            <span class="case-kicker"
-                                >Case C · Curriculum</span
-                            >
+                            <span class="case-kicker">Case C · Curriculum</span>
                             <h3 id="case-curriculum">
                                 A seven-week onboarding curriculum, sourced
                                 before it was written.
@@ -1028,7 +1052,9 @@
                                 <span class="pill pill--accent"
                                     >Instructional design</span
                                 >
-                                <span class="pill">Curriculum architecture</span>
+                                <span class="pill"
+                                    >Curriculum architecture</span
+                                >
                                 <span class="pill">Assessment</span>
                                 <span class="pill">Source mapping</span>
                             </div>
@@ -1080,11 +1106,14 @@
                                     <h4>What I built</h4>
                                     <ul>
                                         <li>
-                                            <strong>13 modules and 13 quizzes</strong>
-                                            (146 questions), paired one-to-one by
-                                            folder. The first four content weeks
-                                            are drafted; weeks 5–6 are mapped but
-                                            not yet written.
+                                            <strong
+                                                >13 modules and 13
+                                                quizzes</strong
+                                            >
+                                            (146 questions), paired one-to-one
+                                            by folder. The first four content
+                                            weeks are drafted; weeks 5–6 are
+                                            mapped but not yet written.
                                         </li>
                                         <li>
                                             A
@@ -1096,23 +1125,28 @@
                                         </li>
                                         <li>
                                             <strong>~17,000 words</strong> of
-                                            module prose using one skeleton:
-                                            why it matters, mental model,
-                                            mechanics, worked example, and a
-                                            check for understanding.
+                                            module prose using one skeleton: why
+                                            it matters, mental model, mechanics,
+                                            worked example, and a check for
+                                            understanding.
                                         </li>
                                         <li>
                                             An
-                                            <strong>answer key kept out of the quiz files</strong>:
-                                            Week 1–2 keys are stored as SHA-256
-                                            hashes in a separate file, with the
-                                            limitation stated in the file —
-                                            obfuscation, not security.
+                                            <strong
+                                                >answer key kept out of the quiz
+                                                files</strong
+                                            >: Week 1–2 keys are stored as
+                                            SHA-256 hashes in a separate file,
+                                            with the limitation stated in the
+                                            file — obfuscation, not security.
                                         </li>
                                         <li>
-                                            <strong>108 commits over four weeks</strong>,
-                                            with a changelog and per-change diff
-                                            backups for every module and quiz.
+                                            <strong
+                                                >108 commits over four
+                                                weeks</strong
+                                            >, with a changelog and per-change
+                                            diff backups for every module and
+                                            quiz.
                                         </li>
                                     </ul>
                                 </div>
@@ -1181,8 +1215,8 @@
                                 <dl>
                                     <dt>Role</dt>
                                     <dd>
-                                        Curriculum design, drafting,
-                                        assessment, source mapping
+                                        Curriculum design, drafting, assessment,
+                                        source mapping
                                     </dd>
                                     <dt>Span</dt>
                                     <dd>Aug – Sep 2026</dd>
@@ -1387,7 +1421,6 @@
                             </aside>
                         </div>
                     </article>
-
                 </section>
 
                 <!-- ================================================================
@@ -1398,11 +1431,12 @@
                     <p class="eyebrow">Career &amp; earlier projects</p>
                     <h2>Support, documentation, and front-end delivery.</h2>
                     <p class="lede mb-4">
-                        The 2026 knowledge systems are the deepest work, but they
-                        sit on a longer record: customer support, knowledge-base
-                        management, and client web development. Earlier roles and
-                        client sites are named; the 2026 employer is anonymised
-                        because the work involves internal documentation.
+                        The 2026 knowledge systems are the deepest work, but
+                        they sit on a longer record: customer support,
+                        knowledge-base management, and client web development.
+                        Earlier roles and client sites are named; the 2026
+                        employer is anonymised because the work involves
+                        internal documentation.
                     </p>
 
                     <div class="career">
@@ -1435,14 +1469,16 @@
                                 <p>
                                     Built and maintained the help center for an
                                     all-in-one HR SaaS serving restaurant teams.
-                                    Migrated content from Salesforce Knowledge to
-                                    Intercom&rsquo;s Help Center product,
+                                    Migrated content from Salesforce Knowledge
+                                    to Intercom&rsquo;s Help Center product,
                                     authored and edited support documentation,
                                     and supported AI knowledge-bot management.
                                 </p>
                                 <div class="pills">
                                     <span class="pill">Intercom</span>
-                                    <span class="pill">Salesforce Knowledge</span>
+                                    <span class="pill"
+                                        >Salesforce Knowledge</span
+                                    >
                                     <span class="pill">Markdown</span>
                                     <span class="pill">CSS</span>
                                     <span class="pill">HTML</span>
@@ -1483,9 +1519,9 @@
                                     Created knowledge base and process
                                     documentation, monitored article usage and
                                     performance metrics, implemented
-                                    documentation improvements at regional scale,
-                                    and assisted with feature development and
-                                    testing.
+                                    documentation improvements at regional
+                                    scale, and assisted with feature development
+                                    and testing.
                                 </p>
                             </div>
                         </article>
@@ -1523,15 +1559,17 @@
                                 <h4>Workstream Help Center</h4>
                                 <p>
                                     A help center for an all-in-one HR SaaS
-                                    focused on the restaurant workforce, built on
-                                    Intercom&rsquo;s Help Center product. Content
-                                    was migrated from Salesforce Knowledge and
-                                    structured in Markdown, with custom CSS and
-                                    HTML.
+                                    focused on the restaurant workforce, built
+                                    on Intercom&rsquo;s Help Center product.
+                                    Content was migrated from Salesforce
+                                    Knowledge and structured in Markdown, with
+                                    custom CSS and HTML.
                                 </p>
                                 <div class="pills">
                                     <span class="pill">Intercom</span>
-                                    <span class="pill">Salesforce Knowledge</span>
+                                    <span class="pill"
+                                        >Salesforce Knowledge</span
+                                    >
                                     <span class="pill">Markdown</span>
                                     <span class="pill">CSS</span>
                                     <span class="pill">HTML</span>
@@ -1584,7 +1622,8 @@
                                     href="https://www.hyeg.jp/s/"
                                     target="_blank"
                                     rel="noopener"
-                                    >Visit HYEG <span aria-hidden="true">↗</span></a
+                                    >Visit HYEG
+                                    <span aria-hidden="true">↗</span></a
                                 >
                             </article>
 
@@ -1649,9 +1688,7 @@
                             <article class="site">
                                 <span class="site-when">Jun 2023</span>
                                 <h4>Aladdin</h4>
-                                <p>
-                                    Salon website. Main front-end developer.
-                                </p>
+                                <p>Salon website. Main front-end developer.</p>
                                 <p class="site-stack">
                                     HTML · CSS · JS · jQuery
                                 </p>
@@ -1687,9 +1724,7 @@
 
                     <div class="divider-top">
                         <p class="eyebrow">Self-directed</p>
-                        <h3 class="subhead">
-                            Two projects that show range.
-                        </h3>
+                        <h3 class="subhead">Two projects that show range.</h3>
                         <div class="grid-2">
                             <div>
                                 <h4 class="h-body">AWS certification course</h4>
@@ -1721,10 +1756,10 @@
                         <p class="eyebrow">Background</p>
                         <p class="small muted mb-0">
                             KodeGo, Full-stack Web Development (2022–2023) ·
-                            Coursera, Foundations of UX Design (2023) ·
-                            Adamson University, Chemical Engineering.
-                            Certifications in HTML5, CSS, coding fundamentals,
-                            UX design, and coding for marketers.
+                            Coursera, Foundations of UX Design (2023) · Adamson
+                            University, Chemical Engineering. Certifications in
+                            HTML5, CSS, coding fundamentals, UX design, and
+                            coding for marketers.
                         </p>
                     </div>
                 </section>
@@ -2001,7 +2036,9 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th scope="row">Reference terms published</th>
+                                    <th scope="row">
+                                        Reference terms published
+                                    </th>
                                     <td class="num">507</td>
                                     <td>data layer</td>
                                 </tr>
@@ -2016,7 +2053,9 @@
                                     <td>data layer</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Guided walkthroughs / steps</th>
+                                    <th scope="row">
+                                        Guided walkthroughs / steps
+                                    </th>
                                     <td class="num">37 / 194</td>
                                     <td>data layer</td>
                                 </tr>
@@ -2046,7 +2085,9 @@
                                     <td>13 quizzes, 1:1 paired</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Source-mapped curriculum rows</th>
+                                    <th scope="row">
+                                        Source-mapped curriculum rows
+                                    </th>
                                     <td class="num">246</td>
                                     <td>weeks 1–6</td>
                                 </tr>
@@ -2056,19 +2097,25 @@
                                     <td>554 lines</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Skill / process documents</th>
+                                    <th scope="row">
+                                        Skill / process documents
+                                    </th>
                                     <td class="num">3</td>
                                     <td>~1,240 lines</td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Hand-written application code</th>
+                                    <th scope="row">
+                                        Hand-written application code
+                                    </th>
                                     <td class="num">~14,300</td>
                                     <td>lines, excluding data modules</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Process documentation</th>
                                     <td class="num">~15,000</td>
-                                    <td>lines, including ~170-entry decision log</td>
+                                    <td>
+                                        lines, including ~170-entry decision log
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Commits</th>
@@ -2183,8 +2230,8 @@
                             <li>
                                 <strong>Documentation drifted.</strong> A few
                                 counts and claims in the docs fell behind the
-                                code — a real maintenance cost of writing ~15,000
-                                lines of process documentation.
+                                code — a real maintenance cost of writing
+                                ~15,000 lines of process documentation.
                             </li>
                             <li>
                                 <strong
@@ -2213,95 +2260,92 @@
            Contact
            ================================================================ -->
         <footer class="wrap footer" id="contact">
-                    <div class="footer-grid">
-                        <div>
-                            <p class="eyebrow">Contact</p>
-                            <img
-                                class="footer-signature"
-                                src="assets/signature.png"
-                                alt=""
-                                width="400"
-                                height="68"
-                                loading="lazy"
-                                decoding="async"
+            <div class="footer-grid">
+                <div>
+                    <p class="eyebrow">Contact</p>
+                    <img
+                        class="footer-signature"
+                        src="assets/signature.png"
+                        alt=""
+                        width="400"
+                        height="68"
+                        loading="lazy"
+                        decoding="async"
+                    />
+                    <h3>
+                        I&rsquo;m looking for work in enablement, developer
+                        experience, or knowledge systems.
+                    </h3>
+                    <p class="mt-2 measure-copy">
+                        I like problems where the documentation
+                        <em>is</em> the product: complex domains, technical
+                        audiences, and a real need for the answer to be correct.
+                    </p>
+                </div>
+
+                <div>
+                    <div class="contact">
+                        <a href="mailto:gabrielgelo93@gmail.com"
+                            ><span>Email</span> gabrielgelo93@gmail.com</a
+                        >
+                        <a href="https://www.linkedin.com/in/gelobaring/"
+                            ><span>LinkedIn</span> /in/gelobaring</a
+                        >
+                        <a href="https://github.com/gelogabz"
+                            ><span>GitHub</span> /gelogabz</a
+                        >
+                    </div>
+
+                    <button
+                        class="theme-toggle theme-toggle--footer"
+                        type="button"
+                        data-theme-toggle
+                        aria-pressed="false"
+                    >
+                        <svg
+                            class="icon--sun"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                            aria-hidden="true"
+                        >
+                            <circle cx="12" cy="12" r="4.1" />
+                            <path
+                                d="M12 2.4v2.2M12 19.4v2.2M2.4 12h2.2M19.4 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"
                             />
-                            <h3>
-                                I&rsquo;m looking for work in enablement,
-                                developer experience, or knowledge systems.
-                            </h3>
-                            <p class="mt-2 measure-copy">
-                                I like problems where the documentation
-                                <em>is</em> the product: complex domains,
-                                technical audiences, and a real need for the
-                                answer to be correct.
-                            </p>
-                        </div>
-
-                        <div>
-                            <div class="contact">
-                                <a href="mailto:gabrielgelo93@gmail.com"
-                                    ><span>Email</span>
-                                    gabrielgelo93@gmail.com</a
-                                >
-                                <a
-                                    href="https://www.linkedin.com/in/gelobaring/"
-                                    ><span>LinkedIn</span> /in/gelobaring</a
-                                >
-                                <a href="https://github.com/gelogabz"
-                                    ><span>GitHub</span> /gelogabz</a
-                                >
-                            </div>
-
-                            <button
-                                class="theme-toggle theme-toggle--footer"
-                                type="button"
-                                data-theme-toggle
-                                aria-pressed="false"
-                            >
-                                <svg
-                                    class="icon--sun"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.7"
-                                    stroke-linecap="round"
-                                    aria-hidden="true"
-                                >
-                                    <circle cx="12" cy="12" r="4.1" />
-                                    <path
-                                        d="M12 2.4v2.2M12 19.4v2.2M2.4 12h2.2M19.4 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"
-                                    />
-                                </svg>
-                                <svg
-                                    class="icon--moon"
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    stroke="currentColor"
-                                    stroke-width="1.7"
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    aria-hidden="true"
-                                >
-                                    <path
-                                        d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8Z"
-                                    />
-                                </svg>
-                                <span data-theme-label>Dark mode</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="colophon">
-                        <span
-                            >Case study prepared from repository evidence, not
-                            recollection.</span
+                        </svg>
+                        <svg
+                            class="icon--moon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
                         >
-                        <span
-                            >Current employer anonymised; earlier roles and
-                            client sites named.</span
-                        >
-                        <span>Repository links available on request.</span>
-                    </div>
+                            <path
+                                d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8Z"
+                            />
+                        </svg>
+                        <span data-theme-label>Dark mode</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="colophon">
+                <span
+                    >Case study prepared from repository evidence, not
+                    recollection.</span
+                >
+                <span
+                    >Current employer anonymised; earlier roles and client sites
+                    named.</span
+                >
+                <span>Repository links available on request.</span>
+            </div>
         </footer>
 
         <script src="js/main.js" defer></script>
