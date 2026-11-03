@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">Seven-week onboarding curriculum map</title>
+  <desc id="desc">Six content weeks plus a graduation week and a skills-verification capstone. Weeks one to four are drafted; weeks five and six are mapped only.</desc>
+  <rect width="1200" height="560" fill="#ffffff"/>
+  <text x="48" y="62" font-family="system-ui, sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#00614f">CURRICULUM MAP</text>
+  <text x="48" y="104" font-family="system-ui, sans-serif" font-size="30" font-weight="700" fill="#001f17">Seven-week onboarding path</text>
+  <text x="48" y="136" font-family="system-ui, sans-serif" font-size="15" fill="#4a5f56">13 modules · 13 quizzes · 146 questions · 246-row source map</text>
+
+  <!-- Week 1 -->
+  <g>
+    <rect x="48" y="176" width="252" height="132" rx="4" fill="#f4ecdc" stroke="#00614f" stroke-width="2"/>
+    <rect x="48" y="176" width="252" height="6" fill="#00a385"/>
+    <text x="68" y="208" font-family="system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#00614f">WEEK 1</text>
+    <text x="68" y="236" font-family="system-ui, sans-serif" font-size="19" font-weight="700" fill="#001f17">Concepts</text>
+    <text x="68" y="262" font-family="system-ui, sans-serif" font-size="13" fill="#4a5f56">Marketplaces, platform</text>
+    <text x="68" y="280" font-family="system-ui, sans-serif" font-size="13" fill="#4a5f56">basics, console lifecycle</text>
+    <text x="68" y="296" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#00614f">7 modules</text>
+  </g>
+
+  <!-- Week 2 -->
+  <g>
+    <rect x="324" y="176" width="252" height="132" rx="4" fill="#f4ecdc" stroke="#00614f" stroke-width="2"/>
+    <rect x="324" y="176" width="252" height="6" fill="#00a385"/>
+    <text x="344" y="208" font-family="system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#00614f">WEEK 2</text>
+    <text x="344" y="236" font-family="system-ui, sans-serif" font-size="19" font-weight="700" fill="#001f17">Integrations</text>
+    <text x="344" y="262" font-family="system-ui, sans-serif" font-size="13" fill="#4a5f56">Listing practice,</text>
+    <text x="344" y="280" font-family="system-ui, sans-serif" font-size="13" fill="#4a5f56">integrations, console</text>
+    <text x="344" y="296" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#00614f">3 modules</text>
+  </g>
+
+  <!-- Week 3 -->
+  <g>
+    <rect x="600" y="176" width="252" height="132" rx="4" fill="#f4ecdc" stroke="#00614f" stroke-width="2"/>
+    <rect x="600" y="176" width="252" height="6" fill="#00a385"/>
+    <text x="620" y="208" font-family="system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#00614f">WEEK 3</text>
+    <text x="620" y="236" font-family="system-ui, sans-serif" font-size="19" font-weight="700" fill="#001f17">CRM</text>
+    <text x="620" y="262" font-family="system-ui, sans-serif" font-size="13" fill="#4a5f56">Salesforce and HubSpot</text>
+    <text x="620" y="280" font-family="system-ui, sans-serif" font-size="13" fill="#4a5f56">objects and handoffs</text>
+    <text x="620" y="296" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#00614f">2 modules</text>
+  </g>
+
+  <!-- Week 4 -->
+  <g>
+    <rect x="876" y="176" width="276" height="132" rx="4" fill="#f4ecdc" stroke="#00614f" stroke-width="2"/>
+    <rect x="876" y="176" width="276" height="6" fill="#00a385"/>
+    <text x="896" y="208" font-family="system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#00614f">WEEK 4</text>
+    <text x="896" y="236" font-family="system-ui, sans-serif" font-size="19" font-weight="700" fill="#001f17">Co-sell</text>
+    <text x="896" y="262" font-family="system-ui, sans-serif" font-size="13" fill="#4a5f56">Referrals, partner motion,</text>
+    <text x="896" y="280" font-family="system-ui, sans-serif" font-size="13" fill="#4a5f56">joint selling</text>
+    <text x="896" y="296" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#00614f">1 module</text>
+  </g>
+
+  <!-- Week 5 -->
+  <g>
+    <rect x="48" y="348" width="252" height="132" rx="4" fill="#ffffff" stroke="#5a6f66" stroke-width="1.5" stroke-dasharray="6 5"/>
+    <text x="68" y="380" font-family="system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#5a6f66">WEEK 5</text>
+    <text x="68" y="408" font-family="system-ui, sans-serif" font-size="19" font-weight="700" fill="#001f17">CSM specifics</text>
+    <text x="68" y="434" font-family="system-ui, sans-serif" font-size="13" fill="#4a5f56">Renewals, risk, and</text>
+    <text x="68" y="452" font-family="system-ui, sans-serif" font-size="13" fill="#4a5f56">customer conversations</text>
+    <text x="68" y="468" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#5a6f66">Mapped only</text>
+  </g>
+
+  <!-- Week 6 -->
+  <g>
+    <rect x="324" y="348" width="252" height="132" rx="4" fill="#ffffff" stroke="#5a6f66" stroke-width="1.5" stroke-dasharray="6 5"/>
+    <text x="344" y="380" font-family="system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#5a6f66">WEEK 6</text>
+    <text x="344" y="408" font-family="system-ui, sans-serif" font-size="19" font-weight="700" fill="#001f17">BizOps &amp; cases</text>
+    <text x="344" y="434" font-family="system-ui, sans-serif" font-size="13" fill="#4a5f56">Judgment calls from</text>
+    <text x="344" y="452" font-family="system-ui, sans-serif" font-size="13" fill="#4a5f56">real deal scenarios</text>
+    <text x="344" y="468" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#5a6f66">Mapped only</text>
+  </g>
+
+  <!-- Week 7 -->
+  <g>
+    <rect x="600" y="348" width="252" height="132" rx="4" fill="#ffffff" stroke="#5a6f66" stroke-width="1.5" stroke-dasharray="6 5"/>
+    <text x="620" y="380" font-family="system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#5a6f66">WEEK 7</text>
+    <text x="620" y="408" font-family="system-ui, sans-serif" font-size="19" font-weight="700" fill="#001f17">Graduation</text>
+    <text x="620" y="434" font-family="system-ui, sans-serif" font-size="13" fill="#4a5f56">Full workload and</text>
+    <text x="620" y="452" font-family="system-ui, sans-serif" font-size="13" fill="#4a5f56">continuous learning</text>
+    <text x="620" y="468" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#5a6f66">No module</text>
+  </g>
+
+  <!-- Capstone -->
+  <g>
+    <rect x="876" y="348" width="276" height="132" rx="4" fill="#ffffff" stroke="#5a6f66" stroke-width="1.5" stroke-dasharray="6 5"/>
+    <text x="896" y="380" font-family="system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="1.5" fill="#5a6f66">CAPSTONE</text>
+    <text x="896" y="408" font-family="system-ui, sans-serif" font-size="19" font-weight="700" fill="#001f17">Skills verification</text>
+    <text x="896" y="434" font-family="system-ui, sans-serif" font-size="13" fill="#4a5f56">Scenario-based check</text>
+    <text x="896" y="452" font-family="system-ui, sans-serif" font-size="13" fill="#4a5f56">before independent work</text>
+    <text x="896" y="468" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#5a6f66">Mapped only</text>
+  </g>
+
+  <text x="48" y="528" font-family="system-ui, sans-serif" font-size="12" fill="#5a6f66">Solid cards are drafted and quiz-paired. Dashed cards are source-mapped but not written.</text>
+</svg>

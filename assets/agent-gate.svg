@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" role="img" aria-labelledby="title desc">
+  <title id="title">Two-gate content review pipeline</title>
+  <desc id="desc">Sources feed a discovery agent, which writes a reasoning report. A human gate reviews the reasoning before a draft is opened. A second gate verifies claims and sources before publishing.</desc>
+  <rect width="1200" height="420" fill="#ffffff"/>
+  <text x="48" y="58" font-family="system-ui, sans-serif" font-size="15" font-weight="700" letter-spacing="2" fill="#00614f">CONTENT PIPELINE</text>
+  <text x="48" y="96" font-family="system-ui, sans-serif" font-size="28" font-weight="700" fill="#001f17">Gate the reasoning, then gate the claims</text>
+
+  <!-- Sources -->
+  <g>
+    <rect x="48" y="150" width="170" height="86" rx="4" fill="#f4ecdc" stroke="#00614f" stroke-width="1.5"/>
+    <text x="68" y="181" font-family="system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="1.3" fill="#00614f">INPUT</text>
+    <text x="68" y="205" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#001f17">13 sources</text>
+    <text x="68" y="223" font-family="system-ui, sans-serif" font-size="12" fill="#4a5f56">docs + release feeds</text>
+  </g>
+  <path d="M218 193 H252" stroke="#00614f" stroke-width="1.5"/>
+  <path d="M246 188 L254 193 L246 198" fill="none" stroke="#00614f" stroke-width="1.5"/>
+
+  <!-- Discovery agent -->
+  <g>
+    <rect x="254" y="150" width="190" height="86" rx="4" fill="#f4ecdc" stroke="#00614f" stroke-width="1.5"/>
+    <text x="274" y="181" font-family="system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="1.3" fill="#00614f">DISCOVERY</text>
+    <text x="274" y="205" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#001f17">Candidate diff</text>
+    <text x="274" y="223" font-family="system-ui, sans-serif" font-size="12" fill="#4a5f56">hash + score 1–5</text>
+  </g>
+  <path d="M444 193 H478" stroke="#00614f" stroke-width="1.5"/>
+  <path d="M472 188 L480 193 L472 198" fill="none" stroke="#00614f" stroke-width="1.5"/>
+
+  <!-- Reasoning report -->
+  <g>
+    <rect x="480" y="150" width="190" height="86" rx="4" fill="#f4ecdc" stroke="#00614f" stroke-width="1.5"/>
+    <text x="500" y="181" font-family="system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="1.3" fill="#00614f">ARTIFACT</text>
+    <text x="500" y="205" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#001f17">Reasoning report</text>
+    <text x="500" y="223" font-family="system-ui, sans-serif" font-size="12" fill="#4a5f56">typed schema + confidence</text>
+  </g>
+  <path d="M670 193 H704" stroke="#00614f" stroke-width="1.5"/>
+  <path d="M698 188 L706 193 L698 198" fill="none" stroke="#00614f" stroke-width="1.5"/>
+
+  <!-- Gate 1 -->
+  <g>
+    <rect x="706" y="150" width="150" height="86" rx="4" fill="#00614f" stroke="#00614f" stroke-width="1.5"/>
+    <text x="726" y="181" font-family="system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="1.3" fill="#9fe3d4">GATE 1</text>
+    <text x="726" y="205" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#f4ecdc">Human review</text>
+    <text x="726" y="223" font-family="system-ui, sans-serif" font-size="12" fill="#b9c7bd">one read to reject</text>
+  </g>
+  <path d="M856 193 H890" stroke="#00614f" stroke-width="1.5"/>
+  <path d="M884 188 L892 193 L884 198" fill="none" stroke="#00614f" stroke-width="1.5"/>
+
+  <!-- Draft -->
+  <g>
+    <rect x="892" y="150" width="120" height="86" rx="4" fill="#f4ecdc" stroke="#00614f" stroke-width="1.5"/>
+    <text x="912" y="181" font-family="system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="1.3" fill="#00614f">DRAFT</text>
+    <text x="912" y="205" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#001f17">Write</text>
+    <text x="912" y="223" font-family="system-ui, sans-serif" font-size="12" fill="#4a5f56">source-linked</text>
+  </g>
+  <path d="M1012 193 H1046" stroke="#00614f" stroke-width="1.5"/>
+  <path d="M1040 188 L1048 193 L1040 198" fill="none" stroke="#00614f" stroke-width="1.5"/>
+
+  <!-- Gate 2 -->
+  <g>
+    <rect x="1048" y="150" width="104" height="86" rx="4" fill="#00614f" stroke="#00614f" stroke-width="1.5"/>
+    <text x="1064" y="181" font-family="system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="1.3" fill="#9fe3d4">GATE 2</text>
+    <text x="1064" y="205" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#f4ecdc">Verify</text>
+    <text x="1064" y="223" font-family="system-ui, sans-serif" font-size="12" fill="#b9c7bd">claims + links</text>
+  </g>
+
+  <!-- Reject branch -->
+  <path d="M781 236 V296 H254" stroke="#5a6f66" stroke-width="1.5" stroke-dasharray="5 4" fill="none"/>
+  <path d="M262 291 L254 296 L262 301" fill="none" stroke="#5a6f66" stroke-width="1.5"/>
+  <rect x="300" y="272" width="360" height="48" rx="4" fill="#ffffff" stroke="#5a6f66" stroke-width="1" stroke-dasharray="5 4"/>
+  <text x="318" y="292" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#001f17">Rejected at Gate 1</text>
+  <text x="318" y="309" font-family="system-ui, sans-serif" font-size="12" fill="#4a5f56">costs one read, not a rewrite — the draft is never opened</text>
+
+  <!-- Publish -->
+  <text x="1048" y="272" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#00614f">→ PUBLISH</text>
+  <text x="1048" y="289" font-family="system-ui, sans-serif" font-size="12" fill="#4a5f56">edition or reference</text>
+
+  <text x="48" y="388" font-family="system-ui, sans-serif" font-size="12" fill="#5a6f66">Every handoff carries a schema, a confidence level, and an explicit failure mode. Nothing publishes itself.</text>
+</svg>

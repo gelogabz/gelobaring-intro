@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f4ecdc"/>
+  <rect x="0" y="0" width="1200" height="10" fill="#00a385"/>
+  <text x="80" y="112" font-family="DejaVu Sans, sans-serif" font-size="20" font-weight="700" letter-spacing="3" fill="#00614f">GELO BARING · CAREER PORTFOLIO 2015–2026</text>
+  <text x="80" y="236" font-family="DejaVu Sans, sans-serif" font-size="60" font-weight="700" fill="#001f17">Knowledge systems,</text>
+  <text x="80" y="314" font-family="DejaVu Sans, sans-serif" font-size="60" font-weight="700" fill="#001f17">help centers, and</text>
+  <text x="80" y="392" font-family="DejaVu Sans, sans-serif" font-size="60" font-weight="700" fill="#00614f">front-end delivery.</text>
+  <rect x="80" y="446" width="120" height="5" fill="#00a385"/>
+  <text x="80" y="500" font-family="DejaVu Sans, sans-serif" font-size="24" fill="#1d3a30">507-term reference · 7-week curriculum · 6 client sites</text>
+  <text x="80" y="536" font-family="DejaVu Sans, sans-serif" font-size="24" fill="#1d3a30">4 deep case studies · 5 roles · 2015–2026</text>
+  <text x="80" y="592" font-family="DejaVu Sans, sans-serif" font-size="18" fill="#4a5f56">Knowledge management · technical writing · HTML/CSS · JavaScript · PHP/Laravel</text>
+</svg>
