@@ -11,7 +11,7 @@ a help center, an internal invoicing system, and six live client sites.
 ## Files
 
 ```
-showcase/
+gelobaring-intro/
 ├── index.html              markup, content, inline theme bootstrap
 ├── css/
 │   ├── tokens.css          design system: palette, type scale, spacing, z-index
@@ -20,24 +20,27 @@ showcase/
 ├── js/
 │   └── main.js             reading progress, active nav, print button, lazy-image print fix
 ├── assets/
-│   ├── 01–06.png           anonymised product screenshots (fallback)
+│   ├── 01–06.png           anonymised product screenshots (1440w fallback)
 │   ├── 01–06.webp          same screenshots, smaller
+│   ├── 01–06-720.*         responsive 720w variants used by srcset
 │   ├── curriculum-map.svg  Case C curriculum map
 │   ├── agent-gate.svg      Case D review-gate diagram
 │   ├── og-card.png         1200×630 social card
 │   ├── og-card.svg         social-card source
 │   ├── favicon.svg         site icon
 │   └── signature.png       personal mark
+├── .gitignore              excludes local/private material from the repo
 └── README.md               this file
 ```
 
-The private briefing now lives **outside** this folder, at `../SHOWCASE-BRIEFING.md`. Do not
-move it back into `showcase/`; anything in this folder is deployable.
+The private briefing now lives **outside** this folder, at `../SHOWCASE-BRIEFING.md`. The
+interview-prep notes live at `../SHOWCASE-COMMENTS.md`. Do not move either back into
+`gelobaring-intro/`; anything tracked in this folder is deployable.
 
 ## View it
 
 ```sh
-cd showcase
+cd gelobaring-intro
 python3 -m http.server 8000
 # http://localhost:8000
 ```
@@ -76,7 +79,8 @@ relative paths honest.
 | 08  | Limits            | `#limits`       | What is not proven                              |
 
 The section numbers in `index.html`, the rail nav, the mobile nav, and the CSS section comments
-must stay in sync.
+must stay in sync. Section 03 opens with a three-link reader-path block (`#case-a` … `#case-d`)
+so a reviewer can start with the case that matches the role.
 
 ### Themes
 
@@ -149,6 +153,7 @@ to re-check them:
 | 36 comparison rows                       | `.../app/compare-data.js` (derived from aliases)                                                                                                         |
 | 1,761 feed entries, 13 monitored sources | `.../data/whats-new.js`, `.../scripts/fetch-whats-new.js`                                                                                                |
 | 319 commits                              | `git -C marketplaceglossary-prototype-gelobaring rev-list --count HEAD`                                                                                  |
+| ~11k lines hand-written app code         | reference repo, excluding `data/`, `temp/`, and `scripts/`                                                                                               |
 | 5 editions, 43 topics, 15 published      | briefing-platform repo, `data/`                                                                                                                          |
 | 13 modules, 13 quizzes, 146 questions    | `lms-courses/training-modules/`, `lms-courses/quiz-content/`                                                                                             |
 | 246-row source map, weeks 1–6            | `lms-courses/claude-contexts/source-map.md`                                                                                                              |
@@ -177,8 +182,9 @@ against the profile before publishing:
 Deliberate wording choices:
 
 - **8 pages**, not 10 — the two `temp/` samples are not production pages.
-- **~14.3k lines** of hand-written application code, excluding data modules. Counting data
-  pushes it to ~16k; the page says which it means.
+- **~11k lines** of hand-written application code, excluding data modules and tooling
+  (`app/`, page scripts, CSS, and HTML). Including the ingestion script and the `temp/`
+  samples pushes the count to ~13.7k; the page uses the narrower, deployable figure.
 - **Curated cross-links**, not "typed" — the `related` entries are hand-authored.
 - **Term difficulty is assigned per term against a rubric**, not derived from data.
 - **Comparison rows are derived from the alias graph**, not parsed from prose.
@@ -200,16 +206,17 @@ Deliberate wording choices:
 
 GitHub Pages, no build required:
 
-1. Deploy `showcase/` as the site root (or a subpath).
+1. Deploy `gelobaring-intro/` as the site root (or a subpath).
 2. Update the absolute URLs if the deployment path is not
-   `https://gelogabz.github.io/showcase/`:
+   `https://gelogabz.github.io/gelobaring-intro/`:
    - `<link rel="canonical">`
    - `og:url`
    - `og:image` and `twitter:image`
    - `url` in the JSON-LD `Person` block
-3. Commit only `index.html`, `css/`, `js/`, `assets/`, and this README.
-4. **Do not** commit `SHOWCASE-BRIEFING.md`, the parent workspace, `CLAUDE.md` files, or
-   `claude-contexts/` directories.
+3. Commit only `index.html`, `css/`, `js/`, `assets/`, `.gitignore`, and this README.
+4. **Do not** commit `SHOWCASE-BRIEFING.md`, `SHOWCASE-COMMENTS.md`, the `old/` folder, the
+   parent workspace, `CLAUDE.md` files, or `claude-contexts/` directories. The `.gitignore`
+   already excludes `old/`, `showcase-comments.md`, `.DS_Store`, and `*.pdf`.
 
 The social card is `assets/og-card.png` (1200×630). If you change the headline, regenerate it
 from `assets/og-card.svg`:
@@ -228,22 +235,39 @@ magick -background none assets/og-card.svg -resize 1200x630 assets/og-card.png
 - Two of the source repositories are public and still contain real brand names, internal
   docs, and `claude-contexts/` material. Either sanitise them or do not link them from the
   page. The exact paths are in the private briefing.
+- `showcase-comments.md` is interview-prep material and must not be tracked or deployed. It
+  has been moved to `../SHOWCASE-COMMENTS.md`.
+- The `old/` folder is the previous personal site and contains personal photos and the old
+  employer logo. It is ignored by git and must not be deployed.
 - Keep customer names, revenue figures, internal Slack links, and unredacted strategy docs out
   of both the page and any public repo.
 
 ## Assets and screenshots
 
-Screenshots are 1440px wide. Each has a WebP source and a PNG fallback:
+Screenshots are 1440px wide. Each has a WebP source, a PNG fallback, and 720w variants:
 
 ```html
 <picture>
-  <source srcset="assets/01-glossary.webp" type="image/webp" />
-  <img src="assets/01-glossary.png" width="1440" height="1500" ... />
+  <source
+    srcset="assets/01-glossary-720.webp 720w, assets/01-glossary.webp 1440w"
+    sizes="(min-width: 1180px) 1100px, 100vw"
+    type="image/webp"
+  />
+  <img
+    src="assets/01-glossary.png"
+    srcset="assets/01-glossary-720.png 720w, assets/01-glossary.png 1440w"
+    sizes="(min-width: 1180px) 1100px, 100vw"
+    width="1440"
+    height="1500"
+    ...
+  />
 </picture>
 ```
 
 - Keep the declared `width` and `height` equal to the real file dimensions; a mismatch causes
   layout shift. `04-whats-new.png` is 1440×1400.
+- The 720w files are generated with `sips --resampleWidth 720` (PNG) and
+  `cwebp -resize 720 0` (WebP). Regenerate them if a screenshot changes.
 - Images below the fold use `loading="lazy"`. `main.js` switches them to eager on
   `beforeprint` so the PDF is not full of blank frames.
 - The two diagrams are SVG so they stay sharp in print and at any zoom.
@@ -273,6 +297,7 @@ Screenshots are 1440px wide. Each has a WebP source and a PNG fallback:
 `css/print.css` is loaded with `media="print"`:
 
 - Panels invert to white; links print black and expand to show their URL.
+- Output is A4 with 16mm margins.
 - Screenshots cap at 300px; diagrams cap at 240px.
 - `.case` is allowed to break across pages; individual figures, notes, flow steps, competency
   rows, layers, roles, projects, and client-site cards stay intact. Headings never split from
@@ -284,8 +309,11 @@ Screenshots are 1440px wide. Each has a WebP source and a PNG fallback:
 ## Known gaps
 
 - No automated visual regression or link check yet.
-- The page is long; the mobile contents panel helps, but there is no per-case deep link.
+- The page is long; the mobile contents panel and per-case deep links (`#case-a` … `#case-d`)
+  help, but there is no separate page per case.
 - Some accessibility work in the source projects is incomplete; the page says so in **Limits**.
+- Impact is not measured. There is no usage analytics, completion data, or repeat-question
+  count; the page states that in **Limits** rather than inventing a number.
 - The canonical URL is a default. Update it if the site moves.
 
 ## Internal docs

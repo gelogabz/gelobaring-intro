@@ -77,7 +77,9 @@
     .layer,
     .role,
     .project,
-    .site {
+    .site,
+    .paths,
+    .outcome {
         break-inside: avoid;
     }
 
@@ -158,6 +160,7 @@
     .code-wrap {
         background: #ffffff;
         border: 1px solid #999999;
+        break-inside: avoid;
     }
 
     .code-wrap pre,
@@ -194,6 +197,7 @@
     }
 
     @page {
+        size: A4;
         margin: 16mm;
     }
 }
