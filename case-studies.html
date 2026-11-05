@@ -1,0 +1,2340 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>The AGB Gazette — Case Studies · Gelo Baring</title>
+        <meta
+            name="description"
+            content="Detailed case studies: a 507-term marketplace reference, a monthly briefing, an onboarding curriculum, an AI content model, plus earlier help center, client site, and internal tool work."
+        />
+        <meta name="author" content="Gelo Baring" />
+        <meta name="theme-color" content="#f4ecdc" />
+        <link
+            rel="canonical"
+            href="https://gelogabz.github.io/gelobaring-intro/case-studies.html"
+        />
+
+        <meta
+            property="og:title"
+            content="The AGB Gazette — Case Studies · Gelo Baring"
+        />
+        <meta property="og:site_name" content="The AGB Gazette" />
+        <meta property="og:locale" content="en_PH" />
+        <meta
+            property="og:description"
+            content="Detailed case studies: knowledge systems, a help center migration, client websites, and front-end delivery."
+        />
+        <meta property="og:type" content="article" />
+        <meta
+            property="og:url"
+            content="https://gelogabz.github.io/gelobaring-intro/case-studies.html"
+        />
+        <meta
+            property="og:image"
+            content="https://gelogabz.github.io/gelobaring-intro/assets/og-card.png"
+        />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+            property="og:image:alt"
+            content="Gelo Baring — career portfolio covering knowledge systems, help centers, and front-end delivery."
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Case Studies — Gelo Baring" />
+        <meta
+            name="twitter:description"
+            content="Detailed case studies: knowledge systems, a help center migration, client websites, and front-end delivery."
+        />
+        <meta
+            name="twitter:image"
+            content="https://gelogabz.github.io/gelobaring-intro/assets/og-card.png"
+        />
+        <meta
+            name="twitter:image:alt"
+            content="Gelo Baring — career portfolio covering knowledge systems, help centers, and front-end delivery."
+        />
+
+        <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+        <!-- Type: Outfit (display) + Google Sans Flex (body) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Google+Sans+Flex:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="css/tokens.css" />
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/print.css" media="print" />
+
+        <!-- With JavaScript off, the theme toggle and print button have no
+             behavior. The page stays light and fully readable without them. -->
+        <noscript>
+            <style>
+                [data-theme-toggle],
+                [data-print] {
+                    display: none !important;
+                }
+            </style>
+        </noscript>
+
+        <!-- Theme is set before first paint, so this must stay inline and
+             render-blocking. Kept to the minimum needed for that job. -->
+        <script>
+            (function () {
+                "use strict";
+                var STORAGE_KEY = "showcase-theme";
+                var root = document.documentElement;
+                var system = window.matchMedia("(prefers-color-scheme: dark)");
+                var stored = null;
+                try {
+                    stored = localStorage.getItem(STORAGE_KEY);
+                } catch (e) {}
+
+                function current() {
+                    if (stored === "light" || stored === "dark") return stored;
+                    return system.matches ? "dark" : "light";
+                }
+
+                function apply(theme) {
+                    root.setAttribute("data-theme", theme);
+                    var meta = document.querySelector(
+                        'meta[name="theme-color"]',
+                    );
+                    if (meta) {
+                        meta.setAttribute(
+                            "content",
+                            theme === "dark" ? "#000000" : "#f4ecdc",
+                        );
+                    }
+                    var toggles = document.querySelectorAll(
+                        "[data-theme-toggle]",
+                    );
+                    for (var i = 0; i < toggles.length; i++) {
+                        var isDark = theme === "dark";
+                        toggles[i].setAttribute(
+                            "aria-pressed",
+                            isDark ? "true" : "false",
+                        );
+                        toggles[i].setAttribute(
+                            "aria-label",
+                            isDark
+                                ? "Switch to light theme"
+                                : "Switch to dark theme",
+                        );
+                        var label =
+                            toggles[i].querySelector("[data-theme-label]");
+                        if (label)
+                            label.textContent = isDark
+                                ? "Light mode"
+                                : "Dark mode";
+                    }
+                }
+
+                function toggle() {
+                    stored = current() === "dark" ? "light" : "dark";
+                    try {
+                        localStorage.setItem(STORAGE_KEY, stored);
+                    } catch (e) {}
+                    apply(stored);
+                }
+
+                apply(current());
+
+                function wire() {
+                    apply(current());
+                    var toggles = document.querySelectorAll(
+                        "[data-theme-toggle]",
+                    );
+                    for (var i = 0; i < toggles.length; i++) {
+                        toggles[i].addEventListener("click", toggle);
+                    }
+                }
+
+                if (document.readyState === "loading") {
+                    document.addEventListener("DOMContentLoaded", wire);
+                } else {
+                    wire();
+                }
+
+                if (typeof system.addEventListener === "function") {
+                    system.addEventListener("change", function (event) {
+                        if (stored === "light" || stored === "dark") return;
+                        apply(event.matches ? "dark" : "light");
+                    });
+                }
+            })();
+        </script>
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "name": "Gelo Baring",
+                "jobTitle": "Knowledge Systems and Front-End",
+                "url": "https://gelogabz.github.io/gelobaring-intro/case-studies.html",
+                "dateModified": "2026-11-05",
+                "email": "mailto:gabrielgelo93@gmail.com",
+                "sameAs": [
+                    "https://www.linkedin.com/in/gelobaring/",
+                    "https://github.com/gelogabz"
+                ]
+            }
+        </script>
+    </head>
+
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <div class="progress" id="progress" aria-hidden="true"></div>
+
+        <!-- ====================================================================
+       Masthead
+       ==================================================================== -->
+        <div class="sheet" id="top">
+            <header class="masthead">
+                <div class="masthead__utility">
+                    <span>Thursday, November 5, 2026</span>
+                    <span>Case Studies Edition · Vol. XI</span>
+                    <button
+                        class="theme-toggle"
+                        type="button"
+                        data-theme-toggle
+                        aria-pressed="false"
+                        aria-label="Switch to dark theme"
+                    >
+                        <svg
+                            class="icon--sun"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                            aria-hidden="true"
+                        >
+                            <circle cx="12" cy="12" r="4.1" />
+                            <path
+                                d="M12 2.4v2.2M12 19.4v2.2M2.4 12h2.2M19.4 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"
+                            />
+                        </svg>
+                        <svg
+                            class="icon--moon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8Z"
+                            />
+                        </svg>
+                        <span data-theme-label>Dark mode</span>
+                    </button>
+                </div>
+
+                <div class="masthead__grid">
+                    <div class="masthead__ear">
+                        <span>Est. 2015</span>
+                        <span>Support → Knowledge</span>
+                    </div>
+                    <div class="masthead__center">
+                        <p class="masthead__kicker">Gelo Baring · Portfolio</p>
+                        <p class="masthead__title">The AGB Gazette</p>
+                        <p class="masthead__tagline">
+                            The full report · Case studies
+                        </p>
+                    </div>
+                    <div class="masthead__ear masthead__ear--right">
+                        <span>Philippines</span>
+                        <span>UTC+8</span>
+                    </div>
+                </div>
+            </header>
+
+            <nav class="paper-nav paper-nav--index" aria-label="Sections">
+                <a href="#problem">Context</a>
+                <a href="#system">How it fits</a>
+                <a href="#work">Case studies</a>
+                <a href="#earlier">Earlier work</a>
+                <a href="#engineering">Engineering</a>
+                <a href="#evidence">Evidence</a>
+                <a href="#limits">Limits</a>
+                <a href="index.html">Portfolio</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <main id="main" class="wrap" tabindex="-1">
+                <section
+                    class="lead lead--report"
+                    aria-labelledby="lead-headline"
+                >
+                    <div class="lead__main">
+                        <p class="eyebrow">The full report · Case studies</p>
+                        <h1 id="lead-headline">The work in detail.</h1>
+                        <p class="hero-deck">
+                            Four knowledge-system projects from 2026, plus
+                            earlier help center, client site, and internal tool
+                            work. Each case covers the problem, what I built,
+                            the decisions behind it, and the limits of the
+                            evidence.
+                        </p>
+                        <p class="lead__byline">
+                            <span>By Gelo Baring</span>
+                            <span>Philippines · UTC+8</span>
+                            <span>2015–2026</span>
+                        </p>
+                        <div class="hero-cta">
+                            <a class="btn btn--primary" href="index.html"
+                                >Back to portfolio</a
+                            >
+                            <a class="btn" href="mailto:gabrielgelo93@gmail.com"
+                                >Email me</a
+                            >
+                            <button class="btn" type="button" data-print>
+                                Print / save as PDF
+                            </button>
+                        </div>
+                    </div>
+
+                    <aside class="lead__aside" aria-label="Inside this edition">
+                        <div class="index-box">
+                            <p class="box-label">Inside this edition</p>
+                            <ol class="edition-index">
+                                <li>
+                                    <a href="#problem"
+                                        ><span>01</span> Context</a
+                                    >
+                                </li>
+                                <li>
+                                    <a href="#system"
+                                        ><span>02</span> How it fits</a
+                                    >
+                                </li>
+                                <li>
+                                    <a href="#work"
+                                        ><span>03</span> Case studies</a
+                                    >
+                                </li>
+                                <li>
+                                    <a href="#earlier"
+                                        ><span>04</span> Earlier work</a
+                                    >
+                                </li>
+                                <li>
+                                    <a href="#engineering"
+                                        ><span>05</span> Engineering</a
+                                    >
+                                </li>
+                                <li>
+                                    <a href="#evidence"
+                                        ><span>06</span> Evidence</a
+                                    >
+                                </li>
+                                <li>
+                                    <a href="#limits"><span>07</span> Limits</a>
+                                </li>
+                            </ol>
+                        </div>
+
+                        <div class="notice-box">
+                            <p class="box-label">Scope</p>
+                            <p>
+                                Four 2026 cases, earlier work, and the evidence
+                                behind them.
+                            </p>
+                            <a href="index.html">Back to the portfolio →</a>
+                        </div>
+                    </aside>
+                </section>
+                <!-- ================================================================
+           01 — Problem
+           ================================================================ -->
+                <section class="section" id="problem">
+                    <span class="section-num">01</span>
+                    <h2>The same concept, five different names.</h2>
+
+                    <div class="measure">
+                        <p class="lede">
+                            Cloud marketplaces are where software companies
+                            list, price, and sell through AWS, Microsoft,
+                            Google, Snowflake, and Oracle. The rules are
+                            contractual, regional, and different on every
+                            platform.
+                        </p>
+
+                        <p>
+                            A sales team has to answer questions like
+                            <em
+                                >&ldquo;can this customer pay from their
+                                committed cloud spend?&rdquo;</em
+                            >
+                            and
+                            <em
+                                >&ldquo;who authorizes a channel resale in
+                                EMEA?&rdquo;</em
+                            >
+                            The answer is usually spread across six
+                            documentation sites, three internal docs, and one
+                            person who happens to know. The same concept is
+                            called a <strong>CPPO</strong> on AWS, an
+                            <strong>MPO</strong> on Azure, and an
+                            <strong>MCPO</strong> on Google. Searching any of
+                            those acronyms returns marketing pages, not
+                            definitions.
+                        </p>
+                    </div>
+
+                    <div
+                        class="table-wrap w-table"
+                        tabindex="0"
+                        role="region"
+                        aria-labelledby="comparison-caption"
+                    >
+                        <table>
+                            <caption id="comparison-caption">
+                                One concept, five vocabularies
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Concept</th>
+                                    <th scope="col">AWS</th>
+                                    <th scope="col">Microsoft</th>
+                                    <th scope="col">Google Cloud</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">
+                                        <strong>Channel resale offer</strong>
+                                    </th>
+                                    <td>
+                                        Channel Partner Private Offer (CPPO)
+                                    </td>
+                                    <td>Multiparty Private Offer (MPO)</td>
+                                    <td>
+                                        Marketplace Channel Private Offer (MCPO)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <strong>Contract of record</strong>
+                                    </th>
+                                    <td>Agreement</td>
+                                    <td>Entitlement</td>
+                                    <td>Subscription</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        <strong>Committed spend</strong>
+                                    </th>
+                                    <td>Enterprise Discount Program (EDP)</td>
+                                    <td>MACC</td>
+                                    <td>Committed Use Discount</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="muted small mt-3 measure-narrow">
+                        The gap was not a lack of documentation. It was the
+                        absence of <em>one place</em> where the vocabulary, the
+                        mechanics, and the next action lived together and stayed
+                        current.
+                    </p>
+                </section>
+
+                <!-- ================================================================
+           02 — System
+           ================================================================ -->
+                <section class="section" id="system">
+                    <div class="panel-dark">
+                        <span class="section-num">02</span>
+                        <h2>How the 2026 system fits together.</h2>
+                        <p class="lede">
+                            I did not write a one-off handbook. I built a loop:
+                            capture what changed, decide what matters, publish
+                            it, and fold the durable parts back into a permanent
+                            reference.
+                        </p>
+
+                        <div
+                            class="flow"
+                            role="list"
+                            aria-label="Content pipeline: capture, score, review, publish"
+                        >
+                            <div class="flow-step" role="listitem">
+                                <h3>Capture</h3>
+                                <p>
+                                    13 sources across five platforms feed the
+                                    reference and the What&rsquo;s New archive.
+                                    A separate 16-source watchlist drives three
+                                    domain agents weekly, plus an
+                                    event-triggered pass within 48 hours of a
+                                    major announcement.
+                                </p>
+                            </div>
+                            <div class="flow-step" role="listitem">
+                                <h3>Diff &amp; score</h3>
+                                <p>
+                                    Content hashes are compared against stored
+                                    snapshots. Each candidate gets a 1–5 score
+                                    and is routed to the briefing, a reference
+                                    update, or the discard pile.
+                                </p>
+                            </div>
+                            <div class="flow-step" role="listitem">
+                                <h3>Human gate</h3>
+                                <p>
+                                    I review the reasoning before opening a
+                                    draft. A rejected topic costs one read, not
+                                    a rewrite. Nothing publishes on its own.
+                                </p>
+                            </div>
+                            <div class="flow-step" role="listitem">
+                                <h3>Publish</h3>
+                                <p>
+                                    Approved items become a briefing edition or
+                                    a stamped reference section, with source
+                                    links and a last-verified date.
+                                </p>
+                            </div>
+                        </div>
+
+                        <p class="flow-note">
+                            The process documents were shared work. I owned
+                            discovery and orchestration, and integrated a UX
+                            outline and writing guide produced by a designer and
+                            a content lead. The reference site, publishing site,
+                            and ingestion script were mine.
+                        </p>
+
+                        <div class="layers" role="list">
+                            <div class="layer" role="listitem">
+                                <span class="mono">Layer 1 · Permanent</span>
+                                <h3>Reference</h3>
+                                <p>
+                                    507 terms, 1,477 curated cross-links, 21
+                                    learning paths, 37 guided walkthroughs, and
+                                    a cross-platform comparison map.
+                                </p>
+                            </div>
+                            <div class="layer" role="listitem">
+                                <span class="mono">Layer 2 · Recurring</span>
+                                <h3>Briefing</h3>
+                                <p>
+                                    Five editions. Each starts with a theme,
+                                    compares the hyperscalers, and ends with a
+                                    practical implication.
+                                </p>
+                            </div>
+                            <div class="layer" role="listitem">
+                                <span class="mono">Layer 3 · Process</span>
+                                <h3>Operations</h3>
+                                <p>
+                                    Seven agent specs, three skill documents,
+                                    explicit review gates, and documented
+                                    failure modes. A model for keeping the other
+                                    layers current.
+                                </p>
+                            </div>
+                        </div>
+
+                        <p class="flow-note">
+                            The curriculum sits beside the loop. It sequences
+                            the reference into a seven-week path and pairs every
+                            module with a quiz.
+                        </p>
+
+                        <div class="principles">
+                            <h3>Working principles</h3>
+                            <ol>
+                                <li>
+                                    <strong>Start with the decision.</strong>
+                                    Write down what the reader needs to do
+                                    differently before choosing a format or a
+                                    tool.
+                                </li>
+                                <li>
+                                    <strong>Ship something reviewable.</strong>
+                                    Deliver in phases a collaborator can
+                                    inspect, not one big reveal at the end.
+                                </li>
+                                <li>
+                                    <strong>Record the trade-off.</strong> Every
+                                    meaningful choice gets its rationale and the
+                                    alternative I rejected.
+                                </li>
+                                <li>
+                                    <strong>Check the source.</strong> If a
+                                    claim cannot be traced, it does not ship. It
+                                    gets flagged and checked.
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ================================================================
+           03 — Work
+           ================================================================ -->
+                <section class="section" id="work">
+                    <span class="section-num">03</span>
+                    <h2>Four projects from the 2026 system.</h2>
+                    <p class="lede mb-4">
+                        Each project solved a different problem for a different
+                        reader. Together they cover the path from &ldquo;what
+                        does this word mean&rdquo; to &ldquo;what changed this
+                        month, what should I do about it, and how do I teach it
+                        to a new hire.&rdquo;
+                    </p>
+
+                    <div class="outcomes" role="list" aria-label="Outputs">
+                        <div class="outcome" role="listitem">
+                            <b>One definition per term</b>
+                            <span
+                                >507 terms resolve to a canonical definition, an
+                                alias set, and a source URL. Not six
+                                documentation sites and a person who happens to
+                                know.</span
+                            >
+                        </div>
+                        <div class="outcome" role="listitem">
+                            <b>A seven-week path where none existed</b>
+                            <span
+                                >13 modules and 146 quiz questions sequence the
+                                domain from concepts to co-sell judgment.</span
+                            >
+                        </div>
+                        <div class="outcome" role="listitem">
+                            <b>Four errors caught before publication</b>
+                            <span
+                                >The verification pass stopped a bad CAGR
+                                figure, a press release from the wrong year, and
+                                two wrong product versions.</span
+                            >
+                        </div>
+                        <div class="outcome" role="listitem">
+                            <b>1,607 records protected</b>
+                            <span
+                                >A zero-parse guard now aborts the ingestion job
+                                instead of overwriting the archive.</span
+                            >
+                        </div>
+                    </div>
+
+                    <nav class="paths" aria-label="Jump to a case">
+                        <p class="eyebrow">Jump to a case</p>
+                        <ul>
+                            <li>
+                                <a href="#case-a">Reference platform</a>
+                                <span
+                                    >Case A · glossary, paths, comparison</span
+                                >
+                            </li>
+                            <li>
+                                <a href="#case-b">Monthly briefing</a>
+                                <span>Case B · publishing and editorial</span>
+                            </li>
+                            <li>
+                                <a href="#case-c">Onboarding curriculum</a>
+                                <span>Case C · instructional design</span>
+                            </li>
+                            <li>
+                                <a href="#case-d">AI content model</a>
+                                <span
+                                    >Case D · review gates and agent specs</span
+                                >
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <!-- CASE A -->
+                    <article
+                        class="case"
+                        id="case-a"
+                        aria-labelledby="case-reference"
+                    >
+                        <div class="case-head">
+                            <span class="case-kicker"
+                                >Case A · Reference platform</span
+                            >
+                            <h3 id="case-reference">
+                                A 507-term reference built like a product.
+                            </h3>
+                            <p class="case-summary">
+                                A searchable glossary with learning paths,
+                                guided walkthroughs, and a cross-platform
+                                comparison map. All of it renders from one data
+                                layer, with no framework and no build step.
+                            </p>
+                            <div class="pills">
+                                <span class="pill pill--accent"
+                                    >Vanilla JS</span
+                                >
+                                <span class="pill">Static site</span>
+                                <span class="pill">Accessibility</span>
+                                <span class="pill">Content ops</span>
+                            </div>
+                        </div>
+
+                        <figure class="mb-4">
+                            <div class="shot shot--tall">
+                                <picture>
+                                    <source
+                                        srcset="
+                                            assets/01-glossary-720.webp  720w,
+                                            assets/01-glossary.webp     1440w
+                                        "
+                                        sizes="(min-width: 1180px) 1100px, 100vw"
+                                        type="image/webp"
+                                    />
+                                    <img
+                                        src="assets/01-glossary.png"
+                                        srcset="
+                                            assets/01-glossary-720.png  720w,
+                                            assets/01-glossary.png     1440w
+                                        "
+                                        sizes="(min-width: 1180px) 1100px, 100vw"
+                                        width="1440"
+                                        height="1500"
+                                        loading="lazy"
+                                        decoding="async"
+                                        alt="Glossary page: a left sidebar of platform and category filters, an A–Z index, and a list of term cards with difficulty badges and related-term links."
+                                    />
+                                </picture>
+                            </div>
+                            <figcaption>
+                                <b>Glossary.</b> 507 terms, faceted filtering,
+                                fuzzy search with a subsequence fallback, and a
+                                detail panel. Difficulty is assigned per term
+                                against a rubric and exposed as a filter.
+                            </figcaption>
+                        </figure>
+
+                        <div class="case-grid">
+                            <div class="blocks">
+                                <div class="block">
+                                    <h4>Problem</h4>
+                                    <p>
+                                        New hires, sales engineers, and partner
+                                        managers kept asking the same twenty
+                                        questions. Existing docs described
+                                        features; nobody described the
+                                        <em>mechanics</em>: how money,
+                                        contracts, and authorization move
+                                        through a marketplace deal.
+                                    </p>
+                                </div>
+
+                                <div class="block">
+                                    <h4>What I built</h4>
+                                    <ul>
+                                        <li>
+                                            <strong>507 terms</strong> with
+                                            aliases, difficulty, category,
+                                            audience, use cases, and
+                                            <strong>1,477</strong> curated
+                                            cross-links.
+                                        </li>
+                                        <li>
+                                            <strong>21 learning paths</strong>
+                                            (269 steps) sequenced by role and
+                                            prerequisite, with per-step progress
+                                            saved locally.
+                                        </li>
+                                        <li>
+                                            <strong
+                                                >37 guided walkthroughs</strong
+                                            >
+                                            (194 steps) with 486 &ldquo;before
+                                            you move on&rdquo; checks. The
+                                            operational layer the glossary alone
+                                            could not provide.
+                                        </li>
+                                        <li>
+                                            <strong>36 comparison rows</strong>
+                                            across up to seven platforms,
+                                            derived from the alias graph instead
+                                            of a second hand-maintained table.
+                                        </li>
+                                        <li>
+                                            A
+                                            <strong>What&rsquo;s New</strong>
+                                            feed: 1,761 entries from 13
+                                            monitored sources, ingested by a
+                                            scheduled Node script.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="block">
+                                    <h4>Key decisions</h4>
+                                    <div class="decision">
+                                        <strong>No framework, no build.</strong>
+                                        Vanilla ES modules and one CSS file. A
+                                        content site with no state to manage did
+                                        not need a bundler, and the constraint
+                                        kept deployment to a push to
+                                        <code>main</code>.
+                                    </div>
+                                    <div class="decision">
+                                        <strong
+                                            >One data layer, eight
+                                            pages.</strong
+                                        >
+                                        Terms, tags, paths, and walkthroughs
+                                        live in plain JS modules. The comparison
+                                        view is <em>derived</em> from alias
+                                        syntax with a union-find pass, so adding
+                                        a term can improve three pages at once.
+                                    </div>
+                                    <div class="decision">
+                                        <strong>Do not guess.</strong> Every
+                                        term carries a source URL. If a claim
+                                        had no authoritative source, it stayed
+                                        out, even when a stakeholder asked for
+                                        it twice.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <aside class="sidebar" aria-label="Project facts">
+                                <h4>At a glance</h4>
+                                <dl>
+                                    <dt>Role</dt>
+                                    <dd>Sole designer, engineer, editor</dd>
+                                    <dt>Span</dt>
+                                    <dd>Mar – Oct 2026</dd>
+                                    <dt>Commits</dt>
+                                    <dd>319</dd>
+                                    <dt>Code</dt>
+                                    <dd>~11k lines JS/CSS/HTML</dd>
+                                    <dt>Data</dt>
+                                    <dd>~40k lines of content</dd>
+                                    <dt>Pages</dt>
+                                    <dd>8</dd>
+                                    <dt>Stack</dt>
+                                    <dd>ES modules, CSS, GitHub Actions</dd>
+                                </dl>
+                            </aside>
+                        </div>
+
+                        <div class="stack">
+                            <div class="grid-2">
+                                <figure>
+                                    <div class="shot">
+                                        <picture>
+                                            <source
+                                                srcset="
+                                                    assets/02-compare-720.webp  720w,
+                                                    assets/02-compare.webp     1440w
+                                                "
+                                                sizes="(min-width: 900px) 45vw, 100vw"
+                                                type="image/webp"
+                                            />
+                                            <img
+                                                src="assets/02-compare.png"
+                                                srcset="
+                                                    assets/02-compare-720.png  720w,
+                                                    assets/02-compare.png     1440w
+                                                "
+                                                sizes="(min-width: 900px) 45vw, 100vw"
+                                                width="1440"
+                                                height="1500"
+                                                loading="lazy"
+                                                decoding="async"
+                                                alt="Cross-platform comparison table with a concept column and one column per platform, showing equivalent product names or a dash where no equivalent exists."
+                                            />
+                                        </picture>
+                                    </div>
+                                    <figcaption>
+                                        <b>Comparison.</b> The same concept
+                                        across seven platforms, with explicit
+                                        gaps rather than invented equivalence.
+                                    </figcaption>
+                                </figure>
+                                <figure>
+                                    <div class="shot">
+                                        <picture>
+                                            <source
+                                                srcset="
+                                                    assets/03-paths-720.webp  720w,
+                                                    assets/03-paths.webp     1440w
+                                                "
+                                                sizes="(min-width: 900px) 45vw, 100vw"
+                                                type="image/webp"
+                                            />
+                                            <img
+                                                src="assets/03-paths.png"
+                                                srcset="
+                                                    assets/03-paths-720.png  720w,
+                                                    assets/03-paths.png     1440w
+                                                "
+                                                sizes="(min-width: 900px) 45vw, 100vw"
+                                                width="1440"
+                                                height="1500"
+                                                loading="lazy"
+                                                decoding="async"
+                                                alt="Learning paths hub with a role selector at the top and path cards showing difficulty, term count, estimated time, and prerequisite chips."
+                                            />
+                                        </picture>
+                                    </div>
+                                    <figcaption>
+                                        <b>Learning paths.</b> Role-based entry
+                                        points, difficulty labels, and
+                                        prerequisite hints. A curriculum, not a
+                                        link list.
+                                    </figcaption>
+                                </figure>
+                            </div>
+
+                            <figure>
+                                <div class="shot shot--tall">
+                                    <picture>
+                                        <source
+                                            srcset="
+                                                assets/04-whats-new-720.webp  720w,
+                                                assets/04-whats-new.webp     1440w
+                                            "
+                                            sizes="(min-width: 1180px) 1100px, 100vw"
+                                            type="image/webp"
+                                        />
+                                        <img
+                                            src="assets/04-whats-new.png"
+                                            srcset="
+                                                assets/04-whats-new-720.png  720w,
+                                                assets/04-whats-new.png     1440w
+                                            "
+                                            sizes="(min-width: 1180px) 1100px, 100vw"
+                                            width="1440"
+                                            height="1400"
+                                            loading="lazy"
+                                            decoding="async"
+                                            alt="What's New feed with platform and type filters, entries grouped by month, and a second column listing monitored documentation sources."
+                                        />
+                                    </picture>
+                                </div>
+                                <figcaption>
+                                    <b>What&rsquo;s New.</b> A scheduled
+                                    ingestion job normalizes 13 sources into one
+                                    filterable feed, with a hard guard against
+                                    overwriting the archive on a failed parse.
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </article>
+
+                    <!-- CASE B -->
+                    <article
+                        class="case"
+                        id="case-b"
+                        aria-labelledby="case-briefing"
+                    >
+                        <div class="case-head">
+                            <span class="case-kicker">Case B · Publishing</span>
+                            <h3 id="case-briefing">
+                                A briefing that explains what changed and why it
+                                matters.
+                            </h3>
+                            <p class="case-summary">
+                                Five editions of a monthly briefing. Each picks
+                                two or three themes, compares how AWS,
+                                Microsoft, Google, and Snowflake approach them,
+                                and ends with what it means for a specific
+                                reader.
+                            </p>
+                            <div class="pills">
+                                <span class="pill pill--accent"
+                                    >Editorial design</span
+                                >
+                                <span class="pill">Data-driven rendering</span>
+                                <span class="pill">Export &amp; print</span>
+                                <span class="pill">Persona model</span>
+                            </div>
+                        </div>
+
+                        <div class="grid-2 mb-4">
+                            <figure>
+                                <div class="shot">
+                                    <picture>
+                                        <source
+                                            srcset="
+                                                assets/05-feed-720.webp  720w,
+                                                assets/05-feed.webp     1440w
+                                            "
+                                            sizes="(min-width: 900px) 45vw, 100vw"
+                                            type="image/webp"
+                                        />
+                                        <img
+                                            src="assets/05-feed.png"
+                                            srcset="
+                                                assets/05-feed-720.png  720w,
+                                                assets/05-feed.png     1440w
+                                            "
+                                            sizes="(min-width: 900px) 45vw, 100vw"
+                                            width="1440"
+                                            height="1500"
+                                            loading="lazy"
+                                            decoding="async"
+                                            alt="Newsletter feed page with an edition title, persona filter pills, a What's New section of cards, a Deep Dive section, and quick links."
+                                        />
+                                    </picture>
+                                </div>
+                                <figcaption>
+                                    <b>Feed.</b> Discovery layer: edition
+                                    summary, persona toggle, and cards grouped
+                                    by &ldquo;what changed&rdquo; and
+                                    &ldquo;deep dive.&rdquo;
+                                </figcaption>
+                            </figure>
+                            <figure>
+                                <div class="shot">
+                                    <picture>
+                                        <source
+                                            srcset="
+                                                assets/06-edition-720.webp  720w,
+                                                assets/06-edition.webp     1440w
+                                            "
+                                            sizes="(min-width: 900px) 45vw, 100vw"
+                                            type="image/webp"
+                                        />
+                                        <img
+                                            src="assets/06-edition.png"
+                                            srcset="
+                                                assets/06-edition-720.png  720w,
+                                                assets/06-edition.png     1440w
+                                            "
+                                            sizes="(min-width: 900px) 45vw, 100vw"
+                                            width="1440"
+                                            height="1500"
+                                            loading="lazy"
+                                            decoding="async"
+                                            alt="Edition page showing a full topic with a numbered heading, platform tags, an intro, and per-platform analysis sections with source links."
+                                        />
+                                    </picture>
+                                </div>
+                                <figcaption>
+                                    <b>Edition.</b> Reading layer: topic-first,
+                                    with the same theme analyzed per hyperscaler
+                                    and a source link under each claim.
+                                </figcaption>
+                            </figure>
+                        </div>
+
+                        <div class="case-grid">
+                            <div class="blocks">
+                                <div class="block">
+                                    <h4>Problem</h4>
+                                    <p>
+                                        Marketplace rules change constantly: fee
+                                        structures, co-sell eligibility,
+                                        committed-spend rules. A weekly
+                                        changelog was accurate and useless. It
+                                        told people
+                                        <em>what happened</em> without telling
+                                        them <em>whether to care</em>.
+                                    </p>
+                                </div>
+
+                                <div class="block">
+                                    <h4>What I built</h4>
+                                    <ul>
+                                        <li>
+                                            A two-layer architecture: a
+                                            scannable <strong>feed</strong> for
+                                            triage and a long-form
+                                            <strong>edition</strong> page for
+                                            depth, sharing one data layer.
+                                        </li>
+                                        <li>
+                                            <strong>43 topic objects</strong>
+                                            across <strong>5 editions</strong>
+                                            (15 published), ~6,300 words of
+                                            published analysis, every
+                                            hyperscaler section carrying a
+                                            source.
+                                        </li>
+                                        <li>
+                                            A
+                                            <strong>persona model</strong>
+                                            (Explorer / Tracker) that reorders
+                                            the page by intent: learning or
+                                            monitoring.
+                                        </li>
+                                        <li>
+                                            <strong
+                                                >Export to self-contained HTML
+                                                and print/PDF</strong
+                                            >, because the real distribution
+                                            channel was email and a forwarded
+                                            file, not a website.
+                                        </li>
+                                        <li>
+                                            A glossary drawer embedded as a
+                                            480px iframe, so a reader can
+                                            resolve a term without losing their
+                                            place.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="block">
+                                    <h4>Key decisions</h4>
+                                    <div class="decision">
+                                        <strong
+                                            >Topic-first, not
+                                            platform-first.</strong
+                                        >
+                                        A section per hyperscaler would have
+                                        been easier to write and worse to read.
+                                        Organizing by theme forces the
+                                        comparison and surfaces where the
+                                        platforms diverge.
+                                    </div>
+                                    <div class="decision">
+                                        <strong
+                                            >Every claim gets a source,
+                                            inline.</strong
+                                        >
+                                        Not a bibliography at the bottom. The
+                                        link sits under the claim it supports,
+                                        because the reader&rsquo;s next move is
+                                        usually &ldquo;show me.&rdquo;
+                                    </div>
+                                    <div class="decision">
+                                        <strong
+                                            >Reuse the glossary instead of
+                                            rewriting it.</strong
+                                        >
+                                        Definitions live in one place. The
+                                        briefing links into the reference
+                                        instead of maintaining a second,
+                                        drifting copy.
+                                    </div>
+                                </div>
+
+                                <div class="block">
+                                    <h4>Scope and limits</h4>
+                                    <p>
+                                        A nine-day prototype built with sample
+                                        data. The editions show the architecture
+                                        and editorial model. They were not
+                                        distributed to customers, and there are
+                                        no open or click metrics. The real
+                                        channel was email and a forwarded file,
+                                        which is why export and print exist.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <aside class="sidebar" aria-label="Project facts">
+                                <h4>At a glance</h4>
+                                <dl>
+                                    <dt>Role</dt>
+                                    <dd>
+                                        Publishing, topic discovery, frontend
+                                    </dd>
+                                    <dt>Span</dt>
+                                    <dd>9 days to working prototype</dd>
+                                    <dt>Commits</dt>
+                                    <dd>27</dd>
+                                    <dt>Code</dt>
+                                    <dd>~5k lines</dd>
+                                    <dt>Editions</dt>
+                                    <dd>5</dd>
+                                    <dt>Topics</dt>
+                                    <dd>43 drafted, 15 published</dd>
+                                    <dt>Stack</dt>
+                                    <dd>ES modules, CSS, no build</dd>
+                                </dl>
+                            </aside>
+                        </div>
+                    </article>
+
+                    <!-- CASE C -->
+                    <article
+                        class="case"
+                        id="case-c"
+                        aria-labelledby="case-curriculum"
+                    >
+                        <div class="case-head">
+                            <span class="case-kicker">Case C · Curriculum</span>
+                            <h3 id="case-curriculum">
+                                A seven-week onboarding curriculum, sourced
+                                before it was written.
+                            </h3>
+                            <p class="case-summary">
+                                A path from marketplace concepts to co-sell
+                                judgment. Thirteen modules and thirteen quizzes
+                                are drafted. All six content weeks are
+                                source-mapped, with gaps marked.
+                            </p>
+                            <div class="pills">
+                                <span class="pill pill--accent"
+                                    >Instructional design</span
+                                >
+                                <span class="pill"
+                                    >Curriculum architecture</span
+                                >
+                                <span class="pill">Assessment</span>
+                                <span class="pill">Source mapping</span>
+                            </div>
+                        </div>
+
+                        <figure class="mb-4">
+                            <div
+                                class="shot diagram"
+                                tabindex="0"
+                                role="region"
+                                aria-label="Curriculum map"
+                            >
+                                <img
+                                    src="assets/curriculum-map.svg"
+                                    width="1200"
+                                    height="560"
+                                    loading="lazy"
+                                    decoding="async"
+                                    alt="Curriculum map: six content weeks moving from marketplace concepts through integrations, CRM, co-sell, customer success, and BizOps case studies, followed by a graduation week and a skills-verification capstone. Weeks 1 to 4 are drafted; weeks 5 and 6 are mapped."
+                                />
+                            </div>
+                            <figcaption>
+                                <b>Curriculum map.</b> Six content weeks, a
+                                graduation week, and a capstone. Drafted modules
+                                are filled; mapped-only weeks are outlined.
+                            </figcaption>
+                        </figure>
+
+                        <div class="case-grid">
+                            <div class="blocks">
+                                <div class="block">
+                                    <h4>Problem</h4>
+                                    <p>
+                                        New hires were expected to learn a
+                                        contractual, regional, multi-platform
+                                        product by shadowing. There was no
+                                        reading order, no shared vocabulary, and
+                                        no way to check whether someone
+                                        understood a process before putting them
+                                        in front of a customer. The source
+                                        material existed in a knowledge base,
+                                        product docs, call recordings, and three
+                                        people&rsquo;s notes, but it had never
+                                        been sequenced.
+                                    </p>
+                                </div>
+
+                                <div class="block">
+                                    <h4>What I built</h4>
+                                    <ul>
+                                        <li>
+                                            <strong
+                                                >13 modules and 13
+                                                quizzes</strong
+                                            >
+                                            (146 questions), paired one-to-one
+                                            by folder. The first four content
+                                            weeks are drafted; weeks 5–6 are
+                                            mapped but not yet written.
+                                        </li>
+                                        <li>
+                                            A
+                                            <strong>246-row source map</strong>
+                                            covering weeks 1–6, with two columns
+                                            per topic (a company source and an
+                                            official platform source), and gaps
+                                            marked explicitly.
+                                        </li>
+                                        <li>
+                                            <strong>~17,000 words</strong> of
+                                            module prose using one skeleton: why
+                                            it matters, mental model, mechanics,
+                                            worked example, and a check for
+                                            understanding.
+                                        </li>
+                                        <li>
+                                            An
+                                            <strong
+                                                >answer key kept out of the quiz
+                                                files</strong
+                                            >: Week 1–2 keys are stored as
+                                            SHA-256 hashes in a separate file,
+                                            with the limitation stated in the
+                                            file. That is obfuscation, not
+                                            security.
+                                        </li>
+                                        <li>
+                                            <strong
+                                                >108 commits over four
+                                                weeks</strong
+                                            >, with a changelog and per-change
+                                            diff backups for every module and
+                                            quiz.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="block">
+                                    <h4>Key decisions</h4>
+                                    <div class="decision">
+                                        <strong
+                                            >Source map before prose.</strong
+                                        >
+                                        The first artifact was a two-column
+                                        source map, not a lesson. If a topic had
+                                        no authoritative source, it was marked
+                                        as a gap instead of filled with
+                                        plausible prose.
+                                    </div>
+                                    <div class="decision">
+                                        <strong
+                                            >Make the pairing rule
+                                            structural.</strong
+                                        >
+                                        Every module folder has a matching quiz
+                                        folder, and a module without a quiz
+                                        fails review. No orphan modules or
+                                        quizzes.
+                                    </div>
+                                    <div class="decision">
+                                        <strong
+                                            >Keep answers out of the quiz
+                                            files.</strong
+                                        >
+                                        Week 1–2 keys live as SHA-256 hashes in
+                                        a separate file. The file says plainly
+                                        that this is obfuscation, not security.
+                                        The point is to keep casual viewers from
+                                        reading answers in the quiz source.
+                                    </div>
+                                    <div class="decision">
+                                        <strong
+                                            >Keep drafting and publishing
+                                            separate.</strong
+                                        >
+                                        The repository is the drafting layer.
+                                        Publishing to the internal LMS is an
+                                        explicit, approved step. Nothing is live
+                                        by default.
+                                    </div>
+                                </div>
+
+                                <div class="block">
+                                    <h4>Scope and limits</h4>
+                                    <p>
+                                        Drafted and reviewed, not delivered to a
+                                        live cohort. Weeks 5–6 and the capstone
+                                        are mapped but not written. There is no
+                                        completion, retention, or
+                                        assessment-outcome data yet. This case
+                                        covers the design, sourcing, and
+                                        assessment structure.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <aside class="sidebar" aria-label="Project facts">
+                                <h4>At a glance</h4>
+                                <dl>
+                                    <dt>Role</dt>
+                                    <dd>
+                                        Curriculum design, drafting, assessment,
+                                        source mapping
+                                    </dd>
+                                    <dt>Span</dt>
+                                    <dd>Aug – Sep 2026</dd>
+                                    <dt>Modules</dt>
+                                    <dd>13 drafted (weeks 1–4)</dd>
+                                    <dt>Quizzes</dt>
+                                    <dd>13 · 146 questions</dd>
+                                    <dt>Source map</dt>
+                                    <dd>246 rows, weeks 1–6</dd>
+                                    <dt>Commits</dt>
+                                    <dd>108</dd>
+                                    <dt>Stack</dt>
+                                    <dd>Markdown, structured quiz schema</dd>
+                                </dl>
+                            </aside>
+                        </div>
+                    </article>
+
+                    <!-- CASE D -->
+                    <article
+                        class="case"
+                        id="case-d"
+                        aria-labelledby="case-ops"
+                    >
+                        <div class="case-head">
+                            <span class="case-kicker"
+                                >Case D · Operations model</span
+                            >
+                            <h3 id="case-ops">
+                                An AI content pipeline built around the review
+                                gate.
+                            </h3>
+                            <p class="case-summary">
+                                Seven agent specifications, three skill
+                                documents, and a two-gate review process. A
+                                repeatable way to produce research-heavy content
+                                without publishing hallucinations.
+                            </p>
+                            <div class="pills">
+                                <span class="pill pill--accent"
+                                    >AI operations</span
+                                >
+                                <span class="pill">Process design</span>
+                                <span class="pill">Prompt engineering</span>
+                                <span class="pill">Editorial standards</span>
+                            </div>
+                        </div>
+
+                        <figure class="mb-4">
+                            <div
+                                class="shot diagram"
+                                tabindex="0"
+                                role="region"
+                                aria-label="Two-gate review pipeline"
+                            >
+                                <img
+                                    src="assets/agent-gate.svg"
+                                    width="1200"
+                                    height="420"
+                                    loading="lazy"
+                                    decoding="async"
+                                    alt="Pipeline diagram: sources feed a discovery agent, which writes a reasoning report. Gate 1 is a human review of the reasoning before a draft is opened. The draft then goes through Gate 2, which verifies claims and sources before publishing."
+                                />
+                            </div>
+                            <figcaption>
+                                <b>Review gates.</b> The reasoning report is
+                                reviewed before the draft is opened; a rejected
+                                topic costs one read, not a rewrite.
+                            </figcaption>
+                        </figure>
+
+                        <div class="case-grid">
+                            <div class="blocks">
+                                <div class="block">
+                                    <h4>Problem</h4>
+                                    <p>
+                                        Research-heavy content has two failure
+                                        modes: it is slow, or it is confidently
+                                        wrong. LLM drafting solved the first and
+                                        made the second worse. A plausible
+                                        sentence about a fee schedule looks the
+                                        same as a verified one until someone
+                                        checks.
+                                    </p>
+                                </div>
+
+                                <div class="block">
+                                    <h4>What I built</h4>
+                                    <ul>
+                                        <li>
+                                            <strong>Seven agent specs</strong>
+                                            (554 lines), each with a typed
+                                            output schema, confidence field, and
+                                            explicit failure behavior.
+                                        </li>
+                                        <li>
+                                            <strong
+                                                >Three skill documents</strong
+                                            >: topic discovery (198 lines), UX
+                                            outline (263), and a writing guide
+                                            (777) with six content types, worked
+                                            examples, and persona reframings.
+                                        </li>
+                                        <li>
+                                            A
+                                            <strong
+                                                >two-gate review model</strong
+                                            >: the reasoning report is reviewed
+                                            <em>before</em> the draft is opened,
+                                            so a bad topic is rejected in one
+                                            read.
+                                        </li>
+                                        <li>
+                                            An
+                                            <strong
+                                                >anti-approximation rule</strong
+                                            >
+                                            in the writing guide: if you cannot
+                                            cite an exact number, you do not
+                                            publish. You flag it
+                                            <code>[VERIFY]</code>.
+                                        </li>
+                                        <li>
+                                            <strong
+                                                >Two documented pipeline
+                                                runs</strong
+                                            >
+                                            producing 3 drafts and 10 topics,
+                                            including a verification pass that
+                                            caught a bad CAGR figure, a press
+                                            release from the wrong year, and two
+                                            wrong product versions.
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="block">
+                                    <h4>Key decisions</h4>
+                                    <div class="decision">
+                                        <strong
+                                            >Review the reasoning first.</strong
+                                        >
+                                        Reviewing the reasoning report first
+                                        makes rejection cheap and turns the
+                                        alternatives list into a swap mechanism.
+                                        This was the most useful idea in the
+                                        system.
+                                    </div>
+                                    <div class="decision">
+                                        <strong>Define every handoff.</strong>
+                                        Every handoff has a JSON schema, a
+                                        confidence level, and a defined failure
+                                        mode. &ldquo;Never output
+                                        <code>unchanged</code> if the hash
+                                        comparison was skipped&rdquo; is the
+                                        kind of rule that prevents silent
+                                        corruption.
+                                    </div>
+                                    <div class="decision">
+                                        <strong>Write for the newcomer.</strong>
+                                        When in doubt, the writing guide
+                                        defaults to the 101 reader.
+                                        Practitioners can skim an explanation;
+                                        newcomers cannot fill a gap they do not
+                                        know exists.
+                                    </div>
+                                </div>
+
+                                <div class="block">
+                                    <h4>Scope and limits</h4>
+                                    <p>
+                                        This was a designed and piloted
+                                        operating model, not an automated
+                                        system. Agents ran as prompted sessions
+                                        with a human in the loop. There was no
+                                        orchestration code, scheduler, or
+                                        evaluation harness. The value is in the
+                                        contracts and the review design, and in
+                                        knowing what was missing.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <aside class="sidebar" aria-label="Project facts">
+                                <h4>At a glance</h4>
+                                <dl>
+                                    <dt>Role</dt>
+                                    <dd>
+                                        Discovery + orchestration; integrated 2
+                                        collaborators&rsquo; skill docs
+                                    </dd>
+                                    <dt>Span</dt>
+                                    <dd>May – Jun 2026</dd>
+                                    <dt>Agents</dt>
+                                    <dd>7 specs</dd>
+                                    <dt>Skills</dt>
+                                    <dd>3 documents, ~1,240 lines</dd>
+                                    <dt>Runs</dt>
+                                    <dd>2 documented</dd>
+                                    <dt>Output</dt>
+                                    <dd>3 drafts, 10 topics</dd>
+                                    <dt>Status</dt>
+                                    <dd>Piloted, human-in-the-loop</dd>
+                                </dl>
+                            </aside>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- ================================================================
+           04 — Earlier work
+           ================================================================ -->
+                <section class="section" id="earlier">
+                    <span class="section-num">04</span>
+                    <h2>
+                        Help center, internal tool, client sites, and side
+                        projects.
+                    </h2>
+                    <p class="lede mb-4">
+                        Since 2015, I have worked in support, knowledge
+                        management, and web development. The work below covers a
+                        help center migration, an internal invoicing system, six
+                        client sites, and two self-directed projects.
+                    </p>
+
+                    <div class="divider-top">
+                        <h3 class="subhead">
+                            A help center, an internal tool, and six client
+                            sites.
+                        </h3>
+
+                        <div class="projects">
+                            <article class="project">
+                                <span class="case-kicker"
+                                    >Sep 2023 – Dec 2025 · Help center</span
+                                >
+                                <h4>HR SaaS Help Center</h4>
+                                <p>
+                                    A help center for an all-in-one HR SaaS
+                                    focused on restaurant teams, built on
+                                    Intercom&rsquo;s Help Center product.
+                                    Content was migrated from Salesforce
+                                    Knowledge and structured in Markdown, with
+                                    custom CSS and HTML.
+                                </p>
+                                <div class="pills">
+                                    <span class="pill">Intercom</span>
+                                    <span class="pill"
+                                        >Salesforce Knowledge</span
+                                    >
+                                    <span class="pill">Markdown</span>
+                                    <span class="pill">CSS</span>
+                                    <span class="pill">HTML</span>
+                                </div>
+                            </article>
+
+                            <article class="project">
+                                <span class="case-kicker"
+                                    >Apr – May 2023 · Internal tool</span
+                                >
+                                <h4>Internal Invoice System</h4>
+                                <p>
+                                    An internal invoicing system built with
+                                    Laravel 10 and PostgreSQL. I was senior
+                                    developer and main front-end developer,
+                                    covering the interface, the PHP application,
+                                    and the database. Internal use only.
+                                </p>
+                                <div class="pills">
+                                    <span class="pill">Laravel 10</span>
+                                    <span class="pill">PHP</span>
+                                    <span class="pill">PostgreSQL</span>
+                                    <span class="pill">jQuery</span>
+                                    <span class="pill">HTML/CSS</span>
+                                </div>
+                            </article>
+                        </div>
+
+                        <h3 class="subhead mt-5">Client sites, 2023</h3>
+                        <p class="small muted">
+                            Six production sites in five months, each built or
+                            rebuilt to a client brief. The work was mostly HTML,
+                            CSS, JavaScript, and jQuery, with PHP and Bootstrap
+                            where the project needed them. Links open the live
+                            sites.
+                        </p>
+
+                        <div class="site-grid">
+                            <article class="site">
+                                <span class="site-when">Mar 2023</span>
+                                <h4>HYEG Mobile</h4>
+                                <p>
+                                    Mobile view for the HYEG website. Main
+                                    front-end developer.
+                                </p>
+                                <p class="site-stack">
+                                    HTML · CSS · JS · jQuery · PHP
+                                </p>
+                                <a
+                                    href="https://www.hyeg.jp/s/"
+                                    target="_blank"
+                                    rel="noopener"
+                                    >Visit HYEG
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </article>
+
+                            <article class="site">
+                                <span class="site-when">Apr – May 2023</span>
+                                <h4>Life Support Center Tomonokai</h4>
+                                <p>
+                                    Rebuilt the welfare association&rsquo;s site
+                                    to modern design standards. Front-end
+                                    developer.
+                                </p>
+                                <p class="site-stack">
+                                    HTML · CSS · JS · jQuery · Bootstrap
+                                </p>
+                                <a
+                                    href="https://www.lifesuppo.jp/"
+                                    target="_blank"
+                                    rel="noopener"
+                                    >Visit Lifesuppo
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </article>
+
+                            <article class="site">
+                                <span class="site-when">May 2023</span>
+                                <h4>Maeda Chiropractic</h4>
+                                <p>
+                                    Rebuilt the clinic&rsquo;s site from the
+                                    existing one. Main front-end developer.
+                                </p>
+                                <p class="site-stack">
+                                    HTML · CSS · JS · jQuery
+                                </p>
+                                <a
+                                    href="https://www.maedachiro.com/"
+                                    target="_blank"
+                                    rel="noopener"
+                                    >Visit Maedachiro
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </article>
+
+                            <article class="site">
+                                <span class="site-when">May 2023</span>
+                                <h4>Mori No Shion</h4>
+                                <p>
+                                    Pet memorial service website. Main front-end
+                                    developer.
+                                </p>
+                                <p class="site-stack">
+                                    HTML · CSS · JS · jQuery
+                                </p>
+                                <a
+                                    href="https://www.morinosion.com/"
+                                    target="_blank"
+                                    rel="noopener"
+                                    >Visit Morinosion
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </article>
+
+                            <article class="site">
+                                <span class="site-when">Jun 2023</span>
+                                <h4>Aladdin</h4>
+                                <p>Salon website. Main front-end developer.</p>
+                                <p class="site-stack">
+                                    HTML · CSS · JS · jQuery
+                                </p>
+                                <a
+                                    href="https://www.esthe-aladdin.jp/"
+                                    target="_blank"
+                                    rel="noopener"
+                                    >Visit Aladdin
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </article>
+
+                            <article class="site">
+                                <span class="site-when">Jul 2023</span>
+                                <h4>Hanamizuki Chiropractic</h4>
+                                <p>
+                                    Rebuilt the clinic&rsquo;s site from the
+                                    existing one. Main front-end developer.
+                                </p>
+                                <p class="site-stack">
+                                    HTML · CSS · JS · jQuery
+                                </p>
+                                <a
+                                    href="https://hanamizuki-seitai.jp/"
+                                    target="_blank"
+                                    rel="noopener"
+                                    >Visit Hanamizuki
+                                    <span aria-hidden="true">↗</span></a
+                                >
+                            </article>
+                        </div>
+                    </div>
+
+                    <div class="divider-top">
+                        <h3 class="subhead">Two independent projects.</h3>
+                        <div class="grid-2">
+                            <div>
+                                <h4 class="h-body">AWS certification course</h4>
+                                <p class="small muted mb-0">
+                                    23 lessons across four exam domains,
+                                    weighted to the official blueprint. Built
+                                    with a single-file study hub, a 40-entry
+                                    dated corrections register, three flagged
+                                    content gaps, and an explicit
+                                    in-scope/out-of-scope service audit. Built
+                                    in ten days.
+                                </p>
+                            </div>
+                            <div>
+                                <h4 class="h-body">
+                                    An interpreter, from scratch
+                                </h4>
+                                <p class="small muted mb-0">
+                                    A tree-walking language interpreter in
+                                    Python: lexer, recursive-descent parser,
+                                    evaluator, 60 tests, 14 example programs,
+                                    and a written language spec with an EBNF
+                                    grammar. No runtime dependencies.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="divider-top">
+                        <p class="eyebrow">Background</p>
+                        <p class="small muted mb-0">
+                            KodeGo, Full-stack Web Development (2022–2023) ·
+                            Coursera, Foundations of UX Design (2023) · Adamson
+                            University, Chemical Engineering. Certifications in
+                            HTML5, CSS, coding fundamentals, UX design, and
+                            coding for marketers.
+                        </p>
+                    </div>
+                </section>
+
+                <!-- ================================================================
+           05 — Engineering
+           ================================================================ -->
+                <section class="section" id="engineering">
+                    <span class="section-num">05</span>
+                    <h2>How the sites are built.</h2>
+                    <p class="lede">
+                        The reference and briefing sites are static: no
+                        framework, no bundler, and no server. That was a
+                        deliberate trade. Less abstraction to maintain, at the
+                        cost of hand-rolling the parts a framework would give
+                        you.
+                    </p>
+
+                    <div class="case-grid mt-5">
+                        <div class="blocks">
+                            <div class="block">
+                                <h3>Data is the source of truth</h3>
+                                <p>
+                                    Terms, paths, and walkthroughs are plain JS
+                                    modules with a documented schema. Rendering
+                                    derives from data: comparison groups, tag
+                                    colors, and section ordering are computed,
+                                    not duplicated. Term difficulty is assigned
+                                    per term against a rubric.
+                                </p>
+                            </div>
+                            <div class="block">
+                                <h3>Search degrades gracefully</h3>
+                                <p>
+                                    Exact substring matching runs first. When it
+                                    returns nothing, a subsequence scorer takes
+                                    over, weighting term names three times
+                                    higher than body text. So
+                                    <em>&ldquo;cppp&rdquo;</em> still finds
+                                    <em>CPPO</em> without a search index or a
+                                    dependency.
+                                </p>
+                            </div>
+                            <div class="block">
+                                <h3>Accessibility is a constraint</h3>
+                                <p>
+                                    Keyboard-operable cards, focus trapping in
+                                    modals, <code>aria-live</code> regions for
+                                    filtered results, 44px touch targets, skip
+                                    links, and a documented contrast floor. Some
+                                    of it is imperfect (see
+                                    <a href="#limits">Limits</a>), but it was
+                                    designed in, not bolted on.
+                                </p>
+                            </div>
+                            <div class="block">
+                                <h3>Failure modes are explicit</h3>
+                                <p>
+                                    The ingestion script aborts instead of
+                                    overwriting the archive when a source parses
+                                    to zero entries. That guard was added after
+                                    a near-miss that would have deleted 1,607
+                                    records. Per-source merge semantics exist
+                                    because &ldquo;replace&rdquo; was silently
+                                    dropping posts.
+                                </p>
+                            </div>
+                        </div>
+
+                        <aside class="sidebar" aria-label="Stack summary">
+                            <h3>Stack</h3>
+                            <dl>
+                                <dt>Runtime</dt>
+                                <dd>Browser, ES modules</dd>
+                                <dt>Styling</dt>
+                                <dd>Hand-written CSS, custom properties</dd>
+                                <dt>Data</dt>
+                                <dd>JS modules + CSV mirrors</dd>
+                                <dt>Automation</dt>
+                                <dd>Node script, GitHub Actions cron</dd>
+                                <dt>Hosting</dt>
+                                <dd>GitHub Pages</dd>
+                                <dt>Build</dt>
+                                <dd>None</dd>
+                            </dl>
+                        </aside>
+                    </div>
+
+                    <div class="code-wrap">
+                        <div class="code-head">
+                            <span>app/search.js — subsequence scoring</span>
+                            <span>vanilla JS, no dependencies</span>
+                        </div>
+                        <pre><code><span class="c-com">// Subsequence fuzzy match — returns a score &gt; 0 if all query chars appear
+// in order within text, rewarding consecutive runs. Returns 0 on no match.</span>
+<span class="c-key">function</span> <span class="c-fn">fuzzyScore</span>(text, query) {
+  <span class="c-key">if</span> (!text) <span class="c-key">return</span> 0;
+  <span class="c-key">const</span> t = text.toLowerCase();
+  <span class="c-key">const</span> q = query.toLowerCase();
+  <span class="c-key">let</span> ti = 0, qi = 0, score = 0, consecutive = 0;
+  <span class="c-key">while</span> (ti &lt; t.length &amp;&amp; qi &lt; q.length) {
+    <span class="c-key">if</span> (t[ti] === q[qi]) {
+      score += 1 + consecutive;   <span class="c-com">// reward adjacent hits</span>
+      consecutive++;
+      qi++;
+    } <span class="c-key">else</span> {
+      consecutive = 0;
+    }
+    ti++;
+  }
+  <span class="c-key">return</span> qi === q.length ? score : 0;
+}</code></pre>
+                    </div>
+
+                    <div class="code-wrap">
+                        <div class="code-head">
+                            <span
+                                >app/compare-data.js — alias-graph derivation
+                                (excerpt)</span
+                            >
+                            <span>union-find, no second mapping table</span>
+                        </div>
+                        <pre><code><span class="c-com">// Union-find: each term starts in its own set; union() merges sets.</span>
+<span class="c-key">function</span> <span class="c-fn">find</span>(x) {
+  <span class="c-key">if</span> (!(x <span class="c-key">in</span> parent)) <span class="c-key">return</span> x;
+  <span class="c-key">if</span> (parent[x] === x) <span class="c-key">return</span> x;
+  parent[x] = <span class="c-fn">find</span>(parent[x]);
+  <span class="c-key">return</span> parent[x];
+}
+
+<span class="c-com">// Pass 1: terms that share a base concept name.</span>
+platformTerms.forEach((t) =&gt; {
+  <span class="c-key">const</span> base = t.name.replace(SUFFIX_RE, <span class="c-str">""</span>).trim();
+  (byBase[base] ??= []).push(t.name);
+});
+
+<span class="c-com">// Pass 2: explicit "Equivalent: ..." aliases.</span>
+allComparableTerms.forEach((t) =&gt; {
+  <span class="c-key">if</span> (!t.alias) <span class="c-key">return</span>;
+  <span class="c-key">for</span> (<span class="c-key">const</span> m <span class="c-key">of</span> t.alias.matchAll(EQUIV_RE)) {
+    <span class="c-key">const</span> refName = m[<span class="c-str">1</span>].trim();
+    <span class="c-key">if</span> (refName <span class="c-key">in</span> parent) <span class="c-fn">union</span>(t.name, refName);
+  }
+});
+
+<span class="c-com">// Passes 3–4 (not shown): platform-prefixed mappings and explicit `group` values.</span>
+<span class="c-com">// Rows are the connected components spanning 2+ platforms.</span>
+<span class="c-key">export const</span> rows = Object.values(groups)
+  .filter((g) =&gt; Object.keys(g).length &gt;= <span class="c-str">2</span>)
+  .sort((a, b) =&gt; <span class="c-fn">conceptLabel</span>(a).localeCompare(<span class="c-fn">conceptLabel</span>(b)));</code></pre>
+                    </div>
+
+                    <p class="small muted mt-2 measure-wide">
+                        Both samples follow the same pattern: solve the problem
+                        in the smallest surface that works, and derive state
+                        instead of duplicating it. The comparison table is
+                        generated from the alias graph at runtime, so adding a
+                        term can improve several pages without a second table to
+                        maintain.
+                    </p>
+                </section>
+
+                <!-- ================================================================
+           06 — Evidence
+           ================================================================ -->
+                <section class="section" id="evidence">
+                    <span class="section-num">06</span>
+                    <h2>What the repositories show.</h2>
+                    <p class="lede mt-2">
+                        These numbers come from the repositories. A tilde (~)
+                        marks an approximation. Where a figure is a range or a
+                        subset, the table says so.
+                    </p>
+
+                    <div
+                        class="table-wrap"
+                        tabindex="0"
+                        role="region"
+                        aria-labelledby="evidence-caption"
+                    >
+                        <table>
+                            <caption id="evidence-caption">
+                                Measured output, March – October 2026
+                            </caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Metric</th>
+                                    <th scope="col">Value</th>
+                                    <th scope="col">Source</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">
+                                        Reference terms published
+                                    </th>
+                                    <td class="num">507</td>
+                                    <td>data layer</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Curated cross-links</th>
+                                    <td class="num">1,477</td>
+                                    <td>hand-authored related fields</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Learning paths / steps</th>
+                                    <td class="num">21 / 269</td>
+                                    <td>data layer</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        Guided walkthroughs / steps
+                                    </th>
+                                    <td class="num">37 / 194</td>
+                                    <td>data layer</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Comparison rows</th>
+                                    <td class="num">36</td>
+                                    <td>derived from alias graph</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Feed entries ingested</th>
+                                    <td class="num">1,761</td>
+                                    <td>13 monitored sources, scheduled job</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Briefing editions</th>
+                                    <td class="num">5</td>
+                                    <td>43 topics drafted, 15 published</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Curriculum modules</th>
+                                    <td class="num">13</td>
+                                    <td>weeks 1–4 drafted</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Quiz questions</th>
+                                    <td class="num">146</td>
+                                    <td>13 quizzes, 1:1 paired</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        Source-mapped curriculum rows
+                                    </th>
+                                    <td class="num">246</td>
+                                    <td>weeks 1–6</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Agent specifications</th>
+                                    <td class="num">7</td>
+                                    <td>554 lines</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        Skill / process documents
+                                    </th>
+                                    <td class="num">3</td>
+                                    <td>~1,240 lines</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">
+                                        Hand-written application code
+                                    </th>
+                                    <td class="num">~11,000</td>
+                                    <td>
+                                        lines, excluding data modules and
+                                        tooling
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Process documentation</th>
+                                    <td class="num">~15,000</td>
+                                    <td>
+                                        lines, including ~170-entry decision log
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Commits</th>
+                                    <td class="num">319 + 27 + 108</td>
+                                    <td>reference + briefing + curriculum</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p class="small muted mt-2 measure-wide">
+                        These are output counts, not impact metrics. I did not
+                        instrument usage, completion, or repeat-question volume.
+                        See <a href="#limits">Limits</a> for what that means and
+                        what I would measure next.
+                    </p>
+
+                    <h3 class="mt-5 subhead">2026 timeline</h3>
+                    <ul class="timeline">
+                        <li>
+                            <span class="when">March 2026</span>
+                            <span class="what">
+                                Reference site starts as a single styled HTML
+                                file. Split into modules the same day.
+                            </span>
+                        </li>
+                        <li>
+                            <span class="when">May 2026</span>
+                            <span class="what">
+                                Briefing platform prototyped in nine days.
+                                Content-operations model drafted with two
+                                collaborators.
+                            </span>
+                        </li>
+                        <li>
+                            <span class="when">June 2026</span>
+                            <span class="what">
+                                First full pipeline run with scored candidates
+                                and verification flags. Learning paths and
+                                walkthroughs shipped.
+                            </span>
+                        </li>
+                        <li>
+                            <span class="when">August – September 2026</span>
+                            <span class="what">
+                                Seven-week onboarding curriculum drafted: 13
+                                modules, 13 quizzes (146 questions), and a
+                                246-row source map covering weeks 1–6.
+                            </span>
+                        </li>
+                        <li>
+                            <span class="when">August – September 2026</span>
+                            <span class="what">
+                                Rebrand migration executed in seven
+                                independently reviewable steps; scope measured
+                                before execution, not estimated.
+                            </span>
+                        </li>
+                        <li>
+                            <span class="when">October 2026</span>
+                            <span class="what">
+                                Term base reaches 507. Accessibility and
+                                accuracy passes; handover documentation
+                                completed.
+                            </span>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- ================================================================
+           07 — Limits
+           ================================================================ -->
+                <section class="section" id="limits">
+                    <span class="section-num">07</span>
+                    <h2>Scope and limits.</h2>
+                    <p class="lede mb-4">
+                        These are the gaps I would fix first and the things a
+                        reviewer should not assume.
+                    </p>
+
+                    <div class="notes">
+                        <h3>Limitations</h3>
+                        <ul>
+                            <li>
+                                <strong
+                                    >Prototypes, not production systems.</strong
+                                >
+                                The reference, briefing, and curriculum projects
+                                are static and solo-built. There is no server,
+                                no auth, no analytics pipeline, and no load
+                                testing.
+                            </li>
+                            <li>
+                                <strong
+                                    >The curriculum is drafted, not
+                                    delivered.</strong
+                                >
+                                Weeks 5–6 and the capstone are mapped but not
+                                written. There is no completion, retention, or
+                                assessment-outcome data yet.
+                            </li>
+                            <li>
+                                <strong>No automated tests.</strong> Quality was
+                                enforced through schema rules, runtime guards,
+                                and human review. The interpreter project is the
+                                exception, with 60 tests.
+                            </li>
+                            <li>
+                                <strong
+                                    >The reference loads all of its data up
+                                    front.</strong
+                                >
+                                <code>terms.js</code> is ~795 KB and
+                                <code>whats-new.js</code> is ~842 KB. Both load
+                                before first paint on their pages, with no
+                                code-splitting or prerender. It is optimized for
+                                authoring speed, not first-load performance.
+                            </li>
+                            <li>
+                                <strong>I did not measure impact.</strong>
+                                There is no usage analytics, completion data, or
+                                before/after count of repeat questions. The
+                                evidence is qualitative: the reference was
+                                embedded in the enablement flow, requests came
+                                through the glossary, and defects were reported
+                                and fixed. If I rebuilt it, I would instrument
+                                zero-result searches, term-detail views, path
+                                completion, and repeat-question volume from day
+                                one.
+                            </li>
+                            <li>
+                                <strong
+                                    >The AI pipeline was piloted, not
+                                    automated.</strong
+                                >
+                                Agents ran as prompted sessions. There was no
+                                orchestration code or evaluation harness, and no
+                                output reached publication without a human gate.
+                            </li>
+                            <li>
+                                <strong
+                                    >The briefing prototype still has rough
+                                    edges.</strong
+                                >
+                                The persona control reorders instead of
+                                filtering (All and Tracker produce the same
+                                order), 28 drafted topic objects were left
+                                orphaned, and dark-mode print did not reset the
+                                colors. Those are prototype costs, not hidden
+                                defects.
+                            </li>
+                            <li>
+                                <strong>Documentation drifted.</strong> A few
+                                counts and claims in the docs fell behind the
+                                code. That is a real maintenance cost of writing
+                                ~15,000 lines of process documentation.
+                            </li>
+                            <li>
+                                <strong
+                                    >Some accessibility work is
+                                    incomplete.</strong
+                                >
+                                No reduced-motion support in one product,
+                                incomplete focus management in two modals, and
+                                contrast claims that were partly aspirational.
+                            </li>
+                            <li>
+                                <strong
+                                    >The evergreen guide was structured but
+                                    never populated.</strong
+                                >
+                                23 sections defined with verification semantics;
+                                zero sections verified before the project ended.
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </main>
+
+            <!-- ================================================================
+           Contact
+           ================================================================ -->
+            <footer class="wrap footer" id="contact">
+                <div class="footer-grid">
+                    <div>
+                        <img
+                            class="footer-signature"
+                            src="assets/signature.png"
+                            alt=""
+                            width="400"
+                            height="68"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <h3>
+                            I&rsquo;m looking for work in knowledge systems,
+                            enablement, or front-end development.
+                        </h3>
+                        <p class="mt-2 measure-copy">
+                            I like problems where the documentation
+                            <em>is</em> the product: complex domains, technical
+                            audiences, and a real need for the answer to be
+                            correct.
+                        </p>
+                    </div>
+
+                    <div>
+                        <div class="contact">
+                            <a href="mailto:gabrielgelo93@gmail.com"
+                                ><span>Email</span> gabrielgelo93@gmail.com</a
+                            >
+                            <a href="https://www.linkedin.com/in/gelobaring/"
+                                ><span>LinkedIn</span> /in/gelobaring</a
+                            >
+                            <a href="https://github.com/gelogabz"
+                                ><span>GitHub</span> /gelogabz</a
+                            >
+                        </div>
+
+                        <button
+                            class="theme-toggle theme-toggle--footer"
+                            type="button"
+                            data-theme-toggle
+                            aria-pressed="false"
+                            aria-label="Switch to dark theme"
+                        >
+                            <svg
+                                class="icon--sun"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                                stroke-linecap="round"
+                                aria-hidden="true"
+                            >
+                                <circle cx="12" cy="12" r="4.1" />
+                                <path
+                                    d="M12 2.4v2.2M12 19.4v2.2M2.4 12h2.2M19.4 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"
+                                />
+                            </svg>
+                            <svg
+                                class="icon--moon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8Z"
+                                />
+                            </svg>
+                            <span data-theme-label>Dark mode</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="colophon">
+                    <span
+                        >Written from repository evidence and project
+                        notes.</span
+                    >
+                    <span
+                        >Employers are anonymized. Client sites are named.</span
+                    >
+                    <span>Last updated November 2026.</span>
+                    <span>Repository links available on request.</span>
+                    <a class="colophon__top" href="#top">Back to top ↑</a>
+                </div>
+            </footer>
+        </div>
+
+        <script src="js/main.js" defer></script>
+    </body>
+</html>
