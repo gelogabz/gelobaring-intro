@@ -2033,3 +2033,266 @@ td.num {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* --------------------------------------------------------------------------
+   19. Picture desk
+   -------------------------------------------------------------------------- */
+.field-notes {
+    max-width: 62ch;
+    font-size: clamp(1rem, 1.15vw, 1.1rem);
+    line-height: 1.7;
+    color: var(--ink-2);
+}
+
+.field-notes p {
+    margin: 0 0 1rem;
+}
+
+.field-notes p:last-child {
+    margin-bottom: 0;
+}
+
+.pullquote {
+    max-width: 46ch;
+    margin: 2rem 0;
+    padding: 1.1rem 0 1.1rem 1.2rem;
+    border-left: 3px solid var(--teal-800);
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--ink);
+}
+
+.pullquote p {
+    margin: 0;
+}
+
+.masonry {
+    column-count: 1;
+    column-gap: 1.1rem;
+    margin-top: 1.1rem;
+}
+
+@media (min-width: 700px) {
+    .masonry {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 1060px) {
+    .masonry {
+        column-count: 3;
+    }
+}
+
+.plate {
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    margin: 0 0 1.1rem;
+    padding: 0.5rem;
+    border: 1px solid var(--ink);
+    background: var(--bg);
+}
+
+.plate__link {
+    display: block;
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+}
+
+.plate__link:focus-visible {
+    outline: 2px solid var(--teal-800);
+    outline-offset: 3px;
+}
+
+.plate__link img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--rule-strong);
+    background: var(--rule);
+    transition: filter var(--dur-fast) var(--ease);
+}
+
+.plate__link:hover img {
+    filter: saturate(1.06) contrast(1.02);
+}
+
+.plate__caption {
+    display: grid;
+    gap: 0.12rem;
+    margin-top: 0.5rem;
+    padding-top: 0.45rem;
+    border-top: 1px solid var(--rule-strong);
+}
+
+.plate__num {
+    font-family: var(--font-display);
+    font-size: 0.5rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal-800);
+}
+
+.plate__title {
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.15;
+    text-transform: uppercase;
+    color: var(--ink);
+}
+
+.plate__meta {
+    font-family: var(--font-display);
+    font-size: 0.5rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.plate__note {
+    margin-top: 0.15rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: var(--muted);
+}
+
+.plate--lead {
+    display: grid;
+    gap: 1rem;
+    margin: 0 0 1.6rem;
+    padding: 0.6rem;
+}
+
+.plate--lead .plate__caption {
+    align-content: end;
+    margin-top: 0;
+    padding-top: 0;
+    border-top: 0;
+}
+
+@media (min-width: 900px) {
+    .plate--lead {
+        grid-template-columns: minmax(0, 2.2fr) minmax(230px, 1fr);
+        gap: 1.2rem;
+    }
+
+    .plate--lead .plate__caption {
+        padding-left: 1.1rem;
+        border-left: 1px solid var(--rule-strong);
+    }
+
+    .plate--lead .plate__title {
+        font-size: 1.4rem;
+        line-height: 1;
+    }
+
+    .plate--lead .plate__note {
+        font-size: 0.9rem;
+    }
+}
+
+/* ---- Lightbox -------------------------------------------------------- */
+html.lightbox-open {
+    overflow: hidden;
+}
+
+.lightbox {
+    width: min(1120px, 94vw);
+    max-height: 92vh;
+    margin: auto;
+    padding: 0;
+    border: 1px solid var(--ink);
+    background: var(--bg);
+    color: var(--ink);
+}
+
+.lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.84);
+}
+
+.lightbox__frame {
+    display: grid;
+    place-items: center;
+    padding: 0.6rem;
+    background: #000000;
+}
+
+.lightbox__img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    max-height: 70vh;
+    height: auto;
+}
+
+.lightbox__bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.6rem 1rem;
+    padding: 0.7rem 0.8rem;
+    border-top: 1px solid var(--ink);
+}
+
+.lightbox__caption {
+    flex: 1 1 240px;
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.lightbox__controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.lightbox__btn {
+    min-height: 36px;
+    padding: 0.35rem 0.6rem;
+    border: 1px solid var(--ink);
+    border-radius: 0;
+    background: transparent;
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 0.54rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.lightbox__btn:hover {
+    background: var(--ink);
+    color: var(--bg);
+}
+
+.lightbox__btn--close {
+    border-color: var(--rule-strong);
+    color: var(--muted);
+}
+
+.lightbox__count {
+    min-width: 3.4rem;
+    text-align: center;
+    font-family: var(--font-display);
+    font-size: 0.54rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+}

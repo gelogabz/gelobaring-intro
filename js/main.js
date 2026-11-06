@@ -41,12 +41,29 @@
     ticking = true;
     window.requestAnimationFrame(function () {
       updateProgress();
+      if (atBottom()) setActive("");
       ticking = false;
     });
   }
 
+  function atBottom() {
+    return (
+      window.innerHeight + window.scrollY >=
+      document.documentElement.scrollHeight - 2
+    );
+  }
+
   /* ---- 2. Active section --------------------------------------------- */
   function setActive(activeId) {
+    /* The footer is the last hash link; keep it current at the very bottom. */
+    if (atBottom() && navLinks.length) {
+      var last = navLinks[navLinks.length - 1];
+      var lastId = last.getAttribute("href");
+      if (lastId && lastId.charAt(0) === "#") {
+        activeId = lastId.slice(1);
+      }
+    }
+
     navLinks.forEach(function (link) {
       if (link.getAttribute("href") === "#" + activeId) {
         link.setAttribute("aria-current", "true");

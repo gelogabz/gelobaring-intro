@@ -1,0 +1,1405 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>The AGB Gazette — Picture Desk · Gelo Baring</title>
+        <meta
+            name="description"
+            content="Photographs by Gelo Baring: landscapes, coastlines, and hikes around the Philippines, 2017–2024."
+        />
+        <meta name="author" content="Gelo Baring" />
+        <meta name="theme-color" content="#f4ecdc" />
+        <link
+            rel="canonical"
+            href="https://gelogabz.github.io/gelobaring-intro/photography.html"
+        />
+
+        <meta
+            property="og:title"
+            content="The AGB Gazette — Picture Desk · Gelo Baring"
+        />
+        <meta property="og:site_name" content="The AGB Gazette" />
+        <meta property="og:locale" content="en_PH" />
+        <meta
+            property="og:description"
+            content="Landscapes, coastlines, and hikes around the Philippines, 2017–2024. No briefs, no client notes."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:url"
+            content="https://gelogabz.github.io/gelobaring-intro/photography.html"
+        />
+        <meta
+            property="og:image"
+            content="https://gelogabz.github.io/gelobaring-intro/assets/og-photography.png"
+        />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+            property="og:image:alt"
+            content="A ridge line above a sea of clouds at sunrise, with the AGB Gazette picture desk title."
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="The AGB Gazette — Picture Desk · Gelo Baring"
+        />
+        <meta
+            name="twitter:description"
+            content="Landscapes, coastlines, and hikes around the Philippines, 2017–2024. No briefs, no client notes."
+        />
+        <meta
+            name="twitter:image"
+            content="https://gelogabz.github.io/gelobaring-intro/assets/og-photography.png"
+        />
+        <meta
+            name="twitter:image:alt"
+            content="A ridge line above a sea of clouds at sunrise, with the AGB Gazette picture desk title."
+        />
+
+        <link
+            rel="icon"
+            href="assets/favicon-32.png"
+            sizes="32x32"
+            type="image/png"
+        />
+        <link
+            rel="icon"
+            href="assets/favicon-512.png"
+            sizes="512x512"
+            type="image/png"
+        />
+        <link rel="apple-touch-icon" href="assets/favicon-180.png" />
+
+        <!-- Type: Outfit (display) + Google Sans Flex (body) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Google+Sans+Flex:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="css/tokens.css" />
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/print.css" media="print" />
+
+        <noscript>
+            <style>
+                [data-theme-toggle],
+                [data-print],
+                .lightbox {
+                    display: none !important;
+                }
+            </style>
+        </noscript>
+
+        <script>
+            (function () {
+                "use strict";
+                var STORAGE_KEY = "showcase-theme";
+                var root = document.documentElement;
+                var system = window.matchMedia("(prefers-color-scheme: dark)");
+                var stored = null;
+                try {
+                    stored = localStorage.getItem(STORAGE_KEY);
+                } catch (e) {}
+
+                function current() {
+                    if (stored === "light" || stored === "dark") return stored;
+                    return system.matches ? "dark" : "light";
+                }
+
+                function apply(theme) {
+                    root.setAttribute("data-theme", theme);
+                    var meta = document.querySelector(
+                        'meta[name="theme-color"]',
+                    );
+                    if (meta) {
+                        meta.setAttribute(
+                            "content",
+                            theme === "dark" ? "#000000" : "#f4ecdc",
+                        );
+                    }
+                    var toggles = document.querySelectorAll(
+                        "[data-theme-toggle]",
+                    );
+                    for (var i = 0; i < toggles.length; i++) {
+                        var isDark = theme === "dark";
+                        toggles[i].setAttribute(
+                            "aria-pressed",
+                            isDark ? "true" : "false",
+                        );
+                        toggles[i].setAttribute(
+                            "aria-label",
+                            isDark
+                                ? "Switch to light theme"
+                                : "Switch to dark theme",
+                        );
+                        var label =
+                            toggles[i].querySelector("[data-theme-label]");
+                        if (label)
+                            label.textContent = isDark
+                                ? "Light mode"
+                                : "Dark mode";
+                    }
+                }
+
+                function toggle() {
+                    stored = current() === "dark" ? "light" : "dark";
+                    try {
+                        localStorage.setItem(STORAGE_KEY, stored);
+                    } catch (e) {}
+                    apply(stored);
+                }
+
+                apply(current());
+
+                function wire() {
+                    apply(current());
+                    var toggles = document.querySelectorAll(
+                        "[data-theme-toggle]",
+                    );
+                    for (var i = 0; i < toggles.length; i++) {
+                        toggles[i].addEventListener("click", toggle);
+                    }
+                }
+
+                if (document.readyState === "loading") {
+                    document.addEventListener("DOMContentLoaded", wire);
+                } else {
+                    wire();
+                }
+
+                if (typeof system.addEventListener === "function") {
+                    system.addEventListener("change", function (event) {
+                        if (stored === "light" || stored === "dark") return;
+                        apply(event.matches ? "dark" : "light");
+                    });
+                }
+            })();
+        </script>
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "ImageGallery",
+                "name": "The AGB Gazette — Picture Desk",
+                "url": "https://gelogabz.github.io/gelobaring-intro/photography.html",
+                "author": {
+                    "@type": "Person",
+                    "name": "Gelo Baring"
+                },
+                "about": "Photographs from hikes around the Philippines, 2017–2024."
+            }
+        </script>
+    </head>
+
+    <body>
+        <a class="skip" href="#main">Skip to content</a>
+        <div class="progress" id="progress" aria-hidden="true"></div>
+
+        <div class="sheet" id="top">
+            <header class="masthead">
+                <div class="masthead__utility">
+                    <span>Friday, November 6, 2026</span>
+                    <span>Picture Desk · Vol. XI</span>
+                    <button
+                        class="theme-toggle"
+                        type="button"
+                        data-theme-toggle
+                        aria-pressed="false"
+                        aria-label="Switch to dark theme"
+                    >
+                        <svg
+                            class="icon--sun"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                            aria-hidden="true"
+                        >
+                            <circle cx="12" cy="12" r="4.1" />
+                            <path
+                                d="M12 2.4v2.2M12 19.4v2.2M2.4 12h2.2M19.4 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"
+                            />
+                        </svg>
+                        <svg
+                            class="icon--moon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8Z"
+                            />
+                        </svg>
+                        <span data-theme-label>Dark mode</span>
+                    </button>
+                </div>
+
+                <div class="masthead__grid">
+                    <div class="masthead__ear">
+                        <span>Est. 2015</span>
+                        <span>Field notes</span>
+                    </div>
+                    <div class="masthead__center">
+                        <p class="masthead__kicker">
+                            Gelo Baring · Photography
+                        </p>
+                        <p class="masthead__title">The AGB Gazette</p>
+                        <p class="masthead__tagline">
+                            Pictures from the long way up · 2017–2024
+                        </p>
+                    </div>
+                    <div class="masthead__ear masthead__ear--right">
+                        <span>Philippines</span>
+                        <span>UTC+8</span>
+                    </div>
+                </div>
+            </header>
+
+            <nav class="paper-nav" aria-label="Sections">
+                <a href="index.html">Portfolio</a>
+                <a href="case-studies.html">Case studies</a>
+                <a href="#gallery" aria-current="true">Gallery</a>
+                <a href="#notes">Field notes</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <main id="main" class="wrap" tabindex="-1">
+                <section class="lead" aria-labelledby="lead-headline">
+                    <div class="lead__main">
+                        <p class="eyebrow">The picture desk · Photography</p>
+                        <h1 id="lead-headline">I go up for the light.</h1>
+                        <p class="hero-deck">
+                            Landscapes, coastlines, and the occasional person
+                            in frame. These are the photos I take when nobody
+                            is paying me to take them: hikes around the
+                            Philippines between 2017 and 2024, usually before
+                            sunrise.
+                        </p>
+                        <p class="lead__byline">
+                            <span>By Gelo Baring</span>
+                            <span>Philippines · UTC+8</span>
+                            <span>2017–2024</span>
+                        </p>
+                        <div class="hero-cta">
+                            <a class="btn btn--primary" href="#gallery"
+                                >Jump to the gallery</a
+                            >
+                            <a class="btn" href="case-studies.html"
+                                >Read the case studies</a
+                            >
+                            <button class="btn" type="button" data-print>
+                                Print / save as PDF
+                            </button>
+                        </div>
+                    </div>
+
+                    <aside class="lead__aside" aria-label="At a glance">
+                        <img
+                            class="signature"
+                            src="assets/signature.png"
+                            alt="Gelo Baring signature"
+                            width="400"
+                            height="68"
+                            decoding="async"
+                        />
+
+                        <div class="stat-box">
+                            <p class="box-label">By the numbers</p>
+                            <div class="stats" role="list">
+                                <div class="stat" role="listitem">
+                                    <b>22</b><span>Frames on this page</span>
+                                </div>
+                                <div class="stat" role="listitem">
+                                    <b>8</b><span>Years, 2017–2024</span>
+                                </div>
+                                <div class="stat" role="listitem">
+                                    <b>0</b><span>Briefs or client notes</span>
+                                </div>
+                                <div class="stat" role="listitem">
+                                    <b>1</b><span>Camera, always</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="notice-box">
+                            <p class="box-label">A note from the desk</p>
+                            <p>
+                                This is the fun page. The work lives in the
+                                portfolio.
+                            </p>
+                            <a href="index.html">Back to the portfolio →</a>
+                        </div>
+                    </aside>
+                </section>
+
+                <section class="section" id="gallery">
+                    <span class="section-num">01</span>
+                    <h2>The picture desk.</h2>
+                    <p class="lede">
+                        Twenty-two frames from the last eight years. No
+                        captions longer than a breath.
+                    </p>
+                    <p class="mono mb-5">
+                        Plates 01–22 · Philippines · 2017–2024
+                    </p>
+
+                    <!-- LEAD PLATE -->
+                                        <figure class="plate plate--lead">
+                        <a
+                            class="plate__link"
+                            href="assets/photography/01-sea-of-clouds.jpg"
+                            data-lightbox
+                            data-caption="P. 01 — Sea of clouds · Philippines · 2017"
+                        >
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/photography/01-sea-of-clouds-800.webp 800w,
+                                        assets/photography/01-sea-of-clouds.webp      1600w
+                                    "
+                                    sizes="(min-width: 900px) 58vw, 92vw"
+                                />
+                                <img
+                                    src="assets/photography/01-sea-of-clouds-800.jpg"
+                                    srcset="
+                                        assets/photography/01-sea-of-clouds-800.jpg 800w,
+                                        assets/photography/01-sea-of-clouds.jpg      1600w
+                                    "
+                                    sizes="(min-width: 900px) 58vw, 92vw"
+                                    width="1600"
+                                    height="1200"
+                                    alt="A ridge line rising out of a sea of clouds at dawn, with grass in the foreground."
+                                    loading="eager"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </a>
+                        <figcaption class="plate__caption">
+                            <span class="plate__num">P. 01 · Featured plate</span>
+                            <span class="plate__title">Sea of clouds</span>
+                            <span class="plate__meta">Philippines · 2017</span>
+                            <span class="plate__note">The reason for the 4 a.m. start.</span>
+                        </figcaption>
+                    </figure>
+
+                    <div class="divider-top">
+                        <p class="box-label">More plates</p>
+                    </div>
+
+                    <div class="masonry">
+                                            <figure class="plate">
+                        <a
+                            class="plate__link"
+                            href="assets/photography/02-first-light.jpg"
+                            data-lightbox
+                            data-caption="P. 02 — First light · Philippines · 2018"
+                        >
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/photography/02-first-light-800.webp 800w,
+                                        assets/photography/02-first-light.webp      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                />
+                                <img
+                                    src="assets/photography/02-first-light-800.jpg"
+                                    srcset="
+                                        assets/photography/02-first-light-800.jpg 800w,
+                                        assets/photography/02-first-light.jpg      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                    width="1600"
+                                    height="1200"
+                                    alt="The sun breaking over a range of green mountains, with a hiker silhouetted in the grass."
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </a>
+                        <figcaption class="plate__caption">
+                            <span class="plate__num">P. 02</span>
+                            <span class="plate__title">First light</span>
+                            <span class="plate__meta">Philippines · 2018</span>
+                            <span class="plate__note">The ridge, before the trail gets busy.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plate">
+                        <a
+                            class="plate__link"
+                            href="assets/photography/03-last-light.jpg"
+                            data-lightbox
+                            data-caption="P. 03 — Last light · Philippines · 2018"
+                        >
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/photography/03-last-light-800.webp 800w,
+                                        assets/photography/03-last-light.webp      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                />
+                                <img
+                                    src="assets/photography/03-last-light-800.jpg"
+                                    srcset="
+                                        assets/photography/03-last-light-800.jpg 800w,
+                                        assets/photography/03-last-light.jpg      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                    width="1600"
+                                    height="1199"
+                                    alt="A calm beach at sunset with footprints in the wet sand and the sun low over the water."
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </a>
+                        <figcaption class="plate__caption">
+                            <span class="plate__num">P. 03</span>
+                            <span class="plate__title">Last light</span>
+                            <span class="plate__meta">Philippines · 2018</span>
+                            <span class="plate__note">Low tide, and no one else around.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plate">
+                        <a
+                            class="plate__link"
+                            href="assets/photography/04-with-company.jpg"
+                            data-lightbox
+                            data-caption="P. 04 — With company · Philippines · 2018"
+                        >
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/photography/04-with-company-800.webp 800w,
+                                        assets/photography/04-with-company.webp      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                />
+                                <img
+                                    src="assets/photography/04-with-company-800.jpg"
+                                    srcset="
+                                        assets/photography/04-with-company-800.jpg 800w,
+                                        assets/photography/04-with-company.jpg      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                    width="1600"
+                                    height="1199"
+                                    alt="A person standing at the edge of the surf at sunset, silhouetted against the light."
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </a>
+                        <figcaption class="plate__caption">
+                            <span class="plate__num">P. 04</span>
+                            <span class="plate__title">With company</span>
+                            <span class="plate__meta">Philippines · 2018</span>
+                            <span class="plate__note">The same evening, one frame later.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plate">
+                        <a
+                            class="plate__link"
+                            href="assets/photography/05-pines-in-fog.jpg"
+                            data-lightbox
+                            data-caption="P. 05 — Pines in fog · Philippines · 2018"
+                        >
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/photography/05-pines-in-fog-800.webp 800w,
+                                        assets/photography/05-pines-in-fog.webp      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                />
+                                <img
+                                    src="assets/photography/05-pines-in-fog-800.jpg"
+                                    srcset="
+                                        assets/photography/05-pines-in-fog-800.jpg 800w,
+                                        assets/photography/05-pines-in-fog.jpg      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                    width="1600"
+                                    height="1200"
+                                    alt="Pine trees emerging from fog above a grassy slope."
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </a>
+                        <figcaption class="plate__caption">
+                            <span class="plate__num">P. 05</span>
+                            <span class="plate__title">Pines in fog</span>
+                            <span class="plate__meta">Philippines · 2018</span>
+                            <span class="plate__note">The mountain kept its own weather.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plate">
+                        <a
+                            class="plate__link"
+                            href="assets/photography/06-terraces.jpg"
+                            data-lightbox
+                            data-caption="P. 06 — Terraces · Philippines · 2018"
+                        >
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/photography/06-terraces-800.webp 800w,
+                                        assets/photography/06-terraces.webp      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                />
+                                <img
+                                    src="assets/photography/06-terraces-800.jpg"
+                                    srcset="
+                                        assets/photography/06-terraces-800.jpg 800w,
+                                        assets/photography/06-terraces.jpg      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                    width="1600"
+                                    height="1200"
+                                    alt="Terraced fields stepping down a mountainside under a beam of morning light."
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </a>
+                        <figcaption class="plate__caption">
+                            <span class="plate__num">P. 06</span>
+                            <span class="plate__title">Terraces</span>
+                            <span class="plate__meta">Philippines · 2018</span>
+                            <span class="plate__note">Morning light on the steps.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plate">
+                        <a
+                            class="plate__link"
+                            href="assets/photography/07-lake-dusk.jpg"
+                            data-lightbox
+                            data-caption="P. 07 — Lake dusk · Philippines · 2018"
+                        >
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/photography/07-lake-dusk-800.webp 800w,
+                                        assets/photography/07-lake-dusk.webp      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                />
+                                <img
+                                    src="assets/photography/07-lake-dusk-800.jpg"
+                                    srcset="
+                                        assets/photography/07-lake-dusk-800.jpg 800w,
+                                        assets/photography/07-lake-dusk.jpg      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                    width="1600"
+                                    height="1200"
+                                    alt="A lake at dusk with a dark shoreline and orange light on the horizon."
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </a>
+                        <figcaption class="plate__caption">
+                            <span class="plate__num">P. 07</span>
+                            <span class="plate__title">Lake dusk</span>
+                            <span class="plate__meta">Philippines · 2018</span>
+                            <span class="plate__note">The last color before the walk back.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plate">
+                        <a
+                            class="plate__link"
+                            href="assets/photography/08-crater-lake.jpg"
+                            data-lightbox
+                            data-caption="P. 08 — Crater lake · Philippines · 2018"
+                        >
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/photography/08-crater-lake-800.webp 800w,
+                                        assets/photography/08-crater-lake.webp      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                />
+                                <img
+                                    src="assets/photography/08-crater-lake-800.jpg"
+                                    srcset="
+                                        assets/photography/08-crater-lake-800.jpg 800w,
+                                        assets/photography/08-crater-lake.jpg      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                    width="1200"
+                                    height="1600"
+                                    alt="A person sitting on a grassy slope above a green crater lake ringed by mountains."
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </a>
+                        <figcaption class="plate__caption">
+                            <span class="plate__num">P. 08</span>
+                            <span class="plate__title">Crater lake</span>
+                            <span class="plate__meta">Philippines · 2018</span>
+                            <span class="plate__note">A long way down, a longer way out.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plate">
+                        <a
+                            class="plate__link"
+                            href="assets/photography/09-ridge-first-light.jpg"
+                            data-lightbox
+                            data-caption="P. 09 — Ridge at first light · Philippines · 2022"
+                        >
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/photography/09-ridge-first-light-800.webp 800w,
+                                        assets/photography/09-ridge-first-light.webp      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                />
+                                <img
+                                    src="assets/photography/09-ridge-first-light-800.jpg"
+                                    srcset="
+                                        assets/photography/09-ridge-first-light-800.jpg 800w,
+                                        assets/photography/09-ridge-first-light.jpg      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                    width="1600"
+                                    height="1200"
+                                    alt="A jagged mountain ridge lit by early morning sun under a wide sky."
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </a>
+                        <figcaption class="plate__caption">
+                            <span class="plate__num">P. 09</span>
+                            <span class="plate__title">Ridge at first light</span>
+                            <span class="plate__meta">Philippines · 2022</span>
+                            <span class="plate__note">The reward for the early alarm.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plate">
+                        <a
+                            class="plate__link"
+                            href="assets/photography/10-dusk-ridge.jpg"
+                            data-lightbox
+                            data-caption="P. 10 — Dusk on the ridge · Philippines · 2018"
+                        >
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/photography/10-dusk-ridge-800.webp 800w,
+                                        assets/photography/10-dusk-ridge.webp      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                />
+                                <img
+                                    src="assets/photography/10-dusk-ridge-800.jpg"
+                                    srcset="
+                                        assets/photography/10-dusk-ridge-800.jpg 800w,
+                                        assets/photography/10-dusk-ridge.jpg      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                    width="1600"
+                                    height="1200"
+                                    alt="Layered hills fading into a sunset sky."
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </a>
+                        <figcaption class="plate__caption">
+                            <span class="plate__num">P. 10</span>
+                            <span class="plate__title">Dusk on the ridge</span>
+                            <span class="plate__meta">Philippines · 2018</span>
+                            <span class="plate__note">Layers of hills, losing the light.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plate">
+                        <a
+                            class="plate__link"
+                            href="assets/photography/11-morning-sun.jpg"
+                            data-lightbox
+                            data-caption="P. 11 — Morning, overexposed · Philippines · 2019"
+                        >
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/photography/11-morning-sun-800.webp 800w,
+                                        assets/photography/11-morning-sun.webp      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                />
+                                <img
+                                    src="assets/photography/11-morning-sun-800.jpg"
+                                    srcset="
+                                        assets/photography/11-morning-sun-800.jpg 800w,
+                                        assets/photography/11-morning-sun.jpg      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                    width="1600"
+                                    height="1200"
+                                    alt="The sun shining through thin clouds above a dark tree line."
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </a>
+                        <figcaption class="plate__caption">
+                            <span class="plate__num">P. 11</span>
+                            <span class="plate__title">Morning, overexposed</span>
+                            <span class="plate__meta">Philippines · 2019</span>
+                            <span class="plate__note">The sun did not want its picture taken.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plate">
+                        <a
+                            class="plate__link"
+                            href="assets/photography/12-holding-sun.jpg"
+                            data-lightbox
+                            data-caption="P. 12 — Holding the sun · Philippines · 2019"
+                        >
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/photography/12-holding-sun-800.webp 800w,
+                                        assets/photography/12-holding-sun.webp      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                />
+                                <img
+                                    src="assets/photography/12-holding-sun-800.jpg"
+                                    srcset="
+                                        assets/photography/12-holding-sun-800.jpg 800w,
+                                        assets/photography/12-holding-sun.jpg      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                    width="1600"
+                                    height="1200"
+                                    alt="A silhouetted person holding up one hand as if holding the sun."
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </a>
+                        <figcaption class="plate__caption">
+                            <span class="plate__num">P. 12</span>
+                            <span class="plate__title">Holding the sun</span>
+                            <span class="plate__meta">Philippines · 2019</span>
+                            <span class="plate__note">A trick of timing and a very bright morning.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plate">
+                        <a
+                            class="plate__link"
+                            href="assets/photography/13-geometry.jpg"
+                            data-lightbox
+                            data-caption="P. 13 — Geometry, looking up · Philippines · 2021"
+                        >
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/photography/13-geometry-800.webp 800w,
+                                        assets/photography/13-geometry.webp      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                />
+                                <img
+                                    src="assets/photography/13-geometry-800.jpg"
+                                    srcset="
+                                        assets/photography/13-geometry-800.jpg 800w,
+                                        assets/photography/13-geometry.jpg      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                    width="1600"
+                                    height="1200"
+                                    alt="Looking up into a geodesic dome ceiling of triangular panels and steel struts."
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </a>
+                        <figcaption class="plate__caption">
+                            <span class="plate__num">P. 13</span>
+                            <span class="plate__title">Geometry, looking up</span>
+                            <span class="plate__meta">Philippines · 2021</span>
+                            <span class="plate__note">A ceiling that behaves like a landscape.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plate">
+                        <a
+                            class="plate__link"
+                            href="assets/photography/14-one-palm.jpg"
+                            data-lightbox
+                            data-caption="P. 14 — One palm · Philippines · 2022"
+                        >
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/photography/14-one-palm-800.webp 800w,
+                                        assets/photography/14-one-palm.webp      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                />
+                                <img
+                                    src="assets/photography/14-one-palm-800.jpg"
+                                    srcset="
+                                        assets/photography/14-one-palm-800.jpg 800w,
+                                        assets/photography/14-one-palm.jpg      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                    width="1200"
+                                    height="1600"
+                                    alt="A single palm tree standing in tall grass under a blue sky."
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </a>
+                        <figcaption class="plate__caption">
+                            <span class="plate__num">P. 14</span>
+                            <span class="plate__title">One palm</span>
+                            <span class="plate__meta">Philippines · 2022</span>
+                            <span class="plate__note">A tree with the whole valley to itself.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plate">
+                        <a
+                            class="plate__link"
+                            href="assets/photography/15-waterfall.jpg"
+                            data-lightbox
+                            data-caption="P. 15 — Falls after the rain · Philippines · 2022"
+                        >
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/photography/15-waterfall-800.webp 800w,
+                                        assets/photography/15-waterfall.webp      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                />
+                                <img
+                                    src="assets/photography/15-waterfall-800.jpg"
+                                    srcset="
+                                        assets/photography/15-waterfall-800.jpg 800w,
+                                        assets/photography/15-waterfall.jpg      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                    width="1600"
+                                    height="1200"
+                                    alt="A tall waterfall dropping into a pool in a dark green forest."
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </a>
+                        <figcaption class="plate__caption">
+                            <span class="plate__num">P. 15</span>
+                            <span class="plate__title">Falls after the rain</span>
+                            <span class="plate__meta">Philippines · 2022</span>
+                            <span class="plate__note">Worth the wet shoes.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plate">
+                        <a
+                            class="plate__link"
+                            href="assets/photography/16-light-through-pines.jpg"
+                            data-lightbox
+                            data-caption="P. 16 — Light through the pines · Philippines · 2022"
+                        >
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/photography/16-light-through-pines-800.webp 800w,
+                                        assets/photography/16-light-through-pines.webp      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                />
+                                <img
+                                    src="assets/photography/16-light-through-pines-800.jpg"
+                                    srcset="
+                                        assets/photography/16-light-through-pines-800.jpg 800w,
+                                        assets/photography/16-light-through-pines.jpg      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                    width="1600"
+                                    height="1200"
+                                    alt="Sunlight streaming through pine trees onto a fern-covered forest floor."
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </a>
+                        <figcaption class="plate__caption">
+                            <span class="plate__num">P. 16</span>
+                            <span class="plate__title">Light through the pines</span>
+                            <span class="plate__meta">Philippines · 2022</span>
+                            <span class="plate__note">The forest doing the work.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plate">
+                        <a
+                            class="plate__link"
+                            href="assets/photography/17-summit.jpg"
+                            data-lightbox
+                            data-caption="P. 17 — Summit, 07:04 · Philippines · 2024"
+                        >
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/photography/17-summit-800.webp 800w,
+                                        assets/photography/17-summit.webp      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                />
+                                <img
+                                    src="assets/photography/17-summit-800.jpg"
+                                    srcset="
+                                        assets/photography/17-summit-800.jpg 800w,
+                                        assets/photography/17-summit.jpg      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                    width="1600"
+                                    height="1200"
+                                    alt="A hiker standing on a narrow ridge at sunrise, with clouds below."
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </a>
+                        <figcaption class="plate__caption">
+                            <span class="plate__num">P. 17</span>
+                            <span class="plate__title">Summit, 07:04</span>
+                            <span class="plate__meta">Philippines · 2024</span>
+                            <span class="plate__note">Cold hands, clear sky.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plate">
+                        <a
+                            class="plate__link"
+                            href="assets/photography/18-the-scramble.jpg"
+                            data-lightbox
+                            data-caption="P. 18 — The scramble · Philippines"
+                        >
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/photography/18-the-scramble-800.webp 800w,
+                                        assets/photography/18-the-scramble.webp      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                />
+                                <img
+                                    src="assets/photography/18-the-scramble-800.jpg"
+                                    srcset="
+                                        assets/photography/18-the-scramble-800.jpg 800w,
+                                        assets/photography/18-the-scramble.jpg      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                    width="1600"
+                                    height="900"
+                                    alt="Two hikers with backpacks climbing between large rocks."
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </a>
+                        <figcaption class="plate__caption">
+                            <span class="plate__num">P. 18</span>
+                            <span class="plate__title">The scramble</span>
+                            <span class="plate__meta">Philippines</span>
+                            <span class="plate__note">Two hikers, one very large rock.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plate">
+                        <a
+                            class="plate__link"
+                            href="assets/photography/19-the-lookout.jpg"
+                            data-lightbox
+                            data-caption="P. 19 — The lookout · Philippines"
+                        >
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/photography/19-the-lookout-800.webp 800w,
+                                        assets/photography/19-the-lookout.webp      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                />
+                                <img
+                                    src="assets/photography/19-the-lookout-800.jpg"
+                                    srcset="
+                                        assets/photography/19-the-lookout-800.jpg 800w,
+                                        assets/photography/19-the-lookout.jpg      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                    width="1600"
+                                    height="1066"
+                                    alt="A person standing on a rock outcrop against a pale sky."
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </a>
+                        <figcaption class="plate__caption">
+                            <span class="plate__num">P. 19</span>
+                            <span class="plate__title">The lookout</span>
+                            <span class="plate__meta">Philippines</span>
+                            <span class="plate__note">Standing room only.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plate">
+                        <a
+                            class="plate__link"
+                            href="assets/photography/20-water-break.jpg"
+                            data-lightbox
+                            data-caption="P. 20 — Water break · Philippines"
+                        >
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/photography/20-water-break-800.webp 800w,
+                                        assets/photography/20-water-break.webp      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                />
+                                <img
+                                    src="assets/photography/20-water-break-800.jpg"
+                                    srcset="
+                                        assets/photography/20-water-break-800.jpg 800w,
+                                        assets/photography/20-water-break.jpg      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                    width="1600"
+                                    height="900"
+                                    alt="A silhouetted person drinking from a bottle in front of a bright sun."
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </a>
+                        <figcaption class="plate__caption">
+                            <span class="plate__num">P. 20</span>
+                            <span class="plate__title">Water break</span>
+                            <span class="plate__meta">Philippines</span>
+                            <span class="plate__note">Hydration, with a halo.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plate">
+                        <a
+                            class="plate__link"
+                            href="assets/photography/21-the-branch.jpg"
+                            data-lightbox
+                            data-caption="P. 21 — The branch · Philippines"
+                        >
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/photography/21-the-branch-800.webp 800w,
+                                        assets/photography/21-the-branch.webp      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                />
+                                <img
+                                    src="assets/photography/21-the-branch-800.jpg"
+                                    srcset="
+                                        assets/photography/21-the-branch-800.jpg 800w,
+                                        assets/photography/21-the-branch.jpg      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                    width="1600"
+                                    height="1600"
+                                    alt="A person sitting on a twisted branch above a bank of clouds."
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </a>
+                        <figcaption class="plate__caption">
+                            <span class="plate__num">P. 21</span>
+                            <span class="plate__title">The branch</span>
+                            <span class="plate__meta">Philippines</span>
+                            <span class="plate__note">Sitting on the skyline.</span>
+                        </figcaption>
+                    </figure>
+
+                    <figure class="plate">
+                        <a
+                            class="plate__link"
+                            href="assets/photography/22-bench.jpg"
+                            data-lightbox
+                            data-caption="P. 22 — Bench, with chicken · Philippines"
+                        >
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/photography/22-bench-800.webp 800w,
+                                        assets/photography/22-bench.webp      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                />
+                                <img
+                                    src="assets/photography/22-bench-800.jpg"
+                                    srcset="
+                                        assets/photography/22-bench-800.jpg 800w,
+                                        assets/photography/22-bench.jpg      1600w
+                                    "
+                                    sizes="(min-width: 1060px) 30vw, (min-width: 700px) 45vw, 92vw"
+                                    width="1600"
+                                    height="1066"
+                                    alt="A person sitting on a wooden bench in a rural yard, with a chicken behind them."
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
+                        </a>
+                        <figcaption class="plate__caption">
+                            <span class="plate__num">P. 22</span>
+                            <span class="plate__title">Bench, with chicken</span>
+                            <span class="plate__meta">Philippines</span>
+                            <span class="plate__note">The least dramatic photo here, and a favorite.</span>
+                        </figcaption>
+                    </figure>
+                    </div>
+                </section>
+
+                <section class="section" id="notes">
+                    <span class="section-num">02</span>
+                    <h2>Why the camera comes along.</h2>
+
+                    <div class="field-notes">
+                        <p>
+                            I spend my working life making things legible:
+                            glossaries, help centers, release notes.
+                            Photography is the opposite. I point the camera at
+                            something and try not to explain it.
+                        </p>
+                        <p>
+                            Most of these were taken on hikes, usually on the
+                            way to a summit or on the way back down. The
+                            weather did most of the work. I just had to be
+                            there early enough.
+                        </p>
+                        <p>
+                            There is no client, no brief, and no analytics. If
+                            a photo is here, it is because I still like looking
+                            at it.
+                        </p>
+                    </div>
+
+                    <blockquote class="pullquote">
+                        <p>
+                            The weather did most of the work. I just had to be
+                            there early enough.
+                        </p>
+                    </blockquote>
+
+                    <div class="divider-top">
+                        <div class="grid-2">
+                            <div>
+                                <p class="box-label">The small print</p>
+                                <p class="small muted mb-0">
+                                    All photographs are mine. Taken in the
+                                    Philippines between 2017 and 2024. Prints on
+                                    request.
+                                </p>
+                            </div>
+                            <div>
+                                <p class="box-label">Want a print?</p>
+                                <p class="small muted mb-0">
+                                    Email
+                                    <a href="mailto:gabrielgelo93@gmail.com"
+                                        >gabrielgelo93@gmail.com</a
+                                    >
+                                    with the plate number.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <footer class="wrap footer" id="contact">
+                <div class="footer-grid">
+                    <div>
+                        <img
+                            class="footer-signature"
+                            src="assets/signature.png"
+                            alt=""
+                            width="400"
+                            height="68"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <h3>
+                            Want a print, or just want to talk about light?
+                        </h3>
+                        <p class="mt-2 measure-copy">
+                            I&rsquo;m still looking for work in knowledge
+                            systems, enablement, or front-end development. The
+                            photos are what I do with the rest of the daylight.
+                        </p>
+                    </div>
+
+                    <div>
+                        <div class="contact">
+                            <a href="mailto:gabrielgelo93@gmail.com"
+                                ><span>Email</span> gabrielgelo93@gmail.com</a
+                            >
+                            <a href="https://www.linkedin.com/in/gelobaring/"
+                                ><span>LinkedIn</span> /in/gelobaring</a
+                            >
+                            <a href="https://github.com/gelogabz"
+                                ><span>GitHub</span> /gelogabz</a
+                            >
+                        </div>
+
+                        <button
+                            class="theme-toggle theme-toggle--footer"
+                            type="button"
+                            data-theme-toggle
+                            aria-pressed="false"
+                            aria-label="Switch to dark theme"
+                        >
+                            <svg
+                                class="icon--sun"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                                stroke-linecap="round"
+                                aria-hidden="true"
+                            >
+                                <circle cx="12" cy="12" r="4.1" />
+                                <path
+                                    d="M12 2.4v2.2M12 19.4v2.2M2.4 12h2.2M19.4 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"
+                                />
+                            </svg>
+                            <svg
+                                class="icon--moon"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8Z"
+                                />
+                            </svg>
+                            <span data-theme-label>Dark mode</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="colophon">
+                    <span>Photographs by Gelo Baring.</span>
+                    <span>Taken in the Philippines, 2017–2024.</span>
+                    <span
+                        ><a href="index.html">Portfolio</a> ·
+                        <a href="case-studies.html">Case studies</a></span
+                    >
+                    <a class="colophon__top" href="#top">Back to top ↑</a>
+                </div>
+            </footer>
+        </div>
+
+        <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+            <div class="lightbox__frame">
+                <img class="lightbox__img" alt="" data-lightbox-img />
+            </div>
+            <div class="lightbox__bar">
+                <p class="lightbox__caption" data-lightbox-caption></p>
+                <div class="lightbox__controls">
+                    <button
+                        type="button"
+                        class="lightbox__btn"
+                        data-lightbox-prev
+                        aria-label="Previous photo"
+                    >
+                        ← Prev
+                    </button>
+                    <span class="lightbox__count" data-lightbox-count></span>
+                    <button
+                        type="button"
+                        class="lightbox__btn"
+                        data-lightbox-next
+                        aria-label="Next photo"
+                    >
+                        Next →
+                    </button>
+                    <button
+                        type="button"
+                        class="lightbox__btn lightbox__btn--close"
+                        data-lightbox-close
+                        aria-label="Close photo viewer"
+                    >
+                        Close ✕
+                    </button>
+                </div>
+            </div>
+        </dialog>
+
+        <script src="js/main.js" defer></script>
+        <script src="js/photography.js" defer></script>
+    </body>
+</html>

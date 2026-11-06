@@ -1,17 +1,21 @@
 # The AGB Gazette
 
-A two-page career portfolio built as plain HTML, CSS, and JavaScript. No framework, no build
-step, no runtime dependencies.
+A three-page site built as plain HTML, CSS, and JavaScript. No framework, no build step, no
+runtime dependencies.
 
 The layout borrows the grammar of a broadsheet: a ruled paper sheet, masthead with ears, a
 boxed section index, a lead story with a sidebar, hairline card grids, and numbered editorial
 sections. The palette and type families are unchanged; only the structure is newspaper-shaped.
-The masthead is **The AGB Gazette**; the kicker reads **Gelo Baring · Portfolio**.
+The masthead is **The AGB Gazette**; the kicker reads **Gelo Baring · Portfolio** on the work
+pages and **Gelo Baring · Photography** on the picture desk.
 
 - `index.html` is the portfolio: nine highlights, a five-role career timeline, skills, and
   contact.
 - `case-studies.html` is the detail page: four 2026 knowledge-system cases, earlier help
   center, client site, and internal tool work, plus engineering notes, evidence, and limits.
+- `photography.html` is the picture desk: a masonry grid of 22 photographs taken around the
+  Philippines between 2017 and 2024, plus a short field-notes essay. It is the fun page; none
+  of it is client work.
 
 Employers are anonymized throughout. Client sites are named and linked because they are public
 work.
@@ -22,12 +26,14 @@ work.
 gelobaring-intro/
 ├── index.html              portfolio: highlights, career, skills, contact
 ├── case-studies.html       detail: four 2026 cases, earlier work, engineering, evidence, limits
+├── photography.html        picture desk: 22 plates, masonry grid, field notes
 ├── css/
 │   ├── tokens.css          design system: palette, type scale, spacing, z-index
-│   ├── styles.css          newspaper structure: masthead, nav, lead, ruled grids
+│   ├── styles.css          newspaper structure: masthead, nav, lead, ruled grids, plates
 │   └── print.css           paper output (loaded with media="print")
 ├── js/
-│   └── main.js             reading progress, active nav, section pager, print button, lazy-image fix
+│   ├── main.js             reading progress, active nav, section pager, print button
+│   └── photography.js      keyboard-accessible lightbox for the picture desk
 ├── assets/
 │   ├── 01–06.png           anonymized product screenshots (1440w fallback)
 │   ├── 01–06.webp          same screenshots, smaller
@@ -36,7 +42,12 @@ gelobaring-intro/
 │   ├── agent-gate.svg      Case D review-gate diagram
 │   ├── og-card.png         1200×630 social card
 │   ├── og-card.svg         social-card source
-│   ├── favicon.svg         site icon
+│   ├── og-photography.png  1200×630 picture-desk social card
+│   ├── photography/        22 plates, each as JPEG + WebP at 1600w and 800w
+│   ├── favicon-32.png      white GB monogram, ink background
+│   ├── favicon-180.png     apple-touch icon
+│   ├── favicon-512.png     high-resolution favicon
+│   ├── favicon.svg         previous favicon, no longer referenced
 │   └── signature.png       personal mark
 ├── .gitignore              excludes local/private material from the repo
 └── README.md               this file
@@ -61,24 +72,28 @@ relative paths honest.
 
 | What                            | Where                                                            |
 | ------------------------------- | ---------------------------------------------------------------- |
-| Masthead, ears, date strip      | both HTML files — `.masthead`                                    |
-| Boxed section index             | both HTML files — `.paper-nav`                                   |
-| Lead story, sidebar, byline     | both HTML files — `.lead`                                        |
-| Page `h1` and lead copy         | both HTML files — `.lead__main`                                  |
+| Masthead, ears, date strip      | all three HTML files — `.masthead`                               |
+| Boxed section index             | all three HTML files — `.paper-nav`                              |
+| Lead story, sidebar, byline     | all three HTML files — `.lead`                                   |
+| Page `h1` and lead copy         | all three HTML files — `.lead__main`                             |
 | Highlight cards                 | `index.html` — `#highlights` `.highlights`                       |
 | Career history                  | `index.html` — `#career`                                         |
 | Skills, tools, background       | `index.html` — `#skills`                                         |
-| Contact details                 | `index.html` and `case-studies.html` — `.contact` block          |
+| Contact details                 | all three HTML files — `.contact` block                          |
 | Case-study copy                 | `case-studies.html` — `<article class="case">` blocks in `#work` |
 | Earlier projects, client sites  | `case-studies.html` — `#earlier`                                 |
 | Engineering notes, code samples | `case-studies.html` — `#engineering`                             |
 | Evidence table and timeline     | `case-studies.html` — `#evidence`                                |
 | Limits                          | `case-studies.html` — `#limits`                                  |
+| Photo plates and captions       | `photography.html` — `.masonry` / `.plate`                       |
+| Photo files                     | `assets/photography/` — generated from `old/assets/images/`      |
+| Lightbox                        | `js/photography.js`                                              |
+| Favicon                         | `assets/favicon-32.png`, `favicon-180.png`, `favicon-512.png`    |
 | Colors, fonts, spacing          | `css/tokens.css` only                                            |
 | Dark theme                      | `css/tokens.css` — the `[data-theme="dark"]` block               |
 | Component styling               | `css/styles.css`                                                 |
 | PDF behavior                    | `css/print.css`                                                  |
-| Theme bootstrap                 | both HTML files — inline `<script>` in `<head>`                  |
+| Theme bootstrap                 | all three HTML files — inline `<script>` in `<head>`             |
 | Print button, nav state, pager  | `js/main.js`                                                     |
 
 ### Page structure
@@ -105,12 +120,20 @@ relative paths honest.
 | 07  | Limits       | `#limits`      | What is not proven                           |
 | —   | Contact      | `#contact`     | Email, LinkedIn, GitHub                      |
 
+`photography.html`
+
+| #   | Section     | ID         | Role                                             |
+| --- | ----------- | ---------- | ------------------------------------------------ |
+| 01  | Gallery     | `#gallery` | 22 plates: one featured photograph and masonry   |
+| 02  | Field notes | `#notes`   | Short essay, pull quote, and print note          |
+| —   | Contact     | `#contact` | Email, LinkedIn, GitHub                          |
+
 Section numbers, the `.paper-nav` links, the edition index in the lead sidebar, and the CSS
 section comments must stay in sync. The `.section-next` pager is generated from `.paper-nav`
 at runtime, so it follows the same order automatically. Deep links are re-aligned after the
-pager is injected and again once the webfonts settle. The two pages cross-link: the portfolio
-points to `case-studies.html#case-a` … `#case-d`, and the detail page points back to
-`index.html`.
+pager is injected and again once the webfonts settle. The three pages cross-link: the
+portfolio points to `case-studies.html#case-a` … `#case-d` and `photography.html`; the detail
+page points back to `index.html` and `photography.html`; the picture desk points to both.
 
 ### Anonymization policy
 
@@ -175,10 +198,9 @@ the weights the CSS actually uses for the masthead, headlines, and labels.
   outer border, the paper background, and the faint horizontal texture. The body behind it is
   the desk tone.
 - `.masthead` — utility strip (date, edition, theme toggle), then a three-column grid: left
-  ear, centered kicker/title/tagline, right ear. The title is **The AGB Gazette**, the kicker
-  is **Gelo Baring · Portfolio**, and the left ear carries the **Est. 2015 / Support →
-  Knowledge** line. The title is a `<p>`, not the page `h1`; each page keeps one `h1` in the
-  lead.
+  ear, centered kicker/title/tagline, right ear. The title is **The AGB Gazette**; the kicker
+  is **Gelo Baring · Portfolio** on the work pages and **Gelo Baring · Photography** on the
+  picture desk. The title is a `<p>`, not the page `h1`; each page keeps one `h1` in the lead.
 - `.paper-nav` — the boxed section index. It is a wrapping flex row of bordered cells; links
   invert to ink when active or hovered. Three cells per row below 1200px, natural width above.
 - `.section-next` — previous / next links injected at the end of each section by `main.js`.
@@ -195,6 +217,14 @@ the weights the CSS actually uses for the masthead, headlines, and labels.
   highlights grid, with automatic `01`–`06` numbering.
 - `.case` / `.case-grid` — each case study is a feature with a ruled head, a body column, and
   a sidebar for facts and links.
+- `.masonry` / `.plate` — the picture-desk grid. CSS multi-columns: one column on phones, two
+  from 700px, three from 1060px. Each `.plate` is a bordered figure with a plate number,
+  title, date, and a one-line note; `break-inside: avoid` keeps the caption with the image.
+  `.plate--lead` is the full-width featured photograph above the grid.
+- `.lightbox` — the native `<dialog>` viewer opened by `js/photography.js`. Arrow keys move
+  between plates; Escape and the close button dismiss it. Without JavaScript each plate links
+  straight to the full-size JPEG.
+- `.field-notes` / `.pullquote` — the short essay and the ruled pull quote on the picture desk.
 - `.panel-dark` — the forest supplement that carries the pipeline, layers, and principles.
 - `.pills` — a list reset, so pill lists can use `<ul>` / `<li>` without browser markers or
   indentation. `case-studies.html` still uses `<span class="pill">` inside `.pills`.
@@ -293,31 +323,33 @@ GitHub Pages, no build required:
 1. Deploy `gelobaring-intro/` as the site root (or a subpath).
 2. Update the absolute URLs if the deployment path is not
    `https://gelogabz.github.io/gelobaring-intro/`:
-   - `<link rel="canonical">` on both pages
-   - `og:url` on both pages
-   - `og:image` and `twitter:image`
-   - `url` in the JSON-LD `Person` block on both pages
-3. Commit `index.html`, `case-studies.html`, `css/`, `js/`, `assets/`, `.gitignore`, and this
-   README.
+   - `<link rel="canonical">` on all three pages
+   - `og:url` on all three pages
+   - `og:image` and `twitter:image` (the work pages use `og-card.png`; the picture desk uses
+     `og-photography.png`)
+   - `url` in the JSON-LD blocks on all three pages
+3. Commit `index.html`, `case-studies.html`, `photography.html`, `css/`, `js/`, `assets/`,
+   `.gitignore`, and this README.
 4. **Do not** commit `SHOWCASE-BRIEFING.md`, `SHOWCASE-COMMENTS.md`, the `old/` folder, the
    parent workspace, `CLAUDE.md` files, or `claude-contexts/` directories. The `.gitignore`
    already excludes `old/`, `showcase-comments.md`, `.DS_Store`, and `*.pdf`.
 
-The social card is `assets/og-card.png` (1200×630) and reads **The AGB Gazette · Gelo Baring ·
-Portfolio 2015–2026**. If you change the headline or masthead, regenerate it from
-`assets/og-card.svg`:
+The work pages use `assets/og-card.png` (1200×630). The picture desk uses
+`assets/og-photography.png` (1200×630), built from the sea-of-clouds plate. If you change a
+headline or masthead, regenerate the relevant card:
 
 ```sh
 magick -background none assets/og-card.svg -resize 1200x630 assets/og-card.png
 ```
 
 Without ImageMagick, screenshot the SVG at 1200×630 in a headless browser and save the result
-over `assets/og-card.png`.
+over `assets/og-card.png`. The photography card is rendered from a small HTML overlay on the
+photo; re-render it the same way if the copy changes.
 
 ### Privacy check before publishing
 
 - Every employer is anonymized. The screenshots use `Cloud GTM Reference` / `CloudCo Docs`
-  rather than the real brand. Product names and internal links stay out of both pages.
+  rather than the real brand. Product names and internal links stay out of all three pages.
 - Client sites **are named**, with links to the live sites. That is intentional: they are
   public work and the links are the evidence. Do not add client contact details, contract
   values, or unpublished material.
@@ -327,9 +359,12 @@ over `assets/og-card.png`.
 - `showcase-comments.md` is interview-prep material and must not be tracked or deployed. It
   has been moved to `../SHOWCASE-COMMENTS.md`.
 - The `old/` folder is the previous personal site and contains personal photos and the old
-  employer logo. It is ignored by git and must not be deployed.
+  employer logo. It is ignored by git and must not be deployed. The picture desk uses only
+  the resized copies in `assets/photography/`.
+- Some plates include recognizable people. Confirm you have permission to publish a face
+  before adding or swapping a photo.
 - Keep customer names, revenue figures, internal Slack links, and unredacted strategy docs out
-  of both pages and any public repo.
+  of all three pages and any public repo.
 
 ## Assets and screenshots
 
@@ -361,7 +396,21 @@ Screenshots are 1440px wide. Each has a WebP source, a PNG fallback, and 720w va
   `beforeprint` so the PDF is not full of blank frames.
 - The two diagrams are SVG so they stay sharp in print and at any zoom.
 - On mobile, wide tables and diagrams scroll inside labeled regions (`tabindex="0"`,
-  `role="region"`); neither page scrolls horizontally.
+  `role="region"`); no page scrolls horizontally.
+
+### Photography assets
+
+The picture desk is built from 22 files in `old/assets/images/`, resized into
+`assets/photography/`. Each plate has four web files:
+
+- `slug.jpg` and `slug.webp` — 1600px on the long edge, used by the lightbox and as the
+  high-density `srcset` candidate.
+- `slug-800.jpg` and `slug-800.webp` — 800px on the long edge, the default grid image.
+
+The JPEGs are made with `sips --resampleHeightWidthMax 1600` (and `800`), then converted with
+`cwebp -q 80` (and `-q 78`). Keep the `width` and `height` attributes in the HTML equal to the
+1600px file's real dimensions. The originals stay in `old/`; do not link to them from the
+site.
 
 ## Accessibility checklist
 
@@ -373,10 +422,13 @@ Screenshots are 1440px wide. Each has a WebP source, a PNG fallback, and 720w va
 - [x] One boxed section index at every width; it wraps to three cells per row on small screens
 - [x] Theme toggle is a real `button`, label and `aria-pressed` update with state
 - [x] Keyboard-visible focus on all interactive elements
+- [x] Picture-desk lightbox is a native `<dialog>` with arrow-key navigation, Escape, and a
+      close button
+- [x] Every plate has alt text and a visible caption; the masonry reflows to one column
 - [x] Contrast measured for every text/background pair
 - [x] `prefers-reduced-motion` respected
 - [x] All images have alt text (decorative signature uses `alt=""`)
-- [x] Responsive at 390px and 1440px, no page-level horizontal scroll
+- [x] Responsive from 320px to 1440px, no page-level horizontal scroll
 - [x] Pages fully readable with JavaScript disabled
 - [ ] Verify tab order once in a real browser after editing
 - [ ] Run one screen-reader pass (VoiceOver or NVDA) before publishing
@@ -388,7 +440,8 @@ Screenshots are 1440px wide. Each has a WebP source, a PNG fallback, and 720w va
 - The sheet drops its desk frame and paper texture and prints white. The masthead keeps its
   rules and ears; the title prints at 40pt.
 - Panels invert to white; links print black and external URLs expand in parentheses.
-- Output is A4 with 16mm margins. The portfolio is 6 pages; the detail page is 20 pages.
+- Output is A4 with 16mm margins. The portfolio is 6 pages; the detail page is 20 pages; the
+  picture desk is 8 pages.
 - The lead collapses to one column, with the stat/index and notice boxes side by side beneath.
 - Screenshots cap at 260px; tall screenshots at 340px; diagrams stop scrolling and shrink to
   the page width.
@@ -396,10 +449,11 @@ Screenshots are 1440px wide. Each has a WebP source, a PNG fallback, and 720w va
   roles, projects, client-site cards, highlight cards, and skills stay intact. Headings never
   split from their following content.
 - The highlights, skills, outcomes, projects, client-site, flow, layer, path, and principle
-  grids collapse to a single column for print.
-- The theme toggle, boxed nav, section pager, back-to-top link, progress bar, and hero CTAs
-  are hidden.
-- Print from either page's **Print / save as PDF** button, or `Ctrl/Cmd + P`.
+  grids collapse to a single column for print. The picture-desk masonry prints in two columns,
+  and each plate stays whole.
+- The theme toggle, boxed nav, section pager, back-to-top link, progress bar, hero CTAs, and
+  lightbox are hidden.
+- Print from any page's **Print / save as PDF** button, or `Ctrl/Cmd + P`.
 
 ## Known gaps
 
@@ -412,6 +466,13 @@ Screenshots are 1440px wide. Each has a WebP source, a PNG fallback, and 720w va
 - The detail page is long by design. The boxed nav, the previous / next links at the end of
   each section, the edition index in the lead sidebar, and per-case deep links (`#case-a` …
   `#case-d`) are the way through it.
+- The picture desk uses CSS multi-columns for the masonry effect, not a layout library. The
+  reading order is column-first, so the plate numbers do not run left-to-right across a row.
+- Photo dates come from EXIF where the file has it; a few frames are undated and labeled only
+  **Philippines**. Locations are kept general on purpose. Add a place name only when it is
+  verified.
+- The photo originals stay in the gitignored `old/` folder. Only the resized copies in
+  `assets/photography/` are deployable.
 
 ## Internal docs
 
