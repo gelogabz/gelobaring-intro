@@ -277,7 +277,6 @@
             <main id="main" class="wrap" tabindex="-1">
                 <section class="lead" aria-labelledby="lead-headline">
                     <div class="lead__main">
-                        <p class="eyebrow">The picture desk · Photography</p>
                         <h1 id="lead-headline">I go up for the light.</h1>
                         <p class="hero-deck">
                             Landscapes, coastlines, and the occasional person
@@ -298,9 +297,6 @@
                             <a class="btn" href="case-studies.html"
                                 >Read the case studies</a
                             >
-                            <button class="btn" type="button" data-print>
-                                Print / save as PDF
-                            </button>
                         </div>
                     </div>
 
@@ -346,16 +342,13 @@
                 <section class="section" id="gallery">
                     <span class="section-num">01</span>
                     <h2>The picture desk.</h2>
-                    <p class="lede">
+                    <p class="lede mb-5">
                         Twenty-two frames from the last eight years. No
                         captions longer than a breath.
                     </p>
-                    <p class="mono mb-5">
-                        Plates 01–22 · Philippines · 2017–2024
-                    </p>
 
                     <!-- LEAD PLATE -->
-                                        <figure class="plate plate--lead">
+                    <figure class="plate plate--lead">
                         <a
                             class="plate__link"
                             href="assets/photography/01-sea-of-clouds.jpg"
@@ -1257,19 +1250,23 @@
                                 <p class="box-label">The small print</p>
                                 <p class="small muted mb-0">
                                     All photographs are mine. Taken in the
-                                    Philippines between 2017 and 2024. Prints on
-                                    request.
+                                    Philippines between 2017 and 2024.
                                 </p>
                             </div>
                             <div>
                                 <p class="box-label">Want a print?</p>
-                                <p class="small muted mb-0">
+                                <p class="small muted">
                                     Email
                                     <a href="mailto:gabrielgelo93@gmail.com"
                                         >gabrielgelo93@gmail.com</a
                                     >
                                     with the plate number.
                                 </p>
+                                <a
+                                    class="btn mt-3"
+                                    href="mailto:gabrielgelo93@gmail.com?subject=Print%20inquiry%20%E2%80%94%20Picture%20Desk"
+                                    >Ask about a print</a
+                                >
                             </div>
                         </div>
                     </div>
@@ -1296,6 +1293,13 @@
                             systems, enablement, or front-end development. The
                             photos are what I do with the rest of the daylight.
                         </p>
+                        <p class="small muted mt-3 mb-0">
+                            <a
+                                href="mailto:gabrielgelo93@gmail.com?subject=Mountains%20and%20adventures"
+                                >Talk to me about mountains, adventures, and
+                                how to combine the two.</a
+                            >
+                        </p>
                     </div>
 
                     <div>
@@ -1311,43 +1315,52 @@
                             >
                         </div>
 
-                        <button
-                            class="theme-toggle theme-toggle--footer"
-                            type="button"
-                            data-theme-toggle
-                            aria-pressed="false"
-                            aria-label="Switch to dark theme"
-                        >
-                            <svg
-                                class="icon--sun"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.7"
-                                stroke-linecap="round"
-                                aria-hidden="true"
+                        <div class="footer-tools">
+                            <button
+                                class="footer-tool"
+                                type="button"
+                                data-print
                             >
-                                <circle cx="12" cy="12" r="4.1" />
-                                <path
-                                    d="M12 2.4v2.2M12 19.4v2.2M2.4 12h2.2M19.4 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"
-                                />
-                            </svg>
-                            <svg
-                                class="icon--moon"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.7"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                aria-hidden="true"
+                                Print / save as PDF
+                            </button>
+                            <button
+                                class="theme-toggle"
+                                type="button"
+                                data-theme-toggle
+                                aria-pressed="false"
+                                aria-label="Switch to dark theme"
                             >
-                                <path
-                                    d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8Z"
-                                />
-                            </svg>
-                            <span data-theme-label>Dark mode</span>
-                        </button>
+                                <svg
+                                    class="icon--sun"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.7"
+                                    stroke-linecap="round"
+                                    aria-hidden="true"
+                                >
+                                    <circle cx="12" cy="12" r="4.1" />
+                                    <path
+                                        d="M12 2.4v2.2M12 19.4v2.2M2.4 12h2.2M19.4 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"
+                                    />
+                                </svg>
+                                <svg
+                                    class="icon--moon"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.7"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8Z"
+                                    />
+                                </svg>
+                                <span data-theme-label>Dark mode</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 

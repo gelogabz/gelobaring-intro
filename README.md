@@ -122,11 +122,11 @@ relative paths honest.
 
 `photography.html`
 
-| #   | Section     | ID         | Role                                             |
-| --- | ----------- | ---------- | ------------------------------------------------ |
-| 01  | Gallery     | `#gallery` | 22 plates: one featured photograph and masonry   |
-| 02  | Field notes | `#notes`   | Short essay, pull quote, and print note          |
-| —   | Contact     | `#contact` | Email, LinkedIn, GitHub                          |
+| #   | Section     | ID         | Role                                           |
+| --- | ----------- | ---------- | ---------------------------------------------- |
+| 01  | Gallery     | `#gallery` | 22 plates: one featured photograph and masonry |
+| 02  | Field notes | `#notes`   | Short essay, pull quote, and print note        |
+| —   | Contact     | `#contact` | Email, LinkedIn, GitHub                        |
 
 Section numbers, the `.paper-nav` links, the edition index in the lead sidebar, and the CSS
 section comments must stay in sync. The `.section-next` pager is generated from `.paper-nav`

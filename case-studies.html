@@ -288,7 +288,6 @@
                     aria-labelledby="lead-headline"
                 >
                     <div class="lead__main">
-                        <p class="eyebrow">The full report · Case studies</p>
                         <h1 id="lead-headline">The work in detail.</h1>
                         <p class="hero-deck">
                             Four knowledge-system projects from 2026, plus
@@ -309,9 +308,6 @@
                             <a class="btn" href="mailto:gabrielgelo93@gmail.com"
                                 >Email me</a
                             >
-                            <button class="btn" type="button" data-print>
-                                Print / save as PDF
-                            </button>
                         </div>
                     </div>
 
@@ -724,7 +720,8 @@
                             </div>
                             <figcaption>
                                 <b>Glossary.</b> 507 terms, faceted filtering,
-                                fuzzy search with a subsequence fallback, and a
+                                fuzzy search with a subsequence fallback
+                                (<a href="#code-snippets">code ↓</a>), and a
                                 detail panel. Difficulty is assigned per term
                                 against a rubric and exposed as a filter.
                             </figcaption>
@@ -751,9 +748,8 @@
                                         <li>
                                             <strong>507 terms</strong> with
                                             aliases, difficulty, category,
-                                            audience, use cases, and
-                                            <strong>1,477</strong> curated
-                                            cross-links.
+                                            audience, use cases, and 1,477
+                                            curated cross-links.
                                         </li>
                                         <li>
                                             <strong>21 learning paths</strong>
@@ -771,10 +767,10 @@
                                             could not provide.
                                         </li>
                                         <li>
-                                            <strong>36 comparison rows</strong>
-                                            across up to seven platforms,
-                                            derived from the alias graph instead
-                                            of a second hand-maintained table.
+                                            36 comparison rows across up to
+                                            seven platforms, derived from the
+                                            alias graph instead of a second
+                                            hand-maintained table.
                                         </li>
                                         <li>
                                             A
@@ -814,6 +810,24 @@
                                         out, even when a stakeholder asked for
                                         it twice.
                                     </div>
+                                </div>
+
+                                <div class="block">
+                                    <h4>Scope and limits</h4>
+                                    <p>
+                                        A static, solo-built prototype. There is
+                                        no server, auth, analytics pipeline, or
+                                        load testing. <code>terms.js</code> is
+                                        ~795 KB and loads before first paint
+                                        with no code-splitting. Impact was not
+                                        measured; the evidence is qualitative.
+                                        Some accessibility work is incomplete.
+                                    </p>
+                                    <p class="small muted mb-0">
+                                        <a href="#limits"
+                                            >See the full limits list ↓</a
+                                        >
+                                    </p>
                                 </div>
                             </div>
 
@@ -1143,6 +1157,11 @@
                                         channel was email and a forwarded file,
                                         which is why export and print exist.
                                     </p>
+                                    <p class="small muted mb-0">
+                                        <a href="#limits"
+                                            >See the full limits list ↓</a
+                                        >
+                                    </p>
                                 </div>
                             </div>
 
@@ -1348,6 +1367,11 @@
                                         covers the design, sourcing, and
                                         assessment structure.
                                     </p>
+                                    <p class="small muted mb-0">
+                                        <a href="#limits"
+                                            >See the full limits list ↓</a
+                                        >
+                                    </p>
                                 </div>
                             </div>
 
@@ -1538,6 +1562,11 @@
                                         contracts and the review design, and in
                                         knowing what was missing.
                                     </p>
+                                    <p class="small muted mb-0">
+                                        <a href="#limits"
+                                            >See the full limits list ↓</a
+                                        >
+                                    </p>
                                 </div>
                             </div>
 
@@ -1708,8 +1737,8 @@
                                 <span class="site-when">May 2023</span>
                                 <h4>Mori No Shion</h4>
                                 <p>
-                                    Pet memorial service website. Main front-end
-                                    developer.
+                                    Built a new site for a pet memorial service.
+                                    Main front-end developer.
                                 </p>
                                 <p class="site-stack">
                                     HTML · CSS · JS · jQuery
@@ -1726,7 +1755,10 @@
                             <article class="site">
                                 <span class="site-when">Jun 2023</span>
                                 <h4>Aladdin</h4>
-                                <p>Salon website. Main front-end developer.</p>
+                                <p>
+                                    Built a new site for a salon. Main front-end
+                                    developer.
+                                </p>
                                 <p class="site-stack">
                                     HTML · CSS · JS · jQuery
                                 </p>
@@ -1886,7 +1918,7 @@
                         </aside>
                     </div>
 
-                    <div class="code-wrap">
+                    <div class="code-wrap" id="code-snippets">
                         <div class="code-head">
                             <span>app/search.js — subsequence scoring</span>
                             <span>vanilla JS, no dependencies</span>
@@ -1957,6 +1989,9 @@ allComparableTerms.forEach((t) =&gt; {
                         generated from the alias graph at runtime, so adding a
                         term can improve several pages without a second table to
                         maintain.
+                    </p>
+                    <p class="small muted mt-2 mb-0">
+                        <a href="#case-a">Back to Case A ↑</a>
                     </p>
                 </section>
 
@@ -2293,43 +2328,52 @@ allComparableTerms.forEach((t) =&gt; {
                             >
                         </div>
 
-                        <button
-                            class="theme-toggle theme-toggle--footer"
-                            type="button"
-                            data-theme-toggle
-                            aria-pressed="false"
-                            aria-label="Switch to dark theme"
-                        >
-                            <svg
-                                class="icon--sun"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.7"
-                                stroke-linecap="round"
-                                aria-hidden="true"
+                        <div class="footer-tools">
+                            <button
+                                class="footer-tool"
+                                type="button"
+                                data-print
                             >
-                                <circle cx="12" cy="12" r="4.1" />
-                                <path
-                                    d="M12 2.4v2.2M12 19.4v2.2M2.4 12h2.2M19.4 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"
-                                />
-                            </svg>
-                            <svg
-                                class="icon--moon"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="1.7"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                aria-hidden="true"
+                                Print / save as PDF
+                            </button>
+                            <button
+                                class="theme-toggle"
+                                type="button"
+                                data-theme-toggle
+                                aria-pressed="false"
+                                aria-label="Switch to dark theme"
                             >
-                                <path
-                                    d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8Z"
-                                />
-                            </svg>
-                            <span data-theme-label>Dark mode</span>
-                        </button>
+                                <svg
+                                    class="icon--sun"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.7"
+                                    stroke-linecap="round"
+                                    aria-hidden="true"
+                                >
+                                    <circle cx="12" cy="12" r="4.1" />
+                                    <path
+                                        d="M12 2.4v2.2M12 19.4v2.2M2.4 12h2.2M19.4 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"
+                                    />
+                                </svg>
+                                <svg
+                                    class="icon--moon"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.7"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8Z"
+                                    />
+                                </svg>
+                                <span data-theme-label>Dark mode</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -2339,10 +2383,11 @@ allComparableTerms.forEach((t) =&gt; {
                         notes.</span
                     >
                     <span
-                        >Employers are anonymized. Client sites are named.</span
+                        >Client sites are named; employers are anonymized and
+                        repository links are shared on request — happy to talk
+                        through both in an interview.</span
                     >
                     <span>Last updated November 2026.</span>
-                    <span>Repository links available on request.</span>
                     <span><a href="photography.html">Photography</a></span>
                     <a class="colophon__top" href="#top">Back to top ↑</a>
                 </div>
