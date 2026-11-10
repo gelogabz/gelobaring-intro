@@ -297,6 +297,26 @@
                             behind them.
                         </p>
                         <p class="lead__byline">
+                            <picture class="byline-avatar">
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/gelo-avatar-80.webp  1x,
+                                        assets/gelo-avatar-160.webp 2x
+                                    "
+                                />
+                                <img
+                                    src="assets/gelo-avatar-80.jpg"
+                                    srcset="
+                                        assets/gelo-avatar-80.jpg  1x,
+                                        assets/gelo-avatar-160.jpg 2x
+                                    "
+                                    width="32"
+                                    height="32"
+                                    alt=""
+                                    decoding="async"
+                                />
+                            </picture>
                             <span>By Gelo Baring</span>
                             <span>Philippines · UTC+8</span>
                             <span>2015–2026</span>
@@ -846,26 +866,53 @@
            ================================================================ -->
             <footer class="wrap footer" id="contact">
                 <div class="footer-grid">
-                    <div>
-                        <img
-                            class="footer-signature"
-                            src="assets/signature.png"
-                            alt=""
-                            width="400"
-                            height="68"
-                            loading="lazy"
-                            decoding="async"
-                        />
-                        <h3>
-                            I&rsquo;m looking for work in knowledge systems,
-                            enablement, or front-end development.
-                        </h3>
-                        <p class="mt-2 measure-copy">
-                            I like problems where the documentation
-                            <em>is</em> the product: complex domains, technical
-                            audiences, and a real need for the answer to be
-                            correct.
-                        </p>
+                    <div class="author-card">
+                        <figure class="author-card__portrait">
+                            <picture>
+                                <source
+                                    type="image/webp"
+                                    srcset="
+                                        assets/gelo-portrait-320.webp 1x,
+                                        assets/gelo-portrait-640.webp 2x
+                                    "
+                                />
+                                <img
+                                    src="assets/gelo-portrait-320.jpg"
+                                    srcset="
+                                        assets/gelo-portrait-320.jpg 1x,
+                                        assets/gelo-portrait-640.jpg 2x
+                                    "
+                                    width="160"
+                                    height="200"
+                                    alt="Gelo Baring"
+                                    loading="lazy"
+                                    decoding="async"
+                                />
+                            </picture>
+                            <figcaption>Gelo Baring · Editor</figcaption>
+                        </figure>
+
+                        <div class="author-card__body">
+                            <img
+                                class="footer-signature"
+                                src="assets/signature.png"
+                                alt=""
+                                width="400"
+                                height="68"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                            <h3>
+                                I&rsquo;m looking for work in knowledge systems,
+                                enablement, or front-end development.
+                            </h3>
+                            <p class="mt-2 measure-copy">
+                                I like problems where the documentation
+                                <em>is</em> the product: complex domains,
+                                technical audiences, and a real need for the
+                                answer to be correct.
+                            </p>
+                        </div>
                     </div>
 
                     <div>

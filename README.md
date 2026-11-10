@@ -48,6 +48,10 @@ gelobaring-intro/
 │   ├── favicon-180.png     apple-touch icon
 │   ├── favicon-512.png     high-resolution favicon
 │   ├── favicon.svg         previous favicon, no longer referenced
+│   ├── gelo-avatar-80.*    byline avatar, 1x (JPEG + WebP)
+│   ├── gelo-avatar-160.*   byline avatar, 2x
+│   ├── gelo-portrait-320.* contact portrait, 1x (4:5)
+│   ├── gelo-portrait-640.* contact portrait, 2x
 │   └── signature.png       personal mark
 ├── .gitignore              excludes local/private material from the repo
 └── README.md               this file
@@ -81,6 +85,7 @@ browsers skip them on `file://`.
 | Career history                  | `index.html` — `#career`                                         |
 | Skills, tools, background       | `index.html` — `#skills`                                         |
 | Contact details                 | all three HTML files — `.contact` block                          |
+| Author portrait and byline      | `index.html` — `.author-card`; all pages — `.byline-avatar`      |
 | Case-study copy                 | `case-studies.html` — `<article class="case">` blocks in `#work` |
 | Earlier projects, client sites  | `case-studies.html` — `#earlier`                                 |
 | Engineering notes, code samples | `case-studies.html` — `#engineering`                             |
@@ -417,6 +422,24 @@ Screenshots are 1440px wide. Each has a WebP source, a PNG fallback, and 720w va
 - On mobile, wide tables and diagrams scroll inside labeled regions (`tabindex="0"`,
   `role="region"`); no page scrolls horizontally.
 
+### Author portrait assets
+
+The byline avatar and the contact portrait come from `old/assets/images/20210310_215950.jpg`.
+The original is 6528×4896 with EXIF orientation 6 (rotate 90° clockwise). Browsers apply
+that tag, but command-line tools do not, so crop from the browser-oriented 4896×6528 image
+or bake the rotation first.
+
+- `gelo-avatar-80.jpg/.webp` and `-160` — 1x/2x for the 32px circular byline avatar on all
+  three pages. Decorative (`alt=""`) because “By Gelo Baring” is adjacent.
+- `gelo-portrait-320.jpg/.webp` and `-640` — 1x/2x for the 160×200 contact portrait in the
+  portfolio footer. The crop is 4:5 and keeps the full face and chest, not just the head.
+
+Crops are taken with browser canvas from the oriented image, exported as JPEG, then converted
+with `cwebp -q 82`. Keep the `<img>` `width` and `height` equal to the display size (32×32,
+160×200) so the box is reserved before the file loads. The contact portrait is lazy-loaded.
+The original stays in `old/` and is gitignored. In print, the small byline avatar is hidden
+because it turns into a dark dot; the larger contact portrait is kept.
+
 ### Photography assets
 
 The picture desk is built from 35 files in `old/assets/images/`, resized into
@@ -447,7 +470,7 @@ attributes in the HTML equal to the 1600px file's real dimensions. The originals
 - [x] Every plate has alt text and a visible caption; the masonry reflows to one column
 - [x] Contrast measured for every text/background pair
 - [x] `prefers-reduced-motion` respected
-- [x] All images have alt text (decorative signature uses `alt=""`)
+- [x] All images have alt text (decorative signature and byline avatar use `alt=""`)
 - [x] Responsive from 320px to 1440px, no page-level horizontal scroll
 - [x] Pages fully readable with JavaScript disabled
 - [ ] Verify tab order once in a real browser after editing
@@ -473,6 +496,7 @@ attributes in the HTML equal to the 1600px file's real dimensions. The originals
   and each plate stays whole.
 - The theme toggle, boxed nav, section pager, back-to-top link, progress bar, hero CTAs, and
   lightbox are hidden.
+- The small byline avatar is hidden; the 160×200 contact portrait prints with its caption.
 - Print from any page's **Print / save as PDF** button, or `Ctrl/Cmd + P`.
 
 ## Known gaps

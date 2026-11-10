@@ -143,6 +143,12 @@
         color: #333333;
     }
 
+    /* The avatar turns into an unreadable dot in grayscale; the name carries
+       the byline on paper. The contact portrait is large enough to keep. */
+    .byline-avatar {
+        display: none !important;
+    }
+
     .lead__aside {
         display: grid;
         grid-template-columns: 1fr 1fr;
