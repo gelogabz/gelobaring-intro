@@ -105,7 +105,7 @@ code {
 .sheet {
     max-width: calc(var(--wrap) + 2 * var(--gutter));
     margin: 0 auto;
-    border: 1px solid var(--ink);
+    border: 3px solid var(--ink);
     background-color: var(--bg);
     background-image: repeating-linear-gradient(
         0deg,
