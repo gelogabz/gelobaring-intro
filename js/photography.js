@@ -55,12 +55,7 @@
 
   links.forEach(function (link, i) {
     link.addEventListener("click", function (event) {
-      if (
-        event.metaKey ||
-        event.ctrlKey ||
-        event.shiftKey ||
-        event.altKey
-      ) {
+      if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) {
         return;
       }
       event.preventDefault();

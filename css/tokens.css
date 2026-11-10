@@ -94,24 +94,26 @@
 /* ==========================================================================
    Dark theme
    Set on <html> by the inline script in index.html before first paint.
-   The page is true black; panels and the code block are black too, drawn with
-   a hairline rule rather than a forest-green fill. Raised cards use the
-   palette's black (#001f17) so they still read as surfaces.
-   Contrast on #000000: khaki 17.88, muted 11.97, muted-2 10.00, accent 14.41.
-   On raised #001f17: khaki 14.80, muted 9.90, muted-2 8.27, accent 11.93.
+   A green-tinted charcoal, not pure black: the desk, sheet, raised cards,
+   and panels sit on four close but distinct surfaces. The palette keeps the
+   paper warmth in the text and the teal accent, so it still reads as the
+   same newspaper at night.
+   Contrast on #131c18: khaki 14.81, muted 9.91, muted-2 8.28, accent 11.94.
+   On raised #1c2a24: khaki 12.72, muted 8.51, muted-2 7.11, accent 10.25.
+   On panels #22332c: khaki 11.33, muted 7.58, accent 9.13.
    ========================================================================== */
 [data-theme="dark"] {
     color-scheme: dark;
 
-    --khaki: #000000; /* page */
-    --khaki-2: #001f17; /* raised surface */
-    --khaki-3: #0a2f26;
-    --lint: #10231e; /* highlight wash */
-    --lint-soft: #001f17; /* tinted surface */
+    --khaki: #131c18; /* page / sheet */
+    --khaki-2: #1c2a24; /* raised surface */
+    --khaki-3: #0a100e; /* desk behind the sheet */
+    --lint: #31574b; /* selection wash */
+    --lint-soft: #1c2a24; /* tinted surface */
 
-    /* Panels and code block: pure black, separated from the page by their
-     hairline border instead of a green fill */
-    --forest: #000000;
+    /* Panels and the code block: a slightly lighter green surface rather than
+     a black fill, so they read as raised stock instead of holes. */
+    --forest: #22332c;
 
     --ink: #f4ecdc;
     --ink-2: #dbe7dd;

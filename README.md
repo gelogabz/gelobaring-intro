@@ -7,15 +7,15 @@ The layout borrows the grammar of a broadsheet: a ruled paper sheet, masthead wi
 boxed section index, a lead story with a sidebar, hairline card grids, and numbered editorial
 sections. The palette and type families are unchanged; only the structure is newspaper-shaped.
 The masthead is **The AGB Gazette**; the kicker reads **Gelo Baring · Portfolio** on the work
-pages and **Gelo Baring · Photography** on the picture desk.
+pages and **Gelo Baring · Off the Clock** on the picture desk.
 
-- `index.html` is the portfolio: nine highlights, a five-role career timeline, skills, and
-  contact.
+- `index.html` is the portfolio: nine highlights, a five-role career timeline, skills,
+  training, and contact.
 - `case-studies.html` is the detail page: four 2026 knowledge-system cases, earlier help
   center, client site, and internal tool work, plus engineering notes, evidence, and limits.
-- `photography.html` is the picture desk: a masonry grid of 22 photographs taken around the
-  Philippines between 2017 and 2024, plus a short field-notes essay. It is the fun page; none
-  of it is client work.
+- `photography.html` is the picture desk: a masonry grid of 35 photographs taken around the
+  Philippines between 2017 and 2026, plus an after-hours essay and interests. It is the fun
+  page; none of it is client work.
 
 Employers are anonymized throughout. Client sites are named and linked because they are public
 work.
@@ -24,15 +24,15 @@ work.
 
 ```
 gelobaring-intro/
-├── index.html              portfolio: highlights, career, skills, contact
-├── case-studies.html       detail: four 2026 cases, earlier work, engineering, evidence, limits
-├── photography.html        picture desk: 22 plates, masonry grid, field notes
+├── index.html              portfolio: highlights, career, skills, training, contact
+├── case-studies.html       detail: four 2026 cases, earlier work, training, engineering, limits
+├── photography.html        Off the Clock: 35 plates, masonry grid, after-hours notes
 ├── css/
 │   ├── tokens.css          design system: palette, type scale, spacing, z-index
 │   ├── styles.css          newspaper structure: masthead, nav, lead, ruled grids, plates
 │   └── print.css           paper output (loaded with media="print")
 ├── js/
-│   ├── main.js             reading progress, active nav, section pager, print button
+│   ├── main.js             reading progress, nav state, pager, print, dateline
 │   └── photography.js      keyboard-accessible lightbox for the picture desk
 ├── assets/
 │   ├── 01–06.png           anonymized product screenshots (1440w fallback)
@@ -43,7 +43,7 @@ gelobaring-intro/
 │   ├── og-card.png         1200×630 social card
 │   ├── og-card.svg         social-card source
 │   ├── og-photography.png  1200×630 picture-desk social card
-│   ├── photography/        22 plates, each as JPEG + WebP at 1600w and 800w
+│   ├── photography/        35 plates, each as JPEG + WebP at 1600w and 800w
 │   ├── favicon-32.png      white GB monogram, ink background
 │   ├── favicon-180.png     apple-touch icon
 │   ├── favicon-512.png     high-resolution favicon
@@ -66,7 +66,8 @@ python3 -m http.server 8000
 ```
 
 Opening `index.html` directly also works, but a server is closer to production and keeps
-relative paths honest.
+relative paths honest. Cross-document page transitions are more reliable over HTTP; some
+browsers skip them on `file://`.
 
 ## Edit it
 
@@ -95,6 +96,7 @@ relative paths honest.
 | PDF behavior                    | `css/print.css`                                                  |
 | Theme bootstrap                 | all three HTML files — inline `<script>` in `<head>`             |
 | Print button, nav state, pager  | `js/main.js`                                                     |
+| Dateline and last updated       | `js/main.js` — `[data-dateline]`, `[data-updated]`               |
 
 ### Page structure
 
@@ -104,7 +106,8 @@ relative paths honest.
 | --- | ---------- | ------------- | ---------------------------------------------- |
 | 01  | Highlights | `#highlights` | Nine project cards, four linking to full cases |
 | 02  | Career     | `#career`     | Five roles, 2015–2026, employers anonymized    |
-| 03  | Skills     | `#skills`     | Six capabilities, tools, and background        |
+| 03  | Skills     | `#skills`     | Six capabilities and tools                     |
+| 04  | Training   | `#training`   | Courses, awards, and education                 |
 | —   | Contact    | `#contact`    | Email, LinkedIn, GitHub                        |
 
 `case-studies.html`
@@ -115,17 +118,18 @@ relative paths honest.
 | 02  | How it fits  | `#system`      | The three-layer model and pipeline           |
 | 03  | Case studies | `#work`        | Four deep cases with jump links              |
 | 04  | Earlier work | `#earlier`     | Help center, internal tool, six client sites |
-| 05  | Engineering  | `#engineering` | Architecture, code samples, delivery choices |
-| 06  | Evidence     | `#evidence`    | Output counts, sources, 2026 timeline        |
-| 07  | Limits       | `#limits`      | What is not proven                           |
+| 05  | Training     | `#training`    | Courses, awards, and education               |
+| 06  | Engineering  | `#engineering` | Architecture, code samples, delivery choices |
+| 07  | Evidence     | `#evidence`    | Output counts, sources, 2026 timeline        |
+| 08  | Limits       | `#limits`      | What is not proven                           |
 | —   | Contact      | `#contact`     | Email, LinkedIn, GitHub                      |
 
 `photography.html`
 
 | #   | Section     | ID         | Role                                           |
 | --- | ----------- | ---------- | ---------------------------------------------- |
-| 01  | Gallery     | `#gallery` | 22 plates: one featured photograph and masonry |
-| 02  | Field notes | `#notes`   | Short essay, pull quote, and print note        |
+| 01  | Gallery     | `#gallery` | 35 plates: one featured photograph and masonry |
+| 02  | After hours | `#notes`   | Essay, interests, pull quote, and print note   |
 | —   | Contact     | `#contact` | Email, LinkedIn, GitHub                        |
 
 Section numbers, the `.paper-nav` links, the edition index in the lead sidebar, and the CSS
@@ -162,8 +166,9 @@ when editing.
 
 ## Themes
 
-Light is the default: khaki `#f4ecdc`. Dark makes the page true black `#000000`, with
-`#001f17` used for raised surfaces and `--forest` overridden to black.
+Light is the default: khaki `#f4ecdc`. Dark uses a green-tinted charcoal page
+`#131c18`, raised surfaces `#1c2a24`, and panels `#22332c` — no pure black. The desk behind
+the sheet is `#0a100e`.
 
 - On first visit the theme follows the visitor's OS (`prefers-color-scheme`).
 - The theme button in the masthead and in the footer toggles it. Both stay in sync, the visible
@@ -174,8 +179,9 @@ Light is the default: khaki `#f4ecdc`. Dark makes the page true black `#000000`,
 - Print always renders light, whichever theme is active on screen.
 
 Only the semantic roles change between themes: `--bg`, `--ink`, `--ink-2`, `--muted`,
-`--muted-2`, `--teal-800`, `--rule`, `--stat-ink`, `--surface-raised`. `--forest` becomes
-black in dark mode so panels and the code block are drawn by their hairline rules.
+`--muted-2`, `--teal-800`, `--rule`, `--stat-ink`, `--surface-raised`. `--forest` becomes a
+lighter green panel in dark mode so panels, the code block, and button hovers read as raised
+stock rather than black holes.
 
 ## Design tokens
 
@@ -186,7 +192,7 @@ black in dark mode so panels and the code block are drawn by their hairline rule
 | `--forest`   | `#00493a` | Dark panels, headings, strong numbers                |
 | `--lint`     | `#d7d7a8` | Highlight wash                                       |
 | `--khaki`    | `#f4ecdc` | Page background (light)                              |
-| `--black`    | `#001f17` | Body text; raised surface in dark                    |
+| `--black`    | `#001f17` | Body text (light theme); dark ink is overridden      |
 
 Typography: **Outfit** for display and UI labels, **Google Sans Flex** for body copy. The
 Google Fonts request loads Outfit 400/500/600/700/800 and Google Sans Flex 400/500/600/700 —
@@ -196,10 +202,11 @@ the weights the CSS actually uses for the masthead, headlines, and labels.
 
 - `.sheet` — the ruled broadsheet that wraps the masthead, nav, main, and footer. It sets the
   outer border, the paper background, and the faint horizontal texture. The body behind it is
-  the desk tone.
+  the desk tone; a small responsive body padding and a soft shadow make the sheet read as
+  paper on a desk. Both are removed in print.
 - `.masthead` — utility strip (date, edition, theme toggle), then a three-column grid: left
   ear, centered kicker/title/tagline, right ear. The title is **The AGB Gazette**; the kicker
-  is **Gelo Baring · Portfolio** on the work pages and **Gelo Baring · Photography** on the
+  is **Gelo Baring · Portfolio** on the work pages and **Gelo Baring · Off the Clock** on the
   picture desk. The title is a `<p>`, not the page `h1`; each page keeps one `h1` in the lead.
 - `.paper-nav` — the boxed section index. It is a wrapping flex row of bordered cells; links
   invert to ink when active or hovered. Three cells per row below 1200px, natural width above.
@@ -207,6 +214,14 @@ the weights the CSS actually uses for the masthead, headlines, and labels.
   They mirror the `.paper-nav` order and give the reader a way to keep moving without
   scrolling back to the top. Hidden in print.
 - `.colophon__top` — the **Back to top** link in the footer. Hidden in print.
+- Page transitions — `@view-transition { navigation: auto; }` in `styles.css` enables
+  cross-document view transitions. The root snapshots use a 5deg paper fold (2.5deg below
+  600px) for 300ms with a light opacity fade. Chrome/Edge 126+ and Safari 18.2+ animate it;
+  Firefox ignores the rule and navigates instantly. Same-page anchors and external links do
+  not animate, and `prefers-reduced-motion` turns the fold off.
+- Dateline — `js/main.js` fills `[data-dateline]` with today's date in `Asia/Manila` and
+  `[data-updated]` with `document.lastModified`. The static text in the HTML is the no-JS
+  fallback; changing a page updates its footer stamp automatically.
 - `.lead` — the lead story grid: headline, deck, byline, and calls to action on the left; a
   signature, stat box, and notice on the right. The detail page swaps the stat box for an
   edition index.
@@ -215,6 +230,10 @@ the weights the CSS actually uses for the masthead, headlines, and labels.
   covers the card for a full-card target. Cards carry `P. 01`–`P. 09` page labels.
 - `.skills` / `.skill` — a hairline grid of six capabilities. Same breakpoints as the
   highlights grid, with automatic `01`–`06` numbering.
+- `.training` / `.training__item` — the training and education grid: three columns on
+  desktop, two at 760px, one on phones. Each item carries a provider/date label.
+- `.interests` / `.interest` — the four-card after-hours grid on the picture desk: four
+  columns on desktop, two at 700px, one on phones.
 - `.case` / `.case-grid` — each case study is a feature with a ruled head, a body column, and
   a sidebar for facts and links.
 - `.masonry` / `.plate` — the picture-desk grid. CSS multi-columns: one column on phones, two
@@ -224,7 +243,7 @@ the weights the CSS actually uses for the masthead, headlines, and labels.
 - `.lightbox` — the native `<dialog>` viewer opened by `js/photography.js`. Arrow keys move
   between plates; Escape and the close button dismiss it. Without JavaScript each plate links
   straight to the full-size JPEG.
-- `.field-notes` / `.pullquote` — the short essay and the ruled pull quote on the picture desk.
+- `.field-notes` / `.pullquote` — the after-hours essay and the ruled pull quote on the picture desk.
 - `.panel-dark` — the forest supplement that carries the pipeline, layers, and principles.
 - `.pills` — a list reset, so pill lists can use `<ul>` / `<li>` without browser markers or
   indentation. `case-studies.html` still uses `<span class="pill">` inside `.pills`.
@@ -241,18 +260,18 @@ Light theme:
 | Muted `#4a5f56` on khaki        | 5.84:1     | AA                        |
 | **Teal `#00a385` on khaki**     | **2.72:1** | **Fails — graphics only** |
 
-Dark theme, measured against the page `#000000`:
+Dark theme, measured against the page `#131c18`:
 
-| Pair                            | Ratio   | Verdict |
-| ------------------------------- | ------- | ------- |
-| Khaki `#f4ecdc` on black        | 17.88:1 | AAA     |
-| Ink-2 `#dbe7dd` on black        | 15.46:1 | AAA     |
-| `--teal-800` `#9fe3d4` on black | 14.41:1 | AAA     |
-| Muted `#b9c7bd` on black        | 11.97:1 | AAA     |
-| Muted-2 `#a6b7ad` on black      | 10.00:1 | AAA     |
+| Pair                           | Ratio   | Verdict |
+| ------------------------------ | ------- | ------- |
+| Khaki `#f4ecdc` on page        | 14.81:1 | AAA     |
+| Ink-2 `#dbe7dd` on page        | 13.66:1 | AAA     |
+| `--teal-800` `#9fe3d4` on page | 11.94:1 | AAA     |
+| Muted `#b9c7bd` on page        | 9.91:1  | AAA     |
+| Muted-2 `#a6b7ad` on page      | 8.28:1  | AAA     |
 
-On raised `#001f17` surfaces the same text still clears AA: khaki 14.80, muted 9.90,
-muted-2 8.27, accent 11.93.
+On raised `#1c2a24` surfaces the same text still clears AAA: khaki 12.72, muted 8.51,
+muted-2 7.11, accent 10.25. On panels `#22332c`: khaki 11.33, muted 7.58, accent 9.13.
 
 If you add a color, measure it in both themes before it becomes text.
 
@@ -400,7 +419,7 @@ Screenshots are 1440px wide. Each has a WebP source, a PNG fallback, and 720w va
 
 ### Photography assets
 
-The picture desk is built from 22 files in `old/assets/images/`, resized into
+The picture desk is built from 35 files in `old/assets/images/`, resized into
 `assets/photography/`. Each plate has four web files:
 
 - `slug.jpg` and `slug.webp` — 1600px on the long edge, used by the lightbox and as the
@@ -408,9 +427,10 @@ The picture desk is built from 22 files in `old/assets/images/`, resized into
 - `slug-800.jpg` and `slug-800.webp` — 800px on the long edge, the default grid image.
 
 The JPEGs are made with `sips --resampleHeightWidthMax 1600` (and `800`), then converted with
-`cwebp -q 80` (and `-q 78`). Keep the `width` and `height` attributes in the HTML equal to the
-1600px file's real dimensions. The originals stay in `old/`; do not link to them from the
-site.
+`cwebp -q 80` (and `-q 78`). Strip the EXIF block from new JPEGs after resizing so location
+data does not ship; `cwebp` does not copy metadata by default. Keep the `width` and `height`
+attributes in the HTML equal to the 1600px file's real dimensions. The originals stay in
+`old/`; do not link to them from the site.
 
 ## Accessibility checklist
 
@@ -440,8 +460,8 @@ site.
 - The sheet drops its desk frame and paper texture and prints white. The masthead keeps its
   rules and ears; the title prints at 40pt.
 - Panels invert to white; links print black and external URLs expand in parentheses.
-- Output is A4 with 16mm margins. The portfolio is 6 pages; the detail page is 20 pages; the
-  picture desk is 8 pages.
+- Output is A4 with 16mm margins. The portfolio is 7 pages; the detail page is 21 pages; the
+  picture desk is 11 pages.
 - The lead collapses to one column, with the stat/index and notice boxes side by side beneath.
 - Screenshots cap at 260px; tall screenshots at 340px; diagrams stop scrolling and shrink to
   the page width.

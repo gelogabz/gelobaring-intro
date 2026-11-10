@@ -197,6 +197,39 @@
     }
   });
 
+  /* ---- 6. Dateline and last-updated ---------------------------------- */
+  var datelines = document.querySelectorAll("[data-dateline]");
+  if (datelines.length) {
+    var dateline = new Intl.DateTimeFormat("en-US", {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+      timeZone: "Asia/Manila",
+    }).format(new Date());
+    for (var d = 0; d < datelines.length; d++) {
+      datelines[d].textContent = dateline;
+    }
+  }
+
+  var updated = document.querySelectorAll("[data-updated]");
+  if (updated.length) {
+    var stamp = new Date(document.lastModified);
+    if (isNaN(stamp.getTime())) stamp = new Date();
+    var updatedLabel =
+      "Last updated " +
+      new Intl.DateTimeFormat("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+        timeZone: "Asia/Manila",
+      }).format(stamp) +
+      ".";
+    for (var u = 0; u < updated.length; u++) {
+      updated[u].textContent = updatedLabel;
+    }
+  }
+
   /* ---- Boot ----------------------------------------------------------- */
   if (progress) {
     window.addEventListener("scroll", onScroll, { passive: true });

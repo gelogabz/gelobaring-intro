@@ -21,6 +21,7 @@ html {
 
 body {
     margin: 0;
+    padding: clamp(0.5rem, 1.4vw, 1.5rem);
     background: var(--khaki-3);
     color: var(--ink);
     font-family: var(--font-body);
@@ -104,13 +105,14 @@ code {
 .sheet {
     max-width: calc(var(--wrap) + 2 * var(--gutter));
     margin: 0 auto;
-    border-inline: 1px solid var(--ink);
+    border: 1px solid var(--ink);
     background-color: var(--bg);
     background-image: repeating-linear-gradient(
         0deg,
         color-mix(in srgb, var(--ink) 2.6%, transparent) 0 1px,
         transparent 1px 4px
     );
+    box-shadow: var(--shadow-md);
 }
 
 .wrap {
@@ -370,7 +372,7 @@ main:focus {
 .masthead__title {
     margin: 0;
     font-family: var(--font-display);
-    font-size: clamp(2.2rem, 7.4vw, 5.6rem);
+    font-size: clamp(2.2rem, 7.4vw, 5.5rem);
     font-weight: 800;
     line-height: 0.84;
     letter-spacing: -0.045em;
@@ -520,7 +522,7 @@ main:focus {
 .btn:hover {
     background: var(--forest);
     border-color: var(--forest);
-    color: var(--khaki);
+    color: var(--on-dark);
 }
 
 .btn--primary {
@@ -532,7 +534,7 @@ main:focus {
 .btn--primary:hover {
     background: var(--forest);
     border-color: var(--forest);
-    color: var(--khaki);
+    color: var(--on-dark);
 }
 
 .lead__aside {
@@ -1017,6 +1019,94 @@ main:focus {
 }
 
 .skill p {
+    margin: 0;
+    font-size: 0.84rem;
+    line-height: 1.55;
+    color: var(--muted);
+}
+
+.training {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+}
+
+@media (min-width: 760px) {
+    .training {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1060px) {
+    .training {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+.training__item {
+    padding: 1.05rem 1.1rem;
+    background: var(--bg);
+}
+
+.training__meta {
+    margin: 0 0 0.45rem;
+    font-family: var(--font-display);
+    font-size: 0.56rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--teal-800);
+}
+
+.training__item h3 {
+    margin: 0 0 0.35rem;
+    font-size: 0.98rem;
+    text-transform: uppercase;
+    line-height: 1.04;
+}
+
+.training__item p:last-child {
+    margin: 0;
+    font-size: 0.84rem;
+    line-height: 1.55;
+    color: var(--muted);
+}
+
+.interests {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    border: 1px solid var(--ink);
+    background: var(--ink);
+}
+
+@media (min-width: 700px) {
+    .interests {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (min-width: 1060px) {
+    .interests {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+.interest {
+    padding: 1.05rem 1.1rem;
+    background: var(--bg);
+}
+
+.interest h3 {
+    margin: 0 0 0.35rem;
+    font-size: 0.98rem;
+    text-transform: uppercase;
+    line-height: 1.04;
+}
+
+.interest p {
     margin: 0;
     font-size: 0.84rem;
     line-height: 1.55;
@@ -2251,6 +2341,7 @@ html.lightbox-open {
     display: grid;
     place-items: center;
     padding: 0.6rem;
+    /* True black isolates the photo; this is a matte, not a reading surface. */
     background: #000000;
 }
 
@@ -2323,4 +2414,60 @@ html.lightbox-open {
     font-weight: 600;
     letter-spacing: 0.1em;
     color: var(--muted);
+}
+
+/* --------------------------------------------------------------------------
+   19. Page transitions
+   Cross-document view transitions: a subtle paper fold between pages.
+   Firefox ignores @view-transition and navigates instantly.
+   -------------------------------------------------------------------------- */
+@view-transition {
+    navigation: auto;
+}
+
+:root {
+    --page-turn-out: -5deg;
+    --page-turn-in: 5deg;
+}
+
+@media (max-width: 600px) {
+    :root {
+        --page-turn-out: -2.5deg;
+        --page-turn-in: 2.5deg;
+    }
+}
+
+::view-transition {
+    background: var(--khaki-3);
+}
+
+::view-transition-old(root) {
+    transform-origin: right center;
+    animation: page-fold-out 300ms ease-in both;
+}
+
+::view-transition-new(root) {
+    transform-origin: left center;
+    animation: page-fold-in 300ms ease-out both;
+}
+
+@keyframes page-fold-out {
+    to {
+        transform: perspective(1200px) rotateY(var(--page-turn-out));
+        opacity: 0.7;
+    }
+}
+
+@keyframes page-fold-in {
+    from {
+        transform: perspective(1200px) rotateY(var(--page-turn-in));
+        opacity: 0.7;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation: none;
+    }
 }

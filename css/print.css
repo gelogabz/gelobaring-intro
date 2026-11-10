@@ -40,6 +40,7 @@
     }
 
     body {
+        padding: 0;
         background: #ffffff;
         font-size: 10.5pt;
     }
@@ -59,9 +60,10 @@
     /* ---- Sheet & masthead ---------------------------------------------- */
     .sheet {
         max-width: none;
-        border-inline: 0;
+        border: 0;
         background: #ffffff;
         background-image: none;
+        box-shadow: none;
     }
 
     .wrap {
@@ -192,6 +194,8 @@
 
     .highlights,
     .skills,
+    .training,
+    .interests,
     .outcomes,
     .projects,
     .site-grid,
@@ -205,6 +209,8 @@
 
     .highlights,
     .skills,
+    .training,
+    .interests,
     .outcomes,
     .projects,
     .site-grid {
@@ -212,8 +218,14 @@
         background: transparent;
     }
 
+    .grid-2 > * + * {
+        margin-top: 0.9rem;
+    }
+
     .hl-card,
     .skill,
+    .training__item,
+    .interest,
     .outcome,
     .project,
     .site {
@@ -224,6 +236,8 @@
 
     .hl-card:last-child,
     .skill:last-child,
+    .training__item:last-child,
+    .interest:last-child,
     .outcome:last-child,
     .project:last-child,
     .site:last-child {
@@ -480,6 +494,8 @@
 
     .hl-card,
     .skill,
+    .training__item,
+    .interest,
     .role,
     .project,
     .site,
