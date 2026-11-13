@@ -53,7 +53,9 @@
     .btn,
     .hero-cta,
     .section-next,
-    .colophon__top {
+    .colophon__top,
+    .toc-toggle,
+    .toc {
         display: none !important;
     }
 
@@ -238,6 +240,15 @@
         margin-bottom: 0.6rem;
         border-bottom: 1px solid #cccccc;
         background: #ffffff;
+    }
+
+    .site__shot {
+        border-color: #cccccc;
+    }
+
+    .site__shot img {
+        height: 150px;
+        object-fit: cover;
     }
 
     .hl-card:last-child,

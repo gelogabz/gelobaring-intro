@@ -428,7 +428,8 @@ main:focus {
 }
 
 .paper-nav a:hover,
-.paper-nav a[aria-current="true"] {
+.paper-nav a[aria-current="true"],
+.paper-nav a[aria-current="page"] {
     background: var(--ink);
     color: var(--bg);
 }
@@ -1616,6 +1617,12 @@ figcaption b {
     }
 }
 
+@media (min-width: 980px) {
+    .projects--3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
 .project {
     padding: 1.05rem;
     background: var(--bg);
@@ -1660,6 +1667,25 @@ figcaption b {
     gap: 0.3rem;
     padding: 0.9rem;
     background: var(--bg);
+}
+
+.site__shot {
+    margin: 0 0 0.35rem;
+    border: 1px solid var(--rule-strong);
+    background: var(--khaki-2);
+    overflow: hidden;
+}
+
+.site__shot picture,
+.site__shot img {
+    display: block;
+    width: 100%;
+}
+
+.site__shot img {
+    height: auto;
+    aspect-ratio: 8 / 5;
+    object-fit: cover;
 }
 
 .site-when {
@@ -2483,7 +2509,243 @@ html.lightbox-open {
 }
 
 /* --------------------------------------------------------------------------
-   19. Page transitions
+   19. Contents drawer
+   A fixed tab opens a right-side table of contents. Native <dialog> gives
+   focus trapping and Escape; the panel is the only visible surface.
+   -------------------------------------------------------------------------- */
+html.toc-open {
+    overflow: hidden;
+}
+
+.toc-toggle {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    z-index: var(--z-sticky);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.75rem 0.4rem;
+    border: 1px solid var(--ink);
+    border-right: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-display);
+    font-size: 0.54rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    line-height: 1;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: opacity var(--dur-fast) var(--ease);
+}
+
+.toc-toggle[hidden] {
+    display: none;
+}
+
+html.toc-open .toc-toggle {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.toc-toggle:hover {
+    background: var(--ink);
+    color: var(--bg);
+}
+
+.toc {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+}
+
+.toc::backdrop {
+    background: rgba(0, 31, 23, 0.55);
+    backdrop-filter: blur(2px);
+    animation: toc-fade-in 240ms var(--ease) both;
+}
+
+/* Animate the dialog, not the panel. WebKit mis-resolves the panel's
+   auto margin while a transform animation runs on it, which parks the
+   panel near the middle of the viewport before it snaps right. */
+.toc[open] {
+    animation: toc-slide-in 340ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    will-change: transform;
+}
+
+.toc__panel {
+    display: flex;
+    flex-direction: column;
+    width: min(400px, 92vw);
+    height: 100%;
+    margin-left: auto;
+    border-left: 1px solid var(--ink);
+    background: var(--bg);
+    box-shadow: -24px 0 60px -30px rgba(0, 0, 0, 0.6);
+}
+
+.toc__head {
+    position: relative;
+    padding: 1.2rem 1.2rem 1rem;
+    border-bottom: 3px double var(--ink);
+}
+
+.toc__kicker {
+    margin: 0 0 0.35rem;
+    font-family: var(--font-display);
+    font-size: 0.54rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+.toc__title {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+}
+
+.toc__close {
+    position: absolute;
+    top: 0.8rem;
+    right: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid var(--rule-strong);
+    border-radius: 0;
+    background: transparent;
+    color: var(--muted);
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.toc__close:hover {
+    border-color: var(--ink);
+    background: var(--ink);
+    color: var(--bg);
+}
+
+.toc__nav {
+    flex: 1;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+}
+
+.toc__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.toc__link {
+    display: grid;
+    grid-template-columns: 2.4rem minmax(0, 1fr);
+    gap: 0.6rem;
+    align-items: baseline;
+    padding: 0.8rem 1.2rem;
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--font-display);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    line-height: 1.25;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink);
+}
+
+.toc__link:hover,
+.toc__link:focus-visible {
+    background: var(--khaki-2);
+    color: var(--ink);
+}
+
+.toc__link[aria-current="true"] {
+    background: var(--khaki-2);
+    box-shadow: inset 3px 0 0 var(--teal-800);
+}
+
+.toc__num {
+    font-size: 0.54rem;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+}
+
+.toc__foot {
+    margin: 0;
+    padding: 0.9rem 1.2rem;
+    border-top: 1px solid var(--rule);
+    font-family: var(--font-display);
+    font-size: 0.5rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+@keyframes toc-slide-in {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+@keyframes toc-fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 900px) {
+    .toc-toggle {
+        top: auto;
+        right: max(1rem, env(safe-area-inset-right));
+        bottom: max(1rem, env(safe-area-inset-bottom));
+        padding: 0.7rem 0.9rem;
+        border-right: 1px solid var(--ink);
+        writing-mode: horizontal-tb;
+        transform: none;
+        box-shadow: 0 6px 18px -10px rgba(0, 0, 0, 0.5);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .toc[open],
+    .toc::backdrop {
+        animation: none;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   20. Page transitions
    Cross-document view transitions: a subtle paper fold between pages.
    Firefox ignores @view-transition and navigates instantly.
    -------------------------------------------------------------------------- */

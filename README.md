@@ -4,7 +4,7 @@ A three-page site built as plain HTML, CSS, and JavaScript. No framework, no bui
 runtime dependencies.
 
 The layout borrows the grammar of a broadsheet: a ruled paper sheet, masthead with ears, a
-boxed section index, a lead story with a sidebar, hairline card grids, and numbered editorial
+page-level nav bar, a lead story with a sidebar, hairline card grids, and numbered editorial
 sections. The palette and type families are unchanged; only the structure is newspaper-shaped.
 The masthead is **The AGB Gazette**; the kicker reads **Gelo Baring · Portfolio** on the work
 pages and **Gelo Baring · Off the Clock** on the picture desk.
@@ -12,7 +12,8 @@ pages and **Gelo Baring · Off the Clock** on the picture desk.
 - `index.html` is the portfolio: nine highlights, a five-role career timeline, skills,
   training, and contact.
 - `case-studies.html` is the detail page: four 2026 knowledge-system cases, earlier help
-  center, client site, and internal tool work, plus engineering notes, evidence, and limits.
+  center, client site, and internal tool work, the Furlinks capstone, three Boot.dev
+  coursework builds, plus engineering notes, evidence, and limits.
 - `photography.html` is the picture desk: a masonry grid of 35 photographs taken around the
   Philippines between 2017 and 2026, plus an after-hours essay and interests. It is the fun
   page; none of it is client work.
@@ -32,7 +33,7 @@ gelobaring-intro/
 │   ├── styles.css          newspaper structure: masthead, nav, lead, ruled grids, plates
 │   └── print.css           paper output (loaded with media="print")
 ├── js/
-│   ├── main.js             reading progress, nav state, pager, print, dateline
+│   ├── main.js             reading progress, contents drawer, pager, print, dateline
 │   └── photography.js      keyboard-accessible lightbox for the picture desk
 ├── assets/
 │   ├── 01–06.png           anonymized product screenshots (1440w fallback)
@@ -44,6 +45,7 @@ gelobaring-intro/
 │   ├── og-card.svg         social-card source
 │   ├── og-photography.png  1200×630 picture-desk social card
 │   ├── photography/        35 plates, each as JPEG + WebP at 1600w and 800w
+│   ├── sites/              six client home-page screenshots, JPEG + WebP at 800w and 400w
 │   ├── favicon-32.png      white GB monogram, ink background
 │   ├── favicon-180.png     apple-touch icon
 │   ├── favicon-512.png     high-resolution favicon
@@ -78,7 +80,8 @@ browsers skip them on `file://`.
 | What                            | Where                                                            |
 | ------------------------------- | ---------------------------------------------------------------- |
 | Masthead, ears, date strip      | all three HTML files — `.masthead`                               |
-| Boxed section index             | all three HTML files — `.paper-nav`                              |
+| Page navigation                 | all three HTML files — `.paper-nav` (three page links only)      |
+| Contents drawer                 | all three HTML files — `.toc`; `js/main.js`                      |
 | Lead story, sidebar, byline     | all three HTML files — `.lead`                                   |
 | Page `h1` and lead copy         | all three HTML files — `.lead__main`                             |
 | Highlight cards                 | `index.html` — `#highlights` `.highlights`                       |
@@ -88,6 +91,7 @@ browsers skip them on `file://`.
 | Author portrait and byline      | `index.html` — `.author-card`; all pages — `.byline-avatar`      |
 | Case-study copy                 | `case-studies.html` — `<article class="case">` blocks in `#work` |
 | Earlier projects, client sites  | `case-studies.html` — `#earlier`                                 |
+| Client site screenshots         | `assets/sites/` — six home-page captures                          |
 | Engineering notes, code samples | `case-studies.html` — `#engineering`                             |
 | Evidence table and timeline     | `case-studies.html` — `#evidence`                                |
 | Limits                          | `case-studies.html` — `#limits`                                  |
@@ -100,7 +104,7 @@ browsers skip them on `file://`.
 | Component styling               | `css/styles.css`                                                 |
 | PDF behavior                    | `css/print.css`                                                  |
 | Theme bootstrap                 | all three HTML files — inline `<script>` in `<head>`             |
-| Print button, nav state, pager  | `js/main.js`                                                     |
+| Print button, contents state, pager | `js/main.js`                                                 |
 | Dateline and last updated       | `js/main.js` — `[data-dateline]`, `[data-updated]`               |
 
 ### Page structure
@@ -122,7 +126,7 @@ browsers skip them on `file://`.
 | 01  | Context      | `#problem`     | The documentation problem and its cost       |
 | 02  | How it fits  | `#system`      | The three-layer model and pipeline           |
 | 03  | Case studies | `#work`        | Four deep cases with jump links              |
-| 04  | Earlier work | `#earlier`     | Help center, internal tool, six client sites |
+| 04  | Earlier work | `#earlier`     | Help center, internal tool, six client sites, capstone, coursework |
 | 05  | Training     | `#training`    | Courses, awards, and education               |
 | 06  | Engineering  | `#engineering` | Architecture, code samples, delivery choices |
 | 07  | Evidence     | `#evidence`    | Output counts, sources, 2026 timeline        |
@@ -137,12 +141,34 @@ browsers skip them on `file://`.
 | 02  | After hours | `#notes`   | Essay, interests, pull quote, and print note   |
 | —   | Contact     | `#contact` | Email, LinkedIn, GitHub                        |
 
-Section numbers, the `.paper-nav` links, the edition index in the lead sidebar, and the CSS
-section comments must stay in sync. The `.section-next` pager is generated from `.paper-nav`
-at runtime, so it follows the same order automatically. Deep links are re-aligned after the
-pager is injected and again once the webfonts settle. The three pages cross-link: the
-portfolio points to `case-studies.html#case-a` … `#case-d` and `photography.html`; the detail
-page points back to `index.html` and `photography.html`; the picture desk points to both.
+Section numbers, the contents labels in `.toc__link`, the edition index in the lead sidebar,
+and the CSS section comments must stay in sync. The `.section-next` pager is generated from
+the contents list at runtime, so it follows the same order automatically. Deep links are
+re-aligned after the pager is injected and again once the webfonts settle. The three pages
+cross-link from the top navigation: the portfolio points to `case-studies.html` and
+`photography.html`; the detail page points back to `index.html` and `photography.html`; the
+picture desk points to both.
+
+### Navigation and contents
+
+The top navigation is page-level only and never changes shape: **Portfolio**, **Case
+Studies**, and **Off the Clock**, with `aria-current="page"` on the active page. Section
+links live in a floating contents drawer instead of the header.
+
+- The drawer is a native `<dialog>` on every page. A fixed vertical **Contents** tab on the
+  right edge opens it on desktop; below 900px it becomes a bottom-right pill.
+- The trigger starts with the `hidden` attribute. `main.js` reveals it, so a no-JS visitor
+  never sees a dead control. Without JavaScript the three page links still work and every
+  section is reachable by scrolling.
+- Open and close work through the trigger, the close button, a backdrop click, and Escape.
+  Focus moves into the drawer and returns to the trigger when it closes. The page behind it
+  does not scroll while the drawer is open.
+- The panel slides in from the right over 340ms with a fade on the backdrop. The trigger is
+  hidden while the drawer is open so it cannot shift or peek through the backdrop.
+  `prefers-reduced-motion` removes the animation.
+- The drawer doubles as the scroll-spy source: the current section gets
+  `aria-current="true"` and a teal inset rule, and the same list feeds the previous / next
+  pagers at the end of each section.
 
 ### Anonymization policy
 
@@ -213,10 +239,15 @@ the weights the CSS actually uses for the masthead, headlines, and labels.
   ear, centered kicker/title/tagline, right ear. The title is **The AGB Gazette**; the kicker
   is **Gelo Baring · Portfolio** on the work pages and **Gelo Baring · Off the Clock** on the
   picture desk. The title is a `<p>`, not the page `h1`; each page keeps one `h1` in the lead.
-- `.paper-nav` — the boxed section index. It is a wrapping flex row of bordered cells; links
-  invert to ink when active or hovered. Three cells per row below 1200px, natural width above.
+- `.paper-nav` — the page-level navigation bar. It is a wrapping flex row of bordered cells
+  linking the three pages; links invert to ink when active or hovered. It is not a section
+  index.
+- `.toc` / `.toc-toggle` — the floating contents drawer and its fixed trigger. The drawer is
+  a native `<dialog>` with a right-side panel, numbered section links, a close button, and a
+  backdrop. The trigger is a vertical tab on desktop and a pill on small screens. Hidden in
+  print.
 - `.section-next` — previous / next links injected at the end of each section by `main.js`.
-  They mirror the `.paper-nav` order and give the reader a way to keep moving without
+  They mirror the contents-drawer order and give the reader a way to keep moving without
   scrolling back to the top. Hidden in print.
 - `.colophon__top` — the **Back to top** link in the footer. Hidden in print.
 - Page transitions — `@view-transition { navigation: auto; }` in `styles.css` enables
@@ -304,7 +335,8 @@ to re-check them:
 | 178-source inventory                     | `marketplaceglossary-prototype-gelobaring/info-sources.md` (unique URLs)                                                                                 |
 | 295-line project manual                  | `marketplaceglossary-prototype-gelobaring/CLAUDE.md`                                                                                                     |
 | 23 lessons, 40 corrections + 3 gaps      | `aws-ccp-coursework/aws-clf-c02-flagged-content-and-changes.md`                                                                                          |
-| 60 tests, 14 examples                    | `bootdev-projects/learn-ai-coding-starter/`                                                                                                              |
+| Furlinks: Laravel 9, six contributors    | `WD20P-Capstone-Furlinks/composer.json`; `git -C WD20P-Capstone-Furlinks shortlog -sne`                                                                   |
+| Three Boot.dev builds                    | `bootdev-projs/ai-bot/`, `bootdev-projs/asteroids-py/`, `bootdev-projs/bookbot/`                                                                          |
 
 Career claims come from the LinkedIn profile text, not from repository evidence. Re-check them
 against the profile before publishing:
@@ -335,6 +367,10 @@ Deliberate wording choices:
   obfuscation, not security.
 - **Earlier roles carry no invented metrics.** The site states scope and responsibilities, not
   percentages or impact figures, because none were measured or recorded.
+- **Furlinks is a six-person capstone**, not solo work. The copy names the team and the
+  KodeGo WD20P cohort; it does not claim sole authorship. The repository has six contributors.
+- **The Boot.dev builds are guided coursework**, not client or product work. They are labeled
+  as such and link to the user's own repositories.
 - **Every employer is anonymized.** Client sites remain named and linked; the internal invoice
   system is described, not linked.
 - **Output counts are not impact metrics.** Usage, completion, and repeat-question volume were
@@ -455,6 +491,13 @@ data does not ship; `cwebp` does not copy metadata by default. Keep the `width` 
 attributes in the HTML equal to the 1600px file's real dimensions. The originals stay in
 `old/`; do not link to them from the site.
 
+Plate 04 (`04-morning-ridge`) replaced the earlier **With company** frame. The source was
+`IMG_0382.JPG` (iPhone SE, 2018-10-07 06:31:58, 4032×3024). The EXIF/GPS block was stripped
+after resizing, then the file was exported at 1600×1200 and 800×600. The original and the old
+plate files now live in `old/assets/images/` and are gitignored. To swap a plate, keep the
+same four-file pattern and update the `<picture>` `srcset`, `width`, `height`, alt text, and
+caption together.
+
 ## Accessibility checklist
 
 - [x] Skip link, single `h1` per page, page-level `contentinfo` footer outside `<main>`
@@ -462,7 +505,10 @@ attributes in the HTML equal to the 1600px file's real dimensions. The originals
 - [x] Every `figcaption` is inside its `<figure>`
 - [x] Data tables use `<th scope="col">` and `<th scope="row">`
 - [x] Wide tables and diagrams are keyboard-focusable and labeled
-- [x] One boxed section index at every width; it wraps to three cells per row on small screens
+- [x] Page navigation is three links with `aria-current="page"` on the active page
+- [x] Contents drawer is a native `<dialog>`: trigger, close button, Escape, and backdrop
+      click all dismiss it; focus enters and returns; background scroll locks
+- [x] Contents trigger is revealed by JavaScript, so it never appears as a dead control
 - [x] Theme toggle is a real `button`, label and `aria-pressed` update with state
 - [x] Keyboard-visible focus on all interactive elements
 - [x] Picture-desk lightbox is a native `<dialog>` with arrow-key navigation, Escape, and a
@@ -483,7 +529,7 @@ attributes in the HTML equal to the 1600px file's real dimensions. The originals
 - The sheet drops its desk frame and paper texture and prints white. The masthead keeps its
   rules and ears; the title prints at 40pt.
 - Panels invert to white; links print black and external URLs expand in parentheses.
-- Output is A4 with 16mm margins. The portfolio is 7 pages; the detail page is 21 pages; the
+- Output is A4 with 16mm margins. The portfolio is 7 pages; the detail page is 22 pages; the
   picture desk is 11 pages.
 - The lead collapses to one column, with the stat/index and notice boxes side by side beneath.
 - Screenshots cap at 260px; tall screenshots at 340px; diagrams stop scrolling and shrink to
@@ -494,8 +540,8 @@ attributes in the HTML equal to the 1600px file's real dimensions. The originals
 - The highlights, skills, outcomes, projects, client-site, flow, layer, path, and principle
   grids collapse to a single column for print. The picture-desk masonry prints in two columns,
   and each plate stays whole.
-- The theme toggle, boxed nav, section pager, back-to-top link, progress bar, hero CTAs, and
-  lightbox are hidden.
+- The theme toggle, page nav, contents drawer and trigger, section pager, back-to-top link,
+  progress bar, hero CTAs, and lightbox are hidden.
 - The small byline avatar is hidden; the 160×200 contact portrait prints with its caption.
 - Print from any page's **Print / save as PDF** button, or `Ctrl/Cmd + P`.
 
@@ -507,8 +553,8 @@ attributes in the HTML equal to the 1600px file's real dimensions. The originals
 - Impact is not measured. There is no usage analytics, completion data, or repeat-question
   count; the detail page states that in **Limits** rather than inventing a number.
 - The canonical URLs are defaults. Update them if the site moves.
-- The detail page is long by design. The boxed nav, the previous / next links at the end of
-  each section, the edition index in the lead sidebar, and per-case deep links (`#case-a` …
+- The detail page is long by design. The contents drawer, the previous / next links at the end
+  of each section, the edition index in the lead sidebar, and per-case deep links (`#case-a` …
   `#case-d`) are the way through it.
 - The picture desk uses CSS multi-columns for the masonry effect, not a layout library. The
   reading order is column-first, so the plate numbers do not run left-to-right across a row.

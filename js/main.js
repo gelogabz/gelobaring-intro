@@ -2,10 +2,12 @@
    main.js — progressive enhancement only
    The page is fully readable without JavaScript. This adds:
      1. a reading-progress indicator
-     2. active-section state in the boxed section nav
+     2. active-section state in the contents drawer
      3. previous / next links at the end of each section
      4. a print / save-as-PDF button
      5. eager-loading of lazy images before printing
+     6. a live dateline and last-updated stamp
+     7. the contents drawer itself
    ========================================================================== */
 
 (function () {
@@ -13,11 +15,11 @@
 
   var doc = document.documentElement;
   var progress = document.getElementById("progress");
-  var navLinks = Array.prototype.slice.call(
-    document.querySelectorAll('.paper-nav a[href^="#"]'),
+  var tocLinks = Array.prototype.slice.call(
+    document.querySelectorAll('.toc__link[href^="#"]'),
   );
 
-  var sections = navLinks
+  var sections = tocLinks
     .map(function (link) {
       var id = link.getAttribute("href").slice(1);
       var el = document.getElementById(id);
@@ -56,15 +58,15 @@
   /* ---- 2. Active section --------------------------------------------- */
   function setActive(activeId) {
     /* The footer is the last hash link; keep it current at the very bottom. */
-    if (atBottom() && navLinks.length) {
-      var last = navLinks[navLinks.length - 1];
+    if (atBottom() && tocLinks.length) {
+      var last = tocLinks[tocLinks.length - 1];
       var lastId = last.getAttribute("href");
       if (lastId && lastId.charAt(0) === "#") {
         activeId = lastId.slice(1);
       }
     }
 
-    navLinks.forEach(function (link) {
+    tocLinks.forEach(function (link) {
       if (link.getAttribute("href") === "#" + activeId) {
         link.setAttribute("aria-current", "true");
       } else {
@@ -91,7 +93,8 @@
 
   /* ---- 3. Previous / next section pager ------------------------------ */
   function sectionLabel(item) {
-    return item.link.textContent.trim();
+    var label = item.link.querySelector(".toc__label");
+    return (label ? label.textContent : item.link.textContent).trim();
   }
 
   function makePagerLink(href, eyebrow, label, modifier) {
@@ -228,6 +231,59 @@
     for (var u = 0; u < updated.length; u++) {
       updated[u].textContent = updatedLabel;
     }
+  }
+
+  /* ---- 7. Contents drawer -------------------------------------------- */
+  var toc = document.getElementById("toc");
+  var tocOpen = document.querySelector("[data-toc-open]");
+  var tocClose = document.querySelector("[data-toc-close]");
+
+  if (toc && tocOpen) {
+    /* The button is hidden in the HTML so it never appears as a dead
+       control when JavaScript is unavailable. */
+    tocOpen.hidden = false;
+
+    var closeToc = function () {
+      if (typeof toc.close === "function") {
+        toc.close();
+      } else {
+        toc.removeAttribute("open");
+        doc.classList.remove("toc-open");
+      }
+    };
+
+    tocOpen.addEventListener("click", function () {
+      /* Lock the page before showing the dialog. If the scroll lock is
+         applied after showModal(), the scrollbar disappears underneath the
+         open panel and the panel jumps sideways by the scrollbar width. */
+      doc.classList.add("toc-open");
+      if (typeof toc.showModal === "function") {
+        toc.showModal();
+      } else {
+        toc.setAttribute("open", "");
+      }
+      if (tocClose) tocClose.focus();
+    });
+
+    if (tocClose) tocClose.addEventListener("click", closeToc);
+
+    toc.addEventListener("click", function (event) {
+      if (event.target === toc) closeToc();
+    });
+
+    toc.addEventListener("close", function () {
+      doc.classList.remove("toc-open");
+      /* The trigger is hidden while the drawer is open, so restore focus
+         explicitly once it is visible again. */
+      if (tocOpen) tocOpen.focus({ preventScroll: true });
+    });
+
+    Array.prototype.forEach.call(
+      toc.querySelectorAll('a[href^="#"]'),
+      function (link) {
+        link.addEventListener("click", closeToc);
+      },
+    );
   }
 
   /* ---- Boot ----------------------------------------------------------- */

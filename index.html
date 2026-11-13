@@ -273,14 +273,10 @@
                 </div>
             </header>
 
-            <nav class="paper-nav" aria-label="Sections">
-                <a href="#highlights">Highlights</a>
-                <a href="case-studies.html">Case studies</a>
-                <a href="#career">Career</a>
-                <a href="#skills">Skills</a>
-                <a href="#training">Training</a>
+            <nav class="paper-nav" aria-label="Pages">
+                <a href="index.html" aria-current="page">Portfolio</a>
+                <a href="case-studies.html">Case Studies</a>
                 <a href="photography.html">Off the Clock</a>
-                <a href="#contact">Contact</a>
             </nav>
 
             <main id="main" class="wrap" tabindex="-1">
@@ -581,18 +577,19 @@
 
                         <article class="hl-card">
                             <p class="hl-card__meta">
-                                <span>Self-directed</span>
-                                <span>Side project</span>
+                                <span>2023</span>
+                                <span>Capstone</span>
                             </p>
-                            <h3>An interpreter, from scratch</h3>
+                            <h3>Furlinks adoption platform</h3>
                             <p>
-                                A tree-walking language interpreter in Python:
-                                lexer, recursive-descent parser, evaluator, 60
-                                tests, and an EBNF spec.
+                                A Laravel dog-adoption platform: searchable dog
+                                profiles, applications with status tracking, and
+                                user accounts. Team capstone for KodeGo WD20P.
                             </p>
                             <ul class="pills">
-                                <li class="pill pill--accent">Python</li>
-                                <li class="pill">Language design</li>
+                                <li class="pill pill--accent">Laravel</li>
+                                <li class="pill">PHP</li>
+                                <li class="pill">MySQL</li>
                             </ul>
                             <a
                                 class="hl-card__link"
@@ -992,6 +989,73 @@
                 </div>
             </footer>
         </div>
+
+        <button
+            class="toc-toggle"
+            type="button"
+            data-toc-open
+            aria-haspopup="dialog"
+            aria-controls="toc"
+            hidden
+        >
+            Contents
+        </button>
+
+        <dialog class="toc" id="toc" aria-labelledby="toc-title">
+            <div class="toc__panel">
+                <div class="toc__head">
+                    <p class="toc__kicker">Portfolio</p>
+                    <h2 class="toc__title" id="toc-title">Contents</h2>
+                    <button
+                        class="toc__close"
+                        type="button"
+                        data-toc-close
+                        aria-label="Close contents"
+                    >
+                        ✕
+                    </button>
+                </div>
+
+                <nav class="toc__nav" aria-label="On this page">
+                    <ol class="toc__list">
+                        <li>
+                            <a class="toc__link" href="#highlights"
+                                ><span class="toc__num">01</span
+                                ><span class="toc__label">Highlights</span></a
+                            >
+                        </li>
+                        <li>
+                            <a class="toc__link" href="#career"
+                                ><span class="toc__num">02</span
+                                ><span class="toc__label">Career</span></a
+                            >
+                        </li>
+                        <li>
+                            <a class="toc__link" href="#skills"
+                                ><span class="toc__num">03</span
+                                ><span class="toc__label">Skills</span></a
+                            >
+                        </li>
+                        <li>
+                            <a class="toc__link" href="#training"
+                                ><span class="toc__num">04</span
+                                ><span class="toc__label">Training</span></a
+                            >
+                        </li>
+                        <li>
+                            <a class="toc__link" href="#contact"
+                                ><span class="toc__num">—</span
+                                ><span class="toc__label">Contact</span></a
+                            >
+                        </li>
+                    </ol>
+                </nav>
+
+                <p class="toc__foot">
+                    The AGB Gazette · Portfolio Edition
+                </p>
+            </div>
+        </dialog>
 
         <script src="js/main.js" defer></script>
     </body>
