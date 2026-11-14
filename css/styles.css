@@ -2509,7 +2509,7 @@ html.lightbox-open {
 }
 
 /* --------------------------------------------------------------------------
-   19. Contents drawer
+   20. Contents drawer
    A fixed tab opens a right-side table of contents. Native <dialog> gives
    focus trapping and Escape; the panel is the only visible surface.
    -------------------------------------------------------------------------- */
@@ -2745,7 +2745,7 @@ html.toc-open .toc-toggle {
 }
 
 /* --------------------------------------------------------------------------
-   20. Page transitions
+   21. Page transitions
    Cross-document view transitions: a subtle paper fold between pages.
    Firefox ignores @view-transition and navigates instantly.
    -------------------------------------------------------------------------- */

@@ -249,6 +249,7 @@
     .site__shot img {
         height: 150px;
         object-fit: cover;
+        object-position: top;
     }
 
     .hl-card:last-child,

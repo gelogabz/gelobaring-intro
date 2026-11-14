@@ -32,8 +32,15 @@ gelobaring-intro/
 │   ├── tokens.css          design system: palette, type scale, spacing, z-index
 │   ├── styles.css          newspaper structure: masthead, nav, lead, ruled grids, plates
 │   └── print.css           paper output (loaded with media="print")
+├── data/
+│   ├── contents.js         one contents list per page, keyed by <body data-page>
+│   ├── index.js            portfolio copy and records
+│   ├── case-studies.js     case studies content, one block per section
+│   └── photography.js      picture desk content, one block per section
 ├── js/
-│   ├── main.js             reading progress, contents drawer, pager, print, dateline
+│   ├── contents.js         renders the contents drawer from data/contents.js
+│   ├── render.js           builds <main> from the page's data module
+│   ├── main.js             reading progress, drawer controls, pager, print, dateline
 │   └── photography.js      keyboard-accessible lightbox for the picture desk
 ├── assets/
 │   ├── 01–06.png           anonymized product screenshots (1440w fallback)
@@ -77,35 +84,36 @@ browsers skip them on `file://`.
 
 ## Edit it
 
-| What                            | Where                                                            |
-| ------------------------------- | ---------------------------------------------------------------- |
-| Masthead, ears, date strip      | all three HTML files — `.masthead`                               |
-| Page navigation                 | all three HTML files — `.paper-nav` (three page links only)      |
-| Contents drawer                 | all three HTML files — `.toc`; `js/main.js`                      |
-| Lead story, sidebar, byline     | all three HTML files — `.lead`                                   |
-| Page `h1` and lead copy         | all three HTML files — `.lead__main`                             |
-| Highlight cards                 | `index.html` — `#highlights` `.highlights`                       |
-| Career history                  | `index.html` — `#career`                                         |
-| Skills, tools, background       | `index.html` — `#skills`                                         |
-| Contact details                 | all three HTML files — `.contact` block                          |
-| Author portrait and byline      | `index.html` — `.author-card`; all pages — `.byline-avatar`      |
-| Case-study copy                 | `case-studies.html` — `<article class="case">` blocks in `#work` |
-| Earlier projects, client sites  | `case-studies.html` — `#earlier`                                 |
-| Client site screenshots         | `assets/sites/` — six home-page captures                          |
-| Engineering notes, code samples | `case-studies.html` — `#engineering`                             |
-| Evidence table and timeline     | `case-studies.html` — `#evidence`                                |
-| Limits                          | `case-studies.html` — `#limits`                                  |
-| Photo plates and captions       | `photography.html` — `.masonry` / `.plate`                       |
-| Photo files                     | `assets/photography/` — generated from `old/assets/images/`      |
-| Lightbox                        | `js/photography.js`                                              |
-| Favicon                         | `assets/favicon-32.png`, `favicon-180.png`, `favicon-512.png`    |
-| Colors, fonts, spacing          | `css/tokens.css` only                                            |
-| Dark theme                      | `css/tokens.css` — the `[data-theme="dark"]` block               |
-| Component styling               | `css/styles.css`                                                 |
-| PDF behavior                    | `css/print.css`                                                  |
-| Theme bootstrap                 | all three HTML files — inline `<script>` in `<head>`             |
-| Print button, contents state, pager | `js/main.js`                                                 |
-| Dateline and last updated       | `js/main.js` — `[data-dateline]`, `[data-updated]`               |
+| What                                | Where                                                            |
+| ----------------------------------- | ---------------------------------------------------------------- |
+| Masthead, ears, date strip          | all three HTML files — `.masthead`                               |
+| Page navigation                     | all three HTML files — `.paper-nav` (three page links only)      |
+| Contents list (per page)            | `data/contents.js` — keyed by `<body data-page>`                 |
+| Contents drawer                     | `js/contents.js` renders it; `js/main.js` handles open/close     |
+| Page body and section shells        | `js/render.js` — builds `<main>` from the page data module       |
+| Lead story, sidebar, byline         | `data/index.js`, `data/case-studies.js`, `data/photography.js`   |
+| Highlight cards                     | `data/index.js` — `sections[0].items`                            |
+| Career history                      | `data/index.js` — the `career` section                           |
+| Skills, tools, background           | `data/index.js` — the `skills` section                           |
+| Contact details                     | all three HTML files — `.contact` block                          |
+| Author portrait and byline          | `index.html` — `.author-card`; `js/render.js` — `.byline-avatar` |
+| Case-study copy                     | `data/case-studies.js` — the `#work` part                        |
+| Earlier projects, client sites      | `data/case-studies.js` — the `#earlier` part                     |
+| Client site screenshots             | `assets/sites/` — six home-page captures                         |
+| Engineering notes, code samples     | `data/case-studies.js` — the `#engineering` part                 |
+| Evidence table and timeline         | `data/case-studies.js` — the `#evidence` part                    |
+| Limits                              | `data/case-studies.js` — the `#limits` part                      |
+| Photo plates and captions           | `data/photography.js` — the `#gallery` part                      |
+| Photo files                         | `assets/photography/` — generated from `old/assets/images/`      |
+| Lightbox                            | `js/photography.js`                                              |
+| Favicon                             | `assets/favicon-32.png`, `favicon-180.png`, `favicon-512.png`    |
+| Colors, fonts, spacing              | `css/tokens.css` only                                            |
+| Dark theme                          | `css/tokens.css` — the `[data-theme="dark"]` block               |
+| Component styling                   | `css/styles.css`                                                 |
+| PDF behavior                        | `css/print.css`                                                  |
+| Theme bootstrap                     | all three HTML files — inline `<script>` in `<head>`             |
+| Print button, contents state, pager | `js/main.js`                                                     |
+| Dateline and last updated           | `js/main.js` — `[data-dateline]`, `[data-updated]`               |
 
 ### Page structure
 
@@ -121,17 +129,17 @@ browsers skip them on `file://`.
 
 `case-studies.html`
 
-| #   | Section      | ID             | Role                                         |
-| --- | ------------ | -------------- | -------------------------------------------- |
-| 01  | Context      | `#problem`     | The documentation problem and its cost       |
-| 02  | How it fits  | `#system`      | The three-layer model and pipeline           |
-| 03  | Case studies | `#work`        | Four deep cases with jump links              |
+| #   | Section      | ID             | Role                                                               |
+| --- | ------------ | -------------- | ------------------------------------------------------------------ |
+| 01  | Context      | `#problem`     | The documentation problem and its cost                             |
+| 02  | How it fits  | `#system`      | The three-layer model and pipeline                                 |
+| 03  | Case studies | `#work`        | Four deep cases with jump links                                    |
 | 04  | Earlier work | `#earlier`     | Help center, internal tool, six client sites, capstone, coursework |
-| 05  | Training     | `#training`    | Courses, awards, and education               |
-| 06  | Engineering  | `#engineering` | Architecture, code samples, delivery choices |
-| 07  | Evidence     | `#evidence`    | Output counts, sources, 2026 timeline        |
-| 08  | Limits       | `#limits`      | What is not proven                           |
-| —   | Contact      | `#contact`     | Email, LinkedIn, GitHub                      |
+| 05  | Training     | `#training`    | Courses, awards, and education                                     |
+| 06  | Engineering  | `#engineering` | Architecture, code samples, delivery choices                       |
+| 07  | Evidence     | `#evidence`    | Output counts, sources, 2026 timeline                              |
+| 08  | Limits       | `#limits`      | What is not proven                                                 |
+| —   | Contact      | `#contact`     | Email, LinkedIn, GitHub                                            |
 
 `photography.html`
 
@@ -141,9 +149,12 @@ browsers skip them on `file://`.
 | 02  | After hours | `#notes`   | Essay, interests, pull quote, and print note   |
 | —   | Contact     | `#contact` | Email, LinkedIn, GitHub                        |
 
-Section numbers, the contents labels in `.toc__link`, the edition index in the lead sidebar,
-and the CSS section comments must stay in sync. The `.section-next` pager is generated from
-the contents list at runtime, so it follows the same order automatically. Deep links are
+Section numbers, the contents labels in `data/contents.js`, the edition index in the lead
+sidebar, and the CSS section comments must stay in sync. Section copy and records live in
+`data/index.js`, `data/case-studies.js`, and `data/photography.js`; `js/render.js` builds the
+body before `main.js` runs. `js/contents.js` renders the drawer list from its data before
+`main.js` wires up scroll-spy and the pager. The `.section-next` pager is generated from the
+same rendered list at runtime, so it follows the same order automatically. Deep links are
 re-aligned after the pager is injected and again once the webfonts settle. The three pages
 cross-link from the top navigation: the portfolio points to `case-studies.html` and
 `photography.html`; the detail page points back to `index.html` and `photography.html`; the
@@ -157,9 +168,14 @@ links live in a floating contents drawer instead of the header.
 
 - The drawer is a native `<dialog>` on every page. A fixed vertical **Contents** tab on the
   right edge opens it on desktop; below 900px it becomes a bottom-right pill.
-- The trigger starts with the `hidden` attribute. `main.js` reveals it, so a no-JS visitor
-  never sees a dead control. Without JavaScript the three page links still work and every
-  section is reachable by scrolling.
+- The list is data-driven: `data/contents.js` holds one list per page, keyed by
+  `<body data-page>`, and `js/contents.js` renders it before `main.js` wires up scroll-spy
+  and the pager. The drawer shell stays in HTML, so its heading, close button, and
+  accessibility labels are not rebuilt at runtime.
+- The trigger starts with the `hidden` attribute. `main.js` reveals it only after the rendered
+  contents list exists, so a failed data load never exposes a dead control. The page body is
+  rendered from `data/*.js`, so JavaScript is required; `<noscript>` explains that and gives
+  the contact email.
 - Open and close work through the trigger, the close button, a backdrop click, and Escape.
   Focus moves into the drawer and returns to the trigger when it closes. The page behind it
   does not scroll while the drawer is open.
@@ -206,7 +222,7 @@ the sheet is `#0a100e`.
   label switches between **Dark mode** and **Light mode**, and `aria-pressed` reflects state.
 - The choice is stored in `localStorage` under `showcase-theme` and survives reloads.
 - The bootstrap is inline in `<head>` so the attribute is set before first paint — no white
-  flash. With JavaScript disabled the page stays light and fully readable.
+  flash. With JavaScript disabled the page shows the `<noscript>` notice instead of content.
 - Print always renders light, whichever theme is active on screen.
 
 Only the semantic roles change between themes: `--bg`, `--ink`, `--ink-2`, `--muted`,
@@ -277,12 +293,12 @@ the weights the CSS actually uses for the masthead, headlines, and labels.
   title, date, and a one-line note; `break-inside: avoid` keeps the caption with the image.
   `.plate--lead` is the full-width featured photograph above the grid.
 - `.lightbox` — the native `<dialog>` viewer opened by `js/photography.js`. Arrow keys move
-  between plates; Escape and the close button dismiss it. Without JavaScript each plate links
-  straight to the full-size JPEG.
+  between plates; Escape and the close button dismiss it and return focus to the plate that
+  opened it. Each plate links to the full-size JPEG; the script intercepts the click.
 - `.field-notes` / `.pullquote` — the after-hours essay and the ruled pull quote on the picture desk.
 - `.panel-dark` — the forest supplement that carries the pipeline, layers, and principles.
 - `.pills` — a list reset, so pill lists can use `<ul>` / `<li>` without browser markers or
-  indentation. `case-studies.html` still uses `<span class="pill">` inside `.pills`.
+  indentation. The case studies content still uses `<span class="pill">` inside `.pills`.
 
 ### Contrast (measured, not assumed)
 
@@ -335,8 +351,8 @@ to re-check them:
 | 178-source inventory                     | `marketplaceglossary-prototype-gelobaring/info-sources.md` (unique URLs)                                                                                 |
 | 295-line project manual                  | `marketplaceglossary-prototype-gelobaring/CLAUDE.md`                                                                                                     |
 | 23 lessons, 40 corrections + 3 gaps      | `aws-ccp-coursework/aws-clf-c02-flagged-content-and-changes.md`                                                                                          |
-| Furlinks: Laravel 9, six contributors    | `WD20P-Capstone-Furlinks/composer.json`; `git -C WD20P-Capstone-Furlinks shortlog -sne`                                                                   |
-| Three Boot.dev builds                    | `bootdev-projs/ai-bot/`, `bootdev-projs/asteroids-py/`, `bootdev-projs/bookbot/`                                                                          |
+| Furlinks: Laravel 9, six contributors    | `WD20P-Capstone-Furlinks/composer.json`; `git -C WD20P-Capstone-Furlinks shortlog -sne`                                                                  |
+| Three Boot.dev builds                    | `bootdev-projs/ai-bot/`, `bootdev-projs/asteroids-py/`, `bootdev-projs/bookbot/`                                                                         |
 
 Career claims come from the LinkedIn profile text, not from repository evidence. Re-check them
 against the profile before publishing:
@@ -370,7 +386,10 @@ Deliberate wording choices:
 - **Furlinks is a six-person capstone**, not solo work. The copy names the team and the
   KodeGo WD20P cohort; it does not claim sole authorship. The repository has six contributors.
 - **The Boot.dev builds are guided coursework**, not client or product work. They are labeled
-  as such and link to the user's own repositories.
+  as such; repository links are shared on request.
+- **Repository links are not published.** The capstone and coursework cards name the work and
+  stack but link to no repository. The footer says links are shared on request; keep those in
+  sync if that policy changes.
 - **Every employer is anonymized.** Client sites remain named and linked; the internal invoice
   system is described, not linked.
 - **Output counts are not impact metrics.** Usage, completion, and repeat-question volume were
@@ -413,6 +432,13 @@ photo; re-render it the same way if the copy changes.
 - Client sites **are named**, with links to the live sites. That is intentional: they are
   public work and the links are the evidence. Do not add client contact details, contract
   values, or unpublished material.
+- Client-site cards now include home-page screenshots. These are public pages, but several
+  show recognizable people (Lifesuppo, Maeda, Hanamizuki, Aladdin). Confirm the client is
+  comfortable with the capture before publishing or swapping one; do not add private pages,
+  logged-in views, or customer data.
+- Repository links for the capstone and Boot.dev builds are intentionally omitted. The footer
+  says repository links are shared on request. Do not add them back without updating that
+  sentence.
 - Two of the source repositories are public and still contain real brand names, internal
   docs, and `claude-contexts/` material. Either sanitize them or do not link them from the
   site. The exact paths are in the private briefing.
@@ -457,6 +483,19 @@ Screenshots are 1440px wide. Each has a WebP source, a PNG fallback, and 720w va
 - The two diagrams are SVG so they stay sharp in print and at any zoom.
 - On mobile, wide tables and diagrams scroll inside labeled regions (`tabindex="0"`,
   `role="region"`); no page scrolls horizontally.
+
+### Client site screenshots
+
+The six 2023 client cards in `#earlier` each carry a home-page capture in `assets/sites/`.
+Captures are taken at 1440×900 with a headless browser, then resized to 800×500 and 400×250:
+
+- `slug-800.jpg/.webp` — 2x card image, 800×500
+- `slug-400.jpg/.webp` — 1x fallback, 400×250
+
+The JPEGs use quality 72 and the WebPs use `cwebp -q 80` (800w) or `-q 78` (400w). Images are
+`loading="lazy"`, declared 800×500, and use the card grid's `sizes`. HYEG links to
+`https://www.hyeg.jp/`; the old `/s/` path now returns a 404. Re-capture a site if its home
+page changes, and keep the frame free of cookie banners, logged-in views, or personal data.
 
 ### Author portrait assets
 
@@ -518,7 +557,7 @@ caption together.
 - [x] `prefers-reduced-motion` respected
 - [x] All images have alt text (decorative signature and byline avatar use `alt=""`)
 - [x] Responsive from 320px to 1440px, no page-level horizontal scroll
-- [x] Pages fully readable with JavaScript disabled
+- [x] `<noscript>` notice explains the JavaScript requirement and gives the contact email
 - [ ] Verify tab order once in a real browser after editing
 - [ ] Run one screen-reader pass (VoiceOver or NVDA) before publishing
 
@@ -529,11 +568,11 @@ caption together.
 - The sheet drops its desk frame and paper texture and prints white. The masthead keeps its
   rules and ears; the title prints at 40pt.
 - Panels invert to white; links print black and external URLs expand in parentheses.
-- Output is A4 with 16mm margins. The portfolio is 7 pages; the detail page is 22 pages; the
+- Output is A4 with 16mm margins. The portfolio is 7 pages; the detail page is 23 pages; the
   picture desk is 11 pages.
 - The lead collapses to one column, with the stat/index and notice boxes side by side beneath.
-- Screenshots cap at 260px; tall screenshots at 340px; diagrams stop scrolling and shrink to
-  the page width.
+- Screenshots cap at 260px; tall screenshots at 340px; client-site captures cap at 150px and
+  stay top-aligned; diagrams stop scrolling and shrink to the page width.
 - `.case` is allowed to break across pages; individual figures, notes, flow steps, layers,
   roles, projects, client-site cards, highlight cards, and skills stay intact. Headings never
   split from their following content.
@@ -556,6 +595,8 @@ caption together.
 - The detail page is long by design. The contents drawer, the previous / next links at the end
   of each section, the edition index in the lead sidebar, and per-case deep links (`#case-a` …
   `#case-d`) are the way through it.
+- Only the six client sites have live home-page screenshots. The capstone and Boot.dev builds
+  have no hosted home page, so their cards stay text-only.
 - The picture desk uses CSS multi-columns for the masonry effect, not a layout library. The
   reading order is column-first, so the plate numbers do not run left-to-right across a row.
 - Photo dates come from EXIF where the file has it; a few frames are undated and labeled only

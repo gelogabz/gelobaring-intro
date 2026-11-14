@@ -108,7 +108,9 @@
                 var stored = null;
                 try {
                     stored = localStorage.getItem(STORAGE_KEY);
-                } catch (e) {}
+                } catch (e) {
+                    /* Storage can be blocked (private mode); the page still works. */
+                }
 
                 function current() {
                     if (stored === "light" || stored === "dark") return stored;
@@ -154,7 +156,9 @@
                     stored = current() === "dark" ? "light" : "dark";
                     try {
                         localStorage.setItem(STORAGE_KEY, stored);
-                    } catch (e) {}
+                    } catch (e) {
+                        /* Storage can be blocked (private mode); the page still works. */
+                    }
                     apply(stored);
                 }
 
@@ -202,7 +206,7 @@
         </script>
     </head>
 
-    <body>
+    <body data-page="index">
         <a class="skip" href="#main">Skip to content</a>
         <div class="progress" id="progress" aria-hidden="true"></div>
 
@@ -280,582 +284,19 @@
             </nav>
 
             <main id="main" class="wrap" tabindex="-1">
-                <section class="lead" aria-labelledby="lead-headline">
-                    <div class="lead__main">
-                        <h1 id="lead-headline">
-                            I make complex products legible and teachable.
-                        </h1>
-                        <p class="hero-deck">
-                            Eleven years across support, knowledge management,
-                            and front-end development. I have built a 507-term
-                            marketplace reference, migrated a help center,
-                            shipped six client sites, and taught the systems
-                            behind them.
-                        </p>
-                        <p class="lead__byline">
-                            <picture class="byline-avatar">
-                                <source
-                                    type="image/webp"
-                                    srcset="
-                                        assets/gelo-avatar-80.webp  1x,
-                                        assets/gelo-avatar-160.webp 2x
-                                    "
-                                />
-                                <img
-                                    src="assets/gelo-avatar-80.jpg"
-                                    srcset="
-                                        assets/gelo-avatar-80.jpg  1x,
-                                        assets/gelo-avatar-160.jpg 2x
-                                    "
-                                    width="32"
-                                    height="32"
-                                    alt=""
-                                    decoding="async"
-                                />
-                            </picture>
-                            <span>By Gelo Baring</span>
-                            <span>Philippines · UTC+8</span>
-                            <span>2015–2026</span>
-                        </p>
-                        <div class="hero-cta">
-                            <a class="btn btn--primary" href="case-studies.html"
-                                >Read the four 2026 cases
-                                <span aria-hidden="true">→</span></a
+                <noscript>
+                    <div class="notice-box">
+                        <p class="box-label">JavaScript required</p>
+                        <p>
+                            This page renders its content from the data files.
+                            Enable JavaScript to read the portfolio, or email
+                            <a href="mailto:gabrielgelo93@gmail.com"
+                                >gabrielgelo93@gmail.com</a
                             >
-                            <a class="btn" href="mailto:gabrielgelo93@gmail.com"
-                                >Email me</a
-                            >
-                        </div>
-                    </div>
-
-                    <aside class="lead__aside" aria-label="At a glance">
-                        <img
-                            class="signature"
-                            src="assets/signature.png"
-                            alt="Gelo Baring signature"
-                            width="400"
-                            height="68"
-                            decoding="async"
-                        />
-
-                        <div class="stat-box">
-                            <p class="box-label">By the numbers</p>
-                            <div class="stats" role="list">
-                                <div class="stat" role="listitem">
-                                    <b>11</b
-                                    ><span
-                                        >Years in support, knowledge, and
-                                        web</span
-                                    >
-                                </div>
-                                <div class="stat" role="listitem">
-                                    <b>4</b><span>Systems shipped in 2026</span>
-                                </div>
-                                <div class="stat" role="listitem">
-                                    <b>6</b><span>Client sites shipped</span>
-                                </div>
-                                <div class="stat" role="listitem">
-                                    <b>507</b><span>Reference terms</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="notice-box">
-                            <p class="box-label">Notice</p>
-                            <p>
-                                Open to work in knowledge systems, enablement,
-                                or front-end development.
-                            </p>
-                            <a href="#contact">Write to the editor →</a>
-                        </div>
-                    </aside>
-                </section>
-                <!-- ================================================================
-           01 — Highlights
-           ================================================================ -->
-                <section class="section" id="highlights">
-                    <span class="section-num">01</span>
-                    <h2>
-                        Projects from eleven years of knowledge and web work.
-                    </h2>
-                    <p class="lede mb-4">
-                        The four 2026 systems have full case studies. The rest
-                        are summarized here, with more detail on the case
-                        studies page.
-                    </p>
-
-                    <div class="highlights">
-                        <article class="hl-card">
-                            <p class="hl-card__meta">
-                                <span>2026</span>
-                                <span>Case study</span>
-                            </p>
-                            <h3>Marketplace reference platform</h3>
-                            <p>
-                                A 507-term glossary with 21 learning paths, 37
-                                guided walkthroughs, and a cross-platform
-                                comparison map. One data layer, no framework, no
-                                build step.
-                            </p>
-                            <ul class="pills">
-                                <li class="pill pill--accent">
-                                    Knowledge architecture
-                                </li>
-                                <li class="pill">Vanilla JS</li>
-                            </ul>
-                            <a
-                                class="hl-card__link"
-                                href="case-studies.html#case-a"
-                                >Read the case
-                                <span aria-hidden="true">→</span></a
-                            >
-                        </article>
-
-                        <article class="hl-card">
-                            <p class="hl-card__meta">
-                                <span>2023–2025</span>
-                                <span>Earlier work</span>
-                            </p>
-                            <h3>HR SaaS help center</h3>
-                            <p>
-                                Moved a support knowledge base from Salesforce
-                                Knowledge to Intercom, then wrote and edited the
-                                articles for an HR SaaS serving restaurant
-                                teams.
-                            </p>
-                            <ul class="pills">
-                                <li class="pill pill--accent">Intercom</li>
-                                <li class="pill">Content migration</li>
-                            </ul>
-                            <a
-                                class="hl-card__link"
-                                href="case-studies.html#earlier"
-                                >Read more <span aria-hidden="true">→</span></a
-                            >
-                        </article>
-
-                        <article class="hl-card">
-                            <p class="hl-card__meta">
-                                <span>2023</span>
-                                <span>Client work</span>
-                            </p>
-                            <h3>Six client websites</h3>
-                            <p>
-                                Six production sites in five months for Japanese
-                                clients, built with HTML, CSS, JavaScript, and
-                                jQuery, plus PHP and Bootstrap where the project
-                                needed them.
-                            </p>
-                            <ul class="pills">
-                                <li class="pill pill--accent">Front-end</li>
-                                <li class="pill">Client work</li>
-                            </ul>
-                            <a
-                                class="hl-card__link"
-                                href="case-studies.html#earlier"
-                                >Read more <span aria-hidden="true">→</span></a
-                            >
-                        </article>
-
-                        <article class="hl-card">
-                            <p class="hl-card__meta">
-                                <span>2026</span>
-                                <span>Case study</span>
-                            </p>
-                            <h3>Onboarding curriculum</h3>
-                            <p>
-                                A seven-week path from marketplace concepts to
-                                co-sell judgment: 13 modules, 13 quizzes, and a
-                                246-row source map.
-                            </p>
-                            <ul class="pills">
-                                <li class="pill pill--accent">
-                                    Instructional design
-                                </li>
-                                <li class="pill">Assessment</li>
-                            </ul>
-                            <a
-                                class="hl-card__link"
-                                href="case-studies.html#case-c"
-                                >Read the case
-                                <span aria-hidden="true">→</span></a
-                            >
-                        </article>
-
-                        <article class="hl-card">
-                            <p class="hl-card__meta">
-                                <span>2023</span>
-                                <span>Internal tool</span>
-                            </p>
-                            <h3>Internal invoice system</h3>
-                            <p>
-                                A Laravel 10 and PostgreSQL invoicing tool. I
-                                was senior developer and main front-end
-                                developer, covering the interface, PHP, and
-                                database.
-                            </p>
-                            <ul class="pills">
-                                <li class="pill pill--accent">Laravel</li>
-                                <li class="pill">PostgreSQL</li>
-                            </ul>
-                            <a
-                                class="hl-card__link"
-                                href="case-studies.html#earlier"
-                                >Read more <span aria-hidden="true">→</span></a
-                            >
-                        </article>
-
-                        <article class="hl-card">
-                            <p class="hl-card__meta">
-                                <span>2026</span>
-                                <span>Case study</span>
-                            </p>
-                            <h3>Monthly marketplace briefing</h3>
-                            <p>
-                                Five editions that compare AWS, Microsoft,
-                                Google, and Snowflake on the same themes, with a
-                                source under every claim.
-                            </p>
-                            <ul class="pills">
-                                <li class="pill pill--accent">Editorial</li>
-                                <li class="pill">Data rendering</li>
-                            </ul>
-                            <a
-                                class="hl-card__link"
-                                href="case-studies.html#case-b"
-                                >Read the case
-                                <span aria-hidden="true">→</span></a
-                            >
-                        </article>
-
-                        <article class="hl-card">
-                            <p class="hl-card__meta">
-                                <span>Self-directed</span>
-                                <span>Course</span>
-                            </p>
-                            <h3>AWS exam prep course</h3>
-                            <p>
-                                23 lessons across four exam domains, weighted to
-                                the official blueprint, with a 40-entry
-                                corrections register and a service audit.
-                            </p>
-                            <ul class="pills">
-                                <li class="pill pill--accent">
-                                    Instructional design
-                                </li>
-                                <li class="pill">AWS</li>
-                            </ul>
-                            <a
-                                class="hl-card__link"
-                                href="case-studies.html#earlier"
-                                >Read more <span aria-hidden="true">→</span></a
-                            >
-                        </article>
-
-                        <article class="hl-card">
-                            <p class="hl-card__meta">
-                                <span>2026</span>
-                                <span>Case study</span>
-                            </p>
-                            <h3>AI content operations</h3>
-                            <p>
-                                Seven agent specs and a two-gate review model
-                                for research-heavy content, piloted with a human
-                                in the loop.
-                            </p>
-                            <ul class="pills">
-                                <li class="pill pill--accent">AI operations</li>
-                                <li class="pill">Process design</li>
-                            </ul>
-                            <a
-                                class="hl-card__link"
-                                href="case-studies.html#case-d"
-                                >Read the case
-                                <span aria-hidden="true">→</span></a
-                            >
-                        </article>
-
-                        <article class="hl-card">
-                            <p class="hl-card__meta">
-                                <span>2023</span>
-                                <span>Capstone</span>
-                            </p>
-                            <h3>Furlinks adoption platform</h3>
-                            <p>
-                                A Laravel dog-adoption platform: searchable dog
-                                profiles, applications with status tracking, and
-                                user accounts. Team capstone for KodeGo WD20P.
-                            </p>
-                            <ul class="pills">
-                                <li class="pill pill--accent">Laravel</li>
-                                <li class="pill">PHP</li>
-                                <li class="pill">MySQL</li>
-                            </ul>
-                            <a
-                                class="hl-card__link"
-                                href="case-studies.html#earlier"
-                                >Read more <span aria-hidden="true">→</span></a
-                            >
-                        </article>
-                    </div>
-                </section>
-
-                <!-- ================================================================
-           02 — Career
-           ================================================================ -->
-                <section class="section" id="career">
-                    <span class="section-num">02</span>
-                    <h2>
-                        Eleven years across support, knowledge, and the web.
-                    </h2>
-                    <p class="lede mb-4">
-                        Employers are described by what they do. Client sites
-                        are named and linked.
-                    </p>
-
-                    <div class="career">
-                        <article class="role">
-                            <span class="role-when">Jan – Oct 2026</span>
-                            <div>
-                                <h3>Senior Knowledge Management Specialist</h3>
-                                <p class="role-org">
-                                    B2B SaaS company selling into cloud
-                                    marketplaces
-                                </p>
-                                <p>
-                                    Built the reference platform, monthly
-                                    briefing, onboarding curriculum, and AI
-                                    content model described on this site. Also
-                                    handled chat support, KB articles, editorial
-                                    review, and AI knowledge-bot sources.
-                                </p>
-                            </div>
-                        </article>
-
-                        <article class="role">
-                            <span class="role-when">Sep 2023 – Dec 2025</span>
-                            <div>
-                                <h3>
-                                    Knowledge Management Specialist / Senior
-                                    Specialist
-                                </h3>
-                                <p class="role-org">
-                                    HR SaaS company serving restaurant teams
-                                </p>
-                                <p>
-                                    Moved into the senior title in April 2024.
-                                    Built and maintained the help center,
-                                    migrated content from Salesforce Knowledge
-                                    to Intercom, and supported AI knowledge-bot
-                                    management.
-                                </p>
-                                <div class="pills">
-                                    <span class="pill">Intercom</span>
-                                    <span class="pill"
-                                        >Salesforce Knowledge</span
-                                    >
-                                    <span class="pill">Markdown</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="role">
-                            <span class="role-when">Mar – Aug 2023</span>
-                            <div>
-                                <h3>Web Developer</h3>
-                                <p class="role-org">
-                                    Web development agency serving Japanese
-                                    clients
-                                </p>
-                                <p>
-                                    Built and rebuilt client websites and web
-                                    applications, coordinated with Japanese
-                                    project managers, and localized codebases.
-                                    Delivered six client sites and an internal
-                                    invoicing system in six months.
-                                </p>
-                                <div class="pills">
-                                    <span class="pill">HTML/CSS</span>
-                                    <span class="pill">JavaScript</span>
-                                    <span class="pill">PHP</span>
-                                    <span class="pill">Laravel 10</span>
-                                    <span class="pill">PostgreSQL</span>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="role">
-                            <span class="role-when">Dec 2017 – Jan 2023</span>
-                            <div>
-                                <h3>Digital Content Specialist</h3>
-                                <p class="role-org">
-                                    On-demand delivery platform
-                                </p>
-                                <p>
-                                    Created knowledge base and process
-                                    documentation, monitored article usage and
-                                    performance metrics, implemented
-                                    documentation improvements at regional
-                                    scale, and assisted with feature development
-                                    and testing.
-                                </p>
-                            </div>
-                        </article>
-
-                        <article class="role">
-                            <span class="role-when">Jan 2015 – Jan 2016</span>
-                            <div>
-                                <h3>Customer Service Representative</h3>
-                                <p class="role-org">E-commerce marketplace</p>
-                                <p>
-                                    Delivered Level 2 email and phone support,
-                                    acted as SME and team point of contact,
-                                    performed Team Lead and workforce-management
-                                    duties, and reported ticket metrics and SLA
-                                    breaches.
-                                </p>
-                            </div>
-                        </article>
-                    </div>
-
-                    <p class="small muted mt-3">
-                        More detail on the earlier projects is in
-                        <a href="case-studies.html#earlier">the case studies</a
-                        >.
-                    </p>
-                </section>
-
-                <!-- ================================================================
-           03 — Skills
-           ================================================================ -->
-                <section class="section" id="skills">
-                    <span class="section-num">03</span>
-                    <h2>What I do.</h2>
-                    <p class="lede mb-4">
-                        Six capabilities, backed by the work on this site.
-                    </p>
-
-                    <div class="skills">
-                        <article class="skill">
-                            <h3>Knowledge architecture</h3>
-                            <p>
-                                Taxonomies, aliases, cross-links, and source
-                                rules that keep a reference usable as it grows.
-                            </p>
-                        </article>
-                        <article class="skill">
-                            <h3>Technical writing</h3>
-                            <p>
-                                Support articles, process docs, schemas, and
-                                style guides. Plain language, traceable claims.
-                            </p>
-                        </article>
-                        <article class="skill">
-                            <h3>Enablement and instructional design</h3>
-                            <p>
-                                Role-based learning paths, guided walkthroughs,
-                                quizzes, and source maps.
-                            </p>
-                        </article>
-                        <article class="skill">
-                            <h3>Front-end development</h3>
-                            <p>
-                                Semantic HTML, hand-written CSS, vanilla
-                                JavaScript, and PHP/Laravel when the project
-                                needs it.
-                            </p>
-                        </article>
-                        <article class="skill">
-                            <h3>AI content operations</h3>
-                            <p>
-                                Agent specs, typed handoffs, review gates, and
-                                failure modes for research-heavy content.
-                            </p>
-                        </article>
-                        <article class="skill">
-                            <h3>Program management</h3>
-                            <p>
-                                Phased delivery, decision logs, and scope
-                                measured before work starts.
-                            </p>
-                        </article>
-                    </div>
-
-                    <div class="divider-top">
-                        <p class="eyebrow">Tools</p>
-                        <p class="small muted mb-0">
-                            Intercom · Salesforce Knowledge · Markdown ·
-                            HTML/CSS · JavaScript · jQuery · PHP · Laravel ·
-                            PostgreSQL · Git
+                            for a copy.
                         </p>
                     </div>
-                </section>
-
-                <section class="section" id="training">
-                    <span class="section-num">04</span>
-                    <h2>How I learned the work.</h2>
-                    <p class="lede mb-4">
-                        No computer science degree. A bootcamp, a stack of
-                        self-directed courses, and a habit of building the thing
-                        I just read about.
-                    </p>
-
-                    <div class="training">
-                        <article class="training__item">
-                            <p class="training__meta">2023 · KodeGo</p>
-                            <h3>Full-stack Web Development</h3>
-                            <p>
-                                Sixteen-week bootcamp. Leadership Award, Best
-                                Capstone Project, and Top Student for Batch
-                                WD20P.
-                            </p>
-                        </article>
-                        <article class="training__item">
-                            <p class="training__meta">2026 · AWS / TESDA</p>
-                            <h3>Cloud Practitioner prep</h3>
-                            <p>
-                                CLF-C02 preparatory coursework across cloud
-                                concepts, core services, security, architecture,
-                                pricing, and support. Currently studying AI
-                                Practitioner (AIF-C01).
-                            </p>
-                        </article>
-                        <article class="training__item">
-                            <p class="training__meta">
-                                2023 · Google / Coursera
-                            </p>
-                            <h3>Foundations of UX Design</h3>
-                            <p>
-                                Research, wireframes, and the parts of design
-                                that make documentation easier to use.
-                            </p>
-                        </article>
-                        <article class="training__item">
-                            <p class="training__meta">2025–2026 · Boot.dev</p>
-                            <h3>Programming practice</h3>
-                            <p>
-                                Python, JavaScript, TypeScript, SQL, Git, Linux,
-                                and object-oriented and functional patterns, one
-                                course at a time.
-                            </p>
-                        </article>
-                        <article class="training__item">
-                            <p class="training__meta">2022–2023 · Sololearn</p>
-                            <h3>Web fundamentals</h3>
-                            <p>
-                                HTML, CSS, responsive design, JavaScript, and
-                                Python fundamentals.
-                            </p>
-                        </article>
-                        <article class="training__item">
-                            <p class="training__meta">
-                                2010–2012 · Adamson University
-                            </p>
-                            <h3>BS Chemical Engineering</h3>
-                            <p>Two years of engineering coursework.</p>
-                        </article>
-                    </div>
-                </section>
+                </noscript>
             </main>
 
             <!-- ================================================================
@@ -1004,7 +445,7 @@
         <dialog class="toc" id="toc" aria-labelledby="toc-title">
             <div class="toc__panel">
                 <div class="toc__head">
-                    <p class="toc__kicker">Portfolio</p>
+                    <p class="toc__kicker" data-toc-kicker></p>
                     <h2 class="toc__title" id="toc-title">Contents</h2>
                     <button
                         class="toc__close"
@@ -1017,46 +458,17 @@
                 </div>
 
                 <nav class="toc__nav" aria-label="On this page">
-                    <ol class="toc__list">
-                        <li>
-                            <a class="toc__link" href="#highlights"
-                                ><span class="toc__num">01</span
-                                ><span class="toc__label">Highlights</span></a
-                            >
-                        </li>
-                        <li>
-                            <a class="toc__link" href="#career"
-                                ><span class="toc__num">02</span
-                                ><span class="toc__label">Career</span></a
-                            >
-                        </li>
-                        <li>
-                            <a class="toc__link" href="#skills"
-                                ><span class="toc__num">03</span
-                                ><span class="toc__label">Skills</span></a
-                            >
-                        </li>
-                        <li>
-                            <a class="toc__link" href="#training"
-                                ><span class="toc__num">04</span
-                                ><span class="toc__label">Training</span></a
-                            >
-                        </li>
-                        <li>
-                            <a class="toc__link" href="#contact"
-                                ><span class="toc__num">—</span
-                                ><span class="toc__label">Contact</span></a
-                            >
-                        </li>
-                    </ol>
+                    <ol class="toc__list" data-toc-list></ol>
                 </nav>
 
-                <p class="toc__foot">
-                    The AGB Gazette · Portfolio Edition
-                </p>
+                <p class="toc__foot" data-toc-foot></p>
             </div>
         </dialog>
 
+        <script src="data/contents.js" defer></script>
+        <script src="data/index.js" defer></script>
+        <script src="js/contents.js" defer></script>
+        <script src="js/render.js" defer></script>
         <script src="js/main.js" defer></script>
     </body>
 </html>

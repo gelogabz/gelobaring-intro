@@ -1,6 +1,6 @@
 /* ==========================================================================
-   main.js — progressive enhancement only
-   The page is fully readable without JavaScript. This adds:
+   main.js — behavior layer
+   Page content is rendered from data/*.js by render.js. This adds:
      1. a reading-progress indicator
      2. active-section state in the contents drawer
      3. previous / next links at the end of each section
@@ -15,6 +15,9 @@
 
   var doc = document.documentElement;
   var progress = document.getElementById("progress");
+  var toc = document.getElementById("toc");
+  var tocOpen = document.querySelector("[data-toc-open]");
+  var tocClose = document.querySelector("[data-toc-close]");
   var tocLinks = Array.prototype.slice.call(
     document.querySelectorAll('.toc__link[href^="#"]'),
   );
@@ -49,10 +52,7 @@
   }
 
   function atBottom() {
-    return (
-      window.innerHeight + window.scrollY >=
-      document.documentElement.scrollHeight - 2
-    );
+    return window.innerHeight + window.scrollY >= doc.scrollHeight - 2;
   }
 
   /* ---- 2. Active section --------------------------------------------- */
@@ -60,9 +60,9 @@
     /* The footer is the last hash link; keep it current at the very bottom. */
     if (atBottom() && tocLinks.length) {
       var last = tocLinks[tocLinks.length - 1];
-      var lastId = last.getAttribute("href");
-      if (lastId && lastId.charAt(0) === "#") {
-        activeId = lastId.slice(1);
+      var lastHref = last.getAttribute("href");
+      if (lastHref && lastHref.charAt(0) === "#") {
+        activeId = lastHref.slice(1);
       }
     }
 
@@ -113,11 +113,10 @@
     return link;
   }
 
-  sections.forEach(function (item) {
+  sections.forEach(function (item, index) {
     if (item.el.tagName !== "SECTION") return;
     if (item.el.querySelector(".section-next")) return;
 
-    var index = sections.indexOf(item);
     var prev = index > 0 ? sections[index - 1] : null;
     var next = index < sections.length - 1 ? sections[index + 1] : null;
 
@@ -162,8 +161,11 @@
     var root = document.documentElement;
     var previous = root.style.scrollBehavior;
     root.style.scrollBehavior = "auto";
-    hashTarget.scrollIntoView({ behavior: "auto", block: "start" });
-    root.style.scrollBehavior = previous;
+    try {
+      hashTarget.scrollIntoView({ behavior: "auto", block: "start" });
+    } finally {
+      root.style.scrollBehavior = previous;
+    }
   }
 
   var userMoved = false;
@@ -234,11 +236,7 @@
   }
 
   /* ---- 7. Contents drawer -------------------------------------------- */
-  var toc = document.getElementById("toc");
-  var tocOpen = document.querySelector("[data-toc-open]");
-  var tocClose = document.querySelector("[data-toc-close]");
-
-  if (toc && tocOpen) {
+  if (toc && tocOpen && tocLinks.length) {
     /* The button is hidden in the HTML so it never appears as a dead
        control when JavaScript is unavailable. */
     tocOpen.hidden = false;
