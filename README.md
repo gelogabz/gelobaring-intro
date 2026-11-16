@@ -10,7 +10,7 @@ The masthead is **The AGB Gazette**; the kicker reads **Gelo Baring · Portfolio
 pages and **Gelo Baring · Off the Clock** on the picture desk.
 
 - `index.html` is the portfolio: nine highlights, a five-role career timeline, skills,
-  training, and contact.
+  a toolkit, training, and contact.
 - `case-studies.html` is the detail page: four 2026 knowledge-system cases, earlier help
   center, client site, and internal tool work, the Furlinks capstone, three Boot.dev
   coursework builds, plus engineering notes, evidence, and limits.
@@ -25,7 +25,7 @@ work.
 
 ```
 gelobaring-intro/
-├── index.html              portfolio: highlights, career, skills, training, contact
+├── index.html              portfolio: highlights, career, skills, toolkit, training, contact
 ├── case-studies.html       detail: four 2026 cases, earlier work, training, engineering, limits
 ├── photography.html        Off the Clock: 35 plates, masonry grid, after-hours notes
 ├── css/
@@ -94,7 +94,9 @@ browsers skip them on `file://`.
 | Lead story, sidebar, byline         | `data/index.js`, `data/case-studies.js`, `data/photography.js`   |
 | Highlight cards                     | `data/index.js` — `sections[0].items`                            |
 | Career history                      | `data/index.js` — the `career` section                           |
-| Skills, tools, background           | `data/index.js` — the `skills` section                           |
+| Skills and capabilities             | `data/index.js` — the `skills` section                           |
+| Toolkit tools and practices         | `data/index.js` — the `toolkit` section                          |
+| Training and education              | `data/index.js` — the `training` section                         |
 | Contact details                     | all three HTML files — `.contact` block                          |
 | Author portrait and byline          | `index.html` — `.author-card`; `js/render.js` — `.byline-avatar` |
 | Case-study copy                     | `data/case-studies.js` — the `#work` part                        |
@@ -123,8 +125,9 @@ browsers skip them on `file://`.
 | --- | ---------- | ------------- | ---------------------------------------------- |
 | 01  | Highlights | `#highlights` | Nine project cards, four linking to full cases |
 | 02  | Career     | `#career`     | Five roles, 2015–2026, employers anonymized    |
-| 03  | Skills     | `#skills`     | Six capabilities and tools                     |
-| 04  | Training   | `#training`   | Courses, awards, and education                 |
+| 03  | Skills     | `#skills`     | Six capabilities                               |
+| 04  | Toolkit    | `#toolkit`    | Tools and practices grouped by use             |
+| 05  | Training   | `#training`   | Courses, awards, and education                 |
 | —   | Contact    | `#contact`    | Email, LinkedIn, GitHub                        |
 
 `case-studies.html`
@@ -282,6 +285,9 @@ the weights the CSS actually uses for the masthead, headlines, and labels.
   covers the card for a full-card target. Cards carry `P. 01`–`P. 09` page labels.
 - `.skills` / `.skill` — a hairline grid of six capabilities. Same breakpoints as the
   highlights grid, with automatic `01`–`06` numbering.
+- `.toolkit` / `.toolkit-card` — a hairline grid of four tool groups. Two columns from
+  760px; each card carries a category, a one-line use, and pill tags. A familiar-with line
+  follows the grid.
 - `.training` / `.training__item` — the training and education grid: three columns on
   desktop, two at 760px, one on phones. Each item carries a provider/date label.
 - `.interests` / `.interest` — the four-card after-hours grid on the picture desk: four
@@ -568,17 +574,17 @@ caption together.
 - The sheet drops its desk frame and paper texture and prints white. The masthead keeps its
   rules and ears; the title prints at 40pt.
 - Panels invert to white; links print black and external URLs expand in parentheses.
-- Output is A4 with 16mm margins. The portfolio is 7 pages; the detail page is 23 pages; the
+- Output is A4 with 16mm margins. The portfolio is 8 pages; the detail page is 23 pages; the
   picture desk is 11 pages.
 - The lead collapses to one column, with the stat/index and notice boxes side by side beneath.
 - Screenshots cap at 260px; tall screenshots at 340px; client-site captures cap at 150px and
   stay top-aligned; diagrams stop scrolling and shrink to the page width.
 - `.case` is allowed to break across pages; individual figures, notes, flow steps, layers,
-  roles, projects, client-site cards, highlight cards, and skills stay intact. Headings never
-  split from their following content.
-- The highlights, skills, outcomes, projects, client-site, flow, layer, path, and principle
-  grids collapse to a single column for print. The picture-desk masonry prints in two columns,
-  and each plate stays whole.
+  roles, projects, client-site cards, highlight cards, skills, and toolkit cards stay intact.
+  Headings never split from their following content.
+- The highlights, skills, toolkit, outcomes, projects, client-site, flow, layer, path, and
+  principle grids collapse to a single column for print. The picture-desk masonry prints in
+  two columns, and each plate stays whole.
 - The theme toggle, page nav, contents drawer and trigger, section pager, back-to-top link,
   progress bar, hero CTAs, and lightbox are hidden.
 - The small byline avatar is hidden; the 160×200 contact portrait prints with its caption.

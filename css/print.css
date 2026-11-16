@@ -202,6 +202,7 @@
 
     .highlights,
     .skills,
+    .toolkit,
     .training,
     .interests,
     .outcomes,
@@ -217,6 +218,7 @@
 
     .highlights,
     .skills,
+    .toolkit,
     .training,
     .interests,
     .outcomes,
@@ -232,6 +234,7 @@
 
     .hl-card,
     .skill,
+    .toolkit-card,
     .training__item,
     .interest,
     .outcome,
@@ -254,6 +257,7 @@
 
     .hl-card:last-child,
     .skill:last-child,
+    .toolkit-card:last-child,
     .training__item:last-child,
     .interest:last-child,
     .outcome:last-child,

@@ -29,10 +29,11 @@
     var list = document.createElement(listTag || "ul");
     list.className = "pills";
     items.forEach(function (item) {
+      var isString = typeof item === "string";
       var pill = el(
         itemTag || "li",
-        "pill" + (item.accent ? " pill--accent" : ""),
-        item.label,
+        "pill" + (!isString && item.accent ? " pill--accent" : ""),
+        isString ? item : item.label,
       );
       list.appendChild(pill);
     });
@@ -206,7 +207,6 @@
   }
 
   function renderSkills(section) {
-    var fragment = document.createDocumentFragment();
     var list = el("div", "skills");
     section.items.forEach(function (item) {
       var card = el("article", "skill");
@@ -214,12 +214,33 @@
       card.appendChild(el("p", null, item.body));
       list.appendChild(card);
     });
-    fragment.appendChild(list);
+    return list;
+  }
 
-    var divider = el("div", "divider-top");
-    divider.appendChild(el("p", "eyebrow", section.toolsLabel));
-    divider.appendChild(el("p", "small muted mb-0", section.tools));
-    fragment.appendChild(divider);
+  function renderToolkit(section) {
+    var fragment = document.createDocumentFragment();
+    var grid = el("div", "toolkit");
+
+    section.groups.forEach(function (group) {
+      var card = el("article", "toolkit-card");
+      card.appendChild(el("h3", "toolkit-card__label", group.label));
+      card.appendChild(el("p", "toolkit-card__body", group.body));
+      card.appendChild(pillList(group.items, "ul", "li"));
+      grid.appendChild(card);
+    });
+
+    fragment.appendChild(grid);
+
+    if (section.familiar && section.familiar.length) {
+      fragment.appendChild(
+        el(
+          "p",
+          "small muted mt-3",
+          "Familiar with: " + section.familiar.join(" · "),
+        ),
+      );
+    }
+
     return fragment;
   }
 
@@ -239,6 +260,7 @@
     highlights: renderHighlights,
     career: renderCareer,
     skills: renderSkills,
+    toolkit: renderToolkit,
     training: renderTraining,
   };
 
