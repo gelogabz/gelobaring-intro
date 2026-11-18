@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://gelogabz.github.io/gelobaring-intro/sitemap.xml

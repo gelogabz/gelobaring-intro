@@ -9,7 +9,7 @@ window.PAGES = window.PAGES || {};
 window.PAGES["case-studies"] = {
   parts: [
     `<section class="lead lead--report" aria-labelledby="lead-headline">
-                    <div class="lead__main">
+                    <header class="lead__main">
                         <h1 id="lead-headline">The work in detail.</h1>
                         <p class="hero-deck">
                             Four knowledge-system projects from 2026, plus
@@ -37,7 +37,7 @@ window.PAGES["case-studies"] = {
                             <a class="btn btn--primary" href="index.html">Back to portfolio</a>
                             <a class="btn" href="mailto:gabrielgelo93@gmail.com">Email me</a>
                         </div>
-                    </div>
+                    </header>
 
                     <aside class="lead__aside" aria-label="Inside this edition">
                         <div class="index-box">
@@ -177,8 +177,8 @@ window.PAGES["case-studies"] = {
                             reference.
                         </p>
 
-                        <div class="flow" role="list" aria-label="Content pipeline: capture, score, review, publish">
-                            <div class="flow-step" role="listitem">
+                        <ol class="flow" aria-label="Content pipeline: capture, score, review, publish">
+                            <li class="flow-step">
                                 <h3>Capture</h3>
                                 <p>
                                     13 sources across five platforms feed the
@@ -188,8 +188,8 @@ window.PAGES["case-studies"] = {
                                     event-triggered pass within 48 hours of a
                                     major announcement.
                                 </p>
-                            </div>
-                            <div class="flow-step" role="listitem">
+                            </li>
+                            <li class="flow-step">
                                 <h3>Diff &amp; score</h3>
                                 <p>
                                     Content hashes are compared against stored
@@ -197,24 +197,24 @@ window.PAGES["case-studies"] = {
                                     and is routed to the briefing, a reference
                                     update, or the discard pile.
                                 </p>
-                            </div>
-                            <div class="flow-step" role="listitem">
+                            </li>
+                            <li class="flow-step">
                                 <h3>Human gate</h3>
                                 <p>
                                     I review the reasoning before opening a
                                     draft. A rejected topic costs one read, not
                                     a rewrite. Nothing publishes on its own.
                                 </p>
-                            </div>
-                            <div class="flow-step" role="listitem">
+                            </li>
+                            <li class="flow-step">
                                 <h3>Publish</h3>
                                 <p>
                                     Approved items become a briefing edition or
                                     a stamped reference section, with source
                                     links and a last-verified date.
                                 </p>
-                            </div>
-                        </div>
+                            </li>
+                        </ol>
 
                         <p class="flow-note">
                             The process documents were shared work. I owned
@@ -224,8 +224,8 @@ window.PAGES["case-studies"] = {
                             and ingestion script were mine.
                         </p>
 
-                        <div class="layers" role="list">
-                            <div class="layer" role="listitem">
+                        <ol class="layers">
+                            <li class="layer">
                                 <span class="mono">Layer 1 · Permanent</span>
                                 <h3>Reference</h3>
                                 <p>
@@ -233,8 +233,8 @@ window.PAGES["case-studies"] = {
                                     learning paths, 37 guided walkthroughs, and
                                     a cross-platform comparison map.
                                 </p>
-                            </div>
-                            <div class="layer" role="listitem">
+                            </li>
+                            <li class="layer">
                                 <span class="mono">Layer 2 · Recurring</span>
                                 <h3>Briefing</h3>
                                 <p>
@@ -242,8 +242,8 @@ window.PAGES["case-studies"] = {
                                     compares the hyperscalers, and ends with a
                                     practical implication.
                                 </p>
-                            </div>
-                            <div class="layer" role="listitem">
+                            </li>
+                            <li class="layer">
                                 <span class="mono">Layer 3 · Process</span>
                                 <h3>Operations</h3>
                                 <p>
@@ -252,8 +252,8 @@ window.PAGES["case-studies"] = {
                                     failure modes. A model for keeping the other
                                     layers current.
                                 </p>
-                            </div>
-                        </div>
+                            </li>
+                        </ol>
 
                         <p class="flow-note">
                             The curriculum sits beside the loop. It sequences
@@ -301,31 +301,31 @@ window.PAGES["case-studies"] = {
                         to a new hire.”
                     </p>
 
-                    <div class="outcomes" role="list" aria-label="Outputs">
-                        <div class="outcome" role="listitem">
+                    <ul class="outcomes" aria-label="Outputs">
+                        <li class="outcome">
                             <b>One definition per term</b>
                             <span>507 terms resolve to a canonical definition, an
                                 alias set, and a source URL. Not six
                                 documentation sites and a person who happens to
                                 know.</span>
-                        </div>
-                        <div class="outcome" role="listitem">
+                        </li>
+                        <li class="outcome">
                             <b>A seven-week path where none existed</b>
                             <span>13 modules and 146 quiz questions sequence the
                                 domain from concepts to co-sell judgment.</span>
-                        </div>
-                        <div class="outcome" role="listitem">
+                        </li>
+                        <li class="outcome">
                             <b>Four errors caught before publication</b>
                             <span>The verification pass stopped a bad CAGR
                                 figure, a press release from the wrong year, and
                                 two wrong product versions.</span>
-                        </div>
-                        <div class="outcome" role="listitem">
+                        </li>
+                        <li class="outcome">
                             <b>1,607 records protected</b>
                             <span>A zero-parse guard now aborts the ingestion job
                                 instead of overwriting the archive.</span>
-                        </div>
-                    </div>
+                        </li>
+                    </ul>
 
                     <nav class="paths" aria-label="Jump to a case">
                         <p class="eyebrow">Jump to a case</p>
@@ -351,7 +351,7 @@ window.PAGES["case-studies"] = {
 
                     <!-- CASE A -->
                     <article class="case" id="case-a" aria-labelledby="case-reference">
-                        <div class="case-head">
+                        <header class="case-head">
                             <span class="case-kicker">Case A · Reference platform</span>
                             <h3 id="case-reference">
                                 A 507-term reference built like a product.
@@ -362,13 +362,13 @@ window.PAGES["case-studies"] = {
                                 comparison map. All of it renders from one data
                                 layer, with no framework and no build step.
                             </p>
-                            <div class="pills">
-                                <span class="pill pill--accent">Vanilla JS</span>
-                                <span class="pill">Static site</span>
-                                <span class="pill">Accessibility</span>
-                                <span class="pill">Content ops</span>
-                            </div>
-                        </div>
+                            <ul class="pills">
+                                <li class="pill pill--accent">Vanilla JS</li>
+                                <li class="pill">Static site</li>
+                                <li class="pill">Accessibility</li>
+                                <li class="pill">Content ops</li>
+                            </ul>
+                        </header>
 
                         <figure class="mb-4">
                             <div class="shot shot--tall">
@@ -393,7 +393,7 @@ window.PAGES["case-studies"] = {
 
                         <div class="case-grid">
                             <div class="blocks">
-                                <div class="block">
+                                <section class="block">
                                     <h4>Problem</h4>
                                     <p>
                                         New hires, sales engineers, and partner
@@ -404,9 +404,9 @@ window.PAGES["case-studies"] = {
                                         contracts, and authorization move
                                         through a marketplace deal.
                                     </p>
-                                </div>
+                                </section>
 
-                                <div class="block">
+                                <section class="block">
                                     <h4>What I built</h4>
                                     <ul>
                                         <li>
@@ -442,19 +442,19 @@ window.PAGES["case-studies"] = {
                                             scheduled Node script.
                                         </li>
                                     </ul>
-                                </div>
+                                </section>
 
-                                <div class="block">
+                                <section class="block">
                                     <h4>Key decisions</h4>
-                                    <div class="decision">
+                                    <p class="decision">
                                         <strong>No framework, no build.</strong>
                                         Vanilla ES modules and one CSS file. A
                                         content site with no state to manage did
                                         not need a bundler, and the constraint
                                         kept deployment to a push to
                                         <code>main</code>.
-                                    </div>
-                                    <div class="decision">
+                                    </p>
+                                    <p class="decision">
                                         <strong>One data layer, eight
                                             pages.</strong>
                                         Terms, tags, paths, and walkthroughs
@@ -462,17 +462,17 @@ window.PAGES["case-studies"] = {
                                         view is <em>derived</em> from alias
                                         syntax with a union-find pass, so adding
                                         a term can improve three pages at once.
-                                    </div>
-                                    <div class="decision">
+                                    </p>
+                                    <p class="decision">
                                         <strong>Do not guess.</strong> Every
                                         term carries a source URL. If a claim
                                         had no authoritative source, it stayed
                                         out, even when a stakeholder asked for
                                         it twice.
-                                    </div>
-                                </div>
+                                    </p>
+                                </section>
 
-                                <div class="block">
+                                <section class="block">
                                     <h4>Scope and limits</h4>
                                     <p>
                                         A static, solo-built prototype. There is
@@ -486,10 +486,10 @@ window.PAGES["case-studies"] = {
                                     <p class="small muted mb-0">
                                         <a href="#limits">See the full limits list ↓</a>
                                     </p>
-                                </div>
+                                </section>
                             </div>
 
-                            <aside class="sidebar" aria-label="Project facts">
+                            <aside class="sidebar" aria-label="Project facts: Reference platform">
                                 <h4>At a glance</h4>
                                 <dl>
                                     <dt>Role</dt>
@@ -578,7 +578,7 @@ window.PAGES["case-studies"] = {
 
                     <!-- CASE B -->
                     <article class="case" id="case-b" aria-labelledby="case-briefing">
-                        <div class="case-head">
+                        <header class="case-head">
                             <span class="case-kicker">Case B · Publishing</span>
                             <h3 id="case-briefing">
                                 A briefing that explains what changed and why it
@@ -591,13 +591,13 @@ window.PAGES["case-studies"] = {
                                 and ends with what it means for a specific
                                 reader.
                             </p>
-                            <div class="pills">
-                                <span class="pill pill--accent">Editorial design</span>
-                                <span class="pill">Data-driven rendering</span>
-                                <span class="pill">Export &amp; print</span>
-                                <span class="pill">Persona model</span>
-                            </div>
-                        </div>
+                            <ul class="pills">
+                                <li class="pill pill--accent">Editorial design</li>
+                                <li class="pill">Data-driven rendering</li>
+                                <li class="pill">Export &amp; print</li>
+                                <li class="pill">Persona model</li>
+                            </ul>
+                        </header>
 
                         <div class="grid-2 mb-4">
                             <figure>
@@ -643,7 +643,7 @@ window.PAGES["case-studies"] = {
 
                         <div class="case-grid">
                             <div class="blocks">
-                                <div class="block">
+                                <section class="block">
                                     <h4>Problem</h4>
                                     <p>
                                         Marketplace rules change constantly: fee
@@ -654,9 +654,9 @@ window.PAGES["case-studies"] = {
                                         <em>what happened</em> without telling
                                         them <em>whether to care</em>.
                                     </p>
-                                </div>
+                                </section>
 
-                                <div class="block">
+                                <section class="block">
                                     <h4>What I built</h4>
                                     <ul>
                                         <li>
@@ -694,11 +694,11 @@ window.PAGES["case-studies"] = {
                                             place.
                                         </li>
                                     </ul>
-                                </div>
+                                </section>
 
-                                <div class="block">
+                                <section class="block">
                                     <h4>Key decisions</h4>
-                                    <div class="decision">
+                                    <p class="decision">
                                         <strong>Topic-first, not
                                             platform-first.</strong>
                                         A section per hyperscaler would have
@@ -706,26 +706,26 @@ window.PAGES["case-studies"] = {
                                         Organizing by theme forces the
                                         comparison and surfaces where the
                                         platforms diverge.
-                                    </div>
-                                    <div class="decision">
+                                    </p>
+                                    <p class="decision">
                                         <strong>Every claim gets a source,
                                             inline.</strong>
                                         Not a bibliography at the bottom. The
                                         link sits under the claim it supports,
                                         because the reader’s next move is
                                         usually “show me.”
-                                    </div>
-                                    <div class="decision">
+                                    </p>
+                                    <p class="decision">
                                         <strong>Reuse the glossary instead of
                                             rewriting it.</strong>
                                         Definitions live in one place. The
                                         briefing links into the reference
                                         instead of maintaining a second,
                                         drifting copy.
-                                    </div>
-                                </div>
+                                    </p>
+                                </section>
 
-                                <div class="block">
+                                <section class="block">
                                     <h4>Scope and limits</h4>
                                     <p>
                                         A nine-day prototype built with sample
@@ -739,10 +739,10 @@ window.PAGES["case-studies"] = {
                                     <p class="small muted mb-0">
                                         <a href="#limits">See the full limits list ↓</a>
                                     </p>
-                                </div>
+                                </section>
                             </div>
 
-                            <aside class="sidebar" aria-label="Project facts">
+                            <aside class="sidebar" aria-label="Project facts: Monthly briefing">
                                 <h4>At a glance</h4>
                                 <dl>
                                     <dt>Role</dt>
@@ -768,7 +768,7 @@ window.PAGES["case-studies"] = {
 
                     <!-- CASE C -->
                     <article class="case" id="case-c" aria-labelledby="case-curriculum">
-                        <div class="case-head">
+                        <header class="case-head">
                             <span class="case-kicker">Case C · Curriculum</span>
                             <h3 id="case-curriculum">
                                 A seven-week onboarding curriculum, sourced
@@ -780,13 +780,13 @@ window.PAGES["case-studies"] = {
                                 are drafted. All six content weeks are
                                 source-mapped, with gaps marked.
                             </p>
-                            <div class="pills">
-                                <span class="pill pill--accent">Instructional design</span>
-                                <span class="pill">Curriculum architecture</span>
-                                <span class="pill">Assessment</span>
-                                <span class="pill">Source mapping</span>
-                            </div>
-                        </div>
+                            <ul class="pills">
+                                <li class="pill pill--accent">Instructional design</li>
+                                <li class="pill">Curriculum architecture</li>
+                                <li class="pill">Assessment</li>
+                                <li class="pill">Source mapping</li>
+                            </ul>
+                        </header>
 
                         <figure class="mb-4">
                             <div class="shot diagram" tabindex="0" role="region" aria-label="Curriculum map">
@@ -801,7 +801,7 @@ window.PAGES["case-studies"] = {
 
                         <div class="case-grid">
                             <div class="blocks">
-                                <div class="block">
+                                <section class="block">
                                     <h4>Problem</h4>
                                     <p>
                                         New hires were expected to learn a
@@ -816,9 +816,9 @@ window.PAGES["case-studies"] = {
                                         people’s notes, but it had never
                                         been sequenced.
                                     </p>
-                                </div>
+                                </section>
 
-                                <div class="block">
+                                <section class="block">
                                     <h4>What I built</h4>
                                     <ul>
                                         <li>
@@ -860,27 +860,27 @@ window.PAGES["case-studies"] = {
                                             quiz.
                                         </li>
                                     </ul>
-                                </div>
+                                </section>
 
-                                <div class="block">
+                                <section class="block">
                                     <h4>Key decisions</h4>
-                                    <div class="decision">
+                                    <p class="decision">
                                         <strong>Source map before prose.</strong>
                                         The first artifact was a two-column
                                         source map, not a lesson. If a topic had
                                         no authoritative source, it was marked
                                         as a gap instead of filled with
                                         plausible prose.
-                                    </div>
-                                    <div class="decision">
+                                    </p>
+                                    <p class="decision">
                                         <strong>Make the pairing rule
                                             structural.</strong>
                                         Every module folder has a matching quiz
                                         folder, and a module without a quiz
                                         fails review. No orphan modules or
                                         quizzes.
-                                    </div>
-                                    <div class="decision">
+                                    </p>
+                                    <p class="decision">
                                         <strong>Keep answers out of the quiz
                                             files.</strong>
                                         Week 1–2 keys live as SHA-256 hashes in
@@ -888,18 +888,18 @@ window.PAGES["case-studies"] = {
                                         that this is obfuscation, not security.
                                         The point is to keep casual viewers from
                                         reading answers in the quiz source.
-                                    </div>
-                                    <div class="decision">
+                                    </p>
+                                    <p class="decision">
                                         <strong>Keep drafting and publishing
                                             separate.</strong>
                                         The repository is the drafting layer.
                                         Publishing to the internal LMS is an
                                         explicit, approved step. Nothing is live
                                         by default.
-                                    </div>
-                                </div>
+                                    </p>
+                                </section>
 
-                                <div class="block">
+                                <section class="block">
                                     <h4>Scope and limits</h4>
                                     <p>
                                         Drafted and reviewed, not delivered to a
@@ -913,10 +913,10 @@ window.PAGES["case-studies"] = {
                                     <p class="small muted mb-0">
                                         <a href="#limits">See the full limits list ↓</a>
                                     </p>
-                                </div>
+                                </section>
                             </div>
 
-                            <aside class="sidebar" aria-label="Project facts">
+                            <aside class="sidebar" aria-label="Project facts: Onboarding curriculum">
                                 <h4>At a glance</h4>
                                 <dl>
                                     <dt>Role</dt>
@@ -943,7 +943,7 @@ window.PAGES["case-studies"] = {
 
                     <!-- CASE D -->
                     <article class="case" id="case-d" aria-labelledby="case-ops">
-                        <div class="case-head">
+                        <header class="case-head">
                             <span class="case-kicker">Case D · Operations model</span>
                             <h3 id="case-ops">
                                 An AI content pipeline built around the review
@@ -955,13 +955,13 @@ window.PAGES["case-studies"] = {
                                 repeatable way to produce research-heavy content
                                 without publishing hallucinations.
                             </p>
-                            <div class="pills">
-                                <span class="pill pill--accent">AI operations</span>
-                                <span class="pill">Process design</span>
-                                <span class="pill">Prompt engineering</span>
-                                <span class="pill">Editorial standards</span>
-                            </div>
-                        </div>
+                            <ul class="pills">
+                                <li class="pill pill--accent">AI operations</li>
+                                <li class="pill">Process design</li>
+                                <li class="pill">Prompt engineering</li>
+                                <li class="pill">Editorial standards</li>
+                            </ul>
+                        </header>
 
                         <figure class="mb-4">
                             <div class="shot diagram" tabindex="0" role="region" aria-label="Two-gate review pipeline">
@@ -976,7 +976,7 @@ window.PAGES["case-studies"] = {
 
                         <div class="case-grid">
                             <div class="blocks">
-                                <div class="block">
+                                <section class="block">
                                     <h4>Problem</h4>
                                     <p>
                                         Research-heavy content has two failure
@@ -987,9 +987,9 @@ window.PAGES["case-studies"] = {
                                         same as a verified one until someone
                                         checks.
                                     </p>
-                                </div>
+                                </section>
 
-                                <div class="block">
+                                <section class="block">
                                     <h4>What I built</h4>
                                     <ul>
                                         <li>
@@ -1029,19 +1029,19 @@ window.PAGES["case-studies"] = {
                                             wrong product versions.
                                         </li>
                                     </ul>
-                                </div>
+                                </section>
 
-                                <div class="block">
+                                <section class="block">
                                     <h4>Key decisions</h4>
-                                    <div class="decision">
+                                    <p class="decision">
                                         <strong>Review the reasoning first.</strong>
                                         Reviewing the reasoning report first
                                         makes rejection cheap and turns the
                                         alternatives list into a swap mechanism.
                                         This was the most useful idea in the
                                         system.
-                                    </div>
-                                    <div class="decision">
+                                    </p>
+                                    <p class="decision">
                                         <strong>Define every handoff.</strong>
                                         Every handoff has a JSON schema, a
                                         confidence level, and a defined failure
@@ -1050,18 +1050,18 @@ window.PAGES["case-studies"] = {
                                         comparison was skipped” is the
                                         kind of rule that prevents silent
                                         corruption.
-                                    </div>
-                                    <div class="decision">
+                                    </p>
+                                    <p class="decision">
                                         <strong>Write for the newcomer.</strong>
                                         When in doubt, the writing guide
                                         defaults to the 101 reader.
                                         Practitioners can skim an explanation;
                                         newcomers cannot fill a gap they do not
                                         know exists.
-                                    </div>
-                                </div>
+                                    </p>
+                                </section>
 
-                                <div class="block">
+                                <section class="block">
                                     <h4>Scope and limits</h4>
                                     <p>
                                         This was a designed and piloted
@@ -1076,10 +1076,10 @@ window.PAGES["case-studies"] = {
                                     <p class="small muted mb-0">
                                         <a href="#limits">See the full limits list ↓</a>
                                     </p>
-                                </div>
+                                </section>
                             </div>
 
-                            <aside class="sidebar" aria-label="Project facts">
+                            <aside class="sidebar" aria-label="Project facts: AI content model">
                                 <h4>At a glance</h4>
                                 <dl>
                                     <dt>Role</dt>
@@ -1136,13 +1136,13 @@ window.PAGES["case-studies"] = {
                                     Knowledge and structured in Markdown, with
                                     custom CSS and HTML.
                                 </p>
-                                <div class="pills">
-                                    <span class="pill">Intercom</span>
-                                    <span class="pill">Salesforce Knowledge</span>
-                                    <span class="pill">Markdown</span>
-                                    <span class="pill">CSS</span>
-                                    <span class="pill">HTML</span>
-                                </div>
+                                <ul class="pills">
+                                    <li class="pill">Intercom</li>
+                                    <li class="pill">Salesforce Knowledge</li>
+                                    <li class="pill">Markdown</li>
+                                    <li class="pill">CSS</li>
+                                    <li class="pill">HTML</li>
+                                </ul>
                             </article>
 
                             <article class="project">
@@ -1155,13 +1155,13 @@ window.PAGES["case-studies"] = {
                                     covering the interface, the PHP application,
                                     and the database. Internal use only.
                                 </p>
-                                <div class="pills">
-                                    <span class="pill">Laravel 10</span>
-                                    <span class="pill">PHP</span>
-                                    <span class="pill">PostgreSQL</span>
-                                    <span class="pill">jQuery</span>
-                                    <span class="pill">HTML/CSS</span>
-                                </div>
+                                <ul class="pills">
+                                    <li class="pill">Laravel 10</li>
+                                    <li class="pill">PHP</li>
+                                    <li class="pill">PostgreSQL</li>
+                                    <li class="pill">jQuery</li>
+                                    <li class="pill">HTML/CSS</li>
+                                </ul>
                             </article>
                         </div>
 
@@ -1197,7 +1197,7 @@ window.PAGES["case-studies"] = {
                                 <p class="site-stack">
                                     HTML · CSS · JS · jQuery · PHP
                                 </p>
-                                <a href="https://www.hyeg.jp/" target="_blank" rel="noopener">Visit HYEG
+                                <a href="https://www.hyeg.jp/" target="_blank" rel="noopener">Visit HYEG<span class="visually-hidden"> (opens in a new tab)</span>
                                     <span aria-hidden="true">↗</span></a>
                             </article>
 
@@ -1224,7 +1224,7 @@ window.PAGES["case-studies"] = {
                                 <p class="site-stack">
                                     HTML · CSS · JS · jQuery · Bootstrap
                                 </p>
-                                <a href="https://www.lifesuppo.jp/" target="_blank" rel="noopener">Visit Lifesuppo
+                                <a href="https://www.lifesuppo.jp/" target="_blank" rel="noopener">Visit Lifesuppo<span class="visually-hidden"> (opens in a new tab)</span>
                                     <span aria-hidden="true">↗</span></a>
                             </article>
 
@@ -1250,7 +1250,7 @@ window.PAGES["case-studies"] = {
                                 <p class="site-stack">
                                     HTML · CSS · JS · jQuery
                                 </p>
-                                <a href="https://www.maedachiro.com/" target="_blank" rel="noopener">Visit Maedachiro
+                                <a href="https://www.maedachiro.com/" target="_blank" rel="noopener">Visit Maedachiro<span class="visually-hidden"> (opens in a new tab)</span>
                                     <span aria-hidden="true">↗</span></a>
                             </article>
 
@@ -1276,7 +1276,7 @@ window.PAGES["case-studies"] = {
                                 <p class="site-stack">
                                     HTML · CSS · JS · jQuery
                                 </p>
-                                <a href="https://www.morinosion.com/" target="_blank" rel="noopener">Visit Morinosion
+                                <a href="https://www.morinosion.com/" target="_blank" rel="noopener">Visit Morinosion<span class="visually-hidden"> (opens in a new tab)</span>
                                     <span aria-hidden="true">↗</span></a>
                             </article>
 
@@ -1302,7 +1302,7 @@ window.PAGES["case-studies"] = {
                                 <p class="site-stack">
                                     HTML · CSS · JS · jQuery
                                 </p>
-                                <a href="https://www.esthe-aladdin.jp/" target="_blank" rel="noopener">Visit Aladdin
+                                <a href="https://www.esthe-aladdin.jp/" target="_blank" rel="noopener">Visit Aladdin<span class="visually-hidden"> (opens in a new tab)</span>
                                     <span aria-hidden="true">↗</span></a>
                             </article>
 
@@ -1328,7 +1328,7 @@ window.PAGES["case-studies"] = {
                                 <p class="site-stack">
                                     HTML · CSS · JS · jQuery
                                 </p>
-                                <a href="https://hanamizuki-seitai.jp/" target="_blank" rel="noopener">Visit Hanamizuki
+                                <a href="https://hanamizuki-seitai.jp/" target="_blank" rel="noopener">Visit Hanamizuki<span class="visually-hidden"> (opens in a new tab)</span>
                                     <span aria-hidden="true">↗</span></a>
                             </article>
                         </div>
@@ -1350,11 +1350,11 @@ window.PAGES["case-studies"] = {
                                     private pages for posted and rehomed dogs.
                                     Six-person team; Best Capstone Project.
                                 </p>
-                                <div class="pills">
-                                    <span class="pill">Laravel</span>
-                                    <span class="pill">PHP</span>
-                                    <span class="pill">MySQL</span>
-                                </div>
+                                <ul class="pills">
+                                    <li class="pill">Laravel</li>
+                                    <li class="pill">PHP</li>
+                                    <li class="pill">MySQL</li>
+                                </ul>
                             </article>
 
                             <article class="project">
@@ -1369,10 +1369,10 @@ window.PAGES["case-studies"] = {
                                     in-scope/out-of-scope service audit. Built
                                     in ten days.
                                 </p>
-                                <div class="pills">
-                                    <span class="pill">Instructional design</span>
-                                    <span class="pill">AWS</span>
-                                </div>
+                                <ul class="pills">
+                                    <li class="pill">Instructional design</li>
+                                    <li class="pill">AWS</li>
+                                </ul>
                             </article>
                         </div>
                     </div>
@@ -1397,10 +1397,10 @@ window.PAGES["case-studies"] = {
                                     history, token accounting, and a verbose
                                     trace.
                                 </p>
-                                <div class="pills">
-                                    <span class="pill">Python</span>
-                                    <span class="pill">Gemini API</span>
-                                </div>
+                                <ul class="pills">
+                                    <li class="pill">Python</li>
+                                    <li class="pill">Gemini API</li>
+                                </ul>
                             </article>
 
                             <article class="project">
@@ -1413,10 +1413,10 @@ window.PAGES["case-studies"] = {
                                     detection, and asteroids that split into
                                     smaller pieces when hit.
                                 </p>
-                                <div class="pills">
-                                    <span class="pill">Python</span>
-                                    <span class="pill">Pygame</span>
-                                </div>
+                                <ul class="pills">
+                                    <li class="pill">Python</li>
+                                    <li class="pill">Pygame</li>
+                                </ul>
                             </article>
 
                             <article class="project">
@@ -1428,10 +1428,10 @@ window.PAGES["case-studies"] = {
                                     character frequency and prints an
                                     alphabetical report.
                                 </p>
-                                <div class="pills">
-                                    <span class="pill">Python</span>
-                                    <span class="pill">CLI</span>
-                                </div>
+                                <ul class="pills">
+                                    <li class="pill">Python</li>
+                                    <li class="pill">CLI</li>
+                                </ul>
                             </article>
                         </div>
                     </div>
@@ -1516,7 +1516,7 @@ window.PAGES["case-studies"] = {
 
                     <div class="case-grid mt-5">
                         <div class="blocks">
-                            <div class="block">
+                            <section class="block">
                                 <h3>Data is the source of truth</h3>
                                 <p>
                                     Terms, paths, and walkthroughs are plain JS
@@ -1526,8 +1526,8 @@ window.PAGES["case-studies"] = {
                                     not duplicated. Term difficulty is assigned
                                     per term against a rubric.
                                 </p>
-                            </div>
-                            <div class="block">
+                            </section>
+                            <section class="block">
                                 <h3>Search degrades gracefully</h3>
                                 <p>
                                     Exact substring matching runs first. When it
@@ -1538,8 +1538,8 @@ window.PAGES["case-studies"] = {
                                     <em>CPPO</em> without a search index or a
                                     dependency.
                                 </p>
-                            </div>
-                            <div class="block">
+                            </section>
+                            <section class="block">
                                 <h3>Accessibility is a constraint</h3>
                                 <p>
                                     Keyboard-operable cards, focus trapping in
@@ -1550,8 +1550,8 @@ window.PAGES["case-studies"] = {
                                     <a href="#limits">Limits</a>), but it was
                                     designed in, not bolted on.
                                 </p>
-                            </div>
-                            <div class="block">
+                            </section>
+                            <section class="block">
                                 <h3>Failure modes are explicit</h3>
                                 <p>
                                     The ingestion script aborts instead of
@@ -1562,7 +1562,7 @@ window.PAGES["case-studies"] = {
                                     because “replace” was silently
                                     dropping posts.
                                 </p>
-                            </div>
+                            </section>
                         </div>
 
                         <aside class="sidebar" aria-label="Stack summary">
@@ -1584,12 +1584,12 @@ window.PAGES["case-studies"] = {
                         </aside>
                     </div>
 
-                    <div class="code-wrap" id="code-snippets">
-                        <div class="code-head">
+                    <figure class="code-wrap" id="code-snippets">
+                        <figcaption class="code-head">
                             <span>app/search.js — subsequence scoring</span>
                             <span>vanilla JS, no dependencies</span>
-                        </div>
-                        <pre><code><span class="c-com">// Subsequence fuzzy match — returns a score &gt; 0 if all query chars appear
+                        </figcaption>
+                        <pre tabindex="0" aria-label="Code sample: subsequence scoring"><code><span class="c-com">// Subsequence fuzzy match — returns a score &gt; 0 if all query chars appear
 // in order within text, rewarding consecutive runs. Returns 0 on no match.</span>
 <span class="c-key">function</span> <span class="c-fn">fuzzyScore</span>(text, query) {
   <span class="c-key">if</span> (!text) <span class="c-key">return</span> 0;
@@ -1608,15 +1608,15 @@ window.PAGES["case-studies"] = {
   }
   <span class="c-key">return</span> qi === q.length ? score : 0;
 }</code></pre>
-                    </div>
+                    </figure>
 
-                    <div class="code-wrap">
-                        <div class="code-head">
+                    <figure class="code-wrap">
+                        <figcaption class="code-head">
                             <span>app/compare-data.js — alias-graph derivation
                                 (excerpt)</span>
                             <span>union-find, no second mapping table</span>
-                        </div>
-                        <pre><code><span class="c-com">// Union-find: each term starts in its own set; union() merges sets.</span>
+                        </figcaption>
+                        <pre tabindex="0" aria-label="Code sample: alias-graph derivation"><code><span class="c-com">// Union-find: each term starts in its own set; union() merges sets.</span>
 <span class="c-key">function</span> <span class="c-fn">find</span>(x) {
   <span class="c-key">if</span> (!(x <span class="c-key">in</span> parent)) <span class="c-key">return</span> x;
   <span class="c-key">if</span> (parent[x] === x) <span class="c-key">return</span> x;
@@ -1644,7 +1644,7 @@ allComparableTerms.forEach((t) =&gt; {
 <span class="c-key">export const</span> rows = Object.values(groups)
   .filter((g) =&gt; Object.keys(g).length &gt;= <span class="c-str">2</span>)
   .sort((a, b) =&gt; <span class="c-fn">conceptLabel</span>(a).localeCompare(<span class="c-fn">conceptLabel</span>(b)));</code></pre>
-                    </div>
+                    </figure>
 
                     <p class="small muted mt-2 measure-wide">
                         Both samples follow the same pattern: solve the problem
@@ -1773,7 +1773,7 @@ allComparableTerms.forEach((t) =&gt; {
                                 </tr>
                             </tbody>
                         </table>
-                    </div>
+                    </figure>
 
                     <p class="small muted mt-2 measure-wide">
                         These are output counts, not impact metrics. I did not

@@ -88,11 +88,9 @@
   }
 
   function renderStats(statsData) {
-    var stats = el("div", "stats");
-    stats.setAttribute("role", "list");
+    var stats = el("ul", "stats");
     statsData.forEach(function (stat) {
-      var item = el("div", "stat");
-      item.setAttribute("role", "listitem");
+      var item = el("li", "stat");
       item.appendChild(el("b", null, stat.value));
       item.appendChild(el("span", null, stat.label));
       stats.appendChild(item);
@@ -135,7 +133,7 @@
     var section = el("section", "lead");
     section.setAttribute("aria-labelledby", "lead-headline");
 
-    var column = el("div", "lead__main");
+    var column = el("header", "lead__main");
     var headline = el("h1", null, lead.headline);
     headline.id = "lead-headline";
     column.appendChild(headline);
@@ -193,7 +191,7 @@
       body.appendChild(el("h3", null, item.title));
       body.appendChild(el("p", "role-org", item.org));
       body.appendChild(el("p", null, item.body));
-      if (item.pills) body.appendChild(pillList(item.pills, "div", "span"));
+      if (item.pills) body.appendChild(pillList(item.pills));
       role.appendChild(body);
       list.appendChild(role);
     });

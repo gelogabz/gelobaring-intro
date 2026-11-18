@@ -78,7 +78,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Google+Sans+Flex:wght@400;500;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&amp;family=Google+Sans+Flex:wght@400;500;600;700&amp;display=swap"
             rel="stylesheet"
         />
 
@@ -122,7 +122,7 @@
                     if (meta) {
                         meta.setAttribute(
                             "content",
-                            theme === "dark" ? "#000000" : "#f4ecdc",
+                            theme === "dark" ? "#131c18" : "#f4ecdc",
                         );
                     }
                     var toggles = document.querySelectorAll(
@@ -131,14 +131,10 @@
                     for (var i = 0; i < toggles.length; i++) {
                         var isDark = theme === "dark";
                         toggles[i].setAttribute(
-                            "aria-pressed",
-                            isDark ? "true" : "false",
-                        );
-                        toggles[i].setAttribute(
                             "aria-label",
                             isDark
-                                ? "Switch to light theme"
-                                : "Switch to dark theme",
+                                ? "Switch to light mode"
+                                : "Switch to dark mode",
                         );
                         var label =
                             toggles[i].querySelector("[data-theme-label]");
@@ -214,8 +210,7 @@
                         class="theme-toggle"
                         type="button"
                         data-theme-toggle
-                        aria-pressed="false"
-                        aria-label="Switch to dark theme"
+                        aria-label="Switch to dark mode"
                     >
                         <svg
                             class="icon--sun"
@@ -320,7 +315,7 @@
                     </div>
 
                     <div>
-                        <div class="contact">
+                        <address class="contact">
                             <a href="mailto:gabrielgelo93@gmail.com"
                                 ><span>Email</span> gabrielgelo93@gmail.com</a
                             >
@@ -330,7 +325,7 @@
                             <a href="https://github.com/gelogabz"
                                 ><span>GitHub</span> /gelogabz</a
                             >
-                        </div>
+                        </address>
 
                         <div class="footer-tools">
                             <button
@@ -344,8 +339,7 @@
                                 class="theme-toggle"
                                 type="button"
                                 data-theme-toggle
-                                aria-pressed="false"
-                                aria-label="Switch to dark theme"
+                                aria-label="Switch to dark mode"
                             >
                                 <svg
                                     class="icon--sun"
@@ -433,7 +427,12 @@
                 <img class="lightbox__img" alt="" data-lightbox-img />
             </div>
             <div class="lightbox__bar">
-                <p class="lightbox__caption" data-lightbox-caption></p>
+                <p
+                    class="lightbox__caption"
+                    data-lightbox-caption
+                    aria-live="polite"
+                    aria-atomic="true"
+                ></p>
                 <div class="lightbox__controls">
                     <button
                         type="button"

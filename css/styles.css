@@ -146,6 +146,20 @@ code {
     top: 1rem;
 }
 
+/* Visible to screen readers, not to sighted readers. Used for the
+   "opens in a new tab" note on external links. */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+}
+
 .progress {
     position: fixed;
     inset: 0 0 auto 0;
@@ -180,12 +194,6 @@ main:focus {
 .mb-0 {
     margin-bottom: 0;
 }
-.mb-2 {
-    margin-bottom: 0.5rem;
-}
-.mb-3 {
-    margin-bottom: 0.75rem;
-}
 .mb-4 {
     margin-bottom: 1.25rem;
 }
@@ -197,9 +205,6 @@ main:focus {
 }
 .mt-3 {
     margin-top: 0.75rem;
-}
-.mt-4 {
-    margin-top: 1.25rem;
 }
 .mt-5 {
     margin-top: 2rem;
@@ -232,12 +237,6 @@ main:focus {
     font-size: clamp(1.15rem, 2.2vw, 1.55rem);
     text-transform: uppercase;
     line-height: 1.02;
-}
-
-.h-body {
-    margin: 0 0 0.35rem;
-    font-size: 1rem;
-    text-transform: uppercase;
 }
 
 .grid-2 {
@@ -622,6 +621,9 @@ main:focus {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
     background: var(--rule-strong);
 }
 
@@ -914,12 +916,6 @@ main:focus {
     color: var(--teal-800);
 }
 
-.pill--warm {
-    border-color: var(--forest);
-    background: var(--khaki-2);
-    color: var(--stat-ink);
-}
-
 /* --------------------------------------------------------------------------
    10. Career record
    -------------------------------------------------------------------------- */
@@ -1080,6 +1076,13 @@ main:focus {
 
 .toolkit-card .pills {
     margin: 0;
+}
+
+/* Tool names can be longer than a phone-width card. Let those wrap instead of
+   forcing the grid wider than the viewport. */
+.toolkit-card .pill {
+    max-width: 100%;
+    white-space: normal;
 }
 
 .training {
@@ -1310,7 +1313,7 @@ main:focus {
 }
 
 .decision {
-    margin-bottom: 0.8rem;
+    margin: 0 0 0.8rem;
     padding-left: 0.75rem;
     border-left: 3px solid var(--teal-800);
     font-size: 0.86rem;
@@ -1337,6 +1340,8 @@ main:focus {
     grid-template-columns: 1fr;
     gap: 1px;
     margin-bottom: 1.8rem;
+    padding: 0;
+    list-style: none;
     border: 1px solid var(--ink);
     background: var(--ink);
 }
@@ -1507,6 +1512,8 @@ figcaption b {
     grid-template-columns: 1fr;
     gap: 1px;
     margin: 1.4rem 0;
+    padding: 0;
+    list-style: none;
     border: 1px solid var(--on-dark-rule);
     background: var(--on-dark-rule);
     counter-reset: flow;
@@ -1553,6 +1560,8 @@ figcaption b {
     grid-template-columns: 1fr;
     gap: 1px;
     margin: 1.4rem 0;
+    padding: 0;
+    list-style: none;
     border: 1px solid var(--on-dark-rule);
     background: var(--on-dark-rule);
 }
@@ -2039,6 +2048,7 @@ td.num {
 
 .contact {
     border-top: 1px solid var(--ink);
+    font-style: normal;
 }
 
 .contact a {
@@ -2563,6 +2573,7 @@ html.toc-open {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    min-width: 24px;
     min-height: 44px;
     padding: 0.75rem 0.4rem;
     border: 1px solid var(--ink);

@@ -122,7 +122,7 @@
 
     var pager = document.createElement("nav");
     pager.className = "section-next";
-    pager.setAttribute("aria-label", "Continue reading");
+    pager.setAttribute("aria-label", "Continue reading: " + sectionLabel(item));
 
     if (prev) {
       pager.appendChild(
@@ -195,11 +195,21 @@
   }
 
   /* ---- 5. Lazy images need to load before print ---------------------- */
+  var printLazyImages = [];
   window.addEventListener("beforeprint", function () {
-    var images = document.querySelectorAll('img[loading="lazy"]');
-    for (var j = 0; j < images.length; j++) {
-      images[j].loading = "eager";
-    }
+    printLazyImages = Array.prototype.slice.call(
+      document.querySelectorAll('img[loading="lazy"]'),
+    );
+    printLazyImages.forEach(function (image) {
+      image.loading = "eager";
+    });
+  });
+
+  window.addEventListener("afterprint", function () {
+    printLazyImages.forEach(function (image) {
+      image.loading = "lazy";
+    });
+    printLazyImages = [];
   });
 
   /* ---- 6. Dateline and last-updated ---------------------------------- */

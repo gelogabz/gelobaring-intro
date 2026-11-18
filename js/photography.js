@@ -37,6 +37,10 @@
 
     image.src = link.getAttribute("href");
     image.alt = source ? source.alt : "";
+    if (source) {
+      image.width = source.width;
+      image.height = source.height;
+    }
     caption.textContent = link.getAttribute("data-caption") || "";
     counter.textContent = index + 1 + " / " + links.length;
   }

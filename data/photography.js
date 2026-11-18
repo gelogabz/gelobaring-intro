@@ -9,7 +9,7 @@ window.PAGES = window.PAGES || {};
 window.PAGES["photography"] = {
   parts: [
     `<section class="lead" aria-labelledby="lead-headline">
-                    <div class="lead__main">
+                    <header class="lead__main">
                         <h1 id="lead-headline">I go up for the light.</h1>
                         <p class="hero-deck">
                             Landscapes, coastlines, and the occasional person in
@@ -36,27 +36,27 @@ window.PAGES["photography"] = {
                             <a class="btn btn--primary" href="#gallery">Jump to the gallery</a>
                             <a class="btn" href="case-studies.html">Read the case studies</a>
                         </div>
-                    </div>
+                    </header>
 
                     <aside class="lead__aside" aria-label="At a glance">
                         <img class="signature" src="assets/signature.png" alt="Gelo Baring signature" width="400" height="68" decoding="async">
 
                         <div class="stat-box">
                             <p class="box-label">By the numbers</p>
-                            <div class="stats" role="list">
-                                <div class="stat" role="listitem">
+                            <ul class="stats">
+                                <li class="stat">
                                     <b>35</b><span>Frames on this page</span>
-                                </div>
-                                <div class="stat" role="listitem">
+                                </li>
+                                <li class="stat">
                                     <b>10</b><span>Years, 2017–2026</span>
-                                </div>
-                                <div class="stat" role="listitem">
+                                </li>
+                                <li class="stat">
                                     <b>0</b><span>Briefs or client notes</span>
-                                </div>
-                                <div class="stat" role="listitem">
+                                </li>
+                                <li class="stat">
                                     <b>1</b><span>Camera, always</span>
-                                </div>
-                            </div>
+                                </li>
+                            </ul>
                         </div>
 
                         <div class="notice-box">

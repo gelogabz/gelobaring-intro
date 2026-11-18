@@ -1,0 +1,13 @@
+{
+  "name": "gelobaring-intro",
+  "private": true,
+  "type": "module",
+  "description": "Static portfolio site for Gelo Baring. Tests only; the site has no build step.",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  },
+  "devDependencies": {
+    "axe-core": "^4.10.2",
+    "playwright": "^1.64.1"
+  }
+}

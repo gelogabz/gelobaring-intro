@@ -75,7 +75,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Google+Sans+Flex:wght@400;500;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&amp;family=Google+Sans+Flex:wght@400;500;600;700&amp;display=swap"
             rel="stylesheet"
         />
 
@@ -84,7 +84,8 @@
         <link rel="stylesheet" href="css/print.css" media="print" />
 
         <!-- With JavaScript off, the theme toggle and print button have no
-             behavior. The page stays light and fully readable without them. -->
+             behavior, so hide them. The page body is rendered from data, and
+             the noscript notice in <main> explains the fallback. -->
         <noscript>
             <style>
                 [data-theme-toggle],
@@ -122,7 +123,7 @@
                     if (meta) {
                         meta.setAttribute(
                             "content",
-                            theme === "dark" ? "#000000" : "#f4ecdc",
+                            theme === "dark" ? "#131c18" : "#f4ecdc",
                         );
                     }
                     var toggles = document.querySelectorAll(
@@ -131,14 +132,10 @@
                     for (var i = 0; i < toggles.length; i++) {
                         var isDark = theme === "dark";
                         toggles[i].setAttribute(
-                            "aria-pressed",
-                            isDark ? "true" : "false",
-                        );
-                        toggles[i].setAttribute(
                             "aria-label",
                             isDark
-                                ? "Switch to light theme"
-                                : "Switch to dark theme",
+                                ? "Switch to light mode"
+                                : "Switch to dark mode",
                         );
                         var label =
                             toggles[i].querySelector("[data-theme-label]");
@@ -193,7 +190,7 @@
                 "name": "Gelo Baring",
                 "jobTitle": "Knowledge Systems and Front-End",
                 "url": "https://gelogabz.github.io/gelobaring-intro/case-studies.html",
-                "dateModified": "2026-11-05",
+                "dateModified": "2026-11-18",
                 "email": "mailto:gabrielgelo93@gmail.com",
                 "sameAs": [
                     "https://www.linkedin.com/in/gelobaring/",
@@ -219,8 +216,7 @@
                         class="theme-toggle"
                         type="button"
                         data-theme-toggle
-                        aria-pressed="false"
-                        aria-label="Switch to dark theme"
+                        aria-label="Switch to dark mode"
                     >
                         <svg
                             class="icon--sun"
@@ -323,7 +319,7 @@
                     </div>
 
                     <div>
-                        <div class="contact">
+                        <address class="contact">
                             <a href="mailto:gabrielgelo93@gmail.com"
                                 ><span>Email</span> gabrielgelo93@gmail.com</a
                             >
@@ -333,7 +329,7 @@
                             <a href="https://github.com/gelogabz"
                                 ><span>GitHub</span> /gelogabz</a
                             >
-                        </div>
+                        </address>
 
                         <div class="footer-tools">
                             <button
@@ -347,8 +343,7 @@
                                 class="theme-toggle"
                                 type="button"
                                 data-theme-toggle
-                                aria-pressed="false"
-                                aria-label="Switch to dark theme"
+                                aria-label="Switch to dark mode"
                             >
                                 <svg
                                     class="icon--sun"
