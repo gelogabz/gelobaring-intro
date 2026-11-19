@@ -38,6 +38,21 @@ window.SITE_CONTENTS = {
     ],
   },
 
+  "km-standards-alignment": {
+    kicker: "KM Standards",
+    foot: "The AGB Gazette · KM Standards Edition",
+    items: [
+      { id: "alignment", num: "01", label: "Alignment" },
+      { id: "iso", num: "02", label: "ISO 30401" },
+      { id: "ckm", num: "03", label: "CKM / MCKM" },
+      { id: "itil", num: "04", label: "ITIL 4" },
+      { id: "kcs", num: "05", label: "KCS" },
+      { id: "apqc", num: "06", label: "APQC" },
+      { id: "limits", num: "07", label: "Limits" },
+      { id: "contact", num: "—", label: "Contact" },
+    ],
+  },
+
   photography: {
     kicker: "Off the Clock",
     foot: "The AGB Gazette · Off the Clock",

@@ -3,18 +3,19 @@
 Portfolio site for **Gelo Baring** — knowledge systems, help centers, client websites, and
 front-end work across 2015–2026.
 
-The site is a three-page broadsheet built with plain HTML, CSS, and JavaScript. No framework,
+The site is a four-page broadsheet built with plain HTML, CSS, and JavaScript. No framework,
 no build step, no runtime dependencies.
 
 Live site: <https://gelogabz.github.io/gelobaring-intro/>
 
 ## Pages
 
-| Page | What it covers |
-| --- | --- |
-| [Portfolio](index.html) | Highlights, career, skills, toolkit, training, and contact |
-| [Case Studies](case-studies.html) | Four 2026 knowledge-system projects, earlier client work, engineering notes, evidence, and limits |
-| [Off the Clock](photography.html) | 35 photographs from the Philippines, plus an after-hours essay |
+| Page                                        | What it covers                                                                                    |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| [Portfolio](index.html)                     | Highlights, career, skills, toolkit, training, and contact                                        |
+| [Case Studies](case-studies.html)           | Four 2026 knowledge-system projects, earlier client work, engineering notes, evidence, and limits |
+| [KM Standards](km-standards-alignment.html) | ISO 30401, CKM/MCKM, ITIL 4, KCS, and APQC mapped against the work, with limits stated up front   |
+| [Off the Clock](photography.html)           | 35 photographs from the Philippines, plus an after-hours essay                                    |
 
 ## Run it
 

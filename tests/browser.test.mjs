@@ -7,7 +7,12 @@ import { chromium } from "playwright";
 import { startServer } from "./server.mjs";
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
-const PAGES = ["index.html", "case-studies.html", "photography.html"];
+const PAGES = [
+  "index.html",
+  "case-studies.html",
+  "km-standards-alignment.html",
+  "photography.html",
+];
 const AXE = await readFile(
   new URL("../node_modules/axe-core/axe.min.js", import.meta.url),
   "utf8",
@@ -394,7 +399,12 @@ test("no-JavaScript fallback explains the requirement and hides dead controls", 
       /\bmain\b|\bbody\b/,
       `${path} must not hide content from no-JS visitors`,
     );
-    assert.deepEqual(navLabels, ["Portfolio", "Case Studies", "Off the Clock"]);
+    assert.deepEqual(navLabels, [
+      "Portfolio",
+      "Case Studies",
+      "KM Standards",
+      "Off the Clock",
+    ]);
     await context.close();
   }
 });

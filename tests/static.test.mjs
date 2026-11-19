@@ -7,11 +7,17 @@ import { dirname, join } from "node:path";
 import vm from "node:vm";
 
 const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
-const HTML_PAGES = ["index.html", "case-studies.html", "photography.html"];
+const HTML_PAGES = [
+  "index.html",
+  "case-studies.html",
+  "km-standards-alignment.html",
+  "photography.html",
+];
 const DATA_FILES = [
   "contents.js",
   "index.js",
   "case-studies.js",
+  "km-standards-alignment.js",
   "photography.js",
 ];
 const SCRIPT_FILES = ["contents.js", "render.js", "main.js", "photography.js"];
@@ -52,8 +58,13 @@ test("every local asset reference resolves", () => {
   assert.deepEqual(missing, []);
 });
 
-test("navigation stays at three page links on every shell", () => {
-  const expected = ["Portfolio", "Case Studies", "Off the Clock"];
+test("navigation carries the same four page links on every shell", () => {
+  const expected = [
+    "Portfolio",
+    "Case Studies",
+    "KM Standards",
+    "Off the Clock",
+  ];
   for (const page of HTML_PAGES) {
     const nav = texts[page].match(/<nav class="paper-nav"[\s\S]*?<\/nav>/);
     assert.ok(nav, `${page} has a paper-nav`);
@@ -195,7 +206,11 @@ test("design tokens are all referenced", async () => {
 
 test("lists use native elements instead of ARIA list roles", () => {
   for (const [path, source] of Object.entries(texts)) {
-    assert.doesNotMatch(source, /\brole="list(?:item)?"/, `${path} uses an ARIA list role`);
+    assert.doesNotMatch(
+      source,
+      /\brole="list(?:item)?"/,
+      `${path} uses an ARIA list role`,
+    );
   }
 
   const cases = texts["data/case-studies.js"];
@@ -215,7 +230,11 @@ test("lists use native elements instead of ARIA list roles", () => {
     "code samples have captions",
   );
   assert.doesNotMatch(cases, /<div class="pills">/, "pills are a native list");
-  assert.doesNotMatch(cases, /<div class="decision">/, "decisions are paragraphs");
+  assert.doesNotMatch(
+    cases,
+    /<div class="decision">/,
+    "decisions are paragraphs",
+  );
   assert.doesNotMatch(cases, /<div class="block">/, "case blocks are sections");
   assert.equal(
     (cases.match(/<section class="block">/g) ?? []).length,

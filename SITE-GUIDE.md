@@ -3,7 +3,7 @@
 Architecture, content map, design system, publishing, and maintenance notes for
 [The AGB Gazette](README.md). The README is the short introduction; this file is the reference.
 
-The site is three pages of plain HTML, CSS, and JavaScript. No framework, no build step, no
+The site is four pages of plain HTML, CSS, and JavaScript. No framework, no build step, no
 runtime dependencies.
 
 - `index.html` is the portfolio: nine highlights, a five-role career timeline, skills,
@@ -11,6 +11,9 @@ runtime dependencies.
 - `case-studies.html` is the detail page: four 2026 knowledge-system cases, earlier help
   center, client site, and internal tool work, the Furlinks capstone, three Boot.dev
   coursework builds, plus engineering notes, evidence, and limits.
+- `km-standards-alignment.html` is the mapping layer: ISO 30401, CKM/MCKM, ITIL 4, KCS, and
+  APQC set against the work, each row linking to the case study or career entry that supports
+  it, with a visible Limits section. No certifications are claimed.
 - `photography.html` is the picture desk: a masonry grid of 35 photographs taken around the
   Philippines between 2017 and 2026, plus an after-hours essay and interests. It is the fun
   page; none of it is client work.
@@ -24,9 +27,10 @@ work.
 gelobaring-intro/
 ├── index.html              portfolio: highlights, career, skills, toolkit, training, contact
 ├── case-studies.html       detail: four 2026 cases, earlier work, training, engineering, limits
+├── km-standards-alignment.html  mapping: ISO 30401, CKM/MCKM, ITIL 4, KCS, APQC, limits
 ├── photography.html        Off the Clock: 35 plates, masonry grid, after-hours notes
 ├── robots.txt              crawler policy; points to the sitemap
-├── sitemap.xml             canonical URLs for the three pages
+├── sitemap.xml             canonical URLs for the four pages
 ├── package.json            test-only dependencies; the site has no build step
 ├── package-lock.json       locked test dependencies
 ├── tests/
@@ -41,6 +45,7 @@ gelobaring-intro/
 │   ├── contents.js         one contents list per page, keyed by <body data-page>
 │   ├── index.js            portfolio copy and records
 │   ├── case-studies.js     case studies content, one block per section
+│   ├── km-standards-alignment.js  standards mapping content, one block per section
 │   └── photography.js      picture desk content, one block per section
 ├── js/
 │   ├── contents.js         renders the contents drawer from data/contents.js
@@ -97,7 +102,7 @@ npm test
 ```
 
 The suite starts its own server, so no separate process is needed. It checks every local
-asset and anchor, the three-link navigation, contents/section parity, native list and figure
+asset and anchor, the four-link navigation, contents/section parity, native list and figure
 markup, image alt text and dimensions, safe external links, horizontal overflow at
 320/390/1280px, axe WCAG A/AA in light and dark themes, the theme toggle, the contents drawer,
 the lightbox, the no-JavaScript fallback, and print-only controls. `npm test` does not modify
@@ -105,38 +110,39 @@ the site.
 
 ## Edit it
 
-| What                                | Where                                                            |
-| ----------------------------------- | ---------------------------------------------------------------- |
-| Masthead, ears, date strip          | all three HTML files — `.masthead`                               |
-| Page navigation                     | all three HTML files — `.paper-nav` (three page links only)      |
-| Contents list (per page)            | `data/contents.js` — keyed by `<body data-page>`                 |
-| Contents drawer                     | `js/contents.js` renders it; `js/main.js` handles open/close     |
-| Page body and section shells        | `js/render.js` — builds `<main>` from the page data module       |
-| Lead story, sidebar, byline         | `data/index.js`, `data/case-studies.js`, `data/photography.js`   |
-| Highlight cards                     | `data/index.js` — `sections[0].items`                            |
-| Career history                      | `data/index.js` — the `career` section                           |
-| Skills and capabilities             | `data/index.js` — the `skills` section                           |
-| Toolkit tools and practices         | `data/index.js` — the `toolkit` section                          |
-| Training and education              | `data/index.js` — the `training` section                         |
-| Contact details                     | all three HTML files — `.contact` block                          |
-| Author portrait and byline          | `index.html` — `.author-card`; `js/render.js` — `.byline-avatar` |
-| Case-study copy                     | `data/case-studies.js` — the `#work` part                        |
-| Earlier projects, client sites      | `data/case-studies.js` — the `#earlier` part                     |
-| Client site screenshots             | `assets/sites/` — six home-page captures                         |
-| Engineering notes, code samples     | `data/case-studies.js` — the `#engineering` part                 |
-| Evidence table and timeline         | `data/case-studies.js` — the `#evidence` part                    |
-| Limits                              | `data/case-studies.js` — the `#limits` part                      |
-| Photo plates and captions           | `data/photography.js` — the `#gallery` part                      |
-| Photo files                         | `assets/photography/` — generated from `old/assets/images/`      |
-| Lightbox                            | `js/photography.js`                                              |
-| Favicon                             | `assets/favicon-32.png`, `favicon-180.png`, `favicon-512.png`    |
-| Colors, fonts, spacing              | `css/tokens.css` only                                            |
-| Dark theme                          | `css/tokens.css` — the `[data-theme="dark"]` block               |
-| Component styling                   | `css/styles.css`                                                 |
-| PDF behavior                        | `css/print.css`                                                  |
-| Theme bootstrap                     | all three HTML files — inline `<script>` in `<head>`             |
-| Print button, contents state, pager | `js/main.js`                                                     |
-| Dateline and last updated           | `js/main.js` — `[data-dateline]`, `[data-updated]`               |
+| What                                | Where                                                                                            |
+| ----------------------------------- | ------------------------------------------------------------------------------------------------ |
+| Masthead, ears, date strip          | all four HTML files — `.masthead`                                                                |
+| Page navigation                     | all four HTML files — `.paper-nav` (four page links only)                                        |
+| Contents list (per page)            | `data/contents.js` — keyed by `<body data-page>`                                                 |
+| Contents drawer                     | `js/contents.js` renders it; `js/main.js` handles open/close                                     |
+| Page body and section shells        | `js/render.js` — builds `<main>` from the page data module                                       |
+| Lead story, sidebar, byline         | `data/index.js`, `data/case-studies.js`, `data/km-standards-alignment.js`, `data/photography.js` |
+| Highlight cards                     | `data/index.js` — `sections[0].items`                                                            |
+| Career history                      | `data/index.js` — the `career` section                                                           |
+| Skills and capabilities             | `data/index.js` — the `skills` section                                                           |
+| Toolkit tools and practices         | `data/index.js` — the `toolkit` section                                                          |
+| Training and education              | `data/index.js` — the `training` section                                                         |
+| Contact details                     | all four HTML files — `.contact` block                                                           |
+| Author portrait and byline          | `index.html` — `.author-card`; `js/render.js` — `.byline-avatar`                                 |
+| Case-study copy                     | `data/case-studies.js` — the `#work` part                                                        |
+| Earlier projects, client sites      | `data/case-studies.js` — the `#earlier` part                                                     |
+| Client site screenshots             | `assets/sites/` — six home-page captures                                                         |
+| Engineering notes, code samples     | `data/case-studies.js` — the `#engineering` part                                                 |
+| Evidence table and timeline         | `data/case-studies.js` — the `#evidence` part                                                    |
+| Limits                              | `data/case-studies.js` — the `#limits` part                                                      |
+| Standards mapping, framework tables | `data/km-standards-alignment.js` — one part per framework                                        |
+| Photo plates and captions           | `data/photography.js` — the `#gallery` part                                                      |
+| Photo files                         | `assets/photography/` — generated from `old/assets/images/`                                      |
+| Lightbox                            | `js/photography.js`                                                                              |
+| Favicon                             | `assets/favicon-32.png`, `favicon-180.png`, `favicon-512.png`                                    |
+| Colors, fonts, spacing              | `css/tokens.css` only                                                                            |
+| Dark theme                          | `css/tokens.css` — the `[data-theme="dark"]` block                                               |
+| Component styling                   | `css/styles.css`                                                                                 |
+| PDF behavior                        | `css/print.css`                                                                                  |
+| Theme bootstrap                     | all four HTML files — inline `<script>` in `<head>`                                              |
+| Print button, contents state, pager | `js/main.js`                                                                                     |
+| Dateline and last updated           | `js/main.js` — `[data-dateline]`, `[data-updated]`                                               |
 
 ### Page structure
 
@@ -165,6 +171,19 @@ the site.
 | 08  | Limits       | `#limits`      | What is not proven                                                 |
 | —   | Contact      | `#contact`     | Email, LinkedIn, GitHub                                            |
 
+`km-standards-alignment.html`
+
+| #   | Section    | ID           | Role                                               |
+| --- | ---------- | ------------ | -------------------------------------------------- |
+| 01  | Alignment  | `#alignment` | Framing and the five-framework summary table       |
+| 02  | ISO 30401  | `#iso`       | Six management-system areas against the work       |
+| 03  | CKM / MCKM | `#ckm`       | Certification coverage and the MCKM leadership bar |
+| 04  | ITIL 4     | `#itil`      | Strategy, structuring, and tooling                 |
+| 05  | KCS        | `#kcs`       | Solve and evolve loop, plus the Zendesk 0→1 build  |
+| 06  | APQC       | `#apqc`      | Four levers; people and culture marked partial     |
+| 07  | Limits     | `#limits`    | No certifications, no exec mandate, no case study  |
+| —   | Contact    | `#contact`   | Email, LinkedIn, GitHub                            |
+
 `photography.html`
 
 | #   | Section     | ID         | Role                                           |
@@ -175,20 +194,20 @@ the site.
 
 Section numbers, the contents labels in `data/contents.js`, the edition index in the lead
 sidebar, and the CSS section comments must stay in sync. Section copy and records live in
-`data/index.js`, `data/case-studies.js`, and `data/photography.js`; `js/render.js` builds the
-body before `main.js` runs. `js/contents.js` renders the drawer list from its data before
-`main.js` wires up scroll-spy and the pager. The `.section-next` pager is generated from the
-same rendered list at runtime, so it follows the same order automatically. Deep links are
-re-aligned after the pager is injected and again once the webfonts settle. The three pages
-cross-link from the top navigation: the portfolio points to `case-studies.html` and
-`photography.html`; the detail page points back to `index.html` and `photography.html`; the
-picture desk points to both.
+`data/index.js`, `data/case-studies.js`, `data/km-standards-alignment.js`, and
+`data/photography.js`; `js/render.js` builds the body before `main.js` runs.
+`js/contents.js` renders the drawer list from its data before `main.js` wires up scroll-spy
+and the pager. The `.section-next` pager is generated from the same rendered list at runtime,
+so it follows the same order automatically. Deep links are re-aligned after the pager is
+injected and again once the webfonts settle. The four pages cross-link from the top
+navigation.
 
 ### Navigation and contents
 
 The top navigation is page-level only and never changes shape: **Portfolio**, **Case
-Studies**, and **Off the Clock**, with `aria-current="page"` on the active page. Section
-links live in a floating contents drawer instead of the header.
+Studies**, **KM Standards**, and **Off the Clock**, with `aria-current="page"` on the active
+page. It wraps to two rows below 1200px. Section links live in a floating contents drawer
+instead of the header.
 
 - The drawer is a native `<dialog>` on every page. A fixed vertical **Contents** tab on the
   right edge opens it on desktop; below 900px it becomes a bottom-right pill.
@@ -278,10 +297,10 @@ the weights the CSS actually uses for the masthead, headlines, and labels.
   paper on a desk. Both are removed in print.
 - `.masthead` — utility strip (date, edition, theme toggle), then a three-column grid: left
   ear, centered kicker/title/tagline, right ear. The title is **The AGB Gazette**; the kicker
-  is **Gelo Baring · Portfolio** on the work pages and **Gelo Baring · Off the Clock** on the
-  picture desk. The title is a `<p>`, not the page `h1`; each page keeps one `h1` in the lead.
+  is **Gelo Baring · Portfolio** on the portfolio and case studies, **Gelo Baring · KM
+  Standards** on the mapping page, and **Gelo Baring · Off the Clock** on the picture desk. The title is a `<p>`, not the page `h1`; each page keeps one `h1` in the lead.
 - `.paper-nav` — the page-level navigation bar. It is a wrapping flex row of bordered cells
-  linking the three pages; links invert to ink when active or hovered. It is not a section
+  linking the four pages; links invert to ink when active or hovered. It is not a section
   index.
 - `.toc` / `.toc-toggle` — the floating contents drawer and its fixed trigger. The drawer is
   a native `<dialog>` with a right-side panel, numbered section links, a close button, and a
@@ -430,11 +449,11 @@ GitHub Pages, no build required:
 1. Deploy `gelobaring-intro/` as the site root (or a subpath).
 2. Update the absolute URLs if the deployment path is not
    `https://gelogabz.github.io/gelobaring-intro/`:
-   - `<link rel="canonical">` on all three pages
-   - `og:url` on all three pages
+   - `<link rel="canonical">` on all four pages
+   - `og:url` on all four pages
    - `og:image` and `twitter:image` (the work pages use `og-card.png`; the picture desk uses
      `og-photography.png`)
-   - `url` in the JSON-LD blocks on all three pages
+   - `url` in the JSON-LD blocks on all four pages
    - `<loc>` entries in `sitemap.xml`, and the `Sitemap:` line in `robots.txt`
 3. Commit `index.html`, `case-studies.html`, `photography.html`, `robots.txt`, `sitemap.xml`,
    `css/`, `js/`, `assets/`, `.gitignore`, `README.md`, and this guide. `package.json` and
@@ -459,7 +478,7 @@ photo; re-render it the same way if the copy changes.
 ### Privacy check before publishing
 
 - Every employer is anonymized. The screenshots use `Cloud GTM Reference` / `CloudCo Docs`
-  rather than the real brand. Product names and internal links stay out of all three pages.
+  rather than the real brand. Product names and internal links stay out of all four pages.
 - Client sites **are named**, with links to the live sites. That is intentional: they are
   public work and the links are the evidence. Do not add client contact details, contract
   values, or unpublished material.
@@ -481,7 +500,7 @@ photo; re-render it the same way if the copy changes.
 - Some plates include recognizable people. Confirm you have permission to publish a face
   before adding or swapping a photo.
 - Keep customer names, revenue figures, internal Slack links, and unredacted strategy docs out
-  of all three pages and any public repo.
+  of all four pages and any public repo.
 
 ## Assets and screenshots
 
@@ -536,7 +555,7 @@ that tag, but command-line tools do not, so crop from the browser-oriented 4896�
 or bake the rotation first.
 
 - `gelo-avatar-80.jpg/.webp` and `-160` — 1x/2x for the 32px circular byline avatar on all
-  three pages. Decorative (`alt=""`) because “By Gelo Baring” is adjacent.
+  four pages. Decorative (`alt=""`) because “By Gelo Baring” is adjacent.
 - `gelo-portrait-320.jpg/.webp` and `-640` — 1x/2x for the 160×200 contact portrait in the
   portfolio footer. The crop is 4:5 and keeps the full face and chest, not just the head.
 
@@ -575,7 +594,7 @@ caption together.
 - [x] Every `figcaption` is inside its `<figure>`
 - [x] Data tables use `<th scope="col">` and `<th scope="row">`
 - [x] Wide tables and diagrams are keyboard-focusable and labeled
-- [x] Page navigation is three links with `aria-current="page"` on the active page
+- [x] Page navigation is four links with `aria-current="page"` on the active page
 - [x] Contents drawer is a native `<dialog>`: trigger, close button, Escape, and backdrop
       click all dismiss it; focus enters and returns; background scroll locks
 - [x] Contents trigger is revealed by JavaScript, so it never appears as a dead control

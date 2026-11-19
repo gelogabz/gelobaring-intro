@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>
+            The AGB Gazette — KM Standards &amp; Alignment · Gelo Baring
+        </title>
+        <meta
+            name="description"
+            content="How Gelo Baring's knowledge management work maps to ISO 30401, CKM/MCKM, ITIL 4, KCS, and APQC — alignment through practice, not certification."
+        />
+        <meta name="author" content="Gelo Baring" />
+        <meta name="theme-color" content="#f4ecdc" />
+        <link
+            rel="canonical"
+            href="https://gelogabz.github.io/gelobaring-intro/km-standards-alignment.html"
+        />
+
+        <meta
+            property="og:title"
+            content="The AGB Gazette — KM Standards &amp; Alignment · Gelo Baring"
+        />
+        <meta property="og:site_name" content="The AGB Gazette" />
+        <meta property="og:locale" content="en_PH" />
+        <meta
+            property="og:description"
+            content="Five KM frameworks mapped against real work, with the gaps stated up front."
+        />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:url"
+            content="https://gelogabz.github.io/gelobaring-intro/km-standards-alignment.html"
+        />
+        <meta
+            property="og:image"
+            content="https://gelogabz.github.io/gelobaring-intro/assets/og-card.png"
+        />
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta
+            property="og:image:alt"
+            content="Gelo Baring — knowledge management standards and alignment."
+        />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta
+            name="twitter:title"
+            content="The AGB Gazette — KM Standards &amp; Alignment · Gelo Baring"
+        />
+        <meta
+            name="twitter:description"
+            content="ISO 30401, CKM/MCKM, ITIL 4, KCS, and APQC mapped against real work."
+        />
+        <meta
+            name="twitter:image"
+            content="https://gelogabz.github.io/gelobaring-intro/assets/og-card.png"
+        />
+        <meta
+            name="twitter:image:alt"
+            content="Gelo Baring — knowledge management standards and alignment."
+        />
+
+        <link
+            rel="icon"
+            href="assets/favicon-32.png"
+            sizes="32x32"
+            type="image/png"
+        />
+        <link
+            rel="icon"
+            href="assets/favicon-512.png"
+            sizes="512x512"
+            type="image/png"
+        />
+        <link rel="apple-touch-icon" href="assets/favicon-180.png" />
+
+        <!-- Type: Outfit (display) + Google Sans Flex (body) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&amp;family=Google+Sans+Flex:wght@400;500;600;700&amp;display=swap"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="css/tokens.css" />
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="css/print.css" media="print" />
+
+        <noscript>
+            <style>
+                [data-theme-toggle],
+                [data-print] {
+                    display: none !important;
+                }
+            </style>
+        </noscript>
+
+        <script>
+            (function () {
+                "use strict";
+                var STORAGE_KEY = "showcase-theme";
+                var root = document.documentElement;
+                var system = window.matchMedia("(prefers-color-scheme: dark)");
+                var stored = null;
+                try {
+                    stored = localStorage.getItem(STORAGE_KEY);
+                } catch (e) {
+                    /* Storage can be blocked (private mode); the page still works. */
+                }
+
+                function current() {
+                    if (stored === "light" || stored === "dark") return stored;
+                    return system.matches ? "dark" : "light";
+                }
+
+                function apply(theme) {
+                    root.setAttribute("data-theme", theme);
+                    var meta = document.querySelector(
+                        'meta[name="theme-color"]',
+                    );
+                    if (meta) {
+                        meta.setAttribute(
+                            "content",
+                            theme === "dark" ? "#131c18" : "#f4ecdc",
+                        );
+                    }
+                    var toggles = document.querySelectorAll(
+                        "[data-theme-toggle]",
+                    );
+                    for (var i = 0; i < toggles.length; i++) {
+                        var isDark = theme === "dark";
+                        toggles[i].setAttribute(
+                            "aria-label",
+                            isDark
+                                ? "Switch to light mode"
+                                : "Switch to dark mode",
+                        );
+                        var label =
+                            toggles[i].querySelector("[data-theme-label]");
+                        if (label)
+                            label.textContent = isDark
+                                ? "Light mode"
+                                : "Dark mode";
+                    }
+                }
+
+                function toggle() {
+                    stored = current() === "dark" ? "light" : "dark";
+                    try {
+                        localStorage.setItem(STORAGE_KEY, stored);
+                    } catch (e) {
+                        /* Storage can be blocked (private mode); the page still works. */
+                    }
+                    apply(stored);
+                }
+
+                apply(current());
+
+                function wire() {
+                    apply(current());
+                    var toggles = document.querySelectorAll(
+                        "[data-theme-toggle]",
+                    );
+                    for (var i = 0; i < toggles.length; i++) {
+                        toggles[i].addEventListener("click", toggle);
+                    }
+                }
+
+                if (document.readyState === "loading") {
+                    document.addEventListener("DOMContentLoaded", wire);
+                } else {
+                    wire();
+                }
+
+                if (typeof system.addEventListener === "function") {
+                    system.addEventListener("change", function (event) {
+                        if (stored === "light" || stored === "dark") return;
+                        apply(event.matches ? "dark" : "light");
+                    });
+                }
+            })();
+        </script>
+
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "name": "The AGB Gazette — KM Standards & Alignment",
+                "url": "https://gelogabz.github.io/gelobaring-intro/km-standards-alignment.html",
+                "author": {
+                    "@type": "Person",
+                    "name": "Gelo Baring"
+                },
+                "about": "Alignment between knowledge management practice and ISO 30401, CKM/MCKM, ITIL 4, KCS, and APQC."
+            }
+        </script>
+    </head>
+
+    <body data-page="km-standards-alignment">
+        <a class="skip" href="#main">Skip to content</a>
+        <div class="progress" id="progress" aria-hidden="true"></div>
+
+        <div class="sheet" id="top">
+            <header class="masthead">
+                <div class="masthead__utility">
+                    <span data-dateline>Friday, November 6, 2026</span>
+                    <span>KM Standards · Vol. XII</span>
+                    <button
+                        class="theme-toggle"
+                        type="button"
+                        data-theme-toggle
+                        aria-label="Switch to dark mode"
+                    >
+                        <svg
+                            class="icon--sun"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                            aria-hidden="true"
+                        >
+                            <circle cx="12" cy="12" r="4.1" />
+                            <path
+                                d="M12 2.4v2.2M12 19.4v2.2M2.4 12h2.2M19.4 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"
+                            />
+                        </svg>
+                        <svg
+                            class="icon--moon"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <path
+                                d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8Z"
+                            />
+                        </svg>
+                        <span data-theme-label>Dark mode</span>
+                    </button>
+                </div>
+
+                <div class="masthead__grid">
+                    <div class="masthead__ear">
+                        <span>Est. 2015</span>
+                        <span>Knowledge management</span>
+                    </div>
+                    <div class="masthead__center">
+                        <p class="masthead__kicker">
+                            Gelo Baring · KM Standards
+                        </p>
+                        <p class="masthead__title">The AGB Gazette</p>
+                        <p class="masthead__tagline">
+                            Alignment through practice · 2015–2026
+                        </p>
+                    </div>
+                    <div class="masthead__ear masthead__ear--right">
+                        <span>Philippines</span>
+                        <span>UTC+8</span>
+                    </div>
+                </div>
+            </header>
+
+            <nav class="paper-nav" aria-label="Pages">
+                <a href="index.html">Portfolio</a>
+                <a href="case-studies.html">Case Studies</a>
+                <a href="km-standards-alignment.html" aria-current="page"
+                    >KM Standards</a
+                >
+                <a href="photography.html">Off the Clock</a>
+            </nav>
+
+            <main id="main" class="wrap" tabindex="-1">
+                <noscript>
+                    <div class="notice-box">
+                        <p class="box-label">JavaScript required</p>
+                        <p>
+                            This page renders its content from the data files.
+                            Enable JavaScript to read the standards mapping, or
+                            email
+                            <a href="mailto:gabrielgelo93@gmail.com"
+                                >gabrielgelo93@gmail.com</a
+                            >
+                            for a copy.
+                        </p>
+                    </div>
+                </noscript>
+            </main>
+
+            <footer class="wrap footer" id="contact">
+                <div class="footer-grid">
+                    <div>
+                        <img
+                            class="footer-signature"
+                            src="assets/signature.png"
+                            alt=""
+                            width="400"
+                            height="68"
+                            loading="lazy"
+                            decoding="async"
+                        />
+                        <h3>Want the project behind one of these rows?</h3>
+                        <p class="mt-2 measure-copy">
+                            I&rsquo;m looking for work in knowledge management,
+                            enablement, or front-end development. If a mapping
+                            here matters to a role you are hiring for, ask and I
+                            will send the detail.
+                        </p>
+                        <p class="small muted mt-3 mb-0">
+                            <a
+                                href="mailto:gabrielgelo93@gmail.com?subject=KM%20standards%20alignment"
+                                >Ask about a specific framework or project.</a
+                            >
+                        </p>
+                    </div>
+
+                    <div>
+                        <address class="contact">
+                            <a href="mailto:gabrielgelo93@gmail.com"
+                                ><span>Email</span> gabrielgelo93@gmail.com</a
+                            >
+                            <a href="https://www.linkedin.com/in/gelobaring/"
+                                ><span>LinkedIn</span> /in/gelobaring</a
+                            >
+                            <a href="https://github.com/gelogabz"
+                                ><span>GitHub</span> /gelogabz</a
+                            >
+                        </address>
+
+                        <div class="footer-tools">
+                            <button
+                                class="footer-tool"
+                                type="button"
+                                data-print
+                            >
+                                Print / save as PDF
+                            </button>
+                            <button
+                                class="theme-toggle"
+                                type="button"
+                                data-theme-toggle
+                                aria-label="Switch to dark mode"
+                            >
+                                <svg
+                                    class="icon--sun"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.7"
+                                    stroke-linecap="round"
+                                    aria-hidden="true"
+                                >
+                                    <circle cx="12" cy="12" r="4.1" />
+                                    <path
+                                        d="M12 2.4v2.2M12 19.4v2.2M2.4 12h2.2M19.4 12h2.2M5.2 5.2l1.6 1.6M17.2 17.2l1.6 1.6M18.8 5.2l-1.6 1.6M6.8 17.2l-1.6 1.6"
+                                    />
+                                </svg>
+                                <svg
+                                    class="icon--moon"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="1.7"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    aria-hidden="true"
+                                >
+                                    <path
+                                        d="M20.5 14.3A8.6 8.6 0 0 1 9.7 3.5a8.6 8.6 0 1 0 10.8 10.8Z"
+                                    />
+                                </svg>
+                                <span data-theme-label>Dark mode</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="colophon">
+                    <span>Mappings by Gelo Baring.</span>
+                    <span>ISO 30401 · CKM/MCKM · ITIL 4 · KCS · APQC.</span>
+                    <span data-updated>Last updated November 2026.</span>
+                    <span
+                        ><a href="index.html">Portfolio</a> ·
+                        <a href="case-studies.html">Case studies</a> ·
+                        <a href="photography.html">Off the Clock</a></span
+                    >
+                    <a class="colophon__top" href="#top">Back to top ↑</a>
+                </div>
+            </footer>
+        </div>
+
+        <button
+            class="toc-toggle"
+            type="button"
+            data-toc-open
+            aria-haspopup="dialog"
+            aria-controls="toc"
+            hidden
+        >
+            Contents
+        </button>
+
+        <dialog class="toc" id="toc" aria-labelledby="toc-title">
+            <div class="toc__panel">
+                <div class="toc__head">
+                    <p class="toc__kicker" data-toc-kicker></p>
+                    <h2 class="toc__title" id="toc-title">Contents</h2>
+                    <button
+                        class="toc__close"
+                        type="button"
+                        data-toc-close
+                        aria-label="Close contents"
+                    >
+                        ✕
+                    </button>
+                </div>
+
+                <nav class="toc__nav" aria-label="On this page">
+                    <ol class="toc__list" data-toc-list></ol>
+                </nav>
+
+                <p class="toc__foot" data-toc-foot></p>
+            </div>
+        </dialog>
+
+        <script src="data/contents.js" defer></script>
+        <script src="data/km-standards-alignment.js" defer></script>
+        <script src="js/contents.js" defer></script>
+        <script src="js/render.js" defer></script>
+        <script src="js/main.js" defer></script>
+    </body>
+</html>

@@ -76,7 +76,10 @@ window.PAGES["case-studies"] = {
                                 Four 2026 cases, earlier work, training, and the
                                 evidence behind them.
                             </p>
-                            <a href="index.html">Back to the portfolio →</a>
+                            <div class="notice-box__links">
+                                <a href="index.html">Back to the portfolio →</a>
+                                <a href="km-standards-alignment.html">How this maps to KM standards →</a>
+                            </div>
                         </div>
                     </aside>
                 </section>`,
