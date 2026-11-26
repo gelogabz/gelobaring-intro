@@ -897,6 +897,28 @@ window.PAGES["photography"] = {
                     </div>
 
                     <div class="divider-top">
+                        <p class="eyebrow">Field journal</p>
+                        <h3 class="subhead">The photos have a home.</h3>
+                        <p class="measure">
+                            These photographs live in LeaveNothing, a journal
+                            about Philippine forests, coasts, wildlife, and the
+                            people looking after them: six essays, a filterable
+                            photo archive, and a resources page. It is built
+                            with Astro and TypeScript — content collections with
+                            a validated schema, responsive WebP through Sharp,
+                            RSS, a sitemap, and a GitHub Actions deploy.
+                        </p>
+                        <a
+                            class="btn mt-3"
+                            href="https://gelogabz.github.io/leavenothing-blog/"
+                            target="_blank"
+                            rel="noopener"
+                            >Read the field journal<span class="visually-hidden"> (opens in a new tab)</span>
+                            <span aria-hidden="true">↗</span></a
+                        >
+                    </div>
+
+                    <div class="divider-top">
                         <div class="grid-2">
                             <div>
                                 <p class="box-label">The small print</p>

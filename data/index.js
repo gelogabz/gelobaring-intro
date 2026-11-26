@@ -255,7 +255,7 @@ window.PAGES.index = {
         },
         {
           title: "Front-end development",
-          body: "Semantic HTML, hand-written CSS, vanilla JavaScript, and PHP/Laravel when the project needs it.",
+          body: "Semantic HTML, hand-written CSS, vanilla JavaScript, Astro and TypeScript for content-heavy static sites, and PHP/Laravel when the project needs it.",
         },
         {
           title: "AI content operations",
@@ -312,6 +312,8 @@ window.PAGES.index = {
             "Bootstrap",
             "Tailwind",
             "JavaScript",
+            "TypeScript",
+            "Astro",
             "React",
             "Node.js",
             "jQuery",

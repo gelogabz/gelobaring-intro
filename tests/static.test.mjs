@@ -68,9 +68,9 @@ test("navigation carries the same four page links on every shell", () => {
   for (const page of HTML_PAGES) {
     const nav = texts[page].match(/<nav class="paper-nav"[\s\S]*?<\/nav>/);
     assert.ok(nav, `${page} has a paper-nav`);
-    const labels = [...nav[0].matchAll(/<a\b[^>]*>([\s\S]*?)<\/a>/g)].map((m) =>
-      m[1].replace(/\s+/g, " ").trim(),
-    );
+    const labels = [
+      ...nav[0].replace(/<\/a\s*>/g, "</a>").matchAll(/<a\b[^>]*>([\s\S]*?)<\/a>/g),
+    ].map((m) => m[1].replace(/\s+/g, " ").trim());
     assert.deepEqual(labels, expected, page);
   }
 });
@@ -251,13 +251,17 @@ test("robots.txt and sitemap.xml cover the published pages", async () => {
   assert.match(robots, /^User-agent: \*$/m);
   assert.match(robots, new RegExp(`^Sitemap: ${base}sitemap\\.xml$`, "m"));
 
+  const sitemapUrls = [...sitemap.matchAll(/<loc>\s*([^<]+?)\s*<\/loc>/g)].map(
+    (match) => match[1],
+  );
+
   for (const page of HTML_PAGES) {
     const canonical = texts[page].match(
       /<link\s+rel="canonical"\s+href="([^"]+)"/,
     );
     assert.ok(canonical, `${page} has a canonical URL`);
     assert.ok(
-      sitemap.includes(`<loc>${canonical[1]}</loc>`),
+      sitemapUrls.includes(canonical[1]),
       `${page} is missing from sitemap.xml`,
     );
   }

@@ -383,9 +383,11 @@ test("no-JavaScript fallback explains the requirement and hides dead controls", 
     const nav =
       [...html.matchAll(/<nav class="paper-nav"[\s\S]*?<\/nav>/g)][0]?.[0] ??
       "";
-    const navLabels = [...nav.matchAll(/<a\b[^>]*>([\s\S]*?)<\/a>/g)].map(
-      (match) => match[1].replace(/\s+/g, " ").trim(),
-    );
+    const navLabels = [
+      ...nav
+        .replace(/<\/a\s*>/g, "</a>")
+        .matchAll(/<a\b[^>]*>([\s\S]*?)<\/a>/g),
+    ].map((match) => match[1].replace(/\s+/g, " ").trim());
 
     assert.match(main, /JavaScript required/, `${path} fallback notice`);
     assert.match(
