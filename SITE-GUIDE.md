@@ -14,12 +14,22 @@ runtime dependencies.
 - `km-standards-alignment.html` is the mapping layer: ISO 30401, CKM/MCKM, ITIL 4, KCS, and
   APQC set against the work, each row linking to the case study or career entry that supports
   it, with a visible Limits section. No certifications are claimed.
-- `photography.html` is the picture desk: a masonry grid of 35 photographs taken around the
-  Philippines between 2017 and 2026, plus an after-hours essay and interests. It is the fun
-  page; none of it is client work.
+- `photography.html` is the picture desk: a 3×3 grid of nine photographs, one for each subject
+  the LeaveNothing journal covers, a handoff to that journal, and an after-hours essay. It is
+  a curated front door, not the archive; the full collection lives in the journal.
 
 Employers are anonymized throughout. Client sites are named and linked because they are public
 work.
+
+### LeaveNothing journal
+
+Off the Clock is a curated front door. The full photo archive and the essays live in
+**LeaveNothing**, a separate Astro site at <https://gelogabz.github.io/leavenothing-blog/>,
+in its own repo (`gelogabz/leavenothing-blog`). The portfolio shows nine plates, one per
+subject in the journal's taxonomy, and links out in three places: the hero CTA, the lead
+notice box, and the `#journal` section. The journal's footer links back to the portfolio.
+Only the nine plates in `assets/photography/` are used here; the rest of the collection is
+the journal's to serve.
 
 ## Files
 
@@ -28,7 +38,7 @@ gelobaring-intro/
 ├── index.html              portfolio: highlights, career, skills, toolkit, training, contact
 ├── case-studies.html       detail: four 2026 cases, earlier work, training, engineering, limits
 ├── km-standards-alignment.html  mapping: ISO 30401, CKM/MCKM, ITIL 4, KCS, APQC, limits
-├── photography.html        Off the Clock: 35 plates, masonry grid, after-hours notes
+├── photography.html        Off the Clock: 9 plates in a 3×3 grid, journal handoff, after-hours notes
 ├── robots.txt              crawler policy; points to the sitemap
 ├── sitemap.xml             canonical URLs for the four pages
 ├── package.json            test-only dependencies; the site has no build step
@@ -61,7 +71,7 @@ gelobaring-intro/
 │   ├── og-card.png         1200×630 social card
 │   ├── og-card.svg         social-card source
 │   ├── og-photography.png  1200×630 picture-desk social card
-│   ├── photography/        35 plates, each as JPEG + WebP at 1600w and 800w
+│   ├── photography/        9 plates, each as JPEG + WebP at 1600w and 800w
 │   ├── sites/              six client home-page screenshots, JPEG + WebP at 800w and 400w
 │   ├── favicon-32.png      white GB monogram, ink background
 │   ├── favicon-180.png     apple-touch icon
@@ -133,7 +143,9 @@ the site.
 | Limits                              | `data/case-studies.js` — the `#limits` part                                                      |
 | Standards mapping, framework tables | `data/km-standards-alignment.js` — one part per framework                                        |
 | Photo plates and captions           | `data/photography.js` — the `#gallery` part                                                      |
-| Photo files                         | `assets/photography/` — generated from `old/assets/images/`                                      |
+| Journal handoff copy                | `data/photography.js` — the `#journal` part                                                      |
+| Photo files                         | `assets/photography/` — nine plates, resized from `old/assets/images/`                           |
+| LeaveNothing journal URL            | `data/photography.js` — three places: hero CTA, notice box, journal section                       |
 | Lightbox                            | `js/photography.js`                                                                              |
 | Favicon                             | `assets/favicon-32.png`, `favicon-180.png`, `favicon-512.png`                                    |
 | Colors, fonts, spacing              | `css/tokens.css` only                                                                            |
@@ -188,7 +200,9 @@ the site.
 
 | #   | Section     | ID         | Role                                           |
 | --- | ----------- | ---------- | ---------------------------------------------- |
-| 01  | Gallery     | `#gallery` | 35 plates: one featured photograph and masonry |
+| 01  | Plates      | `#gallery` | Nine plates in a 3×3 grid, one per journal subject |
+| 02  | Field journal | `#journal` | Why the archive lives in LeaveNothing, plus the CTA |
+| 03  | After hours | `#notes`   | Essay, interests, pull quote, and print note   |
 | 02  | After hours | `#notes`   | Essay, interests, pull quote, and print note   |
 | —   | Contact     | `#contact` | Email, LinkedIn, GitHub                        |
 
@@ -335,10 +349,11 @@ the weights the CSS actually uses for the masthead, headlines, and labels.
   columns on desktop, two at 700px, one on phones.
 - `.case` / `.case-grid` — each case study is a feature with a ruled head, a body column, and
   a sidebar for facts and links.
-- `.masonry` / `.plate` — the picture-desk grid. CSS multi-columns: one column on phones, two
-  from 700px, three from 1060px. Each `.plate` is a bordered figure with a plate number,
-  title, date, and a one-line note; `break-inside: avoid` keeps the caption with the image.
-  `.plate--lead` is the full-width featured photograph above the grid.
+- `.plates-grid` / `.plate` — the picture-desk grid. CSS grid: one column on phones, two from
+  620px, three from 960px, so the nine plates land as a 3×3 on desktop. Each `.plate` is a
+  bordered figure with a plate number, title, subject, and a one-line note. Grid tiles crop to
+  a uniform 4:3 with `object-fit: cover`; the lightbox and the journal show each frame
+  uncropped. The crops are disabled in print.
 - `.lightbox` — the native `<dialog>` viewer opened by `js/photography.js`. Arrow keys move
   between plates; Escape and the close button dismiss it and return focus to the plate that
   opened it. Each plate links to the full-size JPEG; the script intercepts the click.
@@ -567,25 +582,30 @@ because it turns into a dark dot; the larger contact portrait is kept.
 
 ### Photography assets
 
-The picture desk is built from 35 files in `old/assets/images/`, resized into
-`assets/photography/`. Each plate has four web files:
+The picture desk shows nine plates, one per subject in the LeaveNothing journal taxonomy
+(mountains, forest, coast, water, plants, people, built, churches, sky). They were drawn from
+the full set in `old/assets/images/` and resized into `assets/photography/`. Each plate has
+four web files:
 
 - `slug.jpg` and `slug.webp` — 1600px on the long edge, used by the lightbox and as the
   high-density `srcset` candidate.
 - `slug-800.jpg` and `slug-800.webp` — 800px on the long edge, the default grid image.
 
-The JPEGs are made with `sips --resampleHeightWidthMax 1600` (and `800`), then converted with
-`cwebp -q 80` (and `-q 78`). Strip the EXIF block from new JPEGs after resizing so location
-data does not ship; `cwebp` does not copy metadata by default. Keep the `width` and `height`
-attributes in the HTML equal to the 1600px file's real dimensions. The originals stay in
-`old/`; do not link to them from the site.
+The JPEGs are made with `sips -Z 1600` (and `800`), then converted with `cwebp -q 78` (and
+`-q 72`). Strip the EXIF block from new JPEGs after resizing so location data does not ship;
+`cwebp` does not copy metadata by default. Keep the `width` and `height` attributes in the
+HTML equal to the 1600px file's real dimensions. The originals stay in `old/`; do not link to
+them from the site.
 
-Plate 04 (`04-morning-ridge`) replaced the earlier **With company** frame. The source was
-`IMG_0382.JPG` (iPhone SE, 2018-10-07 06:31:58, 4032×3024). The EXIF/GPS block was stripped
-after resizing, then the file was exported at 1600×1200 and 800×600. The original and the old
-plate files now live in `old/assets/images/` and are gitignored. To swap a plate, keep the
-same four-file pattern and update the `<picture>` `srcset`, `width`, `height`, alt text, and
-caption together.
+The nine plates are the only photo assets kept in `assets/photography/`. The other 26 sets
+were deleted when the page became a curated front door; the full collection lives in the
+LeaveNothing repo, which has its own copies under `src/assets/photography/`. To swap a plate,
+keep the same four-file pattern and update the `<picture>` `srcset`, `width`, `height`, alt
+text, and caption together.
+
+Plate 09 (`40-daraga-church-mayon`) was copied from the LeaveNothing repo to cover the
+`churches` subject, which the portfolio set did not have. It was resized to 1600×1200 and
+800×600, and the EXIF block was stripped.
 
 ## Accessibility checklist
 
@@ -603,7 +623,7 @@ caption together.
 - [x] Keyboard-visible focus on all interactive elements
 - [x] Picture-desk lightbox is a native `<dialog>` with arrow-key navigation, Escape, and a
       close button
-- [x] Every plate has alt text and a visible caption; the masonry reflows to one column
+- [x] Every plate has alt text and a visible caption; the grid reflows to one column on phones
 - [x] Contrast measured for every text/background pair
 - [x] `prefers-reduced-motion` respected
 - [x] All images have alt text (decorative signature and byline avatar use `alt=""`)
@@ -620,7 +640,7 @@ caption together.
   rules and ears; the title prints at 40pt.
 - Panels invert to white; links print black and external URLs expand in parentheses.
 - Output is A4 with 16mm margins. The portfolio is 8 pages; the detail page is 23 pages; the
-  picture desk is 11 pages.
+  standards page is 8 pages; the picture desk is 4 pages.
 - The lead collapses to one column, with the stat/index and notice boxes side by side beneath.
 - Screenshots cap at 260px; tall screenshots at 340px; client-site captures cap at 150px and
   stay top-aligned; diagrams stop scrolling and shrink to the page width.
@@ -628,8 +648,8 @@ caption together.
   roles, projects, client-site cards, highlight cards, skills, and toolkit cards stay intact.
   Headings never split from their following content.
 - The highlights, skills, toolkit, outcomes, projects, client-site, flow, layer, path, and
-  principle grids collapse to a single column for print. The picture-desk masonry prints in
-  two columns, and each plate stays whole.
+  principle grids collapse to a single column for print. The picture-desk grid prints in
+  three columns, and each plate stays whole.
 - The theme toggle, page nav, contents drawer and trigger, section pager, back-to-top link,
   progress bar, hero CTAs, and lightbox are hidden.
 - The small byline avatar is hidden; the 160×200 contact portrait prints with its caption.
@@ -649,8 +669,8 @@ caption together.
   `#case-d`) are the way through it.
 - Only the six client sites have live home-page screenshots. The capstone and Boot.dev builds
   have no hosted home page, so their cards stay text-only.
-- The picture desk uses CSS multi-columns for the masonry effect, not a layout library. The
-  reading order is column-first, so the plate numbers do not run left-to-right across a row.
+- The picture desk uses a plain CSS grid, not a layout library. The nine plates read
+  left-to-right across each row, so the plate numbers run in order.
 - Photo dates come from EXIF where the file has it; a few frames are undated and labeled only
   **Philippines**. Locations are kept general on purpose. Add a place name only when it is
   verified.

@@ -15,7 +15,7 @@ Live site: <https://gelogabz.github.io/gelobaring-intro/>
 | [Portfolio](index.html)                     | Highlights, career, skills, toolkit, training, and contact                                        |
 | [Case Studies](case-studies.html)           | Four 2026 knowledge-system projects, earlier client work, engineering notes, evidence, and limits |
 | [KM Standards](km-standards-alignment.html) | ISO 30401, CKM/MCKM, ITIL 4, KCS, and APQC mapped against the work, with limits stated up front   |
-| [Off the Clock](photography.html)           | 35 photographs from the Philippines, plus an after-hours essay                                    |
+| [Off the Clock](photography.html)           | Nine photographs, one per subject, plus a handoff to the field journal and an after-hours essay   |
 
 ## Run it
 
@@ -44,6 +44,9 @@ no-JavaScript fallback, and print styles.
 - Employers are anonymized. Client sites are named and linked because they are public work.
 - Repository links are not published; the footer says links are shared on request.
 - The palette, type families, and newspaper structure are intentional.
+- Off the Clock links out to **LeaveNothing** (<https://gelogabz.github.io/leavenothing-blog/>),
+  a separate Astro site that holds the full photo archive and the essays. The portfolio page is
+  a curated front door; the journal is the archive. The journal links back in its footer.
 
 Architecture, content map, design tokens, publishing steps, and accessibility notes live in
 [SITE-GUIDE.md](SITE-GUIDE.md).

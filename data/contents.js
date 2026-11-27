@@ -57,8 +57,9 @@ window.SITE_CONTENTS = {
     kicker: "Off the Clock",
     foot: "The AGB Gazette · Off the Clock",
     items: [
-      { id: "gallery", num: "01", label: "Gallery" },
-      { id: "notes", num: "02", label: "After hours" },
+      { id: "gallery", num: "01", label: "Plates" },
+      { id: "journal", num: "02", label: "Field journal" },
+      { id: "notes", num: "03", label: "After hours" },
       { id: "contact", num: "—", label: "Contact" },
     ],
   },

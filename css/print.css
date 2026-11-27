@@ -366,9 +366,18 @@
     }
 
     /* ---- Picture desk --------------------------------------------------- */
-    .masonry {
-        column-count: 2;
-        column-gap: 8mm;
+    .plates-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 6mm;
+    }
+
+    .plates-grid .plate__link {
+        aspect-ratio: auto;
+    }
+
+    .plates-grid .plate__link img {
+        height: auto;
+        object-fit: contain;
     }
 
     .plate {
@@ -385,22 +394,6 @@
 
     .plate__caption {
         border-top-color: #999999;
-    }
-
-    .plate--lead {
-        display: block;
-        margin-bottom: 8mm;
-    }
-
-    .plate--lead .plate__caption {
-        margin-top: 0.4rem;
-        padding: 0.4rem 0 0;
-        border-top: 1px solid #999999;
-        border-left: 0;
-    }
-
-    .plate--lead .plate__link img {
-        max-height: 320px;
     }
 
     .pullquote {

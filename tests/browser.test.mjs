@@ -351,7 +351,7 @@ test("lightbox opens, navigates, closes, and returns focus", async () => {
   assert.equal(state.src, firstHref);
   assert.ok(state.alt.length > 0, "lightbox image has alt text");
   assert.match(state.caption, /^P\. 01/);
-  assert.equal(state.count, "1 / 35");
+  assert.equal(state.count, "1 / 9");
   assert.equal(state.active, true);
   assert.equal(state.overflow, "hidden");
 
@@ -361,7 +361,7 @@ test("lightbox opens, navigates, closes, and returns focus", async () => {
     count: document.querySelector("[data-lightbox-count]").textContent,
   }));
   assert.notEqual(state.src, firstHref);
-  assert.equal(state.count, "2 / 35");
+  assert.equal(state.count, "2 / 9");
 
   await page.keyboard.press("Escape");
   await page.waitForTimeout(300);
